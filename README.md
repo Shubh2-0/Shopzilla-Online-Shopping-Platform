@@ -4,59 +4,75 @@
 <div align="center">
   <img alt="Demo" src="ReadmeImages/Project%20Log.png" />
 </div>
-<h2 align="center">🌟Best Place For Managing Tenders🌟</h2>
+<h2 align="center">🌟Keep calm and love the auction sale🌟</h2>
 
 
 <br>
 <br>
-Whenever a company  requires a service / merchandise , a tender is floated. Company maintains an empaneled list of Vendors. An empaneled vendor can only bid for a tender. Every vendor can bid only once against   each tender. Against each tender there may be   bids from several vendors. The company will then select the most suitable bid and places the order to that vendor.
+An automated Auction System is an Application Software that is used for the buying and selling of products. This software can be used by the auction companies who arrange the Auction. Various buyers and sellers are registered in the Auction company.
 
 
+Following are the lists of various users of the system and also the role of the users
+
+## Users of the System
+1. Administrator
+2. User (can buy and sell)
 
 ## ER Diagram
-<img alt="Demo" src="Images/ER.jpg" />
+<img alt="Demo" src="ReadmeImages/Er_Diagram.png" />
 :star: Star me on GitHub — it helps!
 
 ## Admin Features 📋
 
-✨ Login with his account
+✨ Login & Logout
 
-✨ Register new Vendor. (assign a new username and password to him)\
+✨ Can see all users
 
-✨ View all the vendors
+✨ Can see all items to be sold
 
-✨ Create new tenders
+✨ Can see all items already sold
 
-✨ View All the Tenders
+✨ Can see all items by category
 
-✨ Sort the Tender Table by **Price** (ascending/descending)
+✨ Can view all transactions
 
-✨ View All the Bids of a tender
+✨ Can view all transactions for a date range
 
-✨ Sort the Bidder Table by **Price** (ascending/descending)
+✨ Can view transaction by transaction id
 
-✨ Assign tender to a vendor
+✨ Can see all refunded products for a date range
 
-✨ Change thier Password
 
-## Vendor Features 📋
+## User Features 📋
 
-✨ Login with his account (username and password given by admin)
+✨ Login with his account (username and password)
 
-✨ View all the current Tenders
+✨ Can register by providing username, first_name, last_name, address, mobile_no,
+password
 
-✨ Sort the Tender Table by **Price** (ascending/descending)
+✨ Can update his personal details
 
-✨ Place a Bid against a Tender
+✨ Can change the password
 
-✨ View status of a Bid(Whether Selected or Not)
+✨ Can add an item to sell by providing item_id, name, price, quantity, description,
+sold_status (0 for unsold, 1 for sold) and category (Can have only 4 possible values
+that are Clothing, Electronics, Grocery & Miscellaneous)
 
-✨ View his own Bid History
+✨ See all items available for sell
 
-✨ Sort the Bidder History e by **Price** (ascending/descending)
+✨ Purchase an item (can't puchase the item added by himself)
 
-✨ Change thier Password
+✨ Can return a puchased good within 5 day of purchase
 
+✨ See transaction history of purchases items
+
+✨ See transaction history of sold items
+
+✨ See transaction history of returned items
+
+✨ logout his account
+
+✨ delete his account
 
 ## Tools Used 🛠️
 <table align="center">
