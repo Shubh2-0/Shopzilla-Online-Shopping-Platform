@@ -1,10 +1,8 @@
- <h1 align="center">FOREST COMMAND</h1>
- <h1 align="center">Tender Management System</h1>
- 
+ <h1 align="center">AuctoNet Auction System</h1> 
  
 
 <div align="center">
-  <img alt="Demo" src="Images/Forest Command.png" />
+  <img alt="Demo" src="ReadmeImages/Project%20Log.png" />
 </div>
 <h2 align="center">🌟Best Place For Managing Tenders🌟</h2>
 
