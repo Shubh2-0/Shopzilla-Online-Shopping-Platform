@@ -79,27 +79,27 @@ that are Clothing, Electronics, Grocery & Miscellaneous)
   
   <tr>
       <td align="center" width="100">
-        <img src="tools/mysql.png" width="45" height="45" alt="HTML" />
+        <img src="Tools/mysql.png" width="45" height="45" alt="HTML" />
       <br>My SQL
     </td>
     
  <td align="center" width="100">
-        <img src="tools/jdbc.png" width="48" height="48" alt="CSS" />
+        <img src="Tools/jdbc.png" width="48" height="48" alt="CSS" />
       <br>JDBC
     </td> 
     
 <td align="center" width="100">
-        <img src="tools/springboot.png" width="48" height="48" alt="Java" />
+        <img src="Tools/springboot.png" width="48" height="48" alt="Java" />
       <br>SpringBoot
     </td>
     
 <td align="center" width="100">
-        <img src="tools/java.png" width="48" height="48" alt="javascript" />
+        <img src="Tools/java.png" width="48" height="48" alt="javascript" />
       <br>Java 
     </td>
     
 <td align="center" width="100">
-        <img src="tools/github.png" width="48" height="48" alt="Vuejs" />
+        <img src="Tools/github.png" width="48" height="48" alt="Vuejs" />
       <br>GitHub
     </td> 
   </tr> 
