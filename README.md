@@ -74,6 +74,23 @@ that are Clothing, Electronics, Grocery & Miscellaneous)
 
 ✨ delete his account
 
+## Main Gui 🛠️
+<img alt="Demo" src="Pages/main.png" />
+
+
+## Admin Gui 🛠️
+<img alt="Demo" src="Pages/admin.png" />
+
+
+## Buyer Gui 🛠️
+<img alt="Demo" src="Pages/buyer.png" />
+
+
+## Seller Gui 🛠️
+<img alt="Demo" src="Pages/seller.png" />
+
+
+
 ## Tools Used 🛠️
 <table align="center">
   
