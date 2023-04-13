@@ -22,6 +22,12 @@ Following are the lists of various users of the system and also the role of the 
 <img alt="Demo" src="ReadmeImages/Er_Diagram.png" />
 :star: Star me on GitHub — it helps!
 
+## Flow Charts
+<img alt="Demo" src="ReadmeImages/adminflow.png" />
+<img alt="Demo" src="ReadmeImages/mainflow.png" />
+<img alt="Demo" src="ReadmeImages/sellerflow.png" />
+
+
 ## Admin Features 📋
 
 ✨ Login & Logout
