@@ -55,7 +55,7 @@ public class AdminDaoImpl implements AdminDao {
 		try {
 			
 			con = DBUtils.getConnection();
-			String SELECT_QUERY = "SELECT * FROM BUYER";
+			String SELECT_QUERY = "SELECT username UserName, first_name FirstName, last_name LastName, mobile_no MobileNumber, address Adress FROM Buyer where is_deleted != 1";
 			
 			PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
 			
@@ -92,7 +92,7 @@ public class AdminDaoImpl implements AdminDao {
 		try {
 			
 			con = DBUtils.getConnection();
-			String SELECT_QUERY = "SELECT * FROM SELLER";
+			String SELECT_QUERY = "SELECT username UserName, first_name FirstName, last_name LastName, mobile_no MobileNumber, address Adress FROM SELLER where is_deleted != 1";
 			
 			PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
 			
