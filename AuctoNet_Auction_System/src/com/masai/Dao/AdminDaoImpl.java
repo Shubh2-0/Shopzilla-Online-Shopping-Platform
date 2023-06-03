@@ -55,7 +55,7 @@ public class AdminDaoImpl implements AdminDao {
 		try {
 			
 			con = DBUtils.getConnection();
-			String SELECT_QUERY = "SELECT * FROM BUYER";
+			String SELECT_QUERY = "SELECT username UserName, first_name FirstName, last_name LastName, mobile_no MobileNumber, address Adress FROM Buyer where is_deleted != 1";
 			
 			PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
 			
@@ -92,7 +92,7 @@ public class AdminDaoImpl implements AdminDao {
 		try {
 			
 			con = DBUtils.getConnection();
-			String SELECT_QUERY = "SELECT * FROM SELLER";
+			String SELECT_QUERY = "SELECT username UserName, first_name FirstName, last_name LastName, mobile_no MobileNumber, address Adress FROM SELLER where is_deleted != 1";
 			
 			PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
 			
@@ -129,7 +129,7 @@ public class AdminDaoImpl implements AdminDao {
 			try {
 				
 				con = DBUtils.getConnection();
-				String SELECT_QUERY = "SELECT * FROM PRODUCT";
+				String SELECT_QUERY = "SELECT product_id ID, product_name Name, price_per_piece Price_Per_Unit, seller_id SellerID, seller_name SellerName, quantity Quantity, description Description, category_id CategoryID FROM PRODUCT";
 				
 				PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
 				
@@ -164,7 +164,7 @@ public class AdminDaoImpl implements AdminDao {
 			try {
 				
 				con = DBUtils.getConnection();
-				String SELECT_QUERY = "SELECT * FROM PRODUCT WHERE SOLD_STATUS = 1";
+				String SELECT_QUERY = "SELECT product_id ID, product_name Name, price_per_piece Price_Per_Unit, seller_id SellerID, seller_name SellerName, quantity Quantity, description Description, category_id CategoryID FROM PRODUCT WHERE SOLD_STATUS = 1";
 				
 				PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
 				
@@ -197,7 +197,7 @@ public class AdminDaoImpl implements AdminDao {
 			try {
 				
 				con = DBUtils.getConnection();
-				String SELECT_QUERY = "SELECT * FROM PRODUCT WHERE CATEGORY_ID = (SELECT CAT_ID FROM CATEGORY WHERE CAT_NAME = ?)";
+				String SELECT_QUERY = "SELECT product_id ID, product_name Name, price_per_piece Price_Per_Unit, seller_id SellerID, seller_name SellerName, quantity Quantity, description Description, category_id CategoryID FROM PRODUCT WHERE CATEGORY_ID = (SELECT CAT_ID FROM CATEGORY WHERE CAT_NAME = ?)";
 				
 				PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
 				
@@ -222,6 +222,109 @@ public class AdminDaoImpl implements AdminDao {
 			
 			return null;
 	}
+	
+	
+	@Override
+	public ResultSet getAllProductsBySellerId(String sellerId)throws RecordNotFoundException {
+		 
+			
+			try {
+				
+				con = DBUtils.getConnection();
+				String SELECT_QUERY = "SELECT product_id ID, product_name Name, price_per_piece Price_Per_Unit, seller_id SellerID, seller_name SellerName, quantity Quantity, description Description, category_id CategoryID FROM PRODUCT WHERE Seller_id = ?";
+				
+				PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
+				
+				statement.setString(1, sellerId);
+				
+				ResultSet set = statement.executeQuery();
+				
+					
+					
+					
+					return set;
+				
+				
+				
+				
+			} catch (Exception e) {
+				
+				e.printStackTrace();
+				
+			}
+			
+			
+			return null;
+	}
+	
+	@Override
+	public ResultSet getAllProductsByInAccendingOrderByPrice()throws RecordNotFoundException {
+		 
+			
+			try {
+				
+				con = DBUtils.getConnection();
+				String SELECT_QUERY = "SELECT product_id ID, product_name Name, price_per_piece Price_Per_Unit, seller_id SellerID, seller_name SellerName, quantity Quantity, description Description, category_id CategoryID FROM PRODUCT ORDER BY price_per_piece";
+				
+				PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
+				
+				
+				
+				ResultSet set = statement.executeQuery();
+				
+					
+					
+					
+					return set;
+				
+				
+				
+				
+			} catch (Exception e) {
+				
+				e.printStackTrace();
+				
+			}
+			
+			
+			return null;
+	}
+	
+	@Override
+	public ResultSet getAllProductsByQuantity(int from, int to)throws RecordNotFoundException {
+		 
+			
+			try {
+				
+				con = DBUtils.getConnection();
+				String SELECT_QUERY = "SELECT product_id ID, product_name Name, price_per_piece Price_Per_Unit, seller_id SellerID, seller_name SellerName, quantity Quantity, description Description, category_id CategoryID FROM PRODUCT WHERE quantity BETWEEN ? AND ?";
+				
+				PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
+				
+				statement.setInt(1, from);
+				statement.setInt(2, to);
+				
+				
+				ResultSet set = statement.executeQuery();
+				
+					
+					
+					
+					return set;
+				
+				
+				
+				
+			} catch (Exception e) {
+				
+				e.printStackTrace();
+				
+			}
+			
+			
+			return null;
+	}
+	
 
 
 	

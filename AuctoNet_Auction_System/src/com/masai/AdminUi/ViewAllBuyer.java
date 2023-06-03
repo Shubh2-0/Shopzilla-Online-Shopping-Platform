@@ -99,7 +99,7 @@ public class ViewAllBuyer extends JFrame {
 				{"buyer8", "password8", "Vikram", "Mehra", "+91-6543210986", "234 Lake Ave, Chandigarh"},
 			},
 			new String[] {
-				"UserName", "password", "first_name", "last_name", "mobile_no", "address"
+				"User  Name", "password", "first_name", "last_name", "mobile_no", "address"
 			}
 		));
 		table.getColumnModel().getColumn(5).setPreferredWidth(108);

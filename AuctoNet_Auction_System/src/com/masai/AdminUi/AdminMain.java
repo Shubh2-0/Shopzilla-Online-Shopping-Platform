@@ -112,7 +112,7 @@ public class AdminMain extends JFrame {
 		lblNewLabel_3.setFont(new Font("Century Gothic", Font.BOLD, 40));
 
 		JPanel panel = new JPanel();
-		panel.setBounds(146, 145, 594, 406);
+		panel.setBounds(239, 142, 594, 380);
 		panel.setBackground(new Color(0, 0, 0, 80));
 		contentPane.add(panel);
 		panel.setLayout(null);

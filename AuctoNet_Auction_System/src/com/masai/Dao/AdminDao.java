@@ -21,6 +21,9 @@ public interface AdminDao {
     ResultSet getAllTransaction()throws RecordNotFoundException;
     ResultSet getAllTransactionbyDateRange(LocalDate startDate,LocalDate endDate)throws RecordNotFoundException;
     ResultSet getTransactionById(int id)throws RecordNotFoundException;
+	ResultSet getAllProductsBySellerId(String CatName) throws RecordNotFoundException;
+	ResultSet getAllProductsByInAccendingOrderByPrice() throws RecordNotFoundException;
+	ResultSet getAllProductsByQuantity(int from, int to) throws RecordNotFoundException;
 
 
 }
