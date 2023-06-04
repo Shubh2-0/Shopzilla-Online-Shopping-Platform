@@ -20,6 +20,7 @@ Following are the lists of various users of the system and also the role of the 
 
 ## ER Diagram
 Check out the visual representation of our system's entities and relationships:
+
 <img alt="Demo" src="ReadmeImages/Er_Diagram.png" />
 
 :star: Don't forget to show your support by starring this project on GitHub!
