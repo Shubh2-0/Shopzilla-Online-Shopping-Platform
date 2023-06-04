@@ -97,12 +97,7 @@ public class AdminDaoImpl implements AdminDao {
 			PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
 			
 			ResultSet set = statement.executeQuery();
-			
-				
-			
-			
-				
-				return set;
+		   return set;
 				
 			
 			
@@ -164,7 +159,7 @@ public class AdminDaoImpl implements AdminDao {
 			try {
 				
 				con = DBUtils.getConnection();
-				String SELECT_QUERY = "SELECT product_id ID, product_name Name, price_per_piece Price_Per_Unit, seller_id SellerID, seller_name SellerName, quantity Quantity, description Description, category_id CategoryID FROM PRODUCT WHERE SOLD_STATUS = 1";
+				String SELECT_QUERY = "SELECT product_id ID, product_name Name, price_per_piece Price_Per_Unit, seller_id SellerID, seller_name SellerName, quantity Quantity, description Description, category_id CategoryID FROM PRODUCT WHERE sold_status != 0";
 				
 				PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
 				
@@ -442,6 +437,158 @@ public class AdminDaoImpl implements AdminDao {
 			return null;
 	}
   
+	
+	@Override
+	public ResultSet getAllTransactionByPurchaseDate()throws RecordNotFoundException {
+	
+		
+			
+			try {
+				
+				con = DBUtils.getConnection();
+				String SELECT_QUERY = "SELECT * FROM TRANSACTIONS ORDER BY purchase_date";
+				
+				PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
+				
+		
+				
+				ResultSet set = statement.executeQuery();
+				
+					
+					
+					
+					return set;
+					
+				
+				
+				
+				
+			} catch (Exception e) {
+				
+				e.printStackTrace();
+				
+			}
+			
+			
+			return null;	
+		
+		
+		
+	}
+	
+	@Override
+	public ResultSet getAllTransactionByQuantity()throws RecordNotFoundException {
+	
+		
+			
+			try {
+				
+				con = DBUtils.getConnection();
+				String SELECT_QUERY = "SELECT * FROM TRANSACTIONS ORDER BY quantity";
+				
+				PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
+				
+		
+				
+				ResultSet set = statement.executeQuery();
+				
+					
+					
+					
+					return set;
+					
+				
+				
+				
+				
+			} catch (Exception e) {
+				
+				e.printStackTrace();
+				
+			}
+			
+			
+			return null;	
+		
+		
+		
+	}
+	
+	@Override
+	public ResultSet getAllTransactionByGSTPercentage()throws RecordNotFoundException {
+	
+		
+			
+			try {
+				
+				con = DBUtils.getConnection();
+				String SELECT_QUERY = "SELECT * FROM TRANSACTIONS ORDER BY gst_percentage";
+				
+				PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
+				
+		
+				
+				ResultSet set = statement.executeQuery();
+				
+					
+					
+					
+					return set;
+					
+				
+				
+				
+				
+			} catch (Exception e) {
+				
+				e.printStackTrace();
+				
+			}
+			
+			
+			return null;	
+		
+		
+		
+	}
+	
+	@Override
+	public ResultSet getAllTransactionByTotalPrice()throws RecordNotFoundException {
+	
+		
+			
+			try {
+				
+				con = DBUtils.getConnection();
+				String SELECT_QUERY = "SELECT * FROM TRANSACTIONS ORDER BY total_price";
+				
+				PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
+				
+		
+				
+				ResultSet set = statement.executeQuery();
+				
+					
+					
+					
+					return set;
+					
+				
+				
+				
+				
+			} catch (Exception e) {
+				
+				e.printStackTrace();
+				
+			}
+			
+			
+			return null;	
+		
+		
+		
+	}
 	
 	
 

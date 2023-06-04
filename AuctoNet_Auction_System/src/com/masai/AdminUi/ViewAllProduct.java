@@ -236,15 +236,18 @@ public class ViewAllProduct extends JFrame {
 						
 					} catch (Exception e2) {
 						
-						JOptionPane.showMessageDialog(null, "No Record Found");
+						JOptionPane.showMessageDialog(null, "Invalid Values");
 						try {
 							table.setModel(DbUtils.resultSetToTableModel(admin.getAllProducts()));
+							textField_1.setText("");
+							textField_2.setText("");
 						} catch (RecordNotFoundException e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
 						}
 						CSS.setTable(table);
 						
+						return;
 					}
 					
 					try {
@@ -328,6 +331,7 @@ public class ViewAllProduct extends JFrame {
 						if(table.getRowCount()==0) {
 							JOptionPane.showMessageDialog(null, "No Record Found");
 							table.setModel(DbUtils.resultSetToTableModel(admin.getAllProducts()));
+							textField.setText("");
 							CSS.setTable(table);
 						}
 					} catch (RecordNotFoundException e1) {

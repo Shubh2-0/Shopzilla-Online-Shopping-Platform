@@ -24,6 +24,10 @@ public interface AdminDao {
 	ResultSet getAllProductsBySellerId(String CatName) throws RecordNotFoundException;
 	ResultSet getAllProductsByInAccendingOrderByPrice() throws RecordNotFoundException;
 	ResultSet getAllProductsByQuantity(int from, int to) throws RecordNotFoundException;
+	ResultSet getAllTransactionByQuantity() throws RecordNotFoundException;
+	ResultSet getAllTransactionByGSTPercentage() throws RecordNotFoundException;
+	ResultSet getAllTransactionByTotalPrice() throws RecordNotFoundException;
+	ResultSet getAllTransactionByPurchaseDate() throws RecordNotFoundException;
 
 
 }
