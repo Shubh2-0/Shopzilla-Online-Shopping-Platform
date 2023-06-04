@@ -4,12 +4,12 @@
 <div align="center">
   <img alt="Demo" src="ReadmeImages/Project%20Log.png" />
 </div>
-<h2 align="center">🌟Keep calm and love the auction sale🌟</h2>
+<h2 align="center">🌟 Embrace the Thrill of Auction Sales 🌟</h2>
 
 
 <br>
 <br>
-An automated Auction System is an Application Software that is used for the buying and selling of products. This software can be used by the auction companies who arrange the Auction. Various buyers and sellers are registered in the Auction company.
+Welcome to the AuctoNet Auction System! It is an automated application software designed for seamless buying and selling of products. This versatile software is ideal for auction companies that organize auctions, connecting a diverse range of registered buyers and sellers.
 
 
 Following are the lists of various users of the system and also the role of the users
@@ -19,10 +19,12 @@ Following are the lists of various users of the system and also the role of the 
 2. User (can buy and sell)
 
 ## ER Diagram
+Check out the visual representation of our system's entities and relationships:
 <img alt="Demo" src="ReadmeImages/Er_Diagram.png" />
-:star: Star me on GitHub — it helps!
+:star: Don't forget to show your support by starring this project on GitHub!
 
 ## Flow Charts
+Explore the flow of operations within the system through our comprehensive flow charts:
 <img alt="Demo" src="ReadmeImages/adminflow.png" />
 <img alt="Demo" src="ReadmeImages/mainflow.png" />
 <img alt="Demo" src="ReadmeImages/sellerflow.png" />
@@ -30,55 +32,45 @@ Following are the lists of various users of the system and also the role of the 
 
 ## Admin Features 📋
 
-✨ Login & Logout
+✨ **Login & Logout:** Seamlessly access the system through a secure login process and log out when finished.
 
-✨ Can see all users
+✨ **View All Users:** Get an overview of all registered users within the system, including their details.
 
-✨ Can see all items to be sold
+✨ **View Items to be Sold:** Access a comprehensive list of items available for sale.
 
-✨ Can see all items already sold
+✨ **View Items Already Sold:** Check the history of items that have been successfully sold.
 
-✨ Can see all items by category
+✨ **View Items by Category:** Browse items categorized based on different categories such as Clothing, Electronics, Grocery, and Miscellaneous.
 
-✨ Can view all transactions
+✨ **View All Transactions:** Gain insights into all transactions that have taken place within the system.
 
-✨ Can view all transactions for a date range
+✨ **View Transactions for a Date Range:** Filter and view transactions that occurred within a specific date range.
 
-✨ Can view transaction by transaction id
+✨ **View Transaction by Transaction ID:** Retrieve transaction details using a unique transaction ID.
 
-✨ Can see all refunded products for a date range
+✨ **View Refunded Products for a Date Range:** Get information about refunded products within a specific date range.
 
 
 ## User Features 📋
 
-✨ Login with his account (username and password)
+✨ **Login with Account:** Conveniently access the system by entering your username and password.
 
-✨ Can register by providing username, first_name, last_name, address, mobile_no,
-password
+✨ **User Registration:** New users can register by providing their username, first name, last name, address, mobile number, and password.
 
-✨ Can update his personal details
+✨ **Update Personal Details:** Users have the flexibility to update their personal information as needed.
 
-✨ Can change the password
+✨ **Change Password:** Easily modify the account password for enhanced security.
 
-✨ Can add an item to sell by providing item_id, name, price, quantity, description,
-sold_status (0 for unsold, 1 for sold) and category (Can have only 4 possible values
-that are Clothing, Electronics, Grocery & Miscellaneous)
+✨ **Add Item for Sale:** List items to be sold by providing essential details such as item ID, name, price, quantity, description, sold status (0 for unsold, 1 for sold), and category.
 
-✨ See all items available for sell
+✨ **See All Items Available for Sale:** Browse through a comprehensive list of items currently available for purchase.
 
-✨ Purchase an item (can't puchase the item added by himself)
+✨ **Purchase an Item:** Place bids and purchase desired items (excluding those listed by the user).
 
-✨ Can return a puchased good within 5 day of purchase
+✨ **Return Purchased Goods:** Initiate return requests for purchased items within a 5-day window.
 
-✨ See transaction history of purchases items
+✨ **Transaction History:** Access detailed transaction history, including records of purchased, sold, and returned items.
 
-✨ See transaction history of sold items
-
-✨ See transaction history of returned items
-
-✨ logout his account
-
-✨ delete his account
 
 ## Main Gui 👨🏻‍💻
 <img alt="Demo" src="Pages/main.png" />
