@@ -141,7 +141,7 @@ Thank you for considering contributing to the AuctoNet Auction System! We welcom
    git clone https://github.com/Shubh2-0/AuctoNet-Auction-System.git
    ```
 
-2. **Switch to the Desired Branch**: 📅🌱 The repository contains multiple branches representing different days of the week when development work was done previously. Choose the branch that corresponds to the day of the week when you previously worked on the project. You can switch to a branch using the following command:
+2. **Switch to the Desired Branch**: 📅🌱 The repository contains multiple branches representing different days of the week when development work was done previously. Choose the branch that corresponds to the day of the week. You can switch to a branch using the following command:
 
    ```
    git checkout branch-name
