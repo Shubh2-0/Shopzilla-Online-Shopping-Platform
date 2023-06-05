@@ -224,7 +224,9 @@ public class BuyerMain extends JFrame {
 		btnCreateNewAccount.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				
+				frame.setVisible(false);
+				NewBuyer nBuyer = new NewBuyer();
+				nBuyer.main(null);
 				
 			}
 		});
