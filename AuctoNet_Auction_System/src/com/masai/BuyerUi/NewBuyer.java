@@ -157,8 +157,6 @@ public class NewBuyer extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				String firstName = textField.getText() ;
-				System.out.println(firstName.length());
-				System.out.println(firstName);
 				String lastName = textField_1.getText();
 				String username = textField_2.getText();
 				String password = textField_3.getText();
