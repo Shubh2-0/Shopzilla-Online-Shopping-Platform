@@ -28,6 +28,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
+import java.awt.SystemColor;
 
 public class BuyerMain extends JFrame {
 
@@ -61,7 +62,7 @@ public class BuyerMain extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1012, 689);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(255, 255, 255));
+		contentPane.setBackground(SystemColor.activeCaption);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -85,7 +86,7 @@ public class BuyerMain extends JFrame {
 		lblNewLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 40));
 		
 		textField = new JTextField();
-		textField.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		textField.setFont(new Font("Bahnschrift", Font.BOLD, 25));
 		textField.setBackground(new Color(255, 200, 205));
 		textField.setBorder(null);
 		textField.setBounds(339, 231, 302, 51);
@@ -93,7 +94,7 @@ public class BuyerMain extends JFrame {
 		textField.setColumns(10);
 		
 		textField_1 = new JPasswordField();
-		textField_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		textField_1.setFont(new Font("Bahnschrift", Font.BOLD, 25));
 		textField_1.setBackground(new Color(255, 200, 205));
 		textField_1.setColumns(10);
 		textField_1.setBounds(339, 302, 302, 51);
@@ -110,8 +111,8 @@ public class BuyerMain extends JFrame {
 				
 			}
 		});
-		btnNewButton.setFont(new Font("Trebuchet MS", Font.BOLD, 30));
-		btnNewButton.setBounds(733, 542, 200, 61);
+		btnNewButton.setFont(new Font("Bahnschrift", Font.BOLD, 30));
+		btnNewButton.setBounds(788, 581, 200, 61);
 		contentPane.add(btnNewButton);
 		
 		btnNewButton.addMouseListener(new MouseAdapter() {
@@ -136,12 +137,12 @@ public class BuyerMain extends JFrame {
 		
 		
 		JLabel lblNewLabel_2 = new JLabel("Buyer Id :");
-		lblNewLabel_2.setFont(new Font("Comic Sans MS", Font.BOLD, 25));
+		lblNewLabel_2.setFont(new Font("Bahnschrift", Font.BOLD, 25));
 		lblNewLabel_2.setBounds(195, 231, 156, 61);
 		contentPane.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("Password :");
-		lblNewLabel_3.setFont(new Font("Comic Sans MS", Font.BOLD, 25));
+		lblNewLabel_3.setFont(new Font("Bahnschrift", Font.BOLD, 25));
 		lblNewLabel_3.setBounds(195, 302, 146, 51);
 		contentPane.add(lblNewLabel_3);
 		
@@ -207,16 +208,29 @@ public class BuyerMain extends JFrame {
 		});
 		btnNewButton_1.setBackground(new Color(255, 204, 255));
 		btnNewButton.setBackground(new Color(204, 255, 255));
-		btnNewButton_1.setFont(new Font("Arial", Font.BOLD, 30));
+		btnNewButton_1.setFont(new Font("Bahnschrift", Font.BOLD, 30));
 		btnNewButton_1.setBounds(455, 405, 134, 44);
 		contentPane.add(btnNewButton_1);
 		
 		JLabel lblNewLabel_2_1 = new JLabel("New label");
 		lblNewLabel_2_1.setVerticalAlignment(SwingConstants.TOP);
-		lblNewLabel_2_1.setBounds(0, 0, 998, 834);
+		lblNewLabel_2_1.setBounds(0, 0, 998, 571);
 		contentPane.add(lblNewLabel_2_1);
 		ImageIcon icon4 = new ImageIcon(getClass().getResource("/Images/BuyerMain/buyerBack.png"));
 		icon = MainPage.setImgeSize(2000, 12000, icon4);
 		lblNewLabel_2_1.setIcon(icon4);
+		
+		JButton btnCreateNewAccount = new JButton("Create New Account");
+		btnCreateNewAccount.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				
+			}
+		});
+		btnCreateNewAccount.setFont(new Font("Bahnschrift", Font.BOLD, 30));
+		btnCreateNewAccount.setBackground(new Color(204, 255, 255));
+		btnCreateNewAccount.setBounds(10, 581, 331, 61);
+		contentPane.add(btnCreateNewAccount);
 	}
 }
