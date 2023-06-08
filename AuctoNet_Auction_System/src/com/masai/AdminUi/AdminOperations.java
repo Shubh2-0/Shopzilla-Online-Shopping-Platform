@@ -68,11 +68,9 @@ public class AdminOperations extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
-			 
-				 ViewAllBuyer bueyr = new ViewAllBuyer();
 				 
 				 frame.setVisible(false);
-				 bueyr.main(null);
+				 ViewAllBuyer.main(null);
 				
 			}
 		});
@@ -88,9 +86,9 @@ public class AdminOperations extends JFrame {
 			
 			public void actionPerformed(ActionEvent e) {
 			
-				ViewAllSeller sell = new ViewAllSeller();
-				sell.main(null);
 				frame.setVisible(false);
+				ViewAllSeller.main(null);
+			
 				
 				
 			}
@@ -104,9 +102,9 @@ public class AdminOperations extends JFrame {
 		btnSeeAllTransactions.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				Transaction trs = new Transaction();
-				trs.main(null);
+			
 				frame.setVisible(false);
+				Transaction.main(null);
 			}
 		});
 		AdminOperations.chanageMouseColor(btnSeeAllTransactions);
@@ -117,9 +115,9 @@ public class AdminOperations extends JFrame {
 		JButton btnViewAllProducts = new JButton("View All Products");
 		btnViewAllProducts.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ViewAllProduct pro = new ViewAllProduct();
+
 				frame.setVisible(false);
-				pro.main(null);
+				ViewAllProduct.main(null);
 			}
 		});
 		AdminOperations.chanageMouseColor(btnViewAllProducts);
@@ -134,9 +132,8 @@ public class AdminOperations extends JFrame {
 		JButton btnNewButton_4 = new JButton("Logout");
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				MainPage m = new MainPage();
 				frame.setVisible(false);
-				m.main(null);
+				MainPage.main(null);
 			}
 		});
 		AdminOperations.chanageMouseColor(btnNewButton_4);

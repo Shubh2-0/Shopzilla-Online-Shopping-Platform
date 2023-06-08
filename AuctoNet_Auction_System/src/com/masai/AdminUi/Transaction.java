@@ -95,8 +95,7 @@ public class Transaction extends JFrame {
 			btnNewButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					frame.setVisible(false);
-					AdminOperations jk = new AdminOperations();
-					jk.main(null);
+					AdminOperations.main(null);
 					
 				}
 			});

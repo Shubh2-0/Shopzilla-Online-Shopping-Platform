@@ -75,8 +75,7 @@ public class ViewAllProduct extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
-				AdminOperations oper = new AdminOperations();
-				oper.main(null);
+				AdminOperations.main(null);
 				
 			}
 		});

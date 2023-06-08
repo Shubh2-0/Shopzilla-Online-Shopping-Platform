@@ -80,9 +80,10 @@ public class AdminMain extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				MainPage pMainPage = new MainPage();
-				pMainPage.main(null);
+				
+				
 				frame1.setVisible(false);
+				MainPage.main(null);
 
 			}
 		});
@@ -168,9 +169,8 @@ public class AdminMain extends JFrame {
 
 				else if (txtEnterAdminId.getText().equals("admin") && passwordField.getText().equals("admin")) {
 					JOptionPane.showMessageDialog(null, "Welcome Shubham 😊");
-					AdminOperations opp = new AdminOperations();
 					frame1.setVisible(false);
-					opp.main(null);
+					AdminOperations.main(null);
 					
 				} else {
 

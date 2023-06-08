@@ -110,9 +110,9 @@ public class MainPage extends JFrame {
 		
 		btnAdminLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AdminMain admin = new AdminMain();
 				frame.setVisible(false);
-				admin.main(null);
+				System.out.println(false);
+				AdminMain.main(null);
 				
 			}
 		});
@@ -124,9 +124,8 @@ public class MainPage extends JFrame {
 		JButton btnBuyerLogin = new JButton("Buyer Login");
 		btnBuyerLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				BuyerMain buyer = new BuyerMain();
 				frame.setVisible(false);
-				buyer.main(null);
+				BuyerMain.main(null);
 			}
 		});
 		btnBuyerLogin.addMouseListener(new MouseAdapter() {
@@ -151,9 +150,8 @@ public class MainPage extends JFrame {
 		JButton btnSellerLogin = new JButton("Seller Login");
 		btnSellerLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-         		SellerMain seller = new SellerMain();
 				frame.setVisible(false);
-				seller.main(null);
+				SellerMain.main(null);
 			}
 		});
 		btnSellerLogin.addMouseListener(new MouseAdapter() {

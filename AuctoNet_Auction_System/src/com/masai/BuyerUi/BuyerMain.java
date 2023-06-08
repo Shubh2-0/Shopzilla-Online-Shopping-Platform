@@ -104,9 +104,10 @@ public class BuyerMain extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				MainPage main = new MainPage();
-				main.main(null);
+				
 				frame.setVisible(false);
+				MainPage.main(null);
+				
 				
 				
 			}
@@ -209,7 +210,7 @@ public class BuyerMain extends JFrame {
 		btnNewButton_1.setBackground(new Color(255, 204, 255));
 		btnNewButton.setBackground(new Color(204, 255, 255));
 		btnNewButton_1.setFont(new Font("Bahnschrift", Font.BOLD, 30));
-		btnNewButton_1.setBounds(455, 405, 134, 44);
+		btnNewButton_1.setBounds(446, 405, 134, 44);
 		contentPane.add(btnNewButton_1);
 		
 		JLabel lblNewLabel_2_1 = new JLabel("New label");
@@ -225,8 +226,7 @@ public class BuyerMain extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				frame.setVisible(false);
-				NewBuyer nBuyer = new NewBuyer();
-				nBuyer.main(null);
+				NewBuyer.main(null);
 				
 			}
 		});

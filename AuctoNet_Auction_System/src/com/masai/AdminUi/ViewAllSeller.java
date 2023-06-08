@@ -74,8 +74,7 @@ public class ViewAllSeller extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				frame.setVisible(false);
-				AdminOperations opp = new AdminOperations();
-				opp.main(null);
+				AdminOperations.main(null);
 			}
 		});
 		contentPane.setLayout(null);

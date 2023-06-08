@@ -65,8 +65,7 @@ public class BuyerOperations extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				frame.setVisible(false);
-				BuyerUpdate updatebuyer = new BuyerUpdate(buyer);
-				updatebuyer.main(null);
+				BuyerUpdate.main(null);
 				
 				
 				
@@ -82,8 +81,7 @@ public class BuyerOperations extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				frame.setVisible(false);
-				BuyerProducts buyerp = new BuyerProducts();
-				buyerp.main(null);
+				BuyerTransactions.main(null);
 				
 				
 			}
@@ -99,8 +97,7 @@ public class BuyerOperations extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			
 			  frame.setVisible(false);
-			  BuyerTransactions buyert = new BuyerTransactions();
-			  buyert.main(null);
+			  BuyerTransactions.main(null);
 				
 			}
 		});

@@ -6,6 +6,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import com.masai.Dao.BuyerDao;
+import com.masai.Dao.BuyerDaoImpl;
+import com.masai.Dto.Buyer;
+import com.masai.Dto.BuyerImpl;
 import com.masai.MainUi.MainPage;
 
 import java.awt.SystemColor;
@@ -41,7 +45,9 @@ public class NewBuyer extends JFrame {
 	private JLabel lblNewLabel_6;
 	private JButton btnNewButton;
 	private JLabel lblNewLabel_7;
-
+    static BuyerImpl buyer ;
+    static JFrame frame;
+    static final BuyerDao bDao = new BuyerDaoImpl();
 	/**
 	 * Launch the application.
 	 */
@@ -49,7 +55,7 @@ public class NewBuyer extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					NewBuyer frame = new NewBuyer();
+					frame = new NewBuyer();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -172,6 +178,27 @@ public class NewBuyer extends JFrame {
 					
 				}
 				
+			
+				
+				
+				buyer =  bDao.getBuyerByUsername(username.toString());
+				
+				if(buyer != null) {
+					buyer = null;
+					JOptionPane.showMessageDialog(null, "Please choose a different username as the current one is already taken");
+					textField_2.setText("");
+					return;
+					
+				}else {
+					JOptionPane.showMessageDialog(null, "Congratulations! Your account has been successfully created");
+					buyer = new BuyerImpl(username, password, firstName, lastName, mobileNo, address);
+					bDao.registerNewBuyer(buyer);
+					frame.setVisible(false);
+					BuyerMain.main(null);
+					
+					
+				}
+				
 				
 			}
 		});
@@ -183,7 +210,7 @@ public class NewBuyer extends JFrame {
 		lblNewLabel_7.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_7.setFont(new Font("Monotype Corsiva", Font.BOLD, 30));
 		lblNewLabel_7.setForeground(Color.CYAN);
-		lblNewLabel_7.setBounds(60, 10, 523, 62);
+		lblNewLabel_7.setBounds(60, 10, 561, 102);
 		panel.add(lblNewLabel_7);
 		
 		lblNewLabel = new JLabel("Welcome To  AuctoNet Auction System");

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
+import com.masai.Dto.Buyer;
 import com.masai.Dto.BuyerImpl;
 import com.masai.Dto.ProductImpl;
 import com.masai.Dto.RefundProductImpl;
@@ -22,14 +23,13 @@ public class BuyerDaoImpl implements BuyerDao {
 	
 	
 	@Override
-	
 	public BuyerImpl loginBuyer(String username, String password) {
 	
 	try {
 		
 		con = DBUtils.getConnection();
 		
-		String SELECT_QUERY = "SELECT * FROM BUYER WHERE USERNAME = ? AND PASSWORD = ?";
+		String SELECT_QUERY = "SELECT * FROM BUYER WHERE USERNAME = ? AND PASSWORD = ? AND is_deleted != 1";
 		
 		PreparedStatement statement = con.prepareStatement(SELECT_QUERY); 
 		
@@ -67,6 +67,53 @@ public class BuyerDaoImpl implements BuyerDao {
 	}
 	
 	
+	@Override
+	public BuyerImpl getBuyerByUsername(String username) {
+	username = username.trim();
+	BuyerImpl buy = null;
+	
+	try {
+		
+		con = DBUtils.getConnection();
+		
+		String SELECT_QUERY = "SELECT * FROM BUYER WHERE USERNAME = ?";
+		
+		PreparedStatement statement = con.prepareStatement(SELECT_QUERY); 
+		
+		statement.setString(1, username);
+	
+		
+		
+		ResultSet set = statement.executeQuery();
+		
+		while(set.next()) {
+			buy = new BuyerImpl(set.getString(1), 
+					set.getString(2), 
+					set.getString(3), 
+					set.getString(4), 
+					set.getString(5), 
+					set.getString(6));
+		}
+		
+		
+		
+	} catch (Exception e) {
+		
+		System.out.println(e);
+		
+	}finally {
+		
+		DBUtils.closeConnection(con);
+	}
+
+		
+		
+	return buy;
+		
+		
+	}
+	
+	
 
 	@Override
 	public String registerNewBuyer(BuyerImpl u) {
@@ -76,7 +123,7 @@ public class BuyerDaoImpl implements BuyerDao {
 		try {
 			
 			con = DBUtils.getConnection();
-			String INSERT_QUERY = "INSERT INTO BUYER VALUES(?,?,?,?,?,?)";
+			String INSERT_QUERY = "INSERT INTO BUYER VALUES(?,?,?,?,?,?,?)";
 			
 			PreparedStatement statement = con.prepareStatement(INSERT_QUERY);
 			
@@ -86,6 +133,7 @@ public class BuyerDaoImpl implements BuyerDao {
 			statement.setString(4, u.getLastName());
 			statement.setString(5, u.getMobileNo());
 			statement.setString(6, u.getAddress());
+			statement.setInt(7, 0);
 			
 			int ans = statement.executeUpdate();
 			
@@ -394,19 +442,8 @@ public class BuyerDaoImpl implements BuyerDao {
 //	
 //	
 	
-	public static void main(String[] args) {
-		BuyerDaoImpl h = new BuyerDaoImpl();
-		System.out.println(h.loginBuyer("buyer1", "password1"));
-		
-		BuyerImpl b = new BuyerImpl("buyer1", "password1", null, "Sharma", "5783722441", "44 Sagar St, Delhi");
-		
-		System.out.println(h.updateBuyerDetails(b));
-		
-		System.out.println(h.loginBuyer("buyer1", "password1"));
-	}
 
-
-
+    @Override
 	public ResultSet getAllProductsByCategory(String item) {
 		try {
 			
@@ -439,7 +476,7 @@ public class BuyerDaoImpl implements BuyerDao {
 		
 	}
 	
-	
+	@Override
 	public ResultSet getProductsByProductId(int id) {
 		try {
 			

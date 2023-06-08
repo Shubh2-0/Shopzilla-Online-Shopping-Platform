@@ -27,6 +27,10 @@ public interface BuyerDao {
 	
 	public ResultSet getAllProductsByCategory(String item);
 
+	ResultSet getProductsByProductId(int id);
+
+	BuyerImpl getBuyerByUsername(String username);
+
 	
 //	ArrayList<RefundProductImpl> viewAllrefundProduct();
 	

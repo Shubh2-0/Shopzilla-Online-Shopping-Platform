@@ -121,8 +121,7 @@ public class ViewAllBuyer extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				frame.setVisible(false);
-				AdminOperations opp = new AdminOperations();
-				opp.main(null);
+				AdminOperations.main(null);
 			}
 		});
 		AdminOperations.chanageMouseColor(btnNewButton);
