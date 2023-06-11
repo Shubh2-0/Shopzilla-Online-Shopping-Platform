@@ -2,8 +2,6 @@ package com.masai.Dto;
 
 public interface Seller {
 
-	public String getSellerUsername();
-	public void setSellerUsername(String sellerUsername);
 
 	public String getFirstName();
 	public void setFirstName(String firstName);
@@ -19,4 +17,11 @@ public interface Seller {
 	
 	public String getAddress();
 	public void setAddress(String address);
+	
+	String getSellerUserName();
+	void setSellerUserName(String sellerUserName);
+	
+
+	double getIncome();
+	void setIncome(double income);
 }

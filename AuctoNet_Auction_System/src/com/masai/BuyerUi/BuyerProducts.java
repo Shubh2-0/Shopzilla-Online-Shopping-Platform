@@ -86,12 +86,12 @@ public class BuyerProducts extends JFrame {
 		comboBox.addItem("Electronics");
 		comboBox.addItem("Grocery");
 		comboBox.addItem("Miscellaneous");
-		comboBox.setFont(new Font("Comic Sans MS", Font.PLAIN, 17));
-		comboBox.setBounds(510, 328, 157, 30);
+		comboBox.setFont(new Font("Bahnschrift", Font.PLAIN, 20));
+		comboBox.setBounds(514, 325, 157, 30);
 		contentPane.add(comboBox);
 		
 		JLabel lblNewLabel = new JLabel("View Product By Category : ");
-		lblNewLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
+		lblNewLabel.setFont(new Font("Bahnschrift", Font.BOLD, 22));
 		lblNewLabel.setBounds(222, 322, 296, 40);
 		contentPane.add(lblNewLabel);
 		
@@ -109,8 +109,8 @@ public class BuyerProducts extends JFrame {
 				}
 			}
 		});
-		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnNewButton_1.setBounds(692, 325, 118, 35);
+		btnNewButton_1.setFont(new Font("Bahnschrift", Font.PLAIN, 20));
+		btnNewButton_1.setBounds(679, 322, 118, 35);
 		contentPane.add(btnNewButton_1);
 		
 		JPanel panel = new JPanel();
@@ -120,14 +120,14 @@ public class BuyerProducts extends JFrame {
 		panel.setLayout(null);
 		
 		JLabel lblNewLabel_1 = new JLabel("Buy Product ?");
-		lblNewLabel_1.setBounds(346, 26, 128, 28);
+		lblNewLabel_1.setBounds(346, 30, 206, 28);
 		panel.add(lblNewLabel_1);
-		lblNewLabel_1.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
+		lblNewLabel_1.setFont(new Font("Bahnschrift", Font.BOLD, 25));
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Enter Product Id to Buy :");
 		lblNewLabel_1_1.setBounds(10, 81, 264, 43);
 		panel.add(lblNewLabel_1_1);
-		lblNewLabel_1_1.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
+		lblNewLabel_1_1.setFont(new Font("Bahnschrift", Font.BOLD, 20));
 		
 		textField = new JTextField();
 		textField.setBounds(265, 82, 136, 41);
@@ -174,8 +174,7 @@ public class BuyerProducts extends JFrame {
 							JOptionPane.showMessageDialog(null,ans);
 							
 							frame.setVisible(false);
-							BuyerTransactions buyert = new BuyerTransactions();
-							buyert.main(null);
+							BuyerTransactions.main(null);
 							
 						}
 						
@@ -188,12 +187,12 @@ public class BuyerProducts extends JFrame {
 				
 			}
 		});
-		btnNewButton.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
+		btnNewButton.setFont(new Font("Bahnschrift", Font.PLAIN, 20));
 		btnNewButton.setBounds(346, 152, 128, 37);
 		panel.add(btnNewButton);
 		
 		JLabel lblNewLabel_1_1_1 = new JLabel("Enter Quantity :");
-		lblNewLabel_1_1_1.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
+		lblNewLabel_1_1_1.setFont(new Font("Bahnschrift", Font.BOLD, 20));
 		lblNewLabel_1_1_1.setBounds(446, 81, 264, 43);
 		panel.add(lblNewLabel_1_1_1);
 		
@@ -211,8 +210,22 @@ public class BuyerProducts extends JFrame {
 				buyerop.main(null);
 			}
 		});
-		btnNewButton_2.setFont(new Font("Comic Sans MS", Font.PLAIN, 25));
+		btnNewButton_2.setFont(new Font("Bahnschrift", Font.PLAIN, 25));
 		btnNewButton_2.setBounds(1315, 565, 110, 40);
 		contentPane.add(btnNewButton_2);
+		
+		JButton btnNewButton_3 = new JButton("Reset");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				table.setModel(DbUtils.resultSetToTableModel(buyerdao.getAllProductForSell()));
+				CSS.setTable(table);
+				
+			}
+		});
+		btnNewButton_3.setFont(new Font("Bahnschrift", Font.BOLD, 20));
+		btnNewButton_3.setBounds(1328, 295, 97, 40);
+		contentPane.add(btnNewButton_3);
 	}
 }

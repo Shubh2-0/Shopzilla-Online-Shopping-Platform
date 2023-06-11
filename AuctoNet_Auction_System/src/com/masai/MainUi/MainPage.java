@@ -117,7 +117,7 @@ public class MainPage extends JFrame {
 			}
 		});
 		btnAdminLogin.setForeground(new Color(0, 51, 255));
-		btnAdminLogin.setFont(new Font("Comic Sans MS", Font.BOLD, 30));
+		btnAdminLogin.setFont(new Font("Bahnschrift", Font.BOLD, 30));
 		btnAdminLogin.setBounds(50, 243, 238, 64);
 		contentPane.add(btnAdminLogin);
 		
@@ -143,7 +143,7 @@ public class MainPage extends JFrame {
 			}
 		});
 		btnBuyerLogin.setForeground(new Color(0, 51, 255));
-		btnBuyerLogin.setFont(new Font("Comic Sans MS", Font.BOLD, 30));
+		btnBuyerLogin.setFont(new Font("Bahnschrift", Font.BOLD, 30));
 		btnBuyerLogin.setBounds(50, 358, 238, 64);
 		contentPane.add(btnBuyerLogin);
 		
@@ -171,7 +171,7 @@ public class MainPage extends JFrame {
 		
 		
 		btnSellerLogin.setForeground(new Color(0, 51, 255));
-		btnSellerLogin.setFont(new Font("Comic Sans MS", Font.BOLD, 30));
+		btnSellerLogin.setFont(new Font("Bahnschrift", Font.BOLD, 30));
 		btnSellerLogin.setBounds(50, 472, 238, 64);
 		contentPane.add(btnSellerLogin);
 		
@@ -182,6 +182,39 @@ public class MainPage extends JFrame {
 		lblNewLabel_4.setBounds(0, -35, 426, 705);
 		contentPane.add(lblNewLabel_4);
 		
+		JButton btnNewButton = new JButton("Exit");
+		
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				btnNewButton.setBackground(Color.RED);
+				btnNewButton.setForeground(Color.WHITE);
+	            setCursor(Cursor.HAND_CURSOR);
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				btnNewButton.setBackground(Color.WHITE);
+				btnNewButton.setForeground(Color.RED);
+				setCursor(Cursor.DEFAULT_CURSOR);
+			}
+		});
+		
+		
+		
+		
+		
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				System.exit(0);
+				
+			}
+		});
+		btnNewButton.setForeground(new Color(255, 0, 0));
+		btnNewButton.setFont(new Font("Bahnschrift", Font.BOLD, 25));
+		btnNewButton.setBounds(773, 22, 113, 36);
+		contentPane.add(btnNewButton);
+		
 		
 	}
 	
@@ -191,9 +224,4 @@ public class MainPage extends JFrame {
 		return result;
 		
 	}
-	
-	
-	
-	
-	
 }

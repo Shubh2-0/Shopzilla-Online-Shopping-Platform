@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -13,6 +14,7 @@ import com.masai.Dto.Buyer;
 import com.masai.Dto.BuyerImpl;
 import com.masai.Dto.ProductImpl;
 import com.masai.Dto.RefundProductImpl;
+import com.masai.Dto.SellerImpl;
 import com.masai.Dto.TransactionImpl;
 
 
@@ -20,6 +22,11 @@ public class BuyerDaoImpl implements BuyerDao {
 
 	static Connection con = null;
 	static BuyerImpl buyer = null;
+	static SellerImpl seller = null;
+	static SellerDao sellerDao = new SellerDaoImpl();
+	static ProductDao productDao = new ProductDaoImpl();
+	
+	
 	
 	
 	@Override
@@ -67,6 +74,47 @@ public class BuyerDaoImpl implements BuyerDao {
 		
 		
 	}
+	
+	@Override
+    public double getBalance(String username) {
+		
+		double balance = 0.0;
+		
+		try {
+			
+			con = DBUtils.getConnection();
+			
+			String SELECT_QUERY = "SELECT balance FROM BUYER WHERE username = ? AND is_deleted != 1";
+			
+			PreparedStatement statement = con.prepareStatement(SELECT_QUERY); 
+			
+			statement.setString(1, username);
+			
+			
+			ResultSet set = statement.executeQuery();
+			
+			while(set.next()) {
+				
+				balance = set.getDouble("balance");
+				
+			}
+		
+			
+			
+		} catch (Exception e) {
+			
+			System.out.println(e);
+			
+		}finally {
+			
+			DBUtils.closeConnection(con);
+		}
+		
+		return balance;
+		
+		
+	}
+	
 	
 	
 	@Override
@@ -256,10 +304,12 @@ public class BuyerDaoImpl implements BuyerDao {
 	@Override
 	public String purchaseItem(int productId, int quantity) {
 	
+		
 		int totalQuantity = 0;
 		double perUnitPrice = 0.0;
 		int seller_Id  = 0;
 		String usernmae = buyer.getBuyerUserName();
+		String sellerusername = null;
 		
 		try {
 			
@@ -276,16 +326,32 @@ public class BuyerDaoImpl implements BuyerDao {
 			
 			while(set.next()) {
 			
-				totalQuantity = set.getInt("QUANTITY");
+				totalQuantity = set.getInt("quantity");
 				perUnitPrice = set.getDouble("price_per_piece");
 				seller_Id = set.getInt("seller_unique_num");
+				sellerusername = set.getString("seller_username");
+				
 			}
 			
 			
+			System.out.println("SELECR ID :"+seller_Id);
+			
 			double bill = perUnitPrice*quantity;
 			
+			double balance = buyer.getBalance();
 			
+			if(balance < bill) {
+				
+				return "Not enough balance";
+				
+			}
 		
+			if(quantity > totalQuantity) {
+				
+				return "Quantity is high";
+				
+			}
+			
 			
 			if(quantity!=0) {
 				
@@ -335,48 +401,83 @@ public class BuyerDaoImpl implements BuyerDao {
 				
 				
 				if(ans > 0) {
+	
 					
-					double balance = buyer.getBalance();
-					
-					if(balance < bill) {
-						
-						return "Not enough balance";
-						
-					}
+					seller = sellerDao.getSellerByUsername(sellerusername);
 					
 					
-					String UPDATE_QUERY2 = "UPDATE PRODUCT SET QUANTITY = ? WHERE PRODUCT_ID = ?";
+					
+					
 					
 					String UPDATE_QUERY3 = "UPDATE BUYER SET balance = ? WHERE UserName = ?";
 					
-					String UPDATE_QUERY4 = "UPDATE SELER SET income = ? WHERE SellerId = ?";
+					String UPDATE_QUERY4 = "UPDATE SELLER SET income = ? WHERE SellerId = ?";
 					
 					
 					
-					PreparedStatement statement3 = con.prepareStatement(UPDATE_QUERY2);
 					PreparedStatement statement4 = con.prepareStatement(UPDATE_QUERY3);
 					PreparedStatement statement5 = con.prepareStatement(UPDATE_QUERY4);
 					
 					
-					statement3.setInt(1, totalQuantity-quantity);
-					statement3.setInt(2, productId);
+					
+					
+					
+				
+					
+					double sellerBalance = 0.0;
+					
+					sellerBalance = seller.getIncome();
+					
+					
+					
+				
+					
+					
+		            
+		              
+					
+			
+					
+					
+					
+					if(totalQuantity-quantity == 0) {
+						
+						String UPDATE_QUERY7 = "UPDATE Product SET sold_status = 1 WHERE product_id = ?";
+						
+						PreparedStatement statement7 = con.prepareStatement(UPDATE_QUERY7);
+						statement7.setInt(1, productId);
+						
+						int ans8 = statement7.executeUpdate();
+						
+						
+						
+						
+					}
+					
+					
+					
+					
 					
 					statement4.setDouble(1, balance-bill);
 					statement4.setString(2, usernmae);
 					
-					statement5.setDouble(1, seller_Id);
-					statement5.setInt(2, productId);
+					statement5.setDouble(1, sellerBalance+bill);
+					statement5.setInt(2, seller_Id);
 					
 					
 				
-					int ans3 = statement3.executeUpdate();
 					
-					if(ans3 > 0) {
+					int ans4 = statement4.executeUpdate();
+					int ans5 = statement5.executeUpdate();
+					
+					if(productDao.updateQuantity(productId, totalQuantity-quantity) && ans4 > 0 && ans5 > 0) {
 					
 						
 						
-						return "purchase done";
-						
+						return "PURCHASE DONE\n"+
+						       "A MESSAGE FROM SELLER : \n"+"Dear ,"+buyer.getFirstName()+"Thank you for your purchase! We appreciate your patronage\n"+
+						       "Total bill : "+bill;
+		                       				                      
 						
 						
 						
@@ -396,7 +497,8 @@ public class BuyerDaoImpl implements BuyerDao {
 		}
 		
 		
-		return "Something Went Wrong....";
+		
+		return "Something Went Wrong....LAST";
 		
 	}
 
@@ -455,6 +557,8 @@ public class BuyerDaoImpl implements BuyerDao {
 			
 			return null;	
 	}
+	
+	
 
 //	@Override
 //	public ArrayList<RefundProductImpl> viewAllretuirnProduct() {
@@ -495,7 +599,7 @@ public class BuyerDaoImpl implements BuyerDao {
 		try {
 			
 			con = DBUtils.getConnection();
-			String SELECT_QUERY = "SELECT * FROM PRODUCT WHERE CATEGORY_ID = (SELECT CAT_ID FROM CATEGORY WHERE CAT_NAME = ?)";
+			String SELECT_QUERY = "SELECT product_id AS Product_ID, product_name AS Product_Name, price_per_piece AS Price_Per_Piece, seller_name AS Seller_Name, quantity, description, category_id AS Category_ID FROM product WHERE CATEGORY_ID = (SELECT CAT_ID FROM CATEGORY WHERE CAT_NAME = ?) AND sold_status = 0";
 			
 			PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
 			
@@ -528,7 +632,7 @@ public class BuyerDaoImpl implements BuyerDao {
 		try {
 			
 			con = DBUtils.getConnection();
-			String SELECT_QUERY = "SELECT * FROM PRODUCT WHERE PRODUCT_ID = ?";
+			String SELECT_QUERY = "SELECT product_id AS Product_ID, product_name AS Product_Name, price_per_piece AS Price_Per_Piece, seller_name AS Seller_Name, quantity, description, category_id AS Category_ID FROM product WHERE sold_status = 0 AND PRODUCT_ID = ?";
 			
 			PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
 			

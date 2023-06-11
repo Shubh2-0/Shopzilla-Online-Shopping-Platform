@@ -3,45 +3,68 @@ package com.masai.Dto;
 public class SellerImpl implements Seller{
 	
 
-	private String sellerUsername;
-	private String password;
-	private String firstName;
-	private String lastName;
-	private String mobileNo;
-	private String address;
+	private String SellerUserName = "";
+	private String password = "";
+	private String firstName = "";
+	private String lastName = "";
+	private String mobileNo = "";
+	private String address = "";
+	private double income = 0.0;
 	
 	public SellerImpl() {
+		super();
 	}
 
-	public SellerImpl(String sellerId,String password) {
-		this.sellerUsername = sellerId;
-		this.firstName = null;
-		this.lastName = null;
-		this.mobileNo = null;
+	public SellerImpl(String BuyerUserName,String password) {
+		this.SellerUserName = BuyerUserName;
+		this.firstName = "";
+		this.lastName = "";
+		this.mobileNo = "";
 		this.password = password;
-		this.address = null;
+		this.address = "";
 	}
 	
-
-	public SellerImpl(String sellerUsername, String password, String firstName, String lastName, String mobileNo,
-			String address) {
-		this.sellerUsername = sellerUsername;
+	
+   
+	
+	public SellerImpl(String buyerUserName, String password, String firstName, String lastName, String mobileNo,
+			String address,double balance ) {
+		
+		SellerUserName = buyerUserName;
 		this.password = password;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.mobileNo = mobileNo;
-		this.address = address;
+		
+		if(firstName==null)
+			this.firstName="";
+		else
+			this.firstName=firstName;
+		
+		if(lastName==null)
+			this.lastName="";
+		else
+			this.lastName=lastName;
+		
+		if(mobileNo==null)
+			this.mobileNo="";
+		else
+			this.mobileNo=mobileNo;
+		
+		if(address==null)
+			this.address="";
+		else
+			this.address=address;
+		
+		if(balance<0.0)
+			this.income=0.0;
+		else
+			this.income=balance;
+		
+		
+		
 	}
 
-	@Override
-	public String getSellerUsername() {
-		return sellerUsername;
-	}
-
-	@Override
-	public void setSellerUsername(String sellerUsername) {
-		this.sellerUsername = sellerUsername;
-	}
+	
+	
+	
 
 	@Override
 	public String getFirstName() {
@@ -104,16 +127,29 @@ public class SellerImpl implements Seller{
 		this.address = address;
 	}
 
-
-
+	@Override
+	public String getSellerUserName() {
+		return SellerUserName;
+	}
 
 	@Override
-	public String toString() {
-		return "SellerImpl [sellerId=" + sellerUsername + ", firstName=" + firstName + ", lastName=" + lastName
-				+ ", mobileNo=" + mobileNo + ", password=" + password + ", address=" + address + "]";
+	public void setSellerUserName(String sellerUserName) {
+		SellerUserName = sellerUserName;
 	}
+
+	@Override
+	public double getIncome() {
+		return income;
+	}
+
+	@Override
+	public void setIncome(double income) {
+		this.income = income;
+	}
+
 	
 
+	
 
 
 }

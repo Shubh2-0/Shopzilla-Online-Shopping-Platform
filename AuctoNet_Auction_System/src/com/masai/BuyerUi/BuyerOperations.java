@@ -6,11 +6,16 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import com.masai.Dao.BuyerDao;
+import com.masai.Dao.BuyerDaoImpl;
 import com.masai.Dto.BuyerImpl;
 
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Image;
+
 import javax.swing.SwingConstants;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.SystemColor;
@@ -22,6 +27,7 @@ public class BuyerOperations extends JFrame {
 	private JPanel contentPane;
 	static BuyerImpl buyer;
 	static BuyerOperations frame;
+	static BuyerDao buyerDao = new BuyerDaoImpl();
 	
 
 	/**
@@ -48,7 +54,7 @@ public class BuyerOperations extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 980, 647);
 		contentPane = new JPanel();
-		contentPane.setBackground(SystemColor.activeCaptionBorder);
+		contentPane.setBackground(new Color(255, 218, 185));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -119,5 +125,27 @@ public class BuyerOperations extends JFrame {
 		btnNewButton_1.setFont(new Font("Bahnschrift", Font.PLAIN, 30));
 		btnNewButton_1.setBounds(773, 523, 158, 59);
 		contentPane.add(btnNewButton_1);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setBounds(657, 9, 405, 306);
+		contentPane.add(lblNewLabel_1);
+		
+		ImageIcon icon1 = new ImageIcon(getClass().getResource("/Images/BuyerMain/buyeroperations.png"));
+		Image iPage1 = icon1.getImage().getScaledInstance(300, 300, Image.SCALE_SMOOTH);
+		icon1 = new ImageIcon(iPage1);
+		lblNewLabel_1.setIcon(icon1);
+		
+		JLabel lblNewLabel_2 = new JLabel("Available Balance : ");
+		lblNewLabel_2.setFont(new Font("Bahnschrift", Font.BOLD, 25));
+		lblNewLabel_2.setBounds(30, 541, 255, 59);
+		contentPane.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_3 = new JLabel();
+		lblNewLabel_3.setFont(new Font("Bahnschrift", Font.PLAIN, 25));
+		lblNewLabel_3.setText(buyerDao.getBalance(buyer.getBuyerUserName())+"");
+		lblNewLabel_3.setBounds(271, 552, 158, 37);
+		contentPane.add(lblNewLabel_3);
+		
+		
 	}
 }

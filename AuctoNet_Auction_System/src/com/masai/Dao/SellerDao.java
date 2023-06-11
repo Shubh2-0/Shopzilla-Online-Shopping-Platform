@@ -5,12 +5,13 @@ import java.util.ArrayList;
 
 import com.masai.Dto.ProductImpl;
 import com.masai.Dto.RefundProductImpl;
+import com.masai.Dto.SellerImpl;
 import com.masai.Dto.TransactionImpl;
 
 
 public interface SellerDao {
 	
-//	UserImpl loginUser(String username, String password);
+	SellerImpl loginUser(String username, String password);
 //	String registerSeller(UserImpl u);
 //	String updateSellerDetails(UserImpl u);
 //	ArrayList<ProductImpl> getAllProductForSell();
@@ -22,5 +23,7 @@ public interface SellerDao {
 //    String deleteAcount(String username,String password);
 //    
 //    
+
+	SellerImpl getSellerByUsername(String username);
     
 }

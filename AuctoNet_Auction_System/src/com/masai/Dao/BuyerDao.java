@@ -31,6 +31,8 @@ public interface BuyerDao {
 
 	BuyerImpl getBuyerByUsername(String username);
 
+	double getBalance(String username);
+
 	
 //	ArrayList<RefundProductImpl> viewAllrefundProduct();
 	
