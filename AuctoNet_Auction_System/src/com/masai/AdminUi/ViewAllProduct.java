@@ -87,26 +87,10 @@ public class ViewAllProduct extends JFrame {
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
+		table.setRowSelectionAllowed(false);
+		table.setEnabled(false);
 		scrollPane.setViewportView(table);
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-				{new Integer(1), "Redmi Note 10 Pro", null, "seller1", "Rajesh Kumar", new Integer(50), "6GB RAM, 128GB storage, 64MP quad camera", new Integer(0), new Integer(2)},
-				{new Integer(2), "Realme 8", null, "seller9", "Suresh Menon", new Integer(30), "8GB RAM, 128GB storage, 64MP quad camera", new Integer(0), new Integer(2)},
-				{new Integer(3), "Mi TV 4A Horizon Edition", null, "seller7", "Aparna Bose", new Integer(10), "43-inch Full HD LED TV, Android TV, PatchWall", new Integer(0), new Integer(2)},
-				{new Integer(4), "Samsung Galaxy M51", null, "seller4", "Neha Patel", new Integer(20), "6GB RAM, 128GB storage, 64MP quad camera", new Integer(0), new Integer(2)},
-				{new Integer(5), "Poco X3 Pro", null, "seller1", "Rajesh Kumar", new Integer(40), "6GB RAM, 128GB storage, 48MP quad camera", new Integer(0), new Integer(2)},
-				{new Integer(6), "Realme Narzo 30", null, "seller2", "Priya Sharma", new Integer(25), "4GB RAM, 64GB storage, 48MP triple camera", new Integer(0), new Integer(2)},
-				{new Integer(7), "Basmati Rice 5 kg", null, "seller1", "Rajesh Kumar", new Integer(100), "Premium quality basmati rice.", new Integer(0), new Integer(3)},
-				{new Integer(8), "Organic Turmeric Powder 250g", null, "seller2", "Priya Sharma", new Integer(50), "100% certified organic turmeric powder.", new Integer(0), new Integer(3)},
-				{new Integer(9), "Cotton T-shirt", null, "seller6", "Vikas Jain", new Integer(30), "100% pure cotton t-shirt, available in all sizes.", new Integer(0), new Integer(1)},
-				{new Integer(10), "Jeans", null, "seller7", "Aparna Bose", new Integer(20), "Stylish and comfortable jeans for men and women.", new Integer(0), new Integer(1)},
-				{new Integer(11), "Stainless Steel Water Bottle", null, "seller10", "Rohit Raj", new Integer(50), "Leak-proof and eco-friendly water bottle, available in 500 ml and 1 liter sizes.", new Integer(0), new Integer(4)},
-				{new Integer(12), "Wall Clock", null, "seller5", "Rashmi Gupta", new Integer(10), "Beautiful and elegant wall clock, adds style to your home decor.", new Integer(0), new Integer(4)},
-			},
-			new String[] {
-				"product_id", "product_name", "price_per_piece", "seller_id", "seller_name", "quantity", "description", "sold_status", "category_id"
-			}
-		));
+		
 	    
 		
 		try {
@@ -312,7 +296,7 @@ public class ViewAllProduct extends JFrame {
 			panel_1.add(textField);
 			textField.setColumns(10);
 			
-			JLabel lblNewLabel_1 = new JLabel("Enter Seller Id :");
+			JLabel lblNewLabel_1 = new JLabel("Enter Username :");
 			lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 			lblNewLabel_1.setFont(new Font("Bahnschrift", Font.PLAIN, 21));
 			lblNewLabel_1.setForeground(SystemColor.textHighlightText);
@@ -324,7 +308,7 @@ public class ViewAllProduct extends JFrame {
 				public void actionPerformed(ActionEvent e) {
 					String item = (String) textField.getText() ;
 					try {
-						table.setModel(DbUtils.resultSetToTableModel(admin.getAllProductsBySellerId(item)));
+						table.setModel(DbUtils.resultSetToTableModel(admin.getAllProductsBySellerUsername(item)));
 						CSS.setTable(table);
 						
 						if(table.getRowCount()==0) {

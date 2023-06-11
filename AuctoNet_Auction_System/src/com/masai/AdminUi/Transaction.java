@@ -71,6 +71,8 @@ public class Transaction extends JFrame {
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
+		table.setRowSelectionAllowed(false);
+		table.setEnabled(false);
 		scrollPane.setViewportView(table);
 		table.setModel(new DefaultTableModel(
 			new Object[][] {

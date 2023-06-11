@@ -48,6 +48,7 @@ public class BuyerOperations extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 980, 647);
 		contentPane = new JPanel();
+		contentPane.setBackground(SystemColor.activeCaptionBorder);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -56,7 +57,7 @@ public class BuyerOperations extends JFrame {
 		JLabel lblNewLabel = new JLabel("buyer");
 		lblNewLabel.setText("Hello " + buyer.getFirstName()+" "+buyer.getLastName());
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 30));
+		lblNewLabel.setFont(new Font("Bahnschrift", Font.BOLD, 30));
 		lblNewLabel.setBounds(163, 10, 662, 59);
 		contentPane.add(lblNewLabel);
 		
@@ -71,24 +72,24 @@ public class BuyerOperations extends JFrame {
 				
 			}
 		});
-		btnNewButton.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
+		btnNewButton.setFont(new Font("Bahnschrift", Font.BOLD, 25));
 		btnNewButton.setBackground(new Color(240, 240, 240));
-		btnNewButton.setBounds(35, 212, 217, 44);
+		btnNewButton.setBounds(30, 165, 255, 44);
 		contentPane.add(btnNewButton);
 		
-		JButton btnViewProductsFor = new JButton("View Products For Sell");
+		JButton btnViewProductsFor = new JButton("View Products");
 		btnViewProductsFor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				frame.setVisible(false);
-				BuyerTransactions.main(null);
+				BuyerProducts.main(null);
 				
 				
 			}
 		});
-		btnViewProductsFor.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
+		btnViewProductsFor.setFont(new Font("Bahnschrift", Font.BOLD, 25));
 		btnViewProductsFor.setBackground(SystemColor.menu);
-		btnViewProductsFor.setBounds(23, 425, 281, 51);
+		btnViewProductsFor.setBounds(30, 348, 255, 51);
 		contentPane.add(btnViewProductsFor);
 		
 		JButton btnViewTransactions = new JButton("View Transactions");
@@ -101,10 +102,22 @@ public class BuyerOperations extends JFrame {
 				
 			}
 		});
-		btnViewTransactions.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
+		btnViewTransactions.setFont(new Font("Bahnschrift", Font.BOLD, 25));
 		btnViewTransactions.setBackground(SystemColor.menu);
-		btnViewTransactions.setBounds(35, 311, 241, 59);
+		btnViewTransactions.setBounds(30, 256, 255, 59);
 		contentPane.add(btnViewTransactions);
+		
+		JButton btnNewButton_1 = new JButton("Logout");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				frame.setVisible(false);
+				BuyerMain.main(null);
+				
+			}
+		});
+		btnNewButton_1.setFont(new Font("Bahnschrift", Font.PLAIN, 30));
+		btnNewButton_1.setBounds(773, 523, 158, 59);
+		contentPane.add(btnNewButton_1);
 	}
-
 }

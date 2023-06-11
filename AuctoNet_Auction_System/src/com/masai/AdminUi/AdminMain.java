@@ -131,7 +131,7 @@ public class AdminMain extends JFrame {
 		panel.add(passwordField);
 		passwordField.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 27));
 
-		JLabel lblNewLabel = new JLabel("Admin Id  : ");
+		JLabel lblNewLabel = new JLabel("Username  : ");
 		lblNewLabel.setBounds(40, 36, 178, 64);
 		panel.add(lblNewLabel);
 		lblNewLabel.setBackground(new Color(0, 0, 0));

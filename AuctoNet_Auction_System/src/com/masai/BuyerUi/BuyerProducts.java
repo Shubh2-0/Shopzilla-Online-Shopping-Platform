@@ -189,7 +189,7 @@ public class BuyerProducts extends JFrame {
 			}
 		});
 		btnNewButton.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
-		btnNewButton.setBounds(346, 133, 128, 37);
+		btnNewButton.setBounds(346, 152, 128, 37);
 		panel.add(btnNewButton);
 		
 		JLabel lblNewLabel_1_1_1 = new JLabel("Enter Quantity :");

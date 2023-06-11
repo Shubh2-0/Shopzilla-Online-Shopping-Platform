@@ -137,7 +137,7 @@ public class BuyerMain extends JFrame {
 		});
 		
 		
-		JLabel lblNewLabel_2 = new JLabel("Buyer Id :");
+		JLabel lblNewLabel_2 = new JLabel("Username : ");
 		lblNewLabel_2.setFont(new Font("Bahnschrift", Font.BOLD, 25));
 		lblNewLabel_2.setBounds(195, 231, 156, 61);
 		contentPane.add(lblNewLabel_2);

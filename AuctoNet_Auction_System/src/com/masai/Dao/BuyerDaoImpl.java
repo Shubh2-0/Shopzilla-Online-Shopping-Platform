@@ -29,7 +29,7 @@ public class BuyerDaoImpl implements BuyerDao {
 		
 		con = DBUtils.getConnection();
 		
-		String SELECT_QUERY = "SELECT * FROM BUYER WHERE USERNAME = ? AND PASSWORD = ? AND is_deleted != 1";
+		String SELECT_QUERY = "SELECT * FROM BUYER WHERE username = ? AND password = ? AND is_deleted != 1";
 		
 		PreparedStatement statement = con.prepareStatement(SELECT_QUERY); 
 		
@@ -45,9 +45,11 @@ public class BuyerDaoImpl implements BuyerDao {
 					set.getString(3), 
 					set.getString(4), 
 					set.getString(5), 
-					set.getString(6));
+					set.getString(6),
+					set.getDouble(7)
+					);
 		}
-		
+	
 		
 		
 	} catch (Exception e) {
@@ -92,7 +94,8 @@ public class BuyerDaoImpl implements BuyerDao {
 					set.getString(3), 
 					set.getString(4), 
 					set.getString(5), 
-					set.getString(6));
+					set.getString(6),
+					set.getDouble(7));
 		}
 		
 		
@@ -123,7 +126,7 @@ public class BuyerDaoImpl implements BuyerDao {
 		try {
 			
 			con = DBUtils.getConnection();
-			String INSERT_QUERY = "INSERT INTO BUYER VALUES(?,?,?,?,?,?,?)";
+			String INSERT_QUERY = "INSERT INTO BUYER VALUES(?,?,?,?,?,?,?,?)";
 			
 			PreparedStatement statement = con.prepareStatement(INSERT_QUERY);
 			
@@ -133,7 +136,8 @@ public class BuyerDaoImpl implements BuyerDao {
 			statement.setString(4, u.getLastName());
 			statement.setString(5, u.getMobileNo());
 			statement.setString(6, u.getAddress());
-			statement.setInt(7, 0);
+			statement.setDouble(7, u.getBalance());
+			statement.setInt(8, 0);
 			
 			int ans = statement.executeUpdate();
 			
@@ -218,7 +222,7 @@ public class BuyerDaoImpl implements BuyerDao {
 			try {
 				
 				con = DBUtils.getConnection();
-				String SELECT_QUERY = "SELECT * FROM PRODUCT WHERE SOLD_STATUS = 0";
+				String SELECT_QUERY = "SELECT product_id AS Product_ID, product_name AS Product_Name, price_per_piece AS Price_Per_Piece, seller_name AS Seller_Name, quantity, description, category_id AS Category_ID FROM product WHERE sold_status = 0";
 				
 				PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
 				
@@ -253,6 +257,9 @@ public class BuyerDaoImpl implements BuyerDao {
 	public String purchaseItem(int productId, int quantity) {
 	
 		int totalQuantity = 0;
+		double perUnitPrice = 0.0;
+		int seller_Id  = 0;
+		String usernmae = buyer.getBuyerUserName();
 		
 		try {
 			
@@ -270,8 +277,12 @@ public class BuyerDaoImpl implements BuyerDao {
 			while(set.next()) {
 			
 				totalQuantity = set.getInt("QUANTITY");
+				perUnitPrice = set.getDouble("price_per_piece");
+				seller_Id = set.getInt("seller_unique_num");
 			}
 			
+			
+			double bill = perUnitPrice*quantity;
 			
 			
 		
@@ -325,17 +336,53 @@ public class BuyerDaoImpl implements BuyerDao {
 				
 				if(ans > 0) {
 					
+					double balance = buyer.getBalance();
+					
+					if(balance < bill) {
+						
+						return "Not enough balance";
+						
+					}
+					
+					
 					String UPDATE_QUERY2 = "UPDATE PRODUCT SET QUANTITY = ? WHERE PRODUCT_ID = ?";
 					
+					String UPDATE_QUERY3 = "UPDATE BUYER SET balance = ? WHERE UserName = ?";
+					
+					String UPDATE_QUERY4 = "UPDATE SELER SET income = ? WHERE SellerId = ?";
+					
+					
+					
 					PreparedStatement statement3 = con.prepareStatement(UPDATE_QUERY2);
+					PreparedStatement statement4 = con.prepareStatement(UPDATE_QUERY3);
+					PreparedStatement statement5 = con.prepareStatement(UPDATE_QUERY4);
+					
 					
 					statement3.setInt(1, totalQuantity-quantity);
 					statement3.setInt(2, productId);
+					
+					statement4.setDouble(1, balance-bill);
+					statement4.setString(2, usernmae);
+					
+					statement5.setDouble(1, seller_Id);
+					statement5.setInt(2, productId);
+					
+					
 				
 					int ans3 = statement3.executeUpdate();
 					
-					if(ans3 > 0)
-					return "Purchase Done...";
+					if(ans3 > 0) {
+					
+						
+						
+						return "purchase done";
+						
+						
+						
+						
+						
+					}
+					
 				}
 				
 				
@@ -382,7 +429,7 @@ public class BuyerDaoImpl implements BuyerDao {
 			try {
 				
 				con = DBUtils.getConnection();
-				String SELECT_QUERY = "SELECT * FROM TRANSACTIONS WHERE BUYER_ID = ?";
+				String SELECT_QUERY = "SELECT transaction_id AS Transaction_ID, product_id AS Product_ID, product_name AS Product_Name, buyer_id AS Buyer_ID, buyer_name AS Buyer_Name, quantity, purchase_date, amount_per_piece AS Amount_Per_Piece, price, gst_percentage AS GST_Percentage, tax_amount AS Tax_Amount, total_price AS Total_Price, return_policy FROM transactions WHERE buyer_id = ?";
 				
 				PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
 		

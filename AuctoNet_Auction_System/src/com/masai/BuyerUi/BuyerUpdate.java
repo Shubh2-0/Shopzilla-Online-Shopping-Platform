@@ -17,6 +17,7 @@ import javax.swing.JOptionPane;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class BuyerUpdate extends JFrame {
 
@@ -50,8 +51,9 @@ public class BuyerUpdate extends JFrame {
 	public BuyerUpdate(BuyerImpl buyer2) {
 		this.buyer = buyer2;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 756, 591);
+		setBounds(100, 100, 756, 642);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(240, 128, 128));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -67,52 +69,52 @@ public class BuyerUpdate extends JFrame {
 				
 			}
 		});
-		btnNewButton.setFont(new Font("Comic Sans MS", Font.PLAIN, 25));
-		btnNewButton.setBounds(583, 497, 149, 47);
+		btnNewButton.setFont(new Font("Bahnschrift", Font.PLAIN, 25));
+		btnNewButton.setBounds(583, 543, 149, 47);
 		contentPane.add(btnNewButton);
 		
 		textField = new JTextField();
-		textField.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		textField.setBounds(212, 92, 303, 47);
+		textField.setFont(new Font("Bahnschrift", Font.PLAIN, 25));
+		textField.setBounds(212, 124, 303, 47);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
-		textField_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		textField_1.setFont(new Font("Bahnschrift", Font.PLAIN, 25));
 		textField_1.setColumns(10);
-		textField_1.setBounds(212, 182, 303, 47);
+		textField_1.setBounds(212, 210, 303, 47);
 		contentPane.add(textField_1);
 		
 		textField_2 = new JTextField();
-		textField_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		textField_2.setFont(new Font("Bahnschrift", Font.PLAIN, 25));
 		textField_2.setColumns(10);
-		textField_2.setBounds(212, 253, 303, 47);
+		textField_2.setBounds(212, 298, 303, 47);
 		contentPane.add(textField_2);
 		
 		textField_3 = new JTextField();
-		textField_3.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		textField_3.setFont(new Font("Bahnschrift", Font.PLAIN, 25));
 		textField_3.setColumns(10);
-		textField_3.setBounds(212, 339, 303, 47);
+		textField_3.setBounds(212, 381, 303, 47);
 		contentPane.add(textField_3);
 		
 		JLabel lblNewLabel = new JLabel("First Name :");
-		lblNewLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
-		lblNewLabel.setBounds(21, 82, 136, 47);
+		lblNewLabel.setFont(new Font("Bahnschrift", Font.BOLD, 20));
+		lblNewLabel.setBounds(47, 125, 136, 47);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblLastName = new JLabel("Last Name :");
-		lblLastName.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
-		lblLastName.setBounds(21, 168, 136, 47);
+		lblLastName.setFont(new Font("Bahnschrift", Font.BOLD, 20));
+		lblLastName.setBounds(47, 211, 136, 47);
 		contentPane.add(lblLastName);
 		
 		JLabel lblMobileNumber = new JLabel("Mobile Number :");
-		lblMobileNumber.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
-		lblMobileNumber.setBounds(21, 253, 167, 47);
+		lblMobileNumber.setFont(new Font("Bahnschrift", Font.BOLD, 20));
+		lblMobileNumber.setBounds(47, 299, 167, 47);
 		contentPane.add(lblMobileNumber);
 		
 		JLabel lblAddress = new JLabel("Address :");
-		lblAddress.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
-		lblAddress.setBounds(21, 339, 136, 47);
+		lblAddress.setFont(new Font("Bahnschrift", Font.BOLD, 20));
+		lblAddress.setBounds(47, 382, 136, 47);
 		contentPane.add(lblAddress);
 		
 		JButton btnNewButton_1 = new JButton("Update");
@@ -163,9 +165,14 @@ public class BuyerUpdate extends JFrame {
 				
 			}
 		});
-		btnNewButton_1.setFont(new Font("Comic Sans MS", Font.PLAIN, 25));
-		btnNewButton_1.setBounds(310, 437, 149, 57);
+		btnNewButton_1.setFont(new Font("Bahnschrift", Font.PLAIN, 25));
+		btnNewButton_1.setBounds(287, 480, 149, 57);
 		contentPane.add(btnNewButton_1);
+		
+		JLabel lblNewLabel_1 = new JLabel("Update Information");
+		lblNewLabel_1.setFont(new Font("Bahnschrift", Font.BOLD, 35));
+		lblNewLabel_1.setBounds(234, 34, 340, 38);
+		contentPane.add(lblNewLabel_1);
 	}
 
 }

@@ -8,6 +8,7 @@ public class BuyerImpl implements Buyer {
 	private String lastName = "";
 	private String mobileNo = "";
 	private String address = "";
+	private double balance = 0.0;
 	
 	public BuyerImpl() {
 		super();
@@ -26,7 +27,7 @@ public class BuyerImpl implements Buyer {
    
 	
 	public BuyerImpl(String buyerUserName, String password, String firstName, String lastName, String mobileNo,
-			String address) {
+			String address,double balance ) {
 		
 		BuyerUserName = buyerUserName;
 		this.password = password;
@@ -50,6 +51,12 @@ public class BuyerImpl implements Buyer {
 			this.address="";
 		else
 			this.address=address;
+		
+		if(balance<0.0)
+			this.balance=0.0;
+		else
+			this.balance=balance;
+		
 		
 		
 	}
@@ -124,13 +131,19 @@ public class BuyerImpl implements Buyer {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+
 	
+	@Override
+	public double getBalance() {
+		return balance;
+	}
 
 	@Override
-	public String toString() {
-		return "BuyerImpl [BuyerUserName=" + BuyerUserName + ", firstName=" + firstName + ", lastName=" + lastName + ", mobileNo="
-				+ mobileNo + ", password=" + password + ", address=" + address + "]";
+	public void setBalance(double balance) {
+		this.balance = balance;
 	}
+	
+	
 
 	
 	

@@ -20,4 +20,8 @@ public interface Buyer {
 	public String getAddress();
 	public void setAddress(String address);
 
+	
+	public double getBalance();
+	public void setBalance(double balance);
+	
 }
