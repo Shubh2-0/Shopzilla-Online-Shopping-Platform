@@ -4,18 +4,10 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.time.LocalDate;
-import java.util.ArrayList;
-
-import javax.swing.JOptionPane;
-
-import com.masai.Dto.Buyer;
 import com.masai.Dto.BuyerImpl;
-import com.masai.Dto.ProductImpl;
-import com.masai.Dto.RefundProductImpl;
 import com.masai.Dto.SellerImpl;
-import com.masai.Dto.TransactionImpl;
+
 
 
 public class BuyerDaoImpl implements BuyerDao {
@@ -32,6 +24,8 @@ public class BuyerDaoImpl implements BuyerDao {
 	@Override
 	public BuyerImpl loginBuyer(String username, String password) {
 	
+		buyer = null;
+		
 	try {
 		
 		con = DBUtils.getConnection();
@@ -256,7 +250,10 @@ public class BuyerDaoImpl implements BuyerDao {
 			
 			e.printStackTrace();
 			
+		}finally {
+			DBUtils.closeConnection(con);
 		}
+		
 		
 		return "Faild to Update....";
 		
@@ -293,7 +290,10 @@ public class BuyerDaoImpl implements BuyerDao {
 				
 				e.printStackTrace();
 				
+			}finally {
+				DBUtils.closeConnection(con);
 			}
+			
 			
 			
 			return null;
@@ -497,7 +497,10 @@ public class BuyerDaoImpl implements BuyerDao {
 			
 			e.printStackTrace();
 			
+		}finally {
+			DBUtils.closeConnection(con);
 		}
+		
 		
 		
 		
@@ -505,6 +508,44 @@ public class BuyerDaoImpl implements BuyerDao {
 		
 	}
 
+	
+	@Override
+	public boolean hideTransactions(String username,String name) {
+		
+          try {
+			
+			con = DBUtils.getConnection();
+			
+			String SELECT_QUERY = "UPDATE transactions SET is_hide = 1 WHERE buyer_id = ? AND buyer_name = ?";
+			
+			PreparedStatement statement = con.prepareStatement(SELECT_QUERY); 
+			
+			statement.setString(1, username);
+			statement.setString(2, name);
+			
+			
+			int ans = statement.executeUpdate();
+			
+			if(ans > 0) return true;
+			
+			
+			
+			
+		} catch (Exception e) {
+			
+			System.out.println(e);
+			
+		}finally {
+			
+			DBUtils.closeConnection(con);
+		}
+			
+			
+			
+		return false;
+			
+		
+	}
 	
 	
 //	@Override
@@ -557,7 +598,10 @@ public class BuyerDaoImpl implements BuyerDao {
 				
 				e.printStackTrace();
 				
+			}finally {
+				DBUtils.closeConnection(con);
 			}
+			
 			
 			
 			return null;	
@@ -624,7 +668,10 @@ public class BuyerDaoImpl implements BuyerDao {
 			
 			e.printStackTrace();
 			
+		}finally {
+			DBUtils.closeConnection(con);
 		}
+		
 		
 		
 		return null;
@@ -657,7 +704,10 @@ public class BuyerDaoImpl implements BuyerDao {
 			
 			e.printStackTrace();
 			
+		}finally {
+			DBUtils.closeConnection(con);
 		}
+		
 		
 		
 		return null;
@@ -665,6 +715,90 @@ public class BuyerDaoImpl implements BuyerDao {
 		
 	}
 	
+	
+	@Override
+	public boolean addAmountToBuyerBalance(double amount,String unsername) {
+		
+		
+		try {
+			
+			con = DBUtils.getConnection();
+			
+			String SELECT_QUERY = "UPDATE buyer SET balance = ? WHERE username = ?";
+			
+			PreparedStatement statement = con.prepareStatement(SELECT_QUERY); 
+			
+			statement.setDouble(1, amount);
+			statement.setString(2, unsername);
+			
+		
+			
+			int ans = statement.executeUpdate();
+			
+			if(ans > 0) return true;
+			
+			
+			
+		} catch (Exception e) {
+			
+			System.out.println(e);
+			
+		}finally {
+			
+			DBUtils.closeConnection(con);
+		}
+			
+			
+			
+	
+		
+		
+		
+		
+		
+		return false;
+	}
+	
+	
+	@Override
+	public boolean deleteBuyer(String username,String password) {
+		
+		try {
+			
+			con = DBUtils.getConnection();
+			
+			String SELECT_QUERY = "UPDATE buyer SET deleted_date = NOW() , is_deleted = 1 WHERE username = ? AND password = ?";
+			
+			PreparedStatement statement = con.prepareStatement(SELECT_QUERY); 
+			
+			statement.setString(1, username);
+			statement.setString(2, password);
+			
+			
+			int ans = statement.executeUpdate();
+			
+			if(ans > 0) return true;
+			
+			
+			
+			
+		} catch (Exception e) {
+			
+			System.out.println(e);
+			
+		}finally {
+			
+			DBUtils.closeConnection(con);
+		}
+			
+			
+			
+		return false;
+			
+		
+		
+		
+	}
 	
 	
 

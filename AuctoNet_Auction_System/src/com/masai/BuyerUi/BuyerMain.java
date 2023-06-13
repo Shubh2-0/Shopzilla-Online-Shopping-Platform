@@ -154,7 +154,7 @@ public class BuyerMain extends JFrame {
 				String username = textField.getText();
 				String password = textField_1.getText();
 				
-			
+				 buyer = null;
 				
 				if(username.equals("") || password.equals(""))
 					JOptionPane.showMessageDialog(null, "Empty field..");

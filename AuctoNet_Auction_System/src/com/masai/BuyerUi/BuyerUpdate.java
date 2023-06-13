@@ -135,6 +135,13 @@ public class BuyerUpdate extends JFrame {
 				String address = null; 
 				address = textField_3.getText();
 				
+				if(fname.equals("") && lname.equals("") && mobile.equals("") && address.equals("")) {
+					
+					JOptionPane.showMessageDialog(null, "Not update any single field !");
+					return;
+					
+					
+				}
 				
 				
 				if(!fname.equals("")) {

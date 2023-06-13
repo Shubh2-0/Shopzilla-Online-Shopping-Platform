@@ -330,8 +330,9 @@ public class ViewAllProduct extends JFrame {
 						
 						
 						table.setModel(DbUtils.resultSetToTableModel(admin.getAllProductsByInAccendingOrderByPrice()));
+						CSS.setTable(table);
 						
-						if(table.getRowCount()==0) {
+						if(table.getRowCount()== 0) {
 							JOptionPane.showMessageDialog(null, "No Record Found");
 							table.setModel(DbUtils.resultSetToTableModel(admin.getAllProducts()));
 							CSS.setTable(table);

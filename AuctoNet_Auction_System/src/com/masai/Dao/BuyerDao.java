@@ -33,6 +33,12 @@ public interface BuyerDao {
 
 	double getBalance(String username);
 
+	boolean addAmountToBuyerBalance(double amount, String unsername);
+
+	boolean deleteBuyer(String username, String password);
+
+	boolean hideTransactions(String username, String name);
+
 	
 //	ArrayList<RefundProductImpl> viewAllrefundProduct();
 	

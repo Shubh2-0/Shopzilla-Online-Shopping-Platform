@@ -80,7 +80,7 @@ public class BuyerOperations extends JFrame {
 		});
 		btnNewButton.setFont(new Font("Bahnschrift", Font.BOLD, 25));
 		btnNewButton.setBackground(new Color(240, 240, 240));
-		btnNewButton.setBounds(30, 165, 255, 44);
+		btnNewButton.setBounds(30, 150, 255, 59);
 		contentPane.add(btnNewButton);
 		
 		JButton btnViewProductsFor = new JButton("View Products");
@@ -145,6 +145,41 @@ public class BuyerOperations extends JFrame {
 		lblNewLabel_3.setText(buyerDao.getBalance(buyer.getBuyerUserName())+"");
 		lblNewLabel_3.setBounds(271, 552, 158, 37);
 		contentPane.add(lblNewLabel_3);
+		
+		JButton btnAddBalance = new JButton("Add Balance");
+		btnAddBalance.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				double balance = Double.parseDouble(lblNewLabel_3.getText());
+				String username = buyer.getBuyerUserName();
+				
+				frame.setVisible(false);
+				BuyerAddBalance.balance = balance;
+				BuyerAddBalance.username = username;
+				BuyerAddBalance.main(null);
+				
+			}
+		});
+		btnAddBalance.setFont(new Font("Bahnschrift", Font.BOLD, 25));
+		btnAddBalance.setBackground(SystemColor.menu);
+		btnAddBalance.setBounds(30, 430, 255, 51);
+		contentPane.add(btnAddBalance);
+		
+		JButton btnDeleteAcount = new JButton("Delete Acount");
+		btnDeleteAcount.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				frame.setVisible(false);
+				BuyerDelete.name = buyer.getFirstName()+" "+buyer.getLastName();
+				BuyerDelete.username = buyer.getBuyerUserName();
+				BuyerDelete.password = buyer.getPassword();
+				BuyerDelete.main(null);
+			}
+		});
+		btnDeleteAcount.setFont(new Font("Bahnschrift", Font.BOLD, 25));
+		btnDeleteAcount.setBackground(SystemColor.menu);
+		btnDeleteAcount.setBounds(710, 368, 221, 51);
+		contentPane.add(btnDeleteAcount);
 		
 		
 	}
