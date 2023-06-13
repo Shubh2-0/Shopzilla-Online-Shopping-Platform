@@ -310,6 +310,8 @@ public class BuyerDaoImpl implements BuyerDao {
 		int seller_Id  = 0;
 		String usernmae = buyer.getBuyerUserName();
 		String sellerusername = null;
+		int gst = productDao.getGStPercentage(productId);		
+		
 		
 		try {
 			
@@ -455,7 +457,8 @@ public class BuyerDaoImpl implements BuyerDao {
 					}
 					
 					
-					
+					double tax = bill*gst/100;
+					bill+=tax;
 					
 					
 					statement4.setDouble(1, balance-bill);
@@ -502,6 +505,8 @@ public class BuyerDaoImpl implements BuyerDao {
 		
 	}
 
+	
+	
 //	@Override
 //	public String returnGoods(LocalDate date, int productId,int transactionId) {
 //		

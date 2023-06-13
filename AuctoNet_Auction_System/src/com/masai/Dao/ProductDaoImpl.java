@@ -2,6 +2,7 @@ package com.masai.Dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class ProductDaoImpl implements ProductDao {
 	
@@ -50,6 +51,68 @@ public class ProductDaoImpl implements ProductDao {
 		
 		
 	}
+	
+	
+	@Override
+	public int getGStPercentage(int productId) {
+		
+		
+		Connection con = null;
+		int gst = 0;
+
+		try {
+			
+			con = DBUtils.getConnection();
+			
+			String UPDATE_QUERY2 = "SELECT GST_PER FROM CATEGORY WHERE CAT_ID = (SELECT CATEGORY_ID FROM PRODUCT WHERE PRODUCT_ID = ?)";
+			PreparedStatement statement3 = con.prepareStatement(UPDATE_QUERY2);
+			
+			
+			statement3.setInt(1, productId);
+			
+		   ResultSet set = statement3.executeQuery();
+		   
+		   
+		   
+		   
+		   while(set.next()) {
+			   
+			   gst = set.getInt("gst_per");
+			   
+		   }
+		   
+		   
+			
+		   
+			
+			
+		} catch (Exception e) {
+			
+			
+			
+		}finally {
+			
+			DBUtils.closeConnection(con);
+			
+		}
+			
+			
+			
+			
+			
+			
+			
+			return gst;
+	
+		
+		
+		
+		
+		
+		
+	}
+	
+
 	
 
 }
