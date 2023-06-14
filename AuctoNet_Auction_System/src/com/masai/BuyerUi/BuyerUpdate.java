@@ -78,24 +78,29 @@ public class BuyerUpdate extends JFrame {
 		textField.setBounds(212, 124, 303, 47);
 		contentPane.add(textField);
 		textField.setColumns(10);
+		textField.setText(buyer2.getFirstName());
 		
 		textField_1 = new JTextField();
 		textField_1.setFont(new Font("Bahnschrift", Font.PLAIN, 25));
 		textField_1.setColumns(10);
 		textField_1.setBounds(212, 210, 303, 47);
 		contentPane.add(textField_1);
+		textField_1.setText(buyer2.getLastName());
 		
 		textField_2 = new JTextField();
 		textField_2.setFont(new Font("Bahnschrift", Font.PLAIN, 25));
 		textField_2.setColumns(10);
 		textField_2.setBounds(212, 298, 303, 47);
 		contentPane.add(textField_2);
+		textField_2.setText(buyer2.getMobileNo());
 		
 		textField_3 = new JTextField();
 		textField_3.setFont(new Font("Bahnschrift", Font.PLAIN, 25));
 		textField_3.setColumns(10);
 		textField_3.setBounds(212, 381, 303, 47);
 		contentPane.add(textField_3);
+		textField_3.setText(buyer2.getAddress());
+		
 		
 		JLabel lblNewLabel = new JLabel("First Name :");
 		lblNewLabel.setFont(new Font("Bahnschrift", Font.BOLD, 20));
@@ -169,6 +174,8 @@ public class BuyerUpdate extends JFrame {
 				textField_2.setText(null);
 				textField_3.setText(null);
 				
+				frame.setVisible(false);
+				BuyerOperations.main(null);
 				
 			}
 		});

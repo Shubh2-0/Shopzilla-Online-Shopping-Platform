@@ -124,7 +124,7 @@ public class AdminDaoImpl implements AdminDao {
 			try {
 				
 				con = DBUtils.getConnection();
-				String SELECT_QUERY = "SELECT product_id AS ID, product_name AS Name, price_per_piece AS Price_Per_Unit, seller_username AS SellerUsername, seller_name AS SellerName, quantity AS Quantity, description AS Description, category_id AS CategoryID FROM product";
+				String SELECT_QUERY = "SELECT product_id AS ID, product_name AS Name, price_per_piece AS Price_Per_Unit, seller_username AS SellerUsername, seller_name AS SellerName, quantity AS Quantity, description AS Description, category_id AS CategoryID FROM product WHERE sold_status = 0";
 
 
 				PreparedStatement statement = con.prepareStatement(SELECT_QUERY);				
@@ -194,7 +194,7 @@ public class AdminDaoImpl implements AdminDao {
 			try {
 				
 				con = DBUtils.getConnection();
-				String SELECT_QUERY = "SELECT product_id AS ID, product_name AS Name, price_per_piece AS Price_Per_Unit, seller_username AS SellerUsername, seller_name AS SellerName, quantity AS Quantity, description AS Description, category_id AS CategoryID FROM product WHERE category_id = (SELECT cat_id FROM category WHERE cat_name = ?)";
+				String SELECT_QUERY = "SELECT product_id AS ID, product_name AS Name, price_per_piece AS Price_Per_Unit, seller_username AS SellerUsername, seller_name AS SellerName, quantity AS Quantity, description AS Description, category_id AS CategoryID FROM product WHERE category_id = (SELECT cat_id FROM category WHERE cat_name = ?) AND sold_status = 0";
 
 				
 				PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
@@ -229,7 +229,7 @@ public class AdminDaoImpl implements AdminDao {
 			try {
 				
 				con = DBUtils.getConnection();
-				String SELECT_QUERY = "SELECT product_id AS ID, product_name AS Name, price_per_piece AS Price_Per_Unit, seller_username AS SellerUsername, seller_name AS SellerName, quantity AS Quantity, description AS Description, category_id AS CategoryID FROM product WHERE seller_username = ?";
+				String SELECT_QUERY = "SELECT product_id AS ID, product_name AS Name, price_per_piece AS Price_Per_Unit, seller_username AS SellerUsername, seller_name AS SellerName, quantity AS Quantity, description AS Description, category_id AS CategoryID FROM product WHERE seller_username = ? AND sold_status = 0";
 
 				
 				PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
@@ -263,7 +263,7 @@ public class AdminDaoImpl implements AdminDao {
 			try {
 				
 				con = DBUtils.getConnection();
-				String SELECT_QUERY = "SELECT product_id AS ID, product_name AS Name, price_per_piece AS Price_Per_Unit, seller_username AS SellerUsername, seller_name AS SellerName, quantity AS Quantity, description AS Description, category_id AS CategoryID FROM product ORDER BY price_per_piece";
+				String SELECT_QUERY = "SELECT product_id AS ID, product_name AS Name, price_per_piece AS Price_Per_Unit, seller_username AS SellerUsername, seller_name AS SellerName, quantity AS Quantity, description AS Description, category_id AS CategoryID FROM product WHERE sold_status = 0 ORDER BY price_per_piece ";
 
 				
 				PreparedStatement statement = con.prepareStatement(SELECT_QUERY);

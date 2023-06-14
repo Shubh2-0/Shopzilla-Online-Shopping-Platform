@@ -57,9 +57,6 @@ public class BuyerDaoImpl implements BuyerDao {
 		
 		System.out.println(e);
 		
-	}finally {
-		
-		DBUtils.closeConnection(con);
 	}
 		
 		
@@ -99,9 +96,6 @@ public class BuyerDaoImpl implements BuyerDao {
 			
 			System.out.println(e);
 			
-		}finally {
-			
-			DBUtils.closeConnection(con);
 		}
 		
 		return balance;
@@ -146,9 +140,6 @@ public class BuyerDaoImpl implements BuyerDao {
 		
 		System.out.println(e);
 		
-	}finally {
-		
-		DBUtils.closeConnection(con);
 	}
 
 		
@@ -192,10 +183,7 @@ public class BuyerDaoImpl implements BuyerDao {
 			
 			e.printStackTrace();
 			
-		}finally {
-			DBUtils.closeConnection(con);
 		}
-		
 		
 		return "Something Went Wrong...";
 		
@@ -250,8 +238,6 @@ public class BuyerDaoImpl implements BuyerDao {
 			
 			e.printStackTrace();
 			
-		}finally {
-			DBUtils.closeConnection(con);
 		}
 		
 		
@@ -290,8 +276,6 @@ public class BuyerDaoImpl implements BuyerDao {
 				
 				e.printStackTrace();
 				
-			}finally {
-				DBUtils.closeConnection(con);
 			}
 			
 			
@@ -336,7 +320,7 @@ public class BuyerDaoImpl implements BuyerDao {
 			}
 			
 			
-			System.out.println("SELECR ID :"+seller_Id);
+			
 			
 			double bill = perUnitPrice*quantity;
 			
@@ -475,7 +459,7 @@ public class BuyerDaoImpl implements BuyerDao {
 					
 					if(productDao.updateQuantity(productId, totalQuantity-quantity) && ans4 > 0 && ans5 > 0) {
 					
-						
+						bill = Math.round(bill * 100.0) / 100.0;
 						
 						return "PURCHASE DONE\n"+
 						       "A MESSAGE FROM SELLER : \n"+"Dear ,"+buyer.getFirstName()+"Thank you for your purchase! We appreciate your patronage\n"+
@@ -497,11 +481,7 @@ public class BuyerDaoImpl implements BuyerDao {
 			
 			e.printStackTrace();
 			
-		}finally {
-			DBUtils.closeConnection(con);
 		}
-		
-		
 		
 		
 		return "Something Went Wrong....LAST";
@@ -535,11 +515,7 @@ public class BuyerDaoImpl implements BuyerDao {
 			
 			System.out.println(e);
 			
-		}finally {
-			
-			DBUtils.closeConnection(con);
 		}
-			
 			
 			
 		return false;
@@ -598,8 +574,6 @@ public class BuyerDaoImpl implements BuyerDao {
 				
 				e.printStackTrace();
 				
-			}finally {
-				DBUtils.closeConnection(con);
 			}
 			
 			
@@ -668,8 +642,6 @@ public class BuyerDaoImpl implements BuyerDao {
 			
 			e.printStackTrace();
 			
-		}finally {
-			DBUtils.closeConnection(con);
 		}
 		
 		
@@ -704,10 +676,7 @@ public class BuyerDaoImpl implements BuyerDao {
 			
 			e.printStackTrace();
 			
-		}finally {
-			DBUtils.closeConnection(con);
 		}
-		
 		
 		
 		return null;
@@ -743,11 +712,7 @@ public class BuyerDaoImpl implements BuyerDao {
 			
 			System.out.println(e);
 			
-		}finally {
-			
-			DBUtils.closeConnection(con);
 		}
-			
 			
 			
 	
@@ -786,11 +751,7 @@ public class BuyerDaoImpl implements BuyerDao {
 			
 			System.out.println(e);
 			
-		}finally {
-			
-			DBUtils.closeConnection(con);
 		}
-			
 			
 			
 		return false;

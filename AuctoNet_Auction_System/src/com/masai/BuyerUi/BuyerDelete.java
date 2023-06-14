@@ -57,7 +57,7 @@ public class BuyerDelete extends JFrame {
 	 */
 	public BuyerDelete() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 949, 648);
+		setBounds(100, 100, 949, 732);
 		contentPane = new JPanel();
 		contentPane.setForeground(SystemColor.desktop);
 		contentPane.setBackground(new Color(255, 0, 0));
@@ -87,14 +87,14 @@ public class BuyerDelete extends JFrame {
 		JLabel lblNewLabel_2_1 = new JLabel("Please note that once your account is deleted, it cannot be recovered");
 		lblNewLabel_2_1.setForeground(new Color(255, 255, 255));
 		lblNewLabel_2_1.setFont(new Font("Bahnschrift", Font.PLAIN, 20));
-		lblNewLabel_2_1.setBounds(10, 511, 889, 59);
+		lblNewLabel_2_1.setBounds(10, 518, 889, 59);
 		contentPane.add(lblNewLabel_2_1);
 		
 		JLabel lblNewLabel_2_2 = new JLabel("\nHowever, if you change your mind,"
 				+ "you have the option to restore your account within a 30-day period.");
 		lblNewLabel_2_2.setForeground(new Color(255, 255, 255));
 		lblNewLabel_2_2.setFont(new Font("Bahnschrift", Font.PLAIN, 20));
-		lblNewLabel_2_2.setBounds(10, 542, 945, 59);
+		lblNewLabel_2_2.setBounds(10, 565, 945, 59);
 		contentPane.add(lblNewLabel_2_2);
 		
 		JLabel lblNewLabel_2 = new JLabel("Username");
@@ -187,6 +187,17 @@ public class BuyerDelete extends JFrame {
 		btnNewButton.setFont(new Font("Bahnschrift", Font.BOLD, 25));
 		btnNewButton.setBounds(420, 418, 205, 46);
 		contentPane.add(btnNewButton);
+		
+		JButton btnCancelDeletion = new JButton("Cancel Deletion ");
+		btnCancelDeletion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.setVisible(false);
+				BuyerOperations.main(null);
+			}
+		});
+		btnCancelDeletion.setFont(new Font("Bahnschrift", Font.BOLD, 25));
+		btnCancelDeletion.setBounds(641, 639, 284, 46);
+		contentPane.add(btnCancelDeletion);
 		
 	
 		
