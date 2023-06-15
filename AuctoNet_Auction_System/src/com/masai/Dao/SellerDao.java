@@ -1,5 +1,6 @@
 package com.masai.Dao;
 
+import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -29,5 +30,21 @@ public interface SellerDao {
 	SellerImpl loginSeller(String username, String password);
 
 	String updateSellerDetails(SellerImpl u);
+
+	double getSellerIncome(String username);
+
+	String registerNewSeller(SellerImpl s);
+
+	ResultSet getAllSellerProducts();
+
+	boolean unhideSellerProducts(String username);
+
+	boolean hideSellerProducts(String username);
+
+	ResultSet getSellerAllProductsByCategory(String item, String username);
+
+	boolean amountWithrowBySeller(double amount, String unsername);
+
+	boolean deleteSeller(String username, String password);
     
 }

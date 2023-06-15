@@ -1,4 +1,4 @@
-package com.masai.BuyerUi;
+package com.masai.SellerUi;
 
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -15,6 +15,8 @@ import javax.swing.table.DefaultTableModel;
 import com.masai.CSS.CSS;
 import com.masai.Dao.AdminDaoImpl;
 import com.masai.Dao.BuyerDaoImpl;
+import com.masai.Dao.SellerDao;
+import com.masai.Dao.SellerDaoImpl;
 import com.masai.Exceptions.RecordNotFoundException;
 
 import net.proteanit.sql.DbUtils;
@@ -28,14 +30,12 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 import java.awt.SystemColor;
 
-public class BuyerProducts extends JFrame {
+public class SellerViewProducts extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
-	BuyerDaoImpl buyerdao = new BuyerDaoImpl();
-	private JTextField textField;
-	private JTextField textField_1;
-	static BuyerProducts frame;
+	SellerDao sellerDao = new SellerDaoImpl();
+	static SellerViewProducts frame;
 
 	/**
 	 * Launch the application.
@@ -44,7 +44,7 @@ public class BuyerProducts extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					frame = new BuyerProducts();
+					frame = new SellerViewProducts();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -56,7 +56,7 @@ public class BuyerProducts extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public BuyerProducts() {
+	public SellerViewProducts() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1449, 642);
 		contentPane = new JPanel();
@@ -113,95 +113,6 @@ public class BuyerProducts extends JFrame {
 		btnNewButton_1.setBounds(679, 322, 118, 35);
 		contentPane.add(btnNewButton_1);
 		
-		JPanel panel = new JPanel();
-		panel.setBackground(SystemColor.activeCaption);
-		panel.setBounds(26, 406, 784, 199);
-		contentPane.add(panel);
-		panel.setLayout(null);
-		
-		JLabel lblNewLabel_1 = new JLabel("Buy Product ?");
-		lblNewLabel_1.setBounds(346, 30, 206, 28);
-		panel.add(lblNewLabel_1);
-		lblNewLabel_1.setFont(new Font("Bahnschrift", Font.BOLD, 25));
-		
-		JLabel lblNewLabel_1_1 = new JLabel("Enter Product Id to Buy :");
-		lblNewLabel_1_1.setBounds(10, 81, 264, 43);
-		panel.add(lblNewLabel_1_1);
-		lblNewLabel_1_1.setFont(new Font("Bahnschrift", Font.BOLD, 20));
-		
-		textField = new JTextField();
-		textField.setBounds(265, 82, 136, 41);
-		panel.add(textField);
-		textField.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		textField.setColumns(10);
-		
-		JButton btnNewButton = new JButton("Buy");
-		btnNewButton.addActionListener(new ActionListener() {
-			
-			public void actionPerformed(ActionEvent e) {
-			
-				int id = 0;
-				int quantity = 0;
-				
-				try {
-					
-					id = Integer.parseInt(textField.getText());
-					quantity = Integer.parseInt(textField_1.getText());
-					
-				} catch (Exception e2) {
-					
-					JOptionPane.showMessageDialog(null, "Id must be in Number Format");
-					
-					
-				}
-				
-				
-				
-				if(id!=0) {
-					
-					if(quantity > 10) {
-						
-						JOptionPane.showMessageDialog(null, "Quantity Not More Than 10");
-					}else {
-						
-						table.setModel(DbUtils.resultSetToTableModel(buyerdao.getProductsByProductId(id)));
-						
-						if(table.getRowCount()==0)
-							JOptionPane.showMessageDialog(null, "No Product Found with With id");
-						
-						else {
-							String ans = buyerdao.purchaseItem(id, quantity);
-							JOptionPane.showMessageDialog(null,ans);
-							
-							frame.setVisible(false);
-							BuyerTransactions.main(null);
-							
-						}
-						
-					}
-					
-				
-				}
-				textField.setText(null);
-				textField_1.setText(null);
-				
-			}
-		});
-		btnNewButton.setFont(new Font("Bahnschrift", Font.PLAIN, 20));
-		btnNewButton.setBounds(346, 152, 128, 37);
-		panel.add(btnNewButton);
-		
-		JLabel lblNewLabel_1_1_1 = new JLabel("Enter Quantity :");
-		lblNewLabel_1_1_1.setFont(new Font("Bahnschrift", Font.BOLD, 20));
-		lblNewLabel_1_1_1.setBounds(446, 81, 264, 43);
-		panel.add(lblNewLabel_1_1_1);
-		
-		textField_1 = new JTextField();
-		textField_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		textField_1.setColumns(10);
-		textField_1.setBounds(623, 81, 136, 42);
-		panel.add(textField_1);
-		
 		JButton btnNewButton_2 = new JButton("Back");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -225,7 +136,7 @@ public class BuyerProducts extends JFrame {
 			}
 		});
 		btnNewButton_3.setFont(new Font("Bahnschrift", Font.BOLD, 20));
-		btnNewButton_3.setBounds(1328, 295, 97, 40);
+		btnNewButton_3.setBounds(1307, 320, 97, 40);
 		contentPane.add(btnNewButton_3);
 	}
 }

@@ -125,8 +125,8 @@ public class SellerMain extends JFrame {
 						JOptionPane.showMessageDialog(null, "Welcome "+seller.getFirstName()+"  😊");
 						
 						frame.setVisible(false);
-						SellerOperations s = new SellerOperations(seller);
-						s.main(null);
+						SellerOperations.seller = seller;
+						SellerOperations.main(null);
 						
 					}
 				}
@@ -200,7 +200,7 @@ public class SellerMain extends JFrame {
 		btnNewButton_1.setBounds(804, 547, 123, 44);
 		contentPane.add(btnNewButton_1);
 		
-		JLabel lblNewLabel_3 = new JLabel("Buyer Login");
+		JLabel lblNewLabel_3 = new JLabel("Seller Login");
 		lblNewLabel_3.setForeground(new Color(255, 255, 255));
 		lblNewLabel_3.setFont(new Font("Yu Gothic UI Semibold", Font.BOLD, 35));
 		lblNewLabel_3.setBounds(360, 27, 252, 58);

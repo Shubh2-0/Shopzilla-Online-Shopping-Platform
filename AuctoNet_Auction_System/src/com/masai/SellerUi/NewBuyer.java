@@ -1,4 +1,4 @@
-package com.masai.BuyerUi;
+package com.masai.SellerUi;
 
 import java.awt.EventQueue;
 

@@ -69,11 +69,19 @@ public class SellerOperations extends JFrame {
 		
 		JButton btnNewButton_1 = new JButton("Update Details");
 		btnNewButton_1.addActionListener(new ActionListener() {
+			
 			public void actionPerformed(ActionEvent e) {
+			
+				
 				frame.setVisible(false);
 				SellerUpdate.main(null);
+				
 			}
 		});
+	
+		
+		
+		
 		btnNewButton_1.setFont(new Font("Bahnschrift", Font.BOLD, 25));
 		btnNewButton_1.setBackground(UIManager.getColor("Button.background"));
 		btnNewButton_1.setBounds(30, 207, 255, 59);
@@ -99,7 +107,7 @@ public class SellerOperations extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				frame.setVisible(false);
+			
 				BuyerUpdate.main(null);
 				
 				
