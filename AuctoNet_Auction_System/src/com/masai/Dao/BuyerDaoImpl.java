@@ -504,6 +504,9 @@ public class BuyerDaoImpl implements BuyerDao {
 	}
  
 	
+	
+	
+	
 	@Override
 	public boolean unhideTransactions(String username) {
 		     
@@ -536,6 +539,8 @@ public class BuyerDaoImpl implements BuyerDao {
 			
 		
 	}
+	
+	
 	
 	
 	
