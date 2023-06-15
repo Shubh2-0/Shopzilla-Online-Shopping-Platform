@@ -80,6 +80,10 @@ public class SellerOperations extends JFrame {
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnViewProductsFor = new JButton("View Products");
+		btnViewProductsFor.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnViewProductsFor.setFont(new Font("Bahnschrift", Font.BOLD, 25));
 		btnViewProductsFor.setBackground(SystemColor.menu);
 		btnViewProductsFor.setBounds(30, 296, 255, 51);
