@@ -60,9 +60,9 @@ public class BuyerMain extends JFrame {
 	 */
 	public BuyerMain() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1012, 689);
+		setBounds(100, 100, 1007, 689);
 		contentPane = new JPanel();
-		contentPane.setBackground(SystemColor.activeCaption);
+		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -234,5 +234,19 @@ public class BuyerMain extends JFrame {
 		btnCreateNewAccount.setBackground(new Color(204, 255, 255));
 		btnCreateNewAccount.setBounds(10, 581, 331, 61);
 		contentPane.add(btnCreateNewAccount);
+		
+		JButton btnRestoreAccount = new JButton("Restore Account");
+		btnRestoreAccount.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.setVisible(false);
+				RestoreBuyerAcount.main(null);
+				
+				
+			}
+		});
+		btnRestoreAccount.setFont(new Font("Bahnschrift", Font.BOLD, 30));
+		btnRestoreAccount.setBackground(new Color(204, 255, 255));
+		btnRestoreAccount.setBounds(402, 581, 331, 61);
+		contentPane.add(btnRestoreAccount);
 	}
 }

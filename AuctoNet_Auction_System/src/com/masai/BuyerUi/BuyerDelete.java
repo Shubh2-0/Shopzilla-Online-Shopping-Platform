@@ -19,6 +19,8 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
 import java.awt.SystemColor;
@@ -169,7 +171,17 @@ public class BuyerDelete extends JFrame {
  				
  				if(buyerDao.deleteBuyer(tempUsername, confirmPassword) && buyerDao.hideTransactions(username,name) ) {
  					
- 					JOptionPane.showMessageDialog(null, "Your account has been successfully deleted.\nThank you for being a part of our platform. We hope to see you again in the future");
+ 					 LocalDate currentDate = LocalDate.now();
+ 					 
+ 					 currentDate.plusDays(30);
+ 					 
+ 			        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM dd, yyyy");
+ 			        String formattedDate = currentDate.format(formatter);
+ 			        
+ 					
+ 					
+ 					JOptionPane.showMessageDialog(null, "Your account has been successfully deleted.\nThank you for being a part of our platform. We hope to see you again in the future"
+ 							+ "\nYou can restore your acount till "+formattedDate);
  					BuyerMain.buyer = null;
  					frame.setVisible(false);
  					BuyerMain.main(null);

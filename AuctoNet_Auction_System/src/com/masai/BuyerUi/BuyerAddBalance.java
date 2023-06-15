@@ -101,6 +101,9 @@ public class BuyerAddBalance extends JFrame {
 				
 				if(amount+balance >= 1000000) {
 					double remaining = 1000000 - balance;
+					
+					remaining = Math.round(remaining * 100.0) / 100.0;
+					
 					JOptionPane.showMessageDialog(null, "The maximum account balance limit is 1,000,000. Please deposit an amount ranging from 5,000 to "+remaining);
 					
 					return;

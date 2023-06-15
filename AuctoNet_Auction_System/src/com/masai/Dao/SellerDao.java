@@ -3,6 +3,7 @@ package com.masai.Dao;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import com.masai.Dto.BuyerImpl;
 import com.masai.Dto.ProductImpl;
 import com.masai.Dto.RefundProductImpl;
 import com.masai.Dto.SellerImpl;
@@ -11,7 +12,6 @@ import com.masai.Dto.TransactionImpl;
 
 public interface SellerDao {
 	
-	SellerImpl loginUser(String username, String password);
 //	String registerSeller(UserImpl u);
 //	String updateSellerDetails(UserImpl u);
 //	ArrayList<ProductImpl> getAllProductForSell();
@@ -25,5 +25,9 @@ public interface SellerDao {
 //    
 
 	SellerImpl getSellerByUsername(String username);
+
+	SellerImpl loginSeller(String username, String password);
+
+	String updateSellerDetails(SellerImpl u);
     
 }

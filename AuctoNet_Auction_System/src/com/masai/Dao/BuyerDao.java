@@ -39,10 +39,23 @@ public interface BuyerDao {
 
 	boolean hideTransactions(String username, String name);
 
-	
+	String recoverBuyerAcount(String username, String password, LocalDate date);
+
+	boolean unhideTransactions(String username);
+
+	ResultSet getBuyerAllTransactionbyDateRange(LocalDate startDate, LocalDate endDate, String username)
+			throws RecordNotFoundException;
+
+	ResultSet getBuyerAllTransactionByTotalPrice(String username) throws RecordNotFoundException;
+
+	ResultSet getBuyerAllTransactionByGSTPercentage(String username) throws RecordNotFoundException;
+
+	ResultSet getBuyerAllTransactionByQuantity(String username) throws RecordNotFoundException;
+
+	ResultSet getBuyerAllTransactionByPurchaseDate(String username) throws RecordNotFoundException;
+		
 //	ArrayList<RefundProductImpl> viewAllrefundProduct();
-	
-//    String deleteAcount(String BuyerId,String password);
+
     
 
 	

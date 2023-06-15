@@ -5,8 +5,11 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+import javax.swing.JOptionPane;
 import com.masai.Dto.BuyerImpl;
 import com.masai.Dto.SellerImpl;
+import com.masai.Exceptions.RecordNotFoundException;
 
 
 
@@ -66,6 +69,9 @@ public class BuyerDaoImpl implements BuyerDao {
 		
 	}
 	
+	
+	
+	
 	@Override
     public double getBalance(String username) {
 		
@@ -102,6 +108,7 @@ public class BuyerDaoImpl implements BuyerDao {
 		
 		
 	}
+		
 	
 	
 	
@@ -150,7 +157,8 @@ public class BuyerDaoImpl implements BuyerDao {
 	}
 	
 	
-
+	
+	
 	@Override
 	public String registerNewBuyer(BuyerImpl u) {
 		
@@ -189,6 +197,7 @@ public class BuyerDaoImpl implements BuyerDao {
 		
 	}
 
+	
 	
 	
 	@Override
@@ -245,6 +254,9 @@ public class BuyerDaoImpl implements BuyerDao {
 		
 	}
 
+	
+	
+	
 	@Override
 	public ResultSet getAllProductForSell() {
 		
@@ -285,6 +297,9 @@ public class BuyerDaoImpl implements BuyerDao {
 		
 	}
 
+	
+	
+	
 	@Override
 	public String purchaseItem(int productId, int quantity) {
 	
@@ -487,11 +502,46 @@ public class BuyerDaoImpl implements BuyerDao {
 		return "Something Went Wrong....LAST";
 		
 	}
-
+ 
+	
+	@Override
+	public boolean unhideTransactions(String username) {
+		     
+          try {
+			
+			con = DBUtils.getConnection();
+			
+			String SELECT_QUERY = "UPDATE transactions SET is_hide = 0 WHERE buyer_id = ?";
+			
+			PreparedStatement statement = con.prepareStatement(SELECT_QUERY); 
+			
+			statement.setString(1, username);
+			
+			
+			int ans = statement.executeUpdate();
+			
+			if(ans > 0) return true;
+			
+			
+			
+			
+		} catch (Exception e) {
+			
+			System.out.println(e);
+			
+		}
+			
+			
+		return false;
+			
+		
+	}
+	
+	
 	
 	@Override
 	public boolean hideTransactions(String username,String name) {
-		
+		     
           try {
 			
 			con = DBUtils.getConnection();
@@ -506,7 +556,7 @@ public class BuyerDaoImpl implements BuyerDao {
 			
 			int ans = statement.executeUpdate();
 			
-			if(ans > 0) return true;
+			if(ans > 0 ) return true;
 			
 			
 			
@@ -546,6 +596,9 @@ public class BuyerDaoImpl implements BuyerDao {
 //		}
 //	}
 
+	
+	
+	
 	@Override
 	public ResultSet viewAllTransactions() {
 		
@@ -553,7 +606,7 @@ public class BuyerDaoImpl implements BuyerDao {
 			try {
 				
 				con = DBUtils.getConnection();
-				String SELECT_QUERY = "SELECT transaction_id AS Transaction_ID, product_id AS Product_ID, product_name AS Product_Name, buyer_id AS Buyer_ID, buyer_name AS Buyer_Name, quantity, purchase_date, amount_per_piece AS Amount_Per_Piece, price, gst_percentage AS GST_Percentage, tax_amount AS Tax_Amount, total_price AS Total_Price, return_policy FROM transactions WHERE buyer_id = ?";
+				String SELECT_QUERY = "SELECT transaction_id AS Transaction_ID, product_id AS Product_ID, product_name AS Product_Name, quantity, purchase_date, amount_per_piece AS Amount_Per_Piece, price, gst_percentage AS GST_Percentage, tax_amount AS Tax_Amount, total_price AS Total_Price, return_policy FROM transactions WHERE buyer_id = ?";
 				
 				PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
 		
@@ -597,26 +650,11 @@ public class BuyerDaoImpl implements BuyerDao {
 //			DBUtils.closeConnection(con);
 //		}
 //	}
-//
-//	@Override
-//	public String deleteAcount(String BuyerId, String password) {
-//		try {
-//			
-//			DBUtils.getConnection();
-//			
-//		} catch (Exception e) {
-//			
-//			e.printStackTrace();
-//			
-//		}finally {
-//			DBUtils.closeConnection(con);
-//		}
-//	}
-//
-//	
-//	
-	
 
+	
+	
+	
+	
     @Override
 	public ResultSet getAllProductsByCategory(String item) {
 		try {
@@ -651,6 +689,9 @@ public class BuyerDaoImpl implements BuyerDao {
 		
 	}
 	
+    
+    
+    
 	@Override
 	public ResultSet getProductsByProductId(int id) {
 		try {
@@ -683,6 +724,8 @@ public class BuyerDaoImpl implements BuyerDao {
 		
 		
 	}
+	
+	
 	
 	
 	@Override
@@ -725,6 +768,8 @@ public class BuyerDaoImpl implements BuyerDao {
 	}
 	
 	
+	
+	
 	@Override
 	public boolean deleteBuyer(String username,String password) {
 		
@@ -762,5 +807,279 @@ public class BuyerDaoImpl implements BuyerDao {
 	}
 	
 	
+	@Override
+	public String recoverBuyerAcount(String username, String password, LocalDate date) {
+		
+		String tempDate = null;
+		
+		try {
+			
+			con = DBUtils.getConnection();
+			
+			String SELECT_QUERY = "SELECT * FROM BUYER WHERE username = ? AND password = ? AND is_deleted = 1";
+			
+			PreparedStatement statement = con.prepareStatement(SELECT_QUERY); 
+			
+			statement.setString(1, username);
+			statement.setString(2, password);
+			
+			
+			ResultSet set = statement.executeQuery();
+			
+			while(set.next()) {
+				
+				tempDate = set.getDate("deleted_date").toString();
+			}
+		
+			if(tempDate == null) return "We couldn't find any account associated with the provided username and password for the purpose of recovery";
+			
+			
+			LocalDate deletedDate = LocalDate.parse(tempDate);
+			
+			if(ChronoUnit.DAYS.between(deletedDate, date) > 30) return "We regret😢 to inform you that the account recovery period has expired. We understand that this may be disappointing news.\n"
+					+ "Unfortunately, it is not possible to recover your account as it has been more than 30 days since it was deleted.\n"
+					+ "We apologize for any inconvenience caused. If you wish to continue using our services, we encourage you to create a new account.";
+			 
+			
+			String UPDATE_QUERY = "UPDATE buyer SET is_deleted = 0, deleted_date = null WHERE UserName = ? AND password = ?" ;
+           
+			
+            statement = con.prepareStatement(UPDATE_QUERY); 
+			
+			statement.setString(1, username);
+			statement.setString(2, password);
+			
+			int ans = statement.executeUpdate();
+			
+			
+			
+			if(ans > 0 && unhideTransactions(username)) return "Congratulations! Your account has been successfully recovered.\n"
+					+ "We are thrilled to have you back and ready to explore and purchase new products.\n"
+					+ "Let's embark on this exciting journey together and discover a world of amazing offerings.\n"
+					+ "                                            😊😊Happy shopping!😊😊"; 
+			
+			
 
+			
+			
+		} catch (Exception e) {
+			
+			System.out.println(e);
+			
+		}
+		
+			
+		
+		
+		
+		
+		
+		
+		return "Something Went Wrong";
+		
+	}
+	
+   
+	@Override
+	public ResultSet getBuyerAllTransactionbyDateRange(LocalDate startDate, LocalDate endDate, String username)throws RecordNotFoundException {
+		
+			
+			try {
+				
+				con = DBUtils.getConnection();
+				String SELECT_QUERY = "SELECT transaction_id AS `Transaction ID`, product_name AS `Product Name`, quantity, purchase_date AS `Purchase Date`, amount_per_piece AS `Amount per Piece`, price, gst_percentage AS `GST Percentage`, tax_amount AS `Tax Amount`, total_price AS `Total Price`, return_policy AS `Return Policy` FROM transactions WHERE PURCHASE_DATE BETWEEN ? AND ? AND buyer_id = ? ORDER BY PURCHASE_DATE";
+				
+				PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
+				
+				Date s = Date.valueOf(startDate);
+				Date e = Date.valueOf(endDate);
+				
+		
+				statement.setDate(1, s);
+				statement.setDate(2, e);
+				statement.setString(3, username);
+				
+				ResultSet set = statement.executeQuery();
+				
+					
+					
+					
+				return set;
+				
+				
+				
+				
+			} catch (Exception e) {
+				
+				e.printStackTrace();
+				
+			}
+			
+			
+			return null;	
+		
+	}
+
+	
+	@Override
+	public ResultSet getBuyerAllTransactionByPurchaseDate(String username)throws RecordNotFoundException {
+	
+		
+			
+			try {
+				
+				con = DBUtils.getConnection();
+				String SELECT_QUERY = "SELECT transaction_id AS `Transaction ID`, product_name AS `Product Name`, quantity AS Quantity, purchase_date AS `Purchase Date`, amount_per_piece AS `Amount per Piece`, price, gst_percentage AS `GST Percentage`, tax_amount AS `Tax Amount`, total_price AS `Total Price`, return_policy AS `Return Policy` FROM transactions WHERE buyer_id = ? ORDER BY purchase_date";
+				
+				PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
+				
+				statement.setString(1, username);
+				
+		
+				
+				ResultSet set = statement.executeQuery();
+				
+					
+					
+					
+					return set;
+					
+				
+				
+				
+				
+			} catch (Exception e) {
+				
+				e.printStackTrace();
+				
+			}
+			
+			
+			return null;	
+		
+		
+		
+	}
+	
+	@Override
+	public ResultSet getBuyerAllTransactionByQuantity(String username) throws RecordNotFoundException {
+	
+		
+			
+			try {
+				
+				con = DBUtils.getConnection();
+				String SELECT_QUERY = "SELECT transaction_id AS `Transaction ID`, product_name AS `Product Name`, quantity AS Quantity, purchase_date AS `Purchase Date`, amount_per_piece AS `Amount per Piece`, price, gst_percentage AS `GST Percentage`, tax_amount AS `Tax Amount`, total_price AS `Total Price`, return_policy AS `Return Policy` FROM transactions WHERE buyer_id = ? ORDER BY quantity";
+				
+				PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
+				
+				statement.setString(1, username);
+		
+				
+				ResultSet set = statement.executeQuery();
+				
+					
+					
+					
+					return set;
+					
+				
+				
+				
+				
+			} catch (Exception e) {
+				
+				e.printStackTrace();
+				
+			}
+			
+			
+			return null;	
+		
+		
+		
+	}
+	
+	@Override
+	public ResultSet getBuyerAllTransactionByGSTPercentage(String username)throws RecordNotFoundException {
+	
+		
+			
+			try {
+				
+				con = DBUtils.getConnection();
+				String SELECT_QUERY = "SELECT transaction_id AS `Transaction ID`, product_name AS `Product Name`, quantity AS Quantity, purchase_date AS `Purchase Date`, amount_per_piece AS `Amount per Piece`, price, gst_percentage AS `GST Percentage`, tax_amount AS `Tax Amount`, total_price AS `Total Price`, return_policy AS `Return Policy` FROM transactions WHERE buyer_id = ? ORDER BY gst_percentage";
+				
+				PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
+				
+				statement.setString(1, username);
+		
+				
+				ResultSet set = statement.executeQuery();
+				
+					
+					
+					
+					return set;
+					
+				
+				
+				
+				
+			} catch (Exception e) {
+				
+				e.printStackTrace();
+				
+			}
+			
+			
+			return null;	
+		
+		
+		
+	}
+	
+	@Override
+	public ResultSet getBuyerAllTransactionByTotalPrice(String username)throws RecordNotFoundException {
+	
+		
+			
+			try {
+				
+				con = DBUtils.getConnection();
+				String SELECT_QUERY = "SELECT transaction_id AS `Transaction ID`, product_name AS `Product Name`, quantity AS Quantity, purchase_date AS `Purchase Date`, amount_per_piece AS `Amount per Piece`, price, gst_percentage AS `GST Percentage`, tax_amount AS `Tax Amount`, total_price AS `Total Price`, return_policy AS `Return Policy` FROM transactions WHERE buyer_id = ? ORDER BY total_price";
+				
+				PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
+				
+		       
+				statement.setString(1, username);
+				
+				ResultSet set = statement.executeQuery();
+				
+					
+					
+					
+					return set;
+					
+				
+				
+				
+				
+			} catch (Exception e) {
+				
+				e.printStackTrace();
+				
+			}
+			
+			
+			return null;	
+		
+		
+		
+	}
+	
+	
+	
+
+	
 }
