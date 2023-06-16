@@ -68,7 +68,7 @@ public class BuyerTransactions extends JFrame {
 	 */
 	public BuyerTransactions() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1491, 645);
+		setBounds(100, 100, 1570, 759);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(189, 183, 107));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -78,7 +78,7 @@ public class BuyerTransactions extends JFrame {
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setEnabled(false);
-		scrollPane.setBounds(49, 34, 1418, 253);
+		scrollPane.setBounds(49, 34, 1457, 340);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
@@ -115,14 +115,14 @@ public class BuyerTransactions extends JFrame {
 			}
 		});
 		btnNewButton.setFont(new Font("Bahnschrift", Font.BOLD, 20));
-		btnNewButton.setBounds(1316, 539, 151, 46);
+		btnNewButton.setBounds(1354, 666, 151, 46);
 		contentPane.add(btnNewButton);
 		
 		panel = new JPanel();
 		panel.setLayout(null);
 		panel.setForeground(Color.RED);
 		panel.setBackground(new Color(244, 164, 96));
-		panel.setBounds(38, 402, 898, 196);
+		panel.setBounds(31, 516, 898, 196);
 		contentPane.add(panel);
 		
 		lblNewLabel = new JLabel("View Transaction By Date Range ");
@@ -227,12 +227,12 @@ public class BuyerTransactions extends JFrame {
 		
 		JLabel lblNewLabel_4 = new JLabel("Sort Transactions By :");
 		lblNewLabel_4.setFont(new Font("Bahnschrift", Font.BOLD, 20));
-		lblNewLabel_4.setBounds(61, 308, 249, 30);
+		lblNewLabel_4.setBounds(37, 419, 249, 30);
 		contentPane.add(lblNewLabel_4);
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setFont(new Font("Bahnschrift", Font.PLAIN, 18));
-		comboBox.setBounds(288, 305, 180, 36);
+		comboBox.setBounds(264, 416, 180, 36);
 		contentPane.add(comboBox);
 		comboBox.addItem("Total Price");
 		comboBox.addItem("Quantity");
@@ -273,7 +273,7 @@ public class BuyerTransactions extends JFrame {
 			}
 		});
 		btnNewButton_3.setFont(new Font("Bahnschrift", Font.BOLD, 19));
-		btnNewButton_3.setBounds(541, 305, 85, 33);
+		btnNewButton_3.setBounds(517, 416, 85, 33);
 		contentPane.add(btnNewButton_3);
 		
 		btnReset = new JButton("Reset");
@@ -286,7 +286,7 @@ public class BuyerTransactions extends JFrame {
 			}
 		});
 		btnReset.setFont(new Font("Bahnschrift", Font.BOLD, 20));
-		btnReset.setBounds(1305, 308, 151, 46);
+		btnReset.setBounds(1354, 428, 151, 46);
 		contentPane.add(btnReset);
 		
 	

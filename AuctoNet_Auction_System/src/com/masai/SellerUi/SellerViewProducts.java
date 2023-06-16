@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -14,6 +15,7 @@ import javax.swing.table.DefaultTableModel;
 
 import com.masai.CSS.CSS;
 import com.masai.Dao.AdminDaoImpl;
+import com.masai.Dao.BuyerDao;
 import com.masai.Dao.BuyerDaoImpl;
 import com.masai.Dao.SellerDao;
 import com.masai.Dao.SellerDaoImpl;
@@ -29,6 +31,8 @@ import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
 import java.awt.SystemColor;
+import java.awt.Color;
+import javax.swing.SwingConstants;
 
 public class SellerViewProducts extends JFrame {
 
@@ -36,6 +40,13 @@ public class SellerViewProducts extends JFrame {
 	private JTable table;
 	SellerDao sellerDao = new SellerDaoImpl();
 	static SellerViewProducts frame;
+	static String sellerUsername = SellerOperations.seller.getSellerUserName();
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JTextField textField_3;
+	private JTextField textField_4;
+	static int id = 0;
 
 	/**
 	 * Launch the application.
@@ -58,7 +69,7 @@ public class SellerViewProducts extends JFrame {
 	 */
 	public SellerViewProducts() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1449, 642);
+		setBounds(100, 100, 1554, 616);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -66,7 +77,7 @@ public class SellerViewProducts extends JFrame {
 		contentPane.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(26, 34, 1399, 216);
+		scrollPane.setBounds(26, 35, 1480, 275);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
@@ -77,7 +88,9 @@ public class SellerViewProducts extends JFrame {
 				}, getDefaultCloseOperation()
 			));
 		
-		table.setModel(DbUtils.resultSetToTableModel(buyerdao.getAllProductForSell()));
+		
+		
+		table.setModel(DbUtils.resultSetToTableModel(sellerDao.getAllSellerProducts(sellerUsername)));
 		CSS.setTable(table);
 		
 		
@@ -87,42 +100,42 @@ public class SellerViewProducts extends JFrame {
 		comboBox.addItem("Grocery");
 		comboBox.addItem("Miscellaneous");
 		comboBox.setFont(new Font("Bahnschrift", Font.PLAIN, 20));
-		comboBox.setBounds(514, 325, 157, 30);
+		comboBox.setBounds(329, 355, 157, 30);
 		contentPane.add(comboBox);
 		
 		JLabel lblNewLabel = new JLabel("View Product By Category : ");
 		lblNewLabel.setFont(new Font("Bahnschrift", Font.BOLD, 22));
-		lblNewLabel.setBounds(222, 322, 296, 40);
+		lblNewLabel.setBounds(37, 352, 296, 40);
 		contentPane.add(lblNewLabel);
 		
 		JButton btnNewButton_1 = new JButton("View");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String item = (String) comboBox.getSelectedItem();
-				table.setModel(DbUtils.resultSetToTableModel(buyerdao.getAllProductsByCategory(item)));
+				table.setModel(DbUtils.resultSetToTableModel(sellerDao.getSellerAllProductsByCategory(item, sellerUsername)));
 				CSS.setTable(table);
 				
 				if(table.getRowCount()==0) {
 					JOptionPane.showMessageDialog(null, "No Record Found");
-					table.setModel(DbUtils.resultSetToTableModel(buyerdao.getAllProductForSell()));
+					table.setModel(DbUtils.resultSetToTableModel(sellerDao.getAllSellerProducts(sellerUsername)));
 					CSS.setTable(table);
 				}
 			}
 		});
 		btnNewButton_1.setFont(new Font("Bahnschrift", Font.PLAIN, 20));
-		btnNewButton_1.setBounds(679, 322, 118, 35);
+		btnNewButton_1.setBounds(494, 352, 118, 35);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Back");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
-				BuyerOperations buyerop = new BuyerOperations(new BuyerDaoImpl().loginBuyer(BuyerOperations.buyer.getBuyerUserName(),BuyerOperations.buyer.getPassword()));
-				buyerop.main(null);
+				SellerOperations sellerOperations = new SellerOperations(sellerDao.loginSeller(SellerOperations.seller.getSellerUserName(),SellerOperations.seller.getPassword()));
+				sellerOperations.main(null);
 			}
 		});
 		btnNewButton_2.setFont(new Font("Bahnschrift", Font.PLAIN, 25));
-		btnNewButton_2.setBounds(1315, 565, 110, 40);
+		btnNewButton_2.setBounds(1396, 525, 110, 40);
 		contentPane.add(btnNewButton_2);
 		
 		JButton btnNewButton_3 = new JButton("Reset");
@@ -130,13 +143,125 @@ public class SellerViewProducts extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				
-				table.setModel(DbUtils.resultSetToTableModel(buyerdao.getAllProductForSell()));
+				table.setModel(DbUtils.resultSetToTableModel(sellerDao.getAllSellerProducts(sellerUsername)));
 				CSS.setTable(table);
 				
 			}
 		});
 		btnNewButton_3.setFont(new Font("Bahnschrift", Font.BOLD, 20));
-		btnNewButton_3.setBounds(1307, 320, 97, 40);
+		btnNewButton_3.setBounds(1409, 320, 97, 40);
 		contentPane.add(btnNewButton_3);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(222, 184, 135));
+		panel.setBounds(26, 435, 587, 125);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNewLabel_1 = new JLabel("Update Product");
+		lblNewLabel_1.setFont(new Font("Bahnschrift", Font.BOLD, 25));
+		lblNewLabel_1.setBounds(215, 9, 270, 49);
+		panel.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("Product ID");
+		lblNewLabel_2.setFont(new Font("Bahnschrift", Font.BOLD, 20));
+		lblNewLabel_2.setBounds(31, 68, 148, 47);
+		panel.add(lblNewLabel_2);
+		
+		textField_4 = new JTextField();
+		textField_4.setFont(new Font("Bahnschrift", Font.PLAIN, 25));
+		textField_4.setBounds(157, 68, 188, 47);
+		panel.add(textField_4);
+		textField_4.setColumns(10);
+		
+		JButton btnNewButton = new JButton("Go To Update Page");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				if(textField_4.getText().equals("")) {
+					JOptionPane.showMessageDialog(null, "Empty Field");
+					return;
+				}
+				
+				
+				
+				try {
+					
+					id = Integer.parseInt(textField_4.getText());
+					
+				} catch (Exception e2) {
+					
+					JOptionPane.showMessageDialog(null, "Product ID must be in number format");
+					return;
+					
+				}
+				
+				List<Integer> list = sellerDao.getSellerProductsID(sellerUsername); 
+				
+				if(list.indexOf(id) < 0) {
+					
+					JOptionPane.showMessageDialog(null, "This Product ID is not belong to you");
+					return;
+					
+				}
+				
+				frame.setVisible(false);
+				SellerProductUpdate.main(null);
+				
+				
+				
+				
+				
+			}
+		});
+		btnNewButton.setFont(new Font("Bahnschrift", Font.PLAIN, 20));
+		btnNewButton.setBounds(368, 72, 209, 39);
+		panel.add(btnNewButton);
+		
+		JButton btnNewButton_4 = new JButton("Sort Producy By Quantity");
+		btnNewButton_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				table.setModel(DbUtils.resultSetToTableModel(sellerDao.getAllSellerProductsOrderByPrice(sellerUsername)));
+				CSS.setTable(table);
+				
+				if(table.getRowCount()== 0) {
+					JOptionPane.showMessageDialog(null, "No Record Found");
+					table.setModel(DbUtils.resultSetToTableModel(sellerDao.getAllSellerProducts(sellerUsername)));
+					CSS.setTable(table);
+				
+				}
+				
+			}
+		});
+
+		
+		
+		btnNewButton_4.setFont(new Font("Bahnschrift", Font.PLAIN, 25));
+		btnNewButton_4.setBounds(888, 352, 373, 52);
+		contentPane.add(btnNewButton_4);
+		
+		JButton btnNewButton_4_1 = new JButton("Sort Producy By Price");
+		btnNewButton_4_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				table.setModel(DbUtils.resultSetToTableModel(sellerDao.getAllSellerProductsOrderByQuantity(sellerUsername)));
+				CSS.setTable(table);
+				
+				if(table.getRowCount()== 0) {
+					JOptionPane.showMessageDialog(null, "No Record Found");
+					table.setModel(DbUtils.resultSetToTableModel(sellerDao.getAllSellerProducts(sellerUsername)));
+					CSS.setTable(table);
+				
+				}
+				
+				
+			}
+		});
+		btnNewButton_4_1.setFont(new Font("Bahnschrift", Font.PLAIN, 25));
+		btnNewButton_4_1.setBounds(888, 484, 373, 52);
+		contentPane.add(btnNewButton_4_1);
+		
+	
 	}
 }

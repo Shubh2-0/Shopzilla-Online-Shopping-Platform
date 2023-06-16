@@ -58,7 +58,7 @@ public class BuyerProducts extends JFrame {
 	 */
 	public BuyerProducts() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1449, 642);
+		setBounds(100, 100, 1578, 736);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -66,7 +66,7 @@ public class BuyerProducts extends JFrame {
 		contentPane.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(26, 34, 1399, 216);
+		scrollPane.setBounds(26, 34, 1504, 304);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
@@ -87,12 +87,12 @@ public class BuyerProducts extends JFrame {
 		comboBox.addItem("Grocery");
 		comboBox.addItem("Miscellaneous");
 		comboBox.setFont(new Font("Bahnschrift", Font.PLAIN, 20));
-		comboBox.setBounds(514, 325, 157, 30);
+		comboBox.setBounds(326, 393, 157, 30);
 		contentPane.add(comboBox);
 		
 		JLabel lblNewLabel = new JLabel("View Product By Category : ");
 		lblNewLabel.setFont(new Font("Bahnschrift", Font.BOLD, 22));
-		lblNewLabel.setBounds(222, 322, 296, 40);
+		lblNewLabel.setBounds(34, 390, 296, 40);
 		contentPane.add(lblNewLabel);
 		
 		JButton btnNewButton_1 = new JButton("View");
@@ -110,12 +110,12 @@ public class BuyerProducts extends JFrame {
 			}
 		});
 		btnNewButton_1.setFont(new Font("Bahnschrift", Font.PLAIN, 20));
-		btnNewButton_1.setBounds(679, 322, 118, 35);
+		btnNewButton_1.setBounds(491, 390, 118, 35);
 		contentPane.add(btnNewButton_1);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(SystemColor.activeCaption);
-		panel.setBounds(26, 406, 784, 199);
+		panel.setBounds(34, 467, 784, 199);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -211,7 +211,7 @@ public class BuyerProducts extends JFrame {
 			}
 		});
 		btnNewButton_2.setFont(new Font("Bahnschrift", Font.PLAIN, 25));
-		btnNewButton_2.setBounds(1315, 565, 110, 40);
+		btnNewButton_2.setBounds(1420, 638, 110, 40);
 		contentPane.add(btnNewButton_2);
 		
 		JButton btnNewButton_3 = new JButton("Reset");
@@ -225,7 +225,7 @@ public class BuyerProducts extends JFrame {
 			}
 		});
 		btnNewButton_3.setFont(new Font("Bahnschrift", Font.BOLD, 20));
-		btnNewButton_3.setBounds(1328, 295, 97, 40);
+		btnNewButton_3.setBounds(1420, 391, 97, 40);
 		contentPane.add(btnNewButton_3);
 	}
 }

@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -20,8 +21,11 @@ import com.masai.Dao.SellerDao;
 import com.masai.Dao.SellerDaoImpl;
 import com.masai.Dto.BuyerImpl;
 import com.masai.Dto.SellerImpl;
+import com.masai.MainUi.MainPage;
+
 import javax.swing.UIManager;
 import java.awt.SystemColor;
+import java.awt.Color;
 
 public class SellerOperations extends JFrame {
 
@@ -38,7 +42,7 @@ public class SellerOperations extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					SellerOperations frame = new SellerOperations(seller);
+					 frame = new SellerOperations(seller);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -55,6 +59,7 @@ public class SellerOperations extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 958, 691);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 255, 0));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -76,6 +81,7 @@ public class SellerOperations extends JFrame {
 				frame.setVisible(false);
 				SellerUpdate.main(null);
 				
+				
 			}
 		});
 	
@@ -90,6 +96,10 @@ public class SellerOperations extends JFrame {
 		JButton btnViewProductsFor = new JButton("View Products");
 		btnViewProductsFor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				frame.setVisible(false);
+				SellerViewProducts.main(null);
+				
 			}
 		});
 		btnViewProductsFor.setFont(new Font("Bahnschrift", Font.BOLD, 25));
@@ -98,16 +108,43 @@ public class SellerOperations extends JFrame {
 		contentPane.add(btnViewProductsFor);
 		
 		JButton btnAddBalance = new JButton("Add Balance");
+		btnAddBalance.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				
+			}
+		});
 		btnAddBalance.setFont(new Font("Bahnschrift", Font.BOLD, 25));
 		btnAddBalance.setBackground(SystemColor.menu);
 		btnAddBalance.setBounds(30, 378, 255, 51);
 		contentPane.add(btnAddBalance);
 		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setBounds(559, 10, 375, 400);
+		contentPane.add(lblNewLabel_1);
+		
+		ImageIcon icon = new ImageIcon(getClass().getResource("/Images/SellerMain/sellerOperation.png"));
+		icon = MainPage.setImgeSize(400, 400, icon);
+		lblNewLabel_1.setIcon(icon);
+		
+		JLabel lblNewLabel_2 = new JLabel("Total Income :");
+		lblNewLabel_2.setFont(new Font("Bahnschrift", Font.BOLD, 25));
+		lblNewLabel_2.setBounds(30, 529, 172, 91);
+		contentPane.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_3 = new JLabel("");
+		lblNewLabel_3.setFont(new Font("Bahnschrift", Font.PLAIN, 25));
+		lblNewLabel_3.setBounds(206, 560, 207, 29);
+		contentPane.add(lblNewLabel_3);
+		lblNewLabel_3.setText(seller.getIncome()+"");
+		
 		JButton btnNewButton = new JButton("Update Details");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-			
+			   frame.setVisible(false);
 				BuyerUpdate.main(null);
 				
 				

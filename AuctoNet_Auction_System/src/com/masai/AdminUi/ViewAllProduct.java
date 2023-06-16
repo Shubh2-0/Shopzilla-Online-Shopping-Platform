@@ -62,7 +62,7 @@ public class ViewAllProduct extends JFrame {
 	 */
 	public ViewAllProduct() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1444, 713);
+		setBounds(100, 100, 1709, 713);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.activeCaption);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -79,11 +79,11 @@ public class ViewAllProduct extends JFrame {
 				
 			}
 		});
-		btnNewButton.setBounds(1317, 627, 103, 39);
+		btnNewButton.setBounds(1412, 615, 103, 39);
 		contentPane.add(btnNewButton);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 39, 1410, 300);
+		scrollPane.setBounds(10, 39, 1505, 300);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
@@ -179,7 +179,7 @@ public class ViewAllProduct extends JFrame {
 			JPanel panel_1_1 = new JPanel();
 			panel_1_1.setLayout(null);
 			panel_1_1.setBackground(new Color(0, 0, 0, 80));
-			panel_1_1.setBounds(1056, 349, 364, 206);
+			panel_1_1.setBounds(1151, 349, 364, 206);
 			contentPane.add(panel_1_1);
 			
 			JLabel lblNewLabel_2_1 = new JLabel("View Products By Quantity Range");

@@ -265,7 +265,7 @@ public class BuyerDaoImpl implements BuyerDao {
 			try {
 				
 				con = DBUtils.getConnection();
-				String SELECT_QUERY = "SELECT product_id AS Product_ID, product_name AS Product_Name, price_per_piece AS Price_Per_Piece, seller_name AS Seller_Name, quantity, description, category_id AS Category_ID FROM product WHERE sold_status = 0";
+				String SELECT_QUERY = "SELECT product_id AS 'Product ID', product_name AS 'Name', price_per_piece AS 'Price Per Unit', seller_name AS 'Seller Name', quantity AS Quantity, description AS Description, category_id AS 'Category Number' FROM product WHERE sold_status = 0";
 				
 				PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
 				
@@ -611,7 +611,7 @@ public class BuyerDaoImpl implements BuyerDao {
 			try {
 				
 				con = DBUtils.getConnection();
-				String SELECT_QUERY = "SELECT transaction_id AS Transaction_ID, product_id AS Product_ID, product_name AS Product_Name, quantity, purchase_date, amount_per_piece AS Amount_Per_Piece, price, gst_percentage AS GST_Percentage, tax_amount AS Tax_Amount, total_price AS Total_Price, return_policy FROM transactions WHERE buyer_id = ?";
+				String SELECT_QUERY = "SELECT transaction_id AS 'Transaction ID', product_id AS 'Product ID', product_name AS 'Product Name', quantity AS Quantity, purchase_date AS 'Purchase Date', amount_per_piece AS 'Price Per Unit', price AS 'Total Price Before Tax', gst_percentage AS 'GST Percentage', tax_amount AS 'Tax Amount', total_price AS 'Final Price', return_policy AS 'Return Applicable' FROM transactions WHERE buyer_id = ?";
 				
 				PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
 		
@@ -665,7 +665,7 @@ public class BuyerDaoImpl implements BuyerDao {
 		try {
 			
 			con = DBUtils.getConnection();
-			String SELECT_QUERY = "SELECT product_id AS Product_ID, product_name AS Product_Name, price_per_piece AS Price_Per_Piece, seller_name AS Seller_Name, quantity, description, category_id AS Category_ID FROM product WHERE CATEGORY_ID = (SELECT CAT_ID FROM CATEGORY WHERE CAT_NAME = ?) AND sold_status = 0";
+			String SELECT_QUERY = "SELECT product_id AS 'Product ID', product_name AS 'Name', price_per_piece AS 'Price Per Unit', seller_name AS 'Seller Name', quantity AS Quantity, description AS Description, category_id AS 'Category Number' FROM product WHERE CATEGORY_ID = (SELECT CAT_ID FROM CATEGORY WHERE CAT_NAME = ?) AND sold_status = 0";
 			
 			PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
 			
@@ -702,7 +702,7 @@ public class BuyerDaoImpl implements BuyerDao {
 		try {
 			
 			con = DBUtils.getConnection();
-			String SELECT_QUERY = "SELECT product_id AS Product_ID, product_name AS Product_Name, price_per_piece AS Price_Per_Piece, seller_name AS Seller_Name, quantity, description, category_id AS Category_ID FROM product WHERE sold_status = 0 AND PRODUCT_ID = ?";
+			String SELECT_QUERY = "SELECT product_id AS 'Product ID', product_name AS 'Name', price_per_piece AS 'Price Per Unit', seller_name AS 'Seller Name', quantity AS Quantity, description AS Description, category_id AS 'Category Number' FROM product WHERE sold_status = 0 AND PRODUCT_ID = ?";
 			
 			PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
 			
@@ -892,7 +892,7 @@ public class BuyerDaoImpl implements BuyerDao {
 			try {
 				
 				con = DBUtils.getConnection();
-				String SELECT_QUERY = "SELECT transaction_id AS `Transaction ID`, product_name AS `Product Name`, quantity, purchase_date AS `Purchase Date`, amount_per_piece AS `Amount per Piece`, price, gst_percentage AS `GST Percentage`, tax_amount AS `Tax Amount`, total_price AS `Total Price`, return_policy AS `Return Policy` FROM transactions WHERE PURCHASE_DATE BETWEEN ? AND ? AND buyer_id = ? ORDER BY PURCHASE_DATE";
+				String SELECT_QUERY = "SELECT transaction_id AS 'Transaction ID', product_id AS 'Product ID', product_name AS 'Product Name', quantity AS Quantity, purchase_date AS 'Purchase Date', amount_per_piece AS 'Price Per Unit', price AS 'Total Price Before Tax', gst_percentage AS 'GST Percentage', tax_amount AS 'Tax Amount', total_price AS 'Final Price', return_policy AS 'Return Applicable' FROM transactions WHERE PURCHASE_DATE BETWEEN ? AND ? AND buyer_id = ? ORDER BY PURCHASE_DATE";
 				
 				PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
 				
@@ -934,7 +934,7 @@ public class BuyerDaoImpl implements BuyerDao {
 			try {
 				
 				con = DBUtils.getConnection();
-				String SELECT_QUERY = "SELECT transaction_id AS `Transaction ID`, product_name AS `Product Name`, quantity AS Quantity, purchase_date AS `Purchase Date`, amount_per_piece AS `Amount per Piece`, price, gst_percentage AS `GST Percentage`, tax_amount AS `Tax Amount`, total_price AS `Total Price`, return_policy AS `Return Policy` FROM transactions WHERE buyer_id = ? ORDER BY purchase_date";
+				String SELECT_QUERY = "SELECT transaction_id AS 'Transaction ID', product_id AS 'Product ID', product_name AS 'Product Name', quantity AS Quantity, purchase_date AS 'Purchase Date', amount_per_piece AS 'Price Per Unit', price AS 'Total Price Before Tax', gst_percentage AS 'GST Percentage', tax_amount AS 'Tax Amount', total_price AS 'Final Price', return_policy AS 'Return Applicable' FROM transactions WHERE buyer_id = ? ORDER BY purchase_date";
 				
 				PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
 				
@@ -974,7 +974,7 @@ public class BuyerDaoImpl implements BuyerDao {
 			try {
 				
 				con = DBUtils.getConnection();
-				String SELECT_QUERY = "SELECT transaction_id AS `Transaction ID`, product_name AS `Product Name`, quantity AS Quantity, purchase_date AS `Purchase Date`, amount_per_piece AS `Amount per Piece`, price, gst_percentage AS `GST Percentage`, tax_amount AS `Tax Amount`, total_price AS `Total Price`, return_policy AS `Return Policy` FROM transactions WHERE buyer_id = ? ORDER BY quantity";
+				String SELECT_QUERY = "SELECT transaction_id AS 'Transaction ID', product_id AS 'Product ID', product_name AS 'Product Name', quantity AS Quantity, purchase_date AS 'Purchase Date', amount_per_piece AS 'Price Per Unit', price AS 'Total Price Before Tax', gst_percentage AS 'GST Percentage', tax_amount AS 'Tax Amount', total_price AS 'Final Price', return_policy AS 'Return Applicable' FROM transactions WHERE buyer_id = ? ORDER BY quantity";
 				
 				PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
 				
@@ -1013,7 +1013,7 @@ public class BuyerDaoImpl implements BuyerDao {
 			try {
 				
 				con = DBUtils.getConnection();
-				String SELECT_QUERY = "SELECT transaction_id AS `Transaction ID`, product_name AS `Product Name`, quantity AS Quantity, purchase_date AS `Purchase Date`, amount_per_piece AS `Amount per Piece`, price, gst_percentage AS `GST Percentage`, tax_amount AS `Tax Amount`, total_price AS `Total Price`, return_policy AS `Return Policy` FROM transactions WHERE buyer_id = ? ORDER BY gst_percentage";
+				String SELECT_QUERY = "SELECT transaction_id AS 'Transaction ID', product_id AS 'Product ID', product_name AS 'Product Name', quantity AS Quantity, purchase_date AS 'Purchase Date', amount_per_piece AS 'Price Per Unit', price AS 'Total Price Before Tax', gst_percentage AS 'GST Percentage', tax_amount AS 'Tax Amount', total_price AS 'Final Price', return_policy AS 'Return Applicable' FROM transactions WHERE buyer_id = ? ORDER BY gst_percentage";
 				
 				PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
 				
@@ -1052,7 +1052,7 @@ public class BuyerDaoImpl implements BuyerDao {
 			try {
 				
 				con = DBUtils.getConnection();
-				String SELECT_QUERY = "SELECT transaction_id AS `Transaction ID`, product_name AS `Product Name`, quantity AS Quantity, purchase_date AS `Purchase Date`, amount_per_piece AS `Amount per Piece`, price, gst_percentage AS `GST Percentage`, tax_amount AS `Tax Amount`, total_price AS `Total Price`, return_policy AS `Return Policy` FROM transactions WHERE buyer_id = ? ORDER BY total_price";
+				String SELECT_QUERY = "SELECT transaction_id AS 'Transaction ID', product_id AS 'Product ID', product_name AS 'Product Name', quantity AS Quantity, purchase_date AS 'Purchase Date', amount_per_piece AS 'Price Per Unit', price AS 'Total Price Before Tax', gst_percentage AS 'GST Percentage', tax_amount AS 'Tax Amount', total_price AS 'Final Price', return_policy AS 'Return Applicable' FROM transactions WHERE buyer_id = ? ORDER BY total_price";
 				
 				PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
 				

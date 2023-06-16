@@ -3,6 +3,7 @@ package com.masai.Dao;
 import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 import com.masai.Dto.BuyerImpl;
 import com.masai.Dto.ProductImpl;
@@ -35,7 +36,6 @@ public interface SellerDao {
 
 	String registerNewSeller(SellerImpl s);
 
-	ResultSet getAllSellerProducts();
 
 	boolean unhideSellerProducts(String username);
 
@@ -46,5 +46,13 @@ public interface SellerDao {
 	boolean amountWithrowBySeller(double amount, String unsername);
 
 	boolean deleteSeller(String username, String password);
+
+	ResultSet getAllSellerProducts(String username);
+
+	List<Integer> getSellerProductsID(String username);
+
+	ResultSet getAllSellerProductsOrderByQuantity(String username);
+
+	ResultSet getAllSellerProductsOrderByPrice(String username);
     
 }

@@ -3,6 +3,8 @@ package com.masai.Dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.masai.Dto.BuyerImpl;
 import com.masai.Dto.SellerImpl;
@@ -268,16 +270,19 @@ public class SellerDaoImpl implements SellerDao {
 	
 	
 	@Override
-	public ResultSet getAllSellerProducts() {
+	public ResultSet getAllSellerProducts(String username) {
 		
 		 
 			
 			try {
 				
 				con = DBUtils.getConnection();
-				String SELECT_QUERY = "SELECT product_id AS Product_ID, product_name AS Product_Name, price_per_piece AS Price_Per_Piece, seller_name AS Seller_Name, quantity, description, category_id AS Category_ID FROM product WHERE seller_username = ?";
+				String SELECT_QUERY = "SELECT product_id AS 'Product ID', product_name AS 'Name', price_per_piece AS 'Price Per Unit', quantity AS Quantity, description AS Description, category_id AS 'Category Number' FROM product WHERE seller_username = ?";
+				
 				
 				PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
+				
+				statement.setString(1, username);
 				
 				ResultSet set = statement.executeQuery();
 				
@@ -309,6 +314,50 @@ public class SellerDaoImpl implements SellerDao {
 		
 	}
 	
+	@Override
+	public ResultSet getAllSellerProductsOrderByQuantity(String username) {
+		
+		 
+			
+			try {
+				
+				con = DBUtils.getConnection();
+				String SELECT_QUERY = "SELECT product_id AS 'Product ID', product_name AS 'Name', price_per_piece AS 'Price Per Unit', quantity AS Quantity, description AS Description, category_id AS 'Category Number' FROM product WHERE seller_username = ? ORDER BY quantity";
+				
+				
+				PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
+				
+				statement.setString(1, username);
+				
+				ResultSet set = statement.executeQuery();
+				
+				statement.setString(1, seller.getSellerUserName());
+				
+					
+					
+					
+					return set;
+					
+						
+						
+		
+					
+				
+				
+				
+				
+			} catch (Exception e) {
+				
+				e.printStackTrace();
+				
+			}
+			
+			
+			
+			return null;
+			
+		
+	}
 	
 	
 	
@@ -502,6 +551,96 @@ public class SellerDaoImpl implements SellerDao {
 		
 		
 	}
+	
+	@Override
+	public List<Integer> getSellerProductsID(String username){
+		
+		List<Integer> list = new ArrayList<>();
+		
+		try {
+			
+			con = DBUtils.getConnection();
+			String SELECT_QUERY = "SELECT product_id FROM product WHERE seller_username = ?";
+			
+			PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
+			
+			statement.setString(1, username);
+	
+			
+			ResultSet set = statement.executeQuery();
+			
+				
+			if(set.isAfterLast() && set.getRow()==0) return null;
+				
+			while (set.next()) {
+				
+				list.add(set.getInt(1));
+				
+			}	
+				
+				
+			
+			
+			
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			
+		}
+		
+		
+		
+		
+		
+		return list;
+	}
+	
+	@Override
+	public ResultSet getAllSellerProductsOrderByPrice(String username) {
+		
+		 
+			
+			try {
+				
+				con = DBUtils.getConnection();
+				String SELECT_QUERY = "SELECT product_id AS 'Product ID', product_name AS 'Name', price_per_piece AS 'Price Per Unit', quantity AS Quantity, description AS Description, category_id AS 'Category Number' FROM product WHERE seller_username = ? ORDER BY price_per_piece";
+				
+				
+				PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
+				
+				statement.setString(1, username);
+				
+				ResultSet set = statement.executeQuery();
+				
+				statement.setString(1, seller.getSellerUserName());
+				
+					
+					
+					
+					return set;
+					
+						
+						
+		
+					
+				
+				
+				
+				
+			} catch (Exception e) {
+				
+				e.printStackTrace();
+				
+			}
+			
+			
+			
+			return null;
+			
+		
+	}
+	
 	
 	
 

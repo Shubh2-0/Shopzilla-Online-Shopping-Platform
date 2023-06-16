@@ -125,8 +125,9 @@ public class SellerMain extends JFrame {
 						JOptionPane.showMessageDialog(null, "Welcome "+seller.getFirstName()+"  😊");
 						
 						frame.setVisible(false);
-						SellerOperations.seller = seller;
-						SellerOperations.main(null);
+						SellerOperations s = new SellerOperations(seller);
+						s.main(null);
+						
 						
 					}
 				}

@@ -1,18 +1,19 @@
 package com.masai.Dto;
 
-import java.math.BigDecimal;
+
 
 public class ProductImpl implements Product{
 	
 	private int productId;
 	private String productName;
-	private BigDecimal productPrice;
+	private double productPrice;
 	private String sellerId;
 	private String sellerName;
 	private int productQuantity;
 	private String productDescription;
 	private int productSoldStatus = 0;
 	private int productCategoryId;
+	private int returnPolicy;
 	
 	public ProductImpl() {
 		
@@ -21,7 +22,7 @@ public class ProductImpl implements Product{
 	
 
    
-	public ProductImpl(int productId, String productName, BigDecimal productPrice, String sellerId, String sellerName,
+	public ProductImpl(int productId, String productName, double productPrice, String sellerId, String sellerName,
 			int productQuantity, String productDescription, int productSoldStatus, int productCategoryId) {
 		super();
 		this.productId = productId;
@@ -34,6 +35,20 @@ public class ProductImpl implements Product{
 		this.productSoldStatus = productSoldStatus;
 		this.productCategoryId = productCategoryId;
 	}
+
+
+    @Override
+	public int getReturnPolicy() {
+		return returnPolicy;
+	}
+
+
+
+    @Override
+	public void setReturnPolicy(int returnPolicy) {
+		this.returnPolicy = returnPolicy;
+	}
+
 
 
 
@@ -82,12 +97,12 @@ public class ProductImpl implements Product{
 	}
 
 	@Override
-	public BigDecimal getProductPrice() {
+	public double getProductPrice() {
 		return productPrice;
 	}
 
 	@Override
-	public void setProductPrice(BigDecimal productPrice) {
+	public void setProductPrice(double productPrice) {
 		this.productPrice = productPrice;
 	}
 

@@ -9,8 +9,11 @@ import javax.swing.border.EmptyBorder;
 import com.masai.CommanCode.Common;
 import com.masai.Dao.BuyerDao;
 import com.masai.Dao.BuyerDaoImpl;
+import com.masai.Dao.SellerDao;
+import com.masai.Dao.SellerDaoImpl;
 import com.masai.Dto.Buyer;
 import com.masai.Dto.BuyerImpl;
+import com.masai.Dto.SellerImpl;
 import com.masai.MainUi.MainPage;
 
 import java.awt.SystemColor;
@@ -31,7 +34,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
 import javax.swing.JSpinner;
 
-public class NewBuyer extends JFrame {
+public class NewSeller extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
@@ -47,10 +50,9 @@ public class NewBuyer extends JFrame {
 	private JLabel lblNewLabel_6;
 	private JButton btnNewButton;
 	private JLabel lblNewLabel_7;
-    static BuyerImpl buyer ;
+    static SellerImpl seller ;
     static JFrame frame;
-    static final BuyerDao bDao = new BuyerDaoImpl();
-    private JTextField textField_2;
+    static final SellerDao sDao = new SellerDaoImpl();
     private JButton btnNewButton_1;
     private JPanel panel_1;
     private JButton btnNewButton_2;
@@ -61,7 +63,7 @@ public class NewBuyer extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					frame = new NewBuyer();
+					frame = new NewSeller();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -73,7 +75,7 @@ public class NewBuyer extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public NewBuyer() {
+	public NewSeller() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1103, 777);
 		contentPane = new JPanel();
@@ -86,8 +88,8 @@ public class NewBuyer extends JFrame {
 		
 		JPanel panel = new JPanel();
 		panel.setForeground(UIManager.getColor("Button.disabledShadow"));
-		panel.setBackground(new Color(0, 0, 0, 80));
-		panel.setBounds(10, 0, 1090, 857);
+		panel.setBackground(new Color(0, 0, 128));
+		panel.setBounds(0, 0, 1100, 857);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -163,7 +165,6 @@ public class NewBuyer extends JFrame {
 				String password = textField_3.getText().trim();
 				String mobileNo = textField_4.getText().trim();
 				String address = textField_5.getText().trim();
-				String balance = textField_2.getText().trim();
 				
 				if(firstName.equals("") || lastName.equals("") 
 						|| password.equals("") ||mobileNo.equals("") || 
@@ -207,31 +208,14 @@ public class NewBuyer extends JFrame {
 	               }
 	               
 	               
-	               if(Common.checkBalance(balance)) {
-	            	   
-	            	   JOptionPane.showMessageDialog(null, "Invalid balnce enter");
-	            	   textField_2.setText("");
-						return ;
-	            	   
-	            	   
-	               }
-	               
-	               int b = Integer.parseInt(balance);
-	               
-	               if(b <= 5000 || b>=1000000) {
-	            	   
-	            	   JOptionPane.showMessageDialog(null, "Ensure that the balance falls within the range of 5000 to 1000000");
-						return ;
-	            	   
-	            	   
-	               }
+	    
 	               
 	               
 	               
 				
 				
-				if(buyer != null) {
-					buyer = null;
+				if(seller != null) {
+					seller = null;
 					JOptionPane.showMessageDialog(null, "Please choose a different username as the current one is already taken");
 
 					return;
@@ -243,10 +227,10 @@ public class NewBuyer extends JFrame {
 							+ "Your password : "+ password +"\n"
 							+ "Please ensure to remember your username , password and keep it in a safe place\n"
 							+ "You will need it to log in to the application");
-					buyer = new BuyerImpl(username, password, firstName, lastName, mobileNo, address, b);
-					bDao.registerNewBuyer(buyer);
+					seller = new SellerImpl(username, password, firstName, lastName, mobileNo, address, 0.00);
+					sDao.registerNewSeller(seller);
 					frame.setVisible(false);
-					BuyerMain.main(null);
+					SellerMain.main(null);
 					
 					
 				}
@@ -265,16 +249,10 @@ public class NewBuyer extends JFrame {
 		lblNewLabel_7.setBounds(236, 10, 695, 102);
 		panel.add(lblNewLabel_7);
 		
-		textField_2 = new JTextField();
-		textField_2.setFont(new Font("Bahnschrift", Font.PLAIN, 21));
-		textField_2.setColumns(10);
-		textField_2.setBounds(431, 553, 333, 45);
-		panel.add(textField_2);
-		
-		JLabel lblNewLabel_6_1 = new JLabel("Wallet Balnce");
+		JLabel lblNewLabel_6_1 = new JLabel("Income");
 		lblNewLabel_6_1.setForeground(Color.PINK);
 		lblNewLabel_6_1.setFont(new Font("Bahnschrift", Font.BOLD, 23));
-		lblNewLabel_6_1.setBounds(274, 559, 193, 30);
+		lblNewLabel_6_1.setBounds(174, 552, 233, 45);
 		panel.add(lblNewLabel_6_1);
 		
 		panel_1 = new JPanel();
@@ -288,13 +266,19 @@ public class NewBuyer extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				frame.setVisible(false);
-				BuyerMain.main(null);
+				SellerMain.main(null);
 			}
 		});
 		btnNewButton_2.setForeground(new Color(0, 0, 128));
 		btnNewButton_2.setFont(new Font("Bahnschrift", Font.PLAIN, 25));
-		btnNewButton_2.setBounds(31, 10, 161, 53);
+		btnNewButton_2.setBounds(20, 10, 161, 53);
 		panel_1.add(btnNewButton_2);
+		
+		JLabel lblNewLabel_6_1_1 = new JLabel("00.0");
+		lblNewLabel_6_1_1.setForeground(Color.PINK);
+		lblNewLabel_6_1_1.setFont(new Font("Bahnschrift", Font.BOLD, 23));
+		lblNewLabel_6_1_1.setBounds(271, 559, 193, 30);
+		panel.add(lblNewLabel_6_1_1);
 		
 		lblNewLabel = new JLabel("Welcome To  AuctoNet Auction System");
 		lblNewLabel.setForeground(new Color(255, 51, 51));

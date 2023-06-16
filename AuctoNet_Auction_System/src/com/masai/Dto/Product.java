@@ -10,8 +10,8 @@ public interface Product {
 	public String getProductName();
 	public void setProductName(String productName);
 
-	public BigDecimal getProductPrice();
-	public void setProductPrice(BigDecimal productPrice);
+	public double getProductPrice();
+	public void setProductPrice(double productPrice);
 	
 	public String getSellerId();	
 	public void setSellerId(String sellerId);
@@ -30,5 +30,7 @@ public interface Product {
 
 	public int getProductCategoryId();
 	public void setProductCategoryId(int productCategoryId);
+	int getReturnPolicy();
+	void setReturnPolicy(int returnPolicy);
 	
 }

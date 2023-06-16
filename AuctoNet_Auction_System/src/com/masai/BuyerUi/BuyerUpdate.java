@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import com.masai.CommanCode.Common;
 import com.masai.Dao.BuyerDaoImpl;
 import com.masai.Dto.BuyerImpl;
 
@@ -147,6 +148,9 @@ public class BuyerUpdate extends JFrame {
 					
 					
 				}
+				
+				fname = Common.nameFormat(fname);
+				lname = Common.nameFormat(lname);
 				
 				
 				if(!fname.equals("")) {

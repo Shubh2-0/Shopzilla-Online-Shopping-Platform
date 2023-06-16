@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import com.masai.CommanCode.Common;
 import com.masai.Dao.BuyerDaoImpl;
 import com.masai.Dao.SellerDao;
 import com.masai.Dao.SellerDaoImpl;
@@ -39,7 +40,7 @@ public class SellerUpdate extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					frame = new SellerUpdate(SellerOperations.seller);
+					frame = new SellerUpdate();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -51,8 +52,8 @@ public class SellerUpdate extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public SellerUpdate(SellerImpl seller2) {
-		this.seller = seller2;
+	public SellerUpdate() {
+		this.seller = SellerOperations.seller;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 756, 642);
 		contentPane = new JPanel();
@@ -81,28 +82,28 @@ public class SellerUpdate extends JFrame {
 		textField.setBounds(212, 124, 303, 47);
 		contentPane.add(textField);
 		textField.setColumns(10);
-		textField.setText(seller2.getFirstName());
+		textField.setText(seller.getFirstName());
 		
 		textField_1 = new JTextField();
 		textField_1.setFont(new Font("Bahnschrift", Font.PLAIN, 25));
 		textField_1.setColumns(10);
 		textField_1.setBounds(212, 210, 303, 47);
 		contentPane.add(textField_1);
-		textField_1.setText(seller2.getLastName());
+		textField_1.setText(seller.getLastName());
 		
 		textField_2 = new JTextField();
 		textField_2.setFont(new Font("Bahnschrift", Font.PLAIN, 25));
 		textField_2.setColumns(10);
 		textField_2.setBounds(212, 298, 303, 47);
 		contentPane.add(textField_2);
-		textField_2.setText(seller2.getMobileNo());
+		textField_2.setText(seller.getMobileNo());
 		
 		textField_3 = new JTextField();
 		textField_3.setFont(new Font("Bahnschrift", Font.PLAIN, 25));
 		textField_3.setColumns(10);
 		textField_3.setBounds(212, 381, 303, 47);
 		contentPane.add(textField_3);
-		textField_3.setText(seller2.getAddress());
+		textField_3.setText(seller.getAddress());
 		
 		
 		JLabel lblNewLabel = new JLabel("First Name :");
@@ -151,6 +152,8 @@ public class SellerUpdate extends JFrame {
 					
 				}
 				
+				fname = Common.nameFormat(fname);
+				lname = Common.nameFormat(lname);
 				
 				if(!fname.equals("")) {
 					seller.setFirstName(fname);	
