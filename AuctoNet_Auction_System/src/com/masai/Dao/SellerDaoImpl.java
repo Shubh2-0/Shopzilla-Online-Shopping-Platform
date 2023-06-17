@@ -314,6 +314,10 @@ public class SellerDaoImpl implements SellerDao {
 		
 	}
 	
+	
+	
+	
+	
 	@Override
 	public ResultSet getAllSellerProductsOrderByQuantity(String username) {
 		
@@ -523,7 +527,7 @@ public class SellerDaoImpl implements SellerDao {
 			
 			con = DBUtils.getConnection();
 			
-			String SELECT_QUERY = "UPDATE seller SET deleted_date = NOW() , is_deleted = 1 WHERE username = ? AND password = ?";
+			String SELECT_QUERY = "UPDATE seller SET close_account_date = NOW() , is_deleted = 1 WHERE username = ? AND password = ?";
 			
 			PreparedStatement statement = con.prepareStatement(SELECT_QUERY); 
 			
@@ -533,7 +537,7 @@ public class SellerDaoImpl implements SellerDao {
 			
 			int ans = statement.executeUpdate();
 			
-			if(ans > 0) return true;
+			if(ans > 0 && this.hideSellerProducts(username)) return true;
 			
 			
 			

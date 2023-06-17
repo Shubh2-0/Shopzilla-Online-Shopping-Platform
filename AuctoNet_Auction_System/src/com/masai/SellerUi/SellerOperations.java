@@ -59,7 +59,7 @@ public class SellerOperations extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 958, 691);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(255, 255, 0));
+		contentPane.setBackground(new Color(255, 218, 185));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -107,11 +107,14 @@ public class SellerOperations extends JFrame {
 		btnViewProductsFor.setBounds(30, 296, 255, 51);
 		contentPane.add(btnViewProductsFor);
 		
-		JButton btnAddBalance = new JButton("Add Balance");
+		JButton btnAddBalance = new JButton("Withdraw Income");
 		btnAddBalance.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
+			
 				
+				frame.setVisible(false);
+				SellerWithdrawIncome.main(null);
 				
 				
 			}
@@ -135,10 +138,55 @@ public class SellerOperations extends JFrame {
 		contentPane.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("");
+		lblNewLabel_3.setForeground(new Color(105, 105, 105));
 		lblNewLabel_3.setFont(new Font("Bahnschrift", Font.PLAIN, 25));
 		lblNewLabel_3.setBounds(206, 560, 207, 29);
 		contentPane.add(lblNewLabel_3);
 		lblNewLabel_3.setText(seller.getIncome()+"");
+		
+		JButton btnNewButton_2 = new JButton("Logout\r\n");
+		btnNewButton_2.setFont(new Font("Bahnschrift", Font.BOLD, 25));
+		btnNewButton_2.setBounds(737, 560, 184, 42);
+		contentPane.add(btnNewButton_2);
+		
+		JButton btnNewButton_2_1 = new JButton("Temporary Seller Break");
+		btnNewButton_2_1.addActionListener(new ActionListener() {
+			
+			
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				frame.setVisible(false);
+				sellerDao.deleteSeller(seller.getSellerUserName(), seller.getPassword());
+				SellerAcountClose.main(null);
+				
+				
+			}
+		});
+		btnNewButton_2_1.setFont(new Font("Bahnschrift", Font.BOLD, 25));
+		btnNewButton_2_1.setBounds(605, 462, 317, 51);
+		contentPane.add(btnNewButton_2_1);
+		
+		JLabel lblNewLabel_4 = new JLabel("");
+		
+		if(seller.getIncome() > 1000000) {
+			lblNewLabel_4.setText("Withdrawal Required: Please withdraw your income amount exceeding 10 lakhs");
+		}
+		lblNewLabel_4.setForeground(new Color(255, 0, 0));
+		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblNewLabel_4.setBounds(30, 93, 657, 37);
+		contentPane.add(lblNewLabel_4);
+		
+		JButton btnAddNewProduct = new JButton("Add New Product");
+		btnAddNewProduct.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		btnAddNewProduct.setFont(new Font("Bahnschrift", Font.BOLD, 25));
+		btnAddNewProduct.setBackground(SystemColor.menu);
+		btnAddNewProduct.setBounds(30, 462, 255, 51);
+		contentPane.add(btnAddNewProduct);
 		
 		JButton btnNewButton = new JButton("Update Details");
 		btnNewButton.addActionListener(new ActionListener() {

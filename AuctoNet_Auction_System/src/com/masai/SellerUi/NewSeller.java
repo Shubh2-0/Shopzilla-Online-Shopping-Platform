@@ -221,6 +221,7 @@ public class NewSeller extends JFrame {
 					return;
 					
 				}else {
+					
 					String username = firstName+"_"+(int)(Math.random()*5000);
 					JOptionPane.showMessageDialog(null, "Congratulations! Your account has been successfully created\n"
 							+ "Your username : "+ username +"\n "

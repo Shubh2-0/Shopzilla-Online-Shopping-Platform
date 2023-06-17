@@ -55,6 +55,7 @@ public class BuyerTransactions extends JFrame {
 			public void run() {
 				try {
 					frame = new BuyerTransactions();
+					frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -68,9 +69,9 @@ public class BuyerTransactions extends JFrame {
 	 */
 	public BuyerTransactions() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1570, 759);
+		setBounds(100, 100, 1554, 837);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(189, 183, 107));
+		contentPane.setBackground(new Color(176, 196, 222));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -78,7 +79,7 @@ public class BuyerTransactions extends JFrame {
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setEnabled(false);
-		scrollPane.setBounds(49, 34, 1457, 340);
+		scrollPane.setBounds(45, 34, 1461, 364);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
@@ -115,14 +116,14 @@ public class BuyerTransactions extends JFrame {
 			}
 		});
 		btnNewButton.setFont(new Font("Bahnschrift", Font.BOLD, 20));
-		btnNewButton.setBounds(1354, 666, 151, 46);
+		btnNewButton.setBounds(1354, 733, 151, 46);
 		contentPane.add(btnNewButton);
 		
 		panel = new JPanel();
 		panel.setLayout(null);
 		panel.setForeground(Color.RED);
-		panel.setBackground(new Color(244, 164, 96));
-		panel.setBounds(31, 516, 898, 196);
+		panel.setBackground(new Color(70, 130, 180));
+		panel.setBounds(37, 583, 898, 196);
 		contentPane.add(panel);
 		
 		lblNewLabel = new JLabel("View Transaction By Date Range ");
@@ -227,12 +228,12 @@ public class BuyerTransactions extends JFrame {
 		
 		JLabel lblNewLabel_4 = new JLabel("Sort Transactions By :");
 		lblNewLabel_4.setFont(new Font("Bahnschrift", Font.BOLD, 20));
-		lblNewLabel_4.setBounds(37, 419, 249, 30);
+		lblNewLabel_4.setBounds(45, 462, 249, 30);
 		contentPane.add(lblNewLabel_4);
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setFont(new Font("Bahnschrift", Font.PLAIN, 18));
-		comboBox.setBounds(264, 416, 180, 36);
+		comboBox.setBounds(272, 459, 180, 36);
 		contentPane.add(comboBox);
 		comboBox.addItem("Total Price");
 		comboBox.addItem("Quantity");
@@ -273,7 +274,7 @@ public class BuyerTransactions extends JFrame {
 			}
 		});
 		btnNewButton_3.setFont(new Font("Bahnschrift", Font.BOLD, 19));
-		btnNewButton_3.setBounds(517, 416, 85, 33);
+		btnNewButton_3.setBounds(525, 459, 85, 33);
 		contentPane.add(btnNewButton_3);
 		
 		btnReset = new JButton("Reset");
@@ -286,7 +287,7 @@ public class BuyerTransactions extends JFrame {
 			}
 		});
 		btnReset.setFont(new Font("Bahnschrift", Font.BOLD, 20));
-		btnReset.setBounds(1354, 428, 151, 46);
+		btnReset.setBounds(1354, 444, 151, 46);
 		contentPane.add(btnReset);
 		
 	

@@ -45,6 +45,7 @@ public class BuyerProducts extends JFrame {
 			public void run() {
 				try {
 					frame = new BuyerProducts();
+					frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -151,6 +152,8 @@ public class BuyerProducts extends JFrame {
 				} catch (Exception e2) {
 					
 					JOptionPane.showMessageDialog(null, "Id must be in Number Format");
+					textField.setText("");
+					return;
 					
 					
 				}
@@ -162,19 +165,42 @@ public class BuyerProducts extends JFrame {
 					if(quantity > 10) {
 						
 						JOptionPane.showMessageDialog(null, "Quantity Not More Than 10");
+						
+						
 					}else {
 						
 						table.setModel(DbUtils.resultSetToTableModel(buyerdao.getProductsByProductId(id)));
 						
-						if(table.getRowCount()==0)
+						if(table.getRowCount()==0) {
+							
 							JOptionPane.showMessageDialog(null, "No Product Found with With id");
+							textField.setText("");
+							return;
+							
+							
+						}
+							
 						
 						else {
-							String ans = buyerdao.purchaseItem(id, quantity);
-							JOptionPane.showMessageDialog(null,ans);
 							
-							frame.setVisible(false);
-							BuyerTransactions.main(null);
+							String ans = buyerdao.purchaseItem(id, quantity);
+						
+							
+							if(ans.indexOf("PURCHASE") != -1) {
+						
+								JOptionPane.showMessageDialog(null,ans);
+								frame.setVisible(false);
+								BuyerTransactions.main(null);
+								
+							}else {
+								
+								JOptionPane.showMessageDialog(null,ans);
+								
+								
+							}
+							
+							
+							
 							
 						}
 						

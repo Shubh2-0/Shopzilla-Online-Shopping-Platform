@@ -47,6 +47,7 @@ public class Transaction extends JFrame {
 				try {
 					frame = new Transaction();
 					frame.setVisible(true);
+					frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -59,7 +60,7 @@ public class Transaction extends JFrame {
 	 */
 	public Transaction() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1726, 742);
+		setBounds(100, 100, 1554, 844);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -106,7 +107,7 @@ public class Transaction extends JFrame {
 			
 			
 			btnNewButton.setFont(new Font("Bahnschrift", Font.BOLD, 20));
-			btnNewButton.setBounds(1396, 628, 136, 46);
+			btnNewButton.setBounds(1375, 738, 136, 46);
 			contentPane.add(btnNewButton);
 			
 			JLabel lblNewLabel = new JLabel("View Transaction By id :");
@@ -187,14 +188,14 @@ public class Transaction extends JFrame {
 				}
 			});
 			btnNewButton_1.setFont(new Font("Bahnschrift", Font.BOLD, 20));
-			btnNewButton_1.setBounds(1194, 633, 144, 36);
+			btnNewButton_1.setBounds(1367, 388, 144, 36);
 			contentPane.add(btnNewButton_1);
 			
 			JPanel panel = new JPanel();
 			panel.setForeground(Color.RED);
 			panel.setBackground(new Color(204, 255, 204));
 			panel.setBackground(new Color(0, 0, 0, 80));
-			panel.setBounds(24, 499, 898, 196);
+			panel.setBounds(10, 588, 898, 196);
 			contentPane.add(panel);
 			panel.setLayout(null);
 			
@@ -294,7 +295,7 @@ public class Transaction extends JFrame {
 			
 			JLabel lblNewLabel_4 = new JLabel("Sort Transactions By :");
 			lblNewLabel_4.setFont(new Font("Bahnschrift", Font.BOLD, 20));
-			lblNewLabel_4.setBounds(967, 391, 249, 30);
+			lblNewLabel_4.setBounds(975, 504, 249, 30);
 			contentPane.add(lblNewLabel_4);
 			
 			JComboBox comboBox = new JComboBox();
@@ -303,7 +304,7 @@ public class Transaction extends JFrame {
 			comboBox.addItem("Quantity");
 			comboBox.addItem("Purchase Date");
 			comboBox.addItem("GST Percentage");
-			comboBox.setBounds(1194, 388, 180, 36);
+			comboBox.setBounds(1202, 501, 180, 36);
 			contentPane.add(comboBox);
 			
 			JButton btnNewButton_3 = new JButton("Sort");
@@ -338,7 +339,7 @@ public class Transaction extends JFrame {
 				}
 			});
 			btnNewButton_3.setFont(new Font("Bahnschrift", Font.BOLD, 19));
-			btnNewButton_3.setBounds(1447, 388, 85, 33);
+			btnNewButton_3.setBounds(1424, 503, 85, 33);
 			contentPane.add(btnNewButton_3);
 		} catch (RecordNotFoundException e) {
 			// TODO Auto-generated catch block

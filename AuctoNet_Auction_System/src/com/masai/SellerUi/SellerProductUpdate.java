@@ -196,13 +196,13 @@ public class SellerProductUpdate extends JFrame {
 		contentPane.add(rdbtnNewRadioButton);
 		
 		
-        if(product.getReturnPolicy() == 0) {
+        if(product.getReturnPolicy() == 1) {
 			
 			rdbtnNewRadioButton.setSelected(true);
 			rdbtnNotApplicable.setSelected(false);
 		}
         
-        if(product.getReturnPolicy() == 1) {
+        if(product.getReturnPolicy() == 0) {
 			
 			rdbtnNewRadioButton.setSelected(false);
 			rdbtnNotApplicable.setSelected(true);
@@ -290,9 +290,9 @@ public class SellerProductUpdate extends JFrame {
                 
                 String description = textArea.getText();
                 
-                int returnPolicy = 0;
+                int returnPolicy = 1;
                 
-                if(rdbtnNotApplicable.isSelected()) returnPolicy = 1;
+                if(rdbtnNotApplicable.isSelected()) returnPolicy = 0;
                 
                 
                 if(!name.equals("")) product.setProductName(name);

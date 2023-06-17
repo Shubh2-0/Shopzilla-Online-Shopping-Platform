@@ -140,8 +140,20 @@ public class SellerMain extends JFrame {
 			}
 		});
 		btnNewButton.setFont(new Font("Trebuchet MS", Font.BOLD, 30));
-		btnNewButton.setBounds(144, 268, 179, 63);
+		btnNewButton.setBounds(97, 242, 252, 53);
 		panel.add(btnNewButton);
+		
+	
+		JButton btnNewButton_1_1 = new JButton("Create New Account");
+		btnNewButton_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.setVisible(false);
+				NewSeller.main(null);
+			}
+		});
+		btnNewButton_1_1.setBounds(97, 315, 252, 44);
+		panel.add(btnNewButton_1_1);
+		btnNewButton_1_1.setFont(new Font("Trebuchet MS", Font.BOLD, 20));
 		
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
@@ -164,7 +176,7 @@ public class SellerMain extends JFrame {
 		});
 		
 		
-		JButton btnNewButton_1 = new JButton("Back");
+		JButton btnNewButton_1 = new JButton("Reopen Acount");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -198,7 +210,7 @@ public class SellerMain extends JFrame {
 		});
 		
 		btnNewButton_1.setFont(new Font("Trebuchet MS", Font.BOLD, 25));
-		btnNewButton_1.setBounds(804, 547, 123, 44);
+		btnNewButton_1.setBounds(578, 544, 245, 51);
 		contentPane.add(btnNewButton_1);
 		
 		JLabel lblNewLabel_3 = new JLabel("Seller Login");
@@ -207,15 +219,15 @@ public class SellerMain extends JFrame {
 		lblNewLabel_3.setBounds(360, 27, 252, 58);
 		contentPane.add(lblNewLabel_3);
 		
-	
-		JButton btnNewButton_1_1 = new JButton("Back");
-		btnNewButton_1_1.setFont(new Font("Trebuchet MS", Font.BOLD, 25));
-		btnNewButton_1_1.setBounds(494, 547, 252, 44);
-		contentPane.add(btnNewButton_1_1);
-		
 		JButton btnNewButton_1_2 = new JButton("Back");
+		btnNewButton_1_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.setVisible(false);
+				MainPage.main(null);
+			}
+		});
 		btnNewButton_1_2.setFont(new Font("Trebuchet MS", Font.BOLD, 25));
-		btnNewButton_1_2.setBounds(733, 10, 186, 58);
+		btnNewButton_1_2.setBounds(777, 0, 152, 51);
 		contentPane.add(btnNewButton_1_2);
 		
 		JLabel lblNewLabel_2 = new JLabel("");

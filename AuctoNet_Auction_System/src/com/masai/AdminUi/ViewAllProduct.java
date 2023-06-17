@@ -49,6 +49,7 @@ public class ViewAllProduct extends JFrame {
 			public void run() {
 				try {
 					frame = new ViewAllProduct();
+					frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -62,7 +63,7 @@ public class ViewAllProduct extends JFrame {
 	 */
 	public ViewAllProduct() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1709, 713);
+		setBounds(100, 100, 1554, 800);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.activeCaption);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -79,11 +80,11 @@ public class ViewAllProduct extends JFrame {
 				
 			}
 		});
-		btnNewButton.setBounds(1412, 615, 103, 39);
+		btnNewButton.setBounds(1389, 724, 103, 39);
 		contentPane.add(btnNewButton);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 39, 1505, 300);
+		scrollPane.setBounds(10, 39, 1505, 383);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
@@ -124,11 +125,11 @@ public class ViewAllProduct extends JFrame {
 				}
 			});
 			btnNewButton_2.setFont(new Font("Bahnschrift", Font.BOLD, 22));
-			btnNewButton_2.setBounds(651, 589, 307, 51);
+			btnNewButton_2.setBounds(633, 647, 373, 51);
 			contentPane.add(btnNewButton_2);
 			
 			JPanel panel = new JPanel();
-			panel.setBounds(20, 534, 307, 132);
+			panel.setBounds(10, 621, 307, 132);
 			panel.setBackground(new Color(0, 0, 0, 80));
 			contentPane.add(panel);
 			panel.setLayout(null);
@@ -173,13 +174,13 @@ public class ViewAllProduct extends JFrame {
 			
 			JButton btnNewButton_2_1 = new JButton("Sort The Products By Price ");
 			btnNewButton_2_1.setFont(new Font("Bahnschrift", Font.BOLD, 22));
-			btnNewButton_2_1.setBounds(634, 411, 372, 51);
+			btnNewButton_2_1.setBounds(634, 559, 372, 51);
 			contentPane.add(btnNewButton_2_1);
 			
 			JPanel panel_1_1 = new JPanel();
 			panel_1_1.setLayout(null);
 			panel_1_1.setBackground(new Color(0, 0, 0, 80));
-			panel_1_1.setBounds(1151, 349, 364, 206);
+			panel_1_1.setBounds(1151, 446, 364, 206);
 			contentPane.add(panel_1_1);
 			
 			JLabel lblNewLabel_2_1 = new JLabel("View Products By Quantity Range");
@@ -272,7 +273,7 @@ public class ViewAllProduct extends JFrame {
 		
 			
 			JPanel panel_1 = new JPanel();
-			panel_1.setBounds(20, 349, 542, 133);
+			panel_1.setBounds(10, 478, 542, 133);
 			contentPane.add(panel_1);
 			panel_1.setLayout(null);
 			panel_1.setBackground(new Color(0, 0, 0, 80));

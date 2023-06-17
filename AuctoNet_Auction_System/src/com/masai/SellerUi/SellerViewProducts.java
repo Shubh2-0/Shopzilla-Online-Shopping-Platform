@@ -56,6 +56,7 @@ public class SellerViewProducts extends JFrame {
 			public void run() {
 				try {
 					frame = new SellerViewProducts();
+					frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -69,7 +70,7 @@ public class SellerViewProducts extends JFrame {
 	 */
 	public SellerViewProducts() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1554, 616);
+		setBounds(100, 100, 1554, 767);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -77,7 +78,7 @@ public class SellerViewProducts extends JFrame {
 		contentPane.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(26, 35, 1480, 275);
+		scrollPane.setBounds(26, 35, 1480, 376);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
@@ -100,12 +101,12 @@ public class SellerViewProducts extends JFrame {
 		comboBox.addItem("Grocery");
 		comboBox.addItem("Miscellaneous");
 		comboBox.setFont(new Font("Bahnschrift", Font.PLAIN, 20));
-		comboBox.setBounds(329, 355, 157, 30);
+		comboBox.setBounds(318, 513, 157, 30);
 		contentPane.add(comboBox);
 		
 		JLabel lblNewLabel = new JLabel("View Product By Category : ");
 		lblNewLabel.setFont(new Font("Bahnschrift", Font.BOLD, 22));
-		lblNewLabel.setBounds(37, 352, 296, 40);
+		lblNewLabel.setBounds(26, 510, 296, 40);
 		contentPane.add(lblNewLabel);
 		
 		JButton btnNewButton_1 = new JButton("View");
@@ -123,7 +124,7 @@ public class SellerViewProducts extends JFrame {
 			}
 		});
 		btnNewButton_1.setFont(new Font("Bahnschrift", Font.PLAIN, 20));
-		btnNewButton_1.setBounds(494, 352, 118, 35);
+		btnNewButton_1.setBounds(483, 510, 118, 35);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Back");
@@ -135,7 +136,7 @@ public class SellerViewProducts extends JFrame {
 			}
 		});
 		btnNewButton_2.setFont(new Font("Bahnschrift", Font.PLAIN, 25));
-		btnNewButton_2.setBounds(1396, 525, 110, 40);
+		btnNewButton_2.setBounds(1396, 681, 110, 40);
 		contentPane.add(btnNewButton_2);
 		
 		JButton btnNewButton_3 = new JButton("Reset");
@@ -149,12 +150,12 @@ public class SellerViewProducts extends JFrame {
 			}
 		});
 		btnNewButton_3.setFont(new Font("Bahnschrift", Font.BOLD, 20));
-		btnNewButton_3.setBounds(1409, 320, 97, 40);
+		btnNewButton_3.setBounds(1409, 435, 97, 40);
 		contentPane.add(btnNewButton_3);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(222, 184, 135));
-		panel.setBounds(26, 435, 587, 125);
+		panel.setBounds(26, 596, 587, 125);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -238,7 +239,7 @@ public class SellerViewProducts extends JFrame {
 		
 		
 		btnNewButton_4.setFont(new Font("Bahnschrift", Font.PLAIN, 25));
-		btnNewButton_4.setBounds(888, 352, 373, 52);
+		btnNewButton_4.setBounds(847, 531, 373, 52);
 		contentPane.add(btnNewButton_4);
 		
 		JButton btnNewButton_4_1 = new JButton("Sort Producy By Price");
@@ -259,7 +260,7 @@ public class SellerViewProducts extends JFrame {
 			}
 		});
 		btnNewButton_4_1.setFont(new Font("Bahnschrift", Font.PLAIN, 25));
-		btnNewButton_4_1.setBounds(888, 484, 373, 52);
+		btnNewButton_4_1.setBounds(847, 627, 373, 52);
 		contentPane.add(btnNewButton_4_1);
 		
 	

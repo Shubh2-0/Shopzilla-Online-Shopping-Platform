@@ -167,7 +167,7 @@ public class BuyerDaoImpl implements BuyerDao {
 		try {
 			
 			con = DBUtils.getConnection();
-			String INSERT_QUERY = "INSERT INTO BUYER VALUES(?,?,?,?,?,?,?,?)";
+			String INSERT_QUERY = "INSERT INTO BUYER VALUES(?,?,?,?,?,?,?,?,?)";
 			
 			PreparedStatement statement = con.prepareStatement(INSERT_QUERY);
 			
@@ -179,6 +179,7 @@ public class BuyerDaoImpl implements BuyerDao {
 			statement.setString(6, u.getAddress());
 			statement.setDouble(7, u.getBalance());
 			statement.setInt(8, 0);
+			statement.setDate(9, null);
 			
 			int ans = statement.executeUpdate();
 			
@@ -265,7 +266,7 @@ public class BuyerDaoImpl implements BuyerDao {
 			try {
 				
 				con = DBUtils.getConnection();
-				String SELECT_QUERY = "SELECT product_id AS 'Product ID', product_name AS 'Name', price_per_piece AS 'Price Per Unit', seller_name AS 'Seller Name', quantity AS Quantity, description AS Description, category_id AS 'Category Number' FROM product WHERE sold_status = 0";
+				String SELECT_QUERY = "SELECT product_id AS 'Product ID', product_name AS 'Name', price_per_piece AS 'Price Per Unit', seller_name AS 'Seller Name', quantity AS Quantity, description AS Description, category_id AS 'Category Number', IF(return_policy = 1, 'Applicable', 'Not Applicable') AS 'Return' FROM product WHERE sold_status = 0 AND is_hide = 0";
 				
 				PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
 				
@@ -309,7 +310,8 @@ public class BuyerDaoImpl implements BuyerDao {
 		int seller_Id  = 0;
 		String usernmae = buyer.getBuyerUserName();
 		String sellerusername = null;
-		int gst = productDao.getGStPercentage(productId);		
+		int gst = productDao.getGStPercentage(productId);	
+		int returnPolicy = 0;
 		
 		
 		try {
@@ -331,6 +333,8 @@ public class BuyerDaoImpl implements BuyerDao {
 				perUnitPrice = set.getDouble("price_per_piece");
 				seller_Id = set.getInt("seller_unique_num");
 				sellerusername = set.getString("seller_username");
+				returnPolicy = set.getInt("return_policy");
+				
 				
 			}
 			
@@ -354,10 +358,8 @@ public class BuyerDaoImpl implements BuyerDao {
 			}
 			
 			
+			
 			if(quantity!=0) {
-				
-			
-			
 				
 			String INSERT_QUERY = "  INSERT INTO transactions ("
 					+ "      product_id,"
@@ -383,7 +385,7 @@ public class BuyerDaoImpl implements BuyerDao {
 					+ "      (SELECT GST_PER FROM CATEGORY WHERE CAT_ID = (SELECT CATEGORY_ID FROM PRODUCT WHERE PRODUCT_ID = ?)),"
 					+ "      price*gst_percentage/100, "
 					+ "     price + tax_amount, "
-					+ "      1)";	
+					+ "      ?)";	
 				 
 			PreparedStatement statement2 = con.prepareStatement(INSERT_QUERY);
 			
@@ -396,7 +398,7 @@ public class BuyerDaoImpl implements BuyerDao {
 		 statement2.setInt(7, productId);
 		 statement2.setInt(8, quantity);
 		 statement2.setInt(9, productId);
-				
+	     statement2.setInt(10, returnPolicy);			
 				int ans = statement2.executeUpdate();
 				
 				
@@ -611,7 +613,7 @@ public class BuyerDaoImpl implements BuyerDao {
 			try {
 				
 				con = DBUtils.getConnection();
-				String SELECT_QUERY = "SELECT transaction_id AS 'Transaction ID', product_id AS 'Product ID', product_name AS 'Product Name', quantity AS Quantity, purchase_date AS 'Purchase Date', amount_per_piece AS 'Price Per Unit', price AS 'Total Price Before Tax', gst_percentage AS 'GST Percentage', tax_amount AS 'Tax Amount', total_price AS 'Final Price', return_policy AS 'Return Applicable' FROM transactions WHERE buyer_id = ?";
+				String SELECT_QUERY = "SELECT transaction_id AS 'Transaction ID', product_id AS 'Product ID', product_name AS 'Product Name', quantity AS Quantity, purchase_date AS 'Purchase Date', amount_per_piece AS 'Price Per Unit', price AS 'Total Price Before Tax', gst_percentage AS 'GST Percentage', tax_amount AS 'Tax Amount', total_price AS 'Final Price', If(return_policy = 1,'YES','NO') AS 'Return Applicable' FROM transactions WHERE buyer_id = ?";
 				
 				PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
 		
@@ -665,7 +667,7 @@ public class BuyerDaoImpl implements BuyerDao {
 		try {
 			
 			con = DBUtils.getConnection();
-			String SELECT_QUERY = "SELECT product_id AS 'Product ID', product_name AS 'Name', price_per_piece AS 'Price Per Unit', seller_name AS 'Seller Name', quantity AS Quantity, description AS Description, category_id AS 'Category Number' FROM product WHERE CATEGORY_ID = (SELECT CAT_ID FROM CATEGORY WHERE CAT_NAME = ?) AND sold_status = 0";
+			String SELECT_QUERY = "SELECT product_id AS 'Product ID', product_name AS 'Name', price_per_piece AS 'Price Per Unit', seller_name AS 'Seller Name', quantity AS Quantity, description AS Description, category_id AS 'Category Number', IF(return_policy = 1, 'Applicable', 'Not Applicable') AS 'Return' FROM product WHERE CATEGORY_ID = (SELECT CAT_ID FROM CATEGORY WHERE CAT_NAME = ?) AND sold_status = 0 AND is_hide = 0";
 			
 			PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
 			
@@ -702,7 +704,7 @@ public class BuyerDaoImpl implements BuyerDao {
 		try {
 			
 			con = DBUtils.getConnection();
-			String SELECT_QUERY = "SELECT product_id AS 'Product ID', product_name AS 'Name', price_per_piece AS 'Price Per Unit', seller_name AS 'Seller Name', quantity AS Quantity, description AS Description, category_id AS 'Category Number' FROM product WHERE sold_status = 0 AND PRODUCT_ID = ?";
+			String SELECT_QUERY = "SELECT product_id AS 'Product ID', product_name AS 'Name', price_per_piece AS 'Price Per Unit', seller_name AS 'Seller Name', quantity AS Quantity, description AS Description, category_id AS 'Category Number',  IF(return_policy = 1, 'Applicable', 'Not Applicable') AS 'Return' FROM product WHERE sold_status = 0 AND is_hide = 0 AND PRODUCT_ID = ?";
 			
 			PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
 			
@@ -892,7 +894,7 @@ public class BuyerDaoImpl implements BuyerDao {
 			try {
 				
 				con = DBUtils.getConnection();
-				String SELECT_QUERY = "SELECT transaction_id AS 'Transaction ID', product_id AS 'Product ID', product_name AS 'Product Name', quantity AS Quantity, purchase_date AS 'Purchase Date', amount_per_piece AS 'Price Per Unit', price AS 'Total Price Before Tax', gst_percentage AS 'GST Percentage', tax_amount AS 'Tax Amount', total_price AS 'Final Price', return_policy AS 'Return Applicable' FROM transactions WHERE PURCHASE_DATE BETWEEN ? AND ? AND buyer_id = ? ORDER BY PURCHASE_DATE";
+				String SELECT_QUERY = "SELECT transaction_id AS 'Transaction ID', product_id AS 'Product ID', product_name AS 'Product Name', quantity AS Quantity, purchase_date AS 'Purchase Date', amount_per_piece AS 'Price Per Unit', price AS 'Total Price Before Tax', gst_percentage AS 'GST Percentage', tax_amount AS 'Tax Amount', total_price AS 'Final Price', If(return_policy = 1,'YES','NO') AS 'Return Applicable' FROM transactions WHERE PURCHASE_DATE BETWEEN ? AND ? AND buyer_id = ? ORDER BY PURCHASE_DATE";
 				
 				PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
 				
@@ -934,7 +936,7 @@ public class BuyerDaoImpl implements BuyerDao {
 			try {
 				
 				con = DBUtils.getConnection();
-				String SELECT_QUERY = "SELECT transaction_id AS 'Transaction ID', product_id AS 'Product ID', product_name AS 'Product Name', quantity AS Quantity, purchase_date AS 'Purchase Date', amount_per_piece AS 'Price Per Unit', price AS 'Total Price Before Tax', gst_percentage AS 'GST Percentage', tax_amount AS 'Tax Amount', total_price AS 'Final Price', return_policy AS 'Return Applicable' FROM transactions WHERE buyer_id = ? ORDER BY purchase_date";
+				String SELECT_QUERY = "SELECT transaction_id AS 'Transaction ID', product_id AS 'Product ID', product_name AS 'Product Name', quantity AS Quantity, purchase_date AS 'Purchase Date', amount_per_piece AS 'Price Per Unit', price AS 'Total Price Before Tax', gst_percentage AS 'GST Percentage', tax_amount AS 'Tax Amount', total_price AS 'Final Price', If(return_policy = 1,'YES','NO') AS 'Return Applicable' FROM transactions WHERE buyer_id = ? ORDER BY purchase_date";
 				
 				PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
 				
@@ -974,7 +976,7 @@ public class BuyerDaoImpl implements BuyerDao {
 			try {
 				
 				con = DBUtils.getConnection();
-				String SELECT_QUERY = "SELECT transaction_id AS 'Transaction ID', product_id AS 'Product ID', product_name AS 'Product Name', quantity AS Quantity, purchase_date AS 'Purchase Date', amount_per_piece AS 'Price Per Unit', price AS 'Total Price Before Tax', gst_percentage AS 'GST Percentage', tax_amount AS 'Tax Amount', total_price AS 'Final Price', return_policy AS 'Return Applicable' FROM transactions WHERE buyer_id = ? ORDER BY quantity";
+				String SELECT_QUERY = "SELECT transaction_id AS 'Transaction ID', product_id AS 'Product ID', product_name AS 'Product Name', quantity AS Quantity, purchase_date AS 'Purchase Date', amount_per_piece AS 'Price Per Unit', price AS 'Total Price Before Tax', gst_percentage AS 'GST Percentage', tax_amount AS 'Tax Amount', total_price AS 'Final Price', If(return_policy = 1,'YES','NO') AS 'Return Applicable' FROM transactions WHERE buyer_id = ? ORDER BY quantity";
 				
 				PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
 				
@@ -1013,7 +1015,7 @@ public class BuyerDaoImpl implements BuyerDao {
 			try {
 				
 				con = DBUtils.getConnection();
-				String SELECT_QUERY = "SELECT transaction_id AS 'Transaction ID', product_id AS 'Product ID', product_name AS 'Product Name', quantity AS Quantity, purchase_date AS 'Purchase Date', amount_per_piece AS 'Price Per Unit', price AS 'Total Price Before Tax', gst_percentage AS 'GST Percentage', tax_amount AS 'Tax Amount', total_price AS 'Final Price', return_policy AS 'Return Applicable' FROM transactions WHERE buyer_id = ? ORDER BY gst_percentage";
+				String SELECT_QUERY = "SELECT transaction_id AS 'Transaction ID', product_id AS 'Product ID', product_name AS 'Product Name', quantity AS Quantity, purchase_date AS 'Purchase Date', amount_per_piece AS 'Price Per Unit', price AS 'Total Price Before Tax', gst_percentage AS 'GST Percentage', tax_amount AS 'Tax Amount', total_price AS 'Final Price', If(return_policy = 1,'YES','NO') AS 'Return Applicable' FROM transactions WHERE buyer_id = ? ORDER BY gst_percentage";
 				
 				PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
 				
@@ -1052,7 +1054,7 @@ public class BuyerDaoImpl implements BuyerDao {
 			try {
 				
 				con = DBUtils.getConnection();
-				String SELECT_QUERY = "SELECT transaction_id AS 'Transaction ID', product_id AS 'Product ID', product_name AS 'Product Name', quantity AS Quantity, purchase_date AS 'Purchase Date', amount_per_piece AS 'Price Per Unit', price AS 'Total Price Before Tax', gst_percentage AS 'GST Percentage', tax_amount AS 'Tax Amount', total_price AS 'Final Price', return_policy AS 'Return Applicable' FROM transactions WHERE buyer_id = ? ORDER BY total_price";
+				String SELECT_QUERY = "SELECT transaction_id AS 'Transaction ID', product_id AS 'Product ID', product_name AS 'Product Name', quantity AS Quantity, purchase_date AS 'Purchase Date', amount_per_piece AS 'Price Per Unit', price AS 'Total Price Before Tax', gst_percentage AS 'GST Percentage', tax_amount AS 'Tax Amount', total_price AS 'Final Price', If(return_policy = 1,'YES','NO') AS 'Return Applicable' FROM transactions WHERE buyer_id = ? ORDER BY total_price";
 				
 				PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
 				
