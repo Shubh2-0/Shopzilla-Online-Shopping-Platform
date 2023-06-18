@@ -117,6 +117,7 @@ public class ViewAllBuyer extends JFrame {
 	
 		
 		JButton btnNewButton = new JButton("Back");
+		CSS.setMouseCursorBack(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -124,7 +125,7 @@ public class ViewAllBuyer extends JFrame {
 				AdminOperations.main(null);
 			}
 		});
-		AdminOperations.chanageMouseColor(btnNewButton);
+		
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 35));
 		btnNewButton.setBounds(617, 373, 222, 56);
 		contentPane.add(btnNewButton);

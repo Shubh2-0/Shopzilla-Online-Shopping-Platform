@@ -108,6 +108,8 @@ public class BuyerTransactions extends JFrame {
 		CSS.setTable(table);
 		
 		btnNewButton = new JButton("Back");
+		CSS.setMouseCursorBack(btnNewButton);
+		btnNewButton.setBackground(Color.WHITE);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
@@ -153,6 +155,8 @@ public class BuyerTransactions extends JFrame {
 		panel.add(lblNewLabel_1);
 		
 		btnNewButton_2 = new JButton("View");
+		CSS.setMouseCursorNormal2(btnNewButton_2);
+		btnNewButton_2.setBackground(Color.WHITE);
 		btnNewButton_2.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
@@ -241,6 +245,8 @@ public class BuyerTransactions extends JFrame {
 		comboBox.addItem("GST Percentage");
 		
 		JButton btnNewButton_3 = new JButton("Sort");
+		CSS.setMouseCursorNormal2(btnNewButton_3);
+		btnNewButton_3.setBackground(Color.WHITE);
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -278,6 +284,8 @@ public class BuyerTransactions extends JFrame {
 		contentPane.add(btnNewButton_3);
 		
 		btnReset = new JButton("Reset");
+		CSS.setMouseCursorBack(btnReset);
+		btnReset.setBackground(Color.WHITE);
 		btnReset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				

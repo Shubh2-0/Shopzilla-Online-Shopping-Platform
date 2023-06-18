@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import com.masai.CSS.CSS;
 import com.masai.Dao.BuyerDaoImpl;
 import com.masai.Dto.BuyerImpl;
 import com.masai.MainUi.MainPage;
@@ -101,6 +102,7 @@ public class BuyerMain extends JFrame {
 		contentPane.add(textField_1);
 		
 		JButton btnNewButton = new JButton("Back");
+		CSS.setMouseCursorBack(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -148,6 +150,7 @@ public class BuyerMain extends JFrame {
 		contentPane.add(lblNewLabel_3);
 		
 		JButton btnNewButton_1 = new JButton("Login");
+		CSS.setMouseCursorLogin(btnNewButton_1);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -207,8 +210,8 @@ public class BuyerMain extends JFrame {
 				
 			}
 		});
-		btnNewButton_1.setBackground(new Color(255, 204, 255));
-		btnNewButton.setBackground(new Color(204, 255, 255));
+		btnNewButton_1.setBackground(Color.WHITE);
+		btnNewButton.setBackground(Color.WHITE);
 		btnNewButton_1.setFont(new Font("Bahnschrift", Font.BOLD, 30));
 		btnNewButton_1.setBounds(446, 405, 134, 44);
 		contentPane.add(btnNewButton_1);
@@ -222,6 +225,7 @@ public class BuyerMain extends JFrame {
 		lblNewLabel_2_1.setIcon(icon4);
 		
 		JButton btnCreateNewAccount = new JButton("Create New Account");
+		CSS.setMouseCursorNormal2(btnCreateNewAccount);
 		btnCreateNewAccount.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -231,11 +235,12 @@ public class BuyerMain extends JFrame {
 			}
 		});
 		btnCreateNewAccount.setFont(new Font("Bahnschrift", Font.BOLD, 30));
-		btnCreateNewAccount.setBackground(new Color(204, 255, 255));
+		btnCreateNewAccount.setBackground(Color.WHITE);
 		btnCreateNewAccount.setBounds(10, 581, 331, 61);
 		contentPane.add(btnCreateNewAccount);
 		
 		JButton btnRestoreAccount = new JButton("Restore Account");
+		CSS.setMouseCursorNormal2(btnRestoreAccount);
 		btnRestoreAccount.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
@@ -245,7 +250,7 @@ public class BuyerMain extends JFrame {
 			}
 		});
 		btnRestoreAccount.setFont(new Font("Bahnschrift", Font.BOLD, 30));
-		btnRestoreAccount.setBackground(new Color(204, 255, 255));
+		btnRestoreAccount.setBackground(Color.WHITE);
 		btnRestoreAccount.setBounds(402, 581, 331, 61);
 		contentPane.add(btnRestoreAccount);
 	}

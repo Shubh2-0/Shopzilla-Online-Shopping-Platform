@@ -72,6 +72,7 @@ public class ViewAllProduct extends JFrame {
 		contentPane.setLayout(null);
 		
 		JButton btnNewButton = new JButton("Back");
+		CSS.setMouseCursorBack(btnNewButton);
 		btnNewButton.setFont(new Font("Bahnschrift", Font.BOLD, 25));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -102,6 +103,7 @@ public class ViewAllProduct extends JFrame {
 			CSS.setTable(table);
 			
 			JButton btnNewButton_2 = new JButton("View Sold Products Only");
+			CSS.setMouseCursorNormal2(btnNewButton_2);
 			btnNewButton_2.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					
@@ -151,6 +153,7 @@ public class ViewAllProduct extends JFrame {
 			comboBox.setFont(new Font("Arial Narrow", Font.BOLD, 17));
 			
 			JButton btnNewButton_1 = new JButton("View");
+			CSS.setMouseCursorNormal2(btnNewButton_1);
 			btnNewButton_1.setBounds(193, 67, 96, 37);
 			panel.add(btnNewButton_1);
 			btnNewButton_1.addActionListener(new ActionListener() {
@@ -173,6 +176,7 @@ public class ViewAllProduct extends JFrame {
 			btnNewButton_1.setFont(new Font("Bahnschrift", Font.BOLD, 20));
 			
 			JButton btnNewButton_2_1 = new JButton("Sort The Products By Price ");
+			CSS.setMouseCursorNormal2(btnNewButton_2_1);
 			btnNewButton_2_1.setFont(new Font("Bahnschrift", Font.BOLD, 22));
 			btnNewButton_2_1.setBounds(634, 559, 372, 51);
 			contentPane.add(btnNewButton_2_1);
@@ -201,6 +205,7 @@ public class ViewAllProduct extends JFrame {
 			
 			
 			JButton btnNewButton_1_1_1 = new JButton("View");
+			CSS.setMouseCursorNormal2(btnNewButton_1_1_1);
 			btnNewButton_1_1_1.setFont(new Font("Bahnschrift", Font.BOLD, 20));
 			btnNewButton_1_1_1.setBounds(139, 144, 87, 33);
 			panel_1_1.add(btnNewButton_1_1_1);
@@ -286,6 +291,7 @@ public class ViewAllProduct extends JFrame {
 			panel_1.add(lblNewLabel_2);
 			
 			JButton btnNewButton_1_1 = new JButton("View");
+			CSS.setMouseCursorNormal2(btnNewButton_1_1);
 			btnNewButton_1_1.setFont(new Font("Bahnschrift", Font.BOLD, 20));
 			btnNewButton_1_1.setBounds(430, 73, 102, 35);
 			panel_1.add(btnNewButton_1_1);

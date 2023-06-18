@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import com.masai.BuyerUi.BuyerOperations;
+import com.masai.CSS.CSS;
 import com.masai.Dao.SellerDao;
 import com.masai.Dao.SellerDaoImpl;
 import com.masai.Dto.BuyerImpl;
@@ -95,6 +96,7 @@ public class SellerMain extends JFrame {
 		panel.add(lblNewLabel_1);
 		
 		JButton btnNewButton = new JButton("Login");
+		CSS.setMouseCursorLogin(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -145,6 +147,7 @@ public class SellerMain extends JFrame {
 		
 	
 		JButton btnNewButton_1_1 = new JButton("Create New Account");
+		CSS.setMouseCursorNormal2(btnNewButton_1_1);
 		btnNewButton_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
@@ -177,6 +180,7 @@ public class SellerMain extends JFrame {
 		
 		
 		JButton btnNewButton_1 = new JButton("Reopen Acount");
+		CSS.setMouseCursorNormal2(btnNewButton_1);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -220,6 +224,7 @@ public class SellerMain extends JFrame {
 		contentPane.add(lblNewLabel_3);
 		
 		JButton btnNewButton_1_2 = new JButton("Back");
+		CSS.setMouseCursorBack(btnNewButton_1_2);
 		btnNewButton_1_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);

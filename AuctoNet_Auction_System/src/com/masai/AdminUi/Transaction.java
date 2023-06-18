@@ -95,6 +95,8 @@ public class Transaction extends JFrame {
 			table.setModel(DbUtils.resultSetToTableModel(admin.getAllTransaction()));
 			
 			btnNewButton = new JButton("Back");
+			CSS.setMouseCursorBack(btnNewButton);
+			btnNewButton.setBackground(Color.WHITE);
 			btnNewButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					frame.setVisible(false);
@@ -122,6 +124,8 @@ public class Transaction extends JFrame {
 			textField.setColumns(10);
 			
 			JButton btnNewButton_2 = new JButton("View");
+			CSS.setMouseCursorNormal2(btnNewButton_2);
+			btnNewButton_2.setBackground(Color.WHITE);
 			btnNewButton_2.addActionListener(new ActionListener() {
 				
 				public void actionPerformed(ActionEvent e) {
@@ -174,6 +178,8 @@ public class Transaction extends JFrame {
 			contentPane.add(btnNewButton_2);
 			
 			JButton btnNewButton_1 = new JButton("Reset");
+			CSS.setMouseCursorBack(btnNewButton_1);
+			btnNewButton_1.setBackground(Color.WHITE);
 			btnNewButton_1.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					
@@ -213,6 +219,8 @@ public class Transaction extends JFrame {
 			lblNewLabel_3.setFont(new Font("Bahnschrift", Font.BOLD, 16));
 			
 			JButton btnNewButton_2_1 = new JButton("View");
+			CSS.setMouseCursorNormal2(btnNewButton_2_1);
+			btnNewButton_2_1.setBackground(Color.WHITE);
 			btnNewButton_2_1.setForeground(Color.BLACK);
 			btnNewButton_2_1.setBounds(708, 118, 94, 36);
 			panel.add(btnNewButton_2_1);
@@ -308,6 +316,8 @@ public class Transaction extends JFrame {
 			contentPane.add(comboBox);
 			
 			JButton btnNewButton_3 = new JButton("Sort");
+			CSS.setMouseCursorNormal2(btnNewButton_3);
+			btnNewButton_3.setBackground(Color.WHITE);
 			btnNewButton_3.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					

@@ -486,7 +486,7 @@ public class SellerDaoImpl implements SellerDao {
 				
 				con = DBUtils.getConnection();
 				
-				String SELECT_QUERY = "UPDATE income SET income = ? WHERE username = ?";
+				String SELECT_QUERY = "UPDATE seller SET income = ? WHERE username = ?";
 				
 				PreparedStatement statement = con.prepareStatement(SELECT_QUERY); 
 				

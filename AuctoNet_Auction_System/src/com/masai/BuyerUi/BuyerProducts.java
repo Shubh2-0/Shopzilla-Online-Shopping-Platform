@@ -27,6 +27,7 @@ import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
 import java.awt.SystemColor;
+import java.awt.Color;
 
 public class BuyerProducts extends JFrame {
 
@@ -97,6 +98,8 @@ public class BuyerProducts extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JButton btnNewButton_1 = new JButton("View");
+		CSS.setMouseCursorNormal2(btnNewButton_1);
+		btnNewButton_1.setBackground(Color.WHITE);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String item = (String) comboBox.getSelectedItem();
@@ -137,6 +140,8 @@ public class BuyerProducts extends JFrame {
 		textField.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Buy");
+		CSS.setMouseCursorNormal2(btnNewButton);
+		btnNewButton.setBackground(Color.WHITE);
 		btnNewButton.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
@@ -229,6 +234,8 @@ public class BuyerProducts extends JFrame {
 		panel.add(textField_1);
 		
 		JButton btnNewButton_2 = new JButton("Back");
+		CSS.setMouseCursorBack(btnNewButton_2);
+		btnNewButton_2.setBackground(Color.WHITE);
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
@@ -241,6 +248,8 @@ public class BuyerProducts extends JFrame {
 		contentPane.add(btnNewButton_2);
 		
 		JButton btnNewButton_3 = new JButton("Reset");
+		CSS.setMouseCursorBack(btnNewButton_3);
+		btnNewButton_3.setBackground(Color.WHITE);
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				

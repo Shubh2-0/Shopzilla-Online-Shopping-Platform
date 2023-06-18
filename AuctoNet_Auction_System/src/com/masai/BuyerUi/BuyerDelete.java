@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import com.masai.CSS.CSS;
 import com.masai.Dao.BuyerDao;
 import com.masai.Dao.BuyerDaoImpl;
 
@@ -136,6 +137,8 @@ public class BuyerDelete extends JFrame {
 		contentPane.add(textField_2);
 		
 		JButton btnNewButton = new JButton("Delete Acount");
+		btnNewButton.setBackground(Color.WHITE);
+		CSS.setMouseCursorDelete(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -201,6 +204,10 @@ public class BuyerDelete extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JButton btnCancelDeletion = new JButton("Cancel Deletion ");
+		btnCancelDeletion.setBackground(Color.WHITE);
+		CSS.setMouseCursorNormal2(btnCancelDeletion);
+		
+		
 		btnCancelDeletion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);

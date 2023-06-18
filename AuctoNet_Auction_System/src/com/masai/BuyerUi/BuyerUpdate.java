@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import com.masai.CSS.CSS;
 import com.masai.CommanCode.Common;
 import com.masai.Dao.BuyerDaoImpl;
 import com.masai.Dto.BuyerImpl;
@@ -60,7 +61,8 @@ public class BuyerUpdate extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnNewButton = new JButton("Back\r\n");
+		JButton btnNewButton = new JButton("Back");
+		CSS.setMouseCursorBack(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
@@ -124,6 +126,7 @@ public class BuyerUpdate extends JFrame {
 		contentPane.add(lblAddress);
 		
 		JButton btnNewButton_1 = new JButton("Update");
+		CSS.setMouseCursorNormal2(btnNewButton_1);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {

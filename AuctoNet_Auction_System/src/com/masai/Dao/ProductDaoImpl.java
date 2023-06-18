@@ -225,5 +225,127 @@ public class ProductDaoImpl implements ProductDao {
 		return false;
 	}
 	
+	
+	@Override
+	public boolean addProductBySeller(Product product) {
+		Connection con = null;
 
+		
+		
+		try {
+			
+			con = DBUtils.getConnection();
+			
+			String INSERT_QUERY = "INSERT INTO product ("
+					+ "product_name, "
+					+ "price_per_piece, "
+					+ "seller_unique_num, "
+					+ "seller_username, "
+					+ "seller_name, "
+					+ "quantity, "
+					+ "description, "
+					+ "category_id, "
+					+ "sold_status, "
+					+ "is_hide, "
+					+ "return_policy) "
+					+ "VALUES(?, ?, (SELECT SellerId FROM seller WHERE UserName = ?), ?, ?, ?, ?, ?, ?, ?, ?)";
+			
+			
+			PreparedStatement statement = con.prepareStatement(INSERT_QUERY);
+			
+			statement.setString(1, product.getProductName());
+			statement.setDouble(2, product.getProductPrice());
+			statement.setString(3, product.getSellerId());
+			statement.setString(4, product.getSellerId());
+			statement.setString(5, product.getSellerName());
+			statement.setInt(6, product.getProductQuantity());
+			statement.setString(7, product.getProductDescription());
+			statement.setInt(8, product.getProductCategoryId());
+			statement.setInt(9, product.getProductSoldStatus());
+			statement.setInt(10, 0);
+			statement.setInt(11, product.getReturnPolicy());
+			
+			
+			
+		
+			
+		   if(statement.executeUpdate() > 0) return true;
+		   
+			
+			
+		} catch (Exception e) {
+			
+			System.out.println(e);
+			e.printStackTrace();
+			
+			
+		}finally {
+			
+			DBUtils.closeConnection(con);
+			
+		}
+		
+	
+		
+		
+		return false;
+	}
+
+	
+	@Override
+	public int getProductIdByCategoryName(String catgoryName) {
+		
+		int n = 0;
+		
+		
+		Connection con = null;
+
+		try {
+			
+			con = DBUtils.getConnection();
+			
+			String SELECT_QUERY = "SELECT cat_id FROM category WHERE  cat_name = ?";
+			PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
+			
+			
+			statement.setString(1, catgoryName);
+			
+			ResultSet set = statement.executeQuery();
+			
+			if(set.isAfterLast() && set.getRow() == 0) return 0;
+			
+			while(set.next()) {
+				
+				n = set.getInt("cat_id");
+				
+			}
+			
+
+		   
+			
+			
+		} catch (Exception e) {
+			
+			System.out.println(e);
+			e.printStackTrace();
+			
+			
+		}finally {
+			
+			DBUtils.closeConnection(con);
+			
+		}
+		
+	
+		
+		
+		
+		
+		return n;
+		
+	}
+	
+
+	
+	
 }

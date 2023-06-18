@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 
 import com.masai.AdminUi.AdminMain;
 import com.masai.BuyerUi.BuyerMain;
+import com.masai.CSS.CSS;
 import com.masai.SellerUi.SellerMain;
 
 
@@ -30,6 +31,7 @@ public class MainPage extends JFrame {
 
 	private JPanel contentPane;
 	private static MainPage frame;
+	
 
 	/**
 	 * Launch the application.
@@ -93,20 +95,7 @@ public class MainPage extends JFrame {
 		contentPane.add(lblNewLabel_3);
 		
 		JButton btnAdminLogin = new JButton("Admin Login");
-		btnAdminLogin.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				btnAdminLogin.setBackground(Color.BLUE);
-	            btnAdminLogin.setForeground(Color.WHITE);
-	            setCursor(Cursor.HAND_CURSOR);
-			}
-			@Override
-			public void mouseExited(MouseEvent e) {
-				btnAdminLogin.setBackground(Color.WHITE);
-				btnAdminLogin.setForeground(Color.BLUE);
-				setCursor(Cursor.DEFAULT_CURSOR);
-			}
-		});
+		CSS.setMouseCursorNormal(btnAdminLogin);
 		
 		btnAdminLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -122,50 +111,25 @@ public class MainPage extends JFrame {
 		contentPane.add(btnAdminLogin);
 		
 		JButton btnBuyerLogin = new JButton("Buyer Login");
+		CSS.setMouseCursorNormal(btnBuyerLogin);
 		btnBuyerLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
 				BuyerMain.main(null);
 			}
 		});
-		btnBuyerLogin.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				btnBuyerLogin.setBackground(Color.BLUE);
-				btnBuyerLogin.setForeground(Color.WHITE);
-	            setCursor(Cursor.HAND_CURSOR);
-			}
-			@Override
-			public void mouseExited(MouseEvent e) {
-				btnBuyerLogin.setBackground(Color.WHITE);
-				btnBuyerLogin.setForeground(Color.BLUE);
-				setCursor(Cursor.DEFAULT_CURSOR);
-			}
-		});
+		
 		btnBuyerLogin.setForeground(new Color(0, 51, 255));
 		btnBuyerLogin.setFont(new Font("Bahnschrift", Font.BOLD, 30));
 		btnBuyerLogin.setBounds(50, 358, 238, 64);
 		contentPane.add(btnBuyerLogin);
 		
 		JButton btnSellerLogin = new JButton("Seller Login");
+		CSS.setMouseCursorNormal(btnSellerLogin);
 		btnSellerLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
 				SellerMain.main(null);
-			}
-		});
-		btnSellerLogin.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				btnSellerLogin.setBackground(Color.BLUE);
-				btnSellerLogin.setForeground(Color.WHITE);
-	            setCursor(Cursor.HAND_CURSOR);
-			}
-			@Override
-			public void mouseExited(MouseEvent e) {
-				btnSellerLogin.setBackground(Color.WHITE);
-				btnSellerLogin.setForeground(Color.BLUE);
-				setCursor(Cursor.DEFAULT_CURSOR);
 			}
 		});
 		
@@ -183,21 +147,8 @@ public class MainPage extends JFrame {
 		contentPane.add(lblNewLabel_4);
 		
 		JButton btnNewButton = new JButton("Exit");
-		
-		btnNewButton.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				btnNewButton.setBackground(Color.RED);
-				btnNewButton.setForeground(Color.WHITE);
-	            setCursor(Cursor.HAND_CURSOR);
-			}
-			@Override
-			public void mouseExited(MouseEvent e) {
-				btnNewButton.setBackground(Color.WHITE);
-				btnNewButton.setForeground(Color.RED);
-				setCursor(Cursor.DEFAULT_CURSOR);
-			}
-		});
+		CSS.setMouseCursorExit(btnNewButton);
+	    
 		
 		
 		

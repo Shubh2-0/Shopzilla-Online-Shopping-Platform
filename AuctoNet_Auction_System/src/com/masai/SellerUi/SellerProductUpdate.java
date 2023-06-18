@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import com.masai.CSS.CSS;
 import com.masai.Dao.ProductDao;
 import com.masai.Dao.ProductDaoImpl;
 import com.masai.Dto.Product;
@@ -147,6 +148,7 @@ public class SellerProductUpdate extends JFrame {
 		
 		
 		JButton btnBack = new JButton("Back");
+		CSS.setMouseCursorBack(btnBack);
 		btnBack.setFont(new Font("Bahnschrift", Font.PLAIN, 25));
 		btnBack.setBounds(504, 668, 208, 59);
 		contentPane.add(btnBack);
@@ -234,6 +236,7 @@ public class SellerProductUpdate extends JFrame {
 		contentPane.add(lblNewLabel_1_2_1);
 		
 		JButton btnUpdateProduct = new JButton("Update Product");
+		CSS.setMouseCursorLogin(btnUpdateProduct);
 		btnUpdateProduct.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				

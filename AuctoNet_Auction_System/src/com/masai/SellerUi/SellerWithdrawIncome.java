@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import com.masai.CSS.CSS;
 import com.masai.Dao.SellerDao;
 import com.masai.Dao.SellerDaoImpl;
 
@@ -35,7 +36,6 @@ public class SellerWithdrawIncome extends JFrame {
 			public void run() {
 				try {
 					 frame = new SellerWithdrawIncome();
-					income =  SellerOperations.seller.getIncome();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -48,6 +48,7 @@ public class SellerWithdrawIncome extends JFrame {
 	 * Create the frame.
 	 */
 	public SellerWithdrawIncome() {
+		income =  SellerOperations.seller.getIncome();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 769, 460);
 		contentPane = new JPanel();
@@ -101,7 +102,9 @@ public class SellerWithdrawIncome extends JFrame {
 		lblNewLabel_5.setBounds(28, 251, 209, 49);
 		contentPane.add(lblNewLabel_5);
 		
+		
 		JButton btnNewButton = new JButton("Withdraw");
+		CSS.setMouseCursorLogin(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -128,13 +131,17 @@ public class SellerWithdrawIncome extends JFrame {
 					
 				}else {
 					
+					  amount = income - amount;
+					
 					
 					if(sellerDao.amountWithrowBySeller(amount, SellerOperations.seller.getSellerUserName())) {
 						
 						
-						JOptionPane.showMessageDialog(null, "Withdrawal Successful! Enjoy your funds.");
+						JOptionPane.showMessageDialog(null, "Withdrawal Successful! Enjoy your funds.\nYuor remaining balance is "+amount);
 						frame.setVisible(false);
+						SellerOperations.seller.setIncome(amount);
 						SellerOperations.main(null);
+						
 						
 					
 						
@@ -163,6 +170,26 @@ public class SellerWithdrawIncome extends JFrame {
 		btnNewButton.setFont(new Font("Bahnschrift", Font.PLAIN, 25));
 		btnNewButton.setBounds(259, 322, 260, 45);
 		contentPane.add(btnNewButton);
+		
+		JButton btnBack = new JButton("Back");
+		CSS.setMouseCursorBack(btnNewButton);
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.setVisible(false);
+				SellerOperations.main(null);
+			}
+		});
+		btnBack.setFont(new Font("Bahnschrift", Font.PLAIN, 25));
+		btnBack.setBounds(634, 368, 111, 45);
+		contentPane.add(btnBack);
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	}
-
 }

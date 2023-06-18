@@ -4,6 +4,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import com.masai.CSS.CSS;
 import com.masai.MainUi.MainPage;
 
 import javax.swing.JLabel;
@@ -17,6 +19,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
+import javax.swing.SwingConstants;
 
 public class AdminOperations extends JFrame {
 
@@ -53,9 +56,10 @@ public class AdminOperations extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Welcome Shubham");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setForeground(Color.BLACK);
-		lblNewLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 30));
-		lblNewLabel.setBounds(365, 10, 274, 74);
+		lblNewLabel.setFont(new Font("Bahnschrift", Font.BOLD, 35));
+		lblNewLabel.setBounds(365, 10, 408, 74);
 		contentPane.add(lblNewLabel);
 		
 		JPanel panel = new JPanel();
@@ -65,6 +69,8 @@ public class AdminOperations extends JFrame {
 		panel.setLayout(null);
 		
 		JButton btnNewButton = new JButton("See All Buyers");
+		btnNewButton.setBackground(Color.WHITE);
+		CSS.setMouseCursorNormal2(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
@@ -76,12 +82,14 @@ public class AdminOperations extends JFrame {
 		});
 		
 		
-		AdminOperations.chanageMouseColor(btnNewButton);
-		btnNewButton.setFont(new Font("Comic Sans MS", Font.BOLD, 25));
+		
+		btnNewButton.setFont(new Font("Bahnschrift", Font.BOLD, 25));
 		btnNewButton.setBounds(75, 54, 251, 67);
 		panel.add(btnNewButton);
 		
 		JButton btnSeeAllSellers = new JButton("See All Sellers");
+		btnSeeAllSellers.setBackground(Color.WHITE);
+		CSS.setMouseCursorNormal2(btnSeeAllSellers);
 		btnSeeAllSellers.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
@@ -93,12 +101,13 @@ public class AdminOperations extends JFrame {
 				
 			}
 		});
-		AdminOperations.chanageMouseColor(btnSeeAllSellers);
-		btnSeeAllSellers.setFont(new Font("Comic Sans MS", Font.BOLD, 25));
+		
+		btnSeeAllSellers.setFont(new Font("Bahnschrift", Font.BOLD, 25));
 		btnSeeAllSellers.setBounds(75, 190, 251, 67);
 		panel.add(btnSeeAllSellers);
 		
 		JButton btnSeeAllTransactions = new JButton("See All Transactions");
+		CSS.setMouseCursorNormal2(btnSeeAllTransactions);
 		btnSeeAllTransactions.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -107,12 +116,14 @@ public class AdminOperations extends JFrame {
 				Transaction.main(null);
 			}
 		});
-		AdminOperations.chanageMouseColor(btnSeeAllTransactions);
-		btnSeeAllTransactions.setFont(new Font("Comic Sans MS", Font.BOLD, 25));
+		
+		btnSeeAllTransactions.setFont(new Font("Bahnschrift", Font.BOLD, 25));
 		btnSeeAllTransactions.setBounds(38, 432, 316, 67);
 		panel.add(btnSeeAllTransactions);
 		
 		JButton btnViewAllProducts = new JButton("View All Products");
+		btnViewAllProducts.setBackground(Color.WHITE);
+		CSS.setMouseCursorNormal2(btnViewAllProducts);
 		btnViewAllProducts.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -120,8 +131,8 @@ public class AdminOperations extends JFrame {
 				ViewAllProduct.main(null);
 			}
 		});
-		AdminOperations.chanageMouseColor(btnViewAllProducts);
-		btnViewAllProducts.setFont(new Font("Comic Sans MS", Font.BOLD, 25));
+		
+		btnViewAllProducts.setFont(new Font("Bahnschrift", Font.BOLD, 25));
 		btnViewAllProducts.setBounds(75, 329, 251, 67);
 		panel.add(btnViewAllProducts);
 		ImageIcon icon = new ImageIcon(getClass().getResource("/Images/AdminPage/backadmin.png"));
@@ -130,17 +141,18 @@ public class AdminOperations extends JFrame {
 		
 		
 		JButton btnNewButton_4 = new JButton("Logout");
+		CSS.setMouseCursorLogout(btnNewButton_4);
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
 				MainPage.main(null);
 			}
 		});
-		AdminOperations.chanageMouseColor(btnNewButton_4);
+	
 		
-		btnNewButton_4.setBounds(808, 647, 251, 67);
+		btnNewButton_4.setBounds(865, 647, 194, 67);
 		contentPane.add(btnNewButton_4);
-		btnNewButton_4.setFont(new Font("Comic Sans MS", Font.BOLD, 25));
+		btnNewButton_4.setFont(new Font("Bahnschrift", Font.BOLD, 25));
 		
 		JLabel lblNewLabel_2 = new JLabel("");
 		ImageIcon icon2 = new ImageIcon(getClass().getResource("/Images/AdminPage/adminback.png"));
@@ -156,26 +168,6 @@ public class AdminOperations extends JFrame {
 		contentPane.add(lblNewLabel_1);
 	}
 	
-     public static void chanageMouseColor(JButton button) {
-		
-		button.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				
-				button.setBackground(Color.BLUE);
-				button.setForeground(Color.WHITE);
-				button.setCursor(new Cursor(Cursor.HAND_CURSOR));
-				
-			}
-			@Override
-			public void mouseExited(MouseEvent e) {
-				
-				button.setBackground(Color.white);
-				button.setForeground(Color.BLACK);
-				button.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
-			}
-		});
-		
-		
-	}
+ 
+	
 }

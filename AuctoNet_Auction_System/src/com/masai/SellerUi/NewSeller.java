@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import com.masai.CSS.CSS;
 import com.masai.CommanCode.Common;
 import com.masai.Dao.BuyerDao;
 import com.masai.Dao.BuyerDaoImpl;
@@ -155,6 +156,7 @@ public class NewSeller extends JFrame {
 		panel.add(lblNewLabel_6);
 		
 		btnNewButton = new JButton("Create Account");
+		CSS.setMouseCursorLogin(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
@@ -263,6 +265,7 @@ public class NewSeller extends JFrame {
 		panel_1.setLayout(null);
 		
 		btnNewButton_2 = new JButton("Back");
+		CSS.setMouseCursorBack(btnNewButton_2);
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				

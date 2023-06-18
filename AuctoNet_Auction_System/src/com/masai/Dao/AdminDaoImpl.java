@@ -159,7 +159,7 @@ public class AdminDaoImpl implements AdminDao {
 			try {
 				
 				con = DBUtils.getConnection();
-				String SELECT_QUERY = "SELECT product_id AS ID, product_name AS Name, price_per_piece AS 'Price Per Unit', seller_username AS 'Seller Username', seller_name AS 'Seller Name', quantity AS Quantity, description AS Description, category_id AS 'Category ID' FROM product WHERE sold_status = 1";
+				String SELECT_QUERY = "SELECT product_id AS ID, product_name AS Name, price_per_piece AS 'Price Per Unit', seller_username AS 'Seller Username', seller_name AS 'Seller Name', quantity AS Quantity, description AS Description, category_id AS 'Category ID' FROM product WHERE sold_status = 1 AND is_hide = 0";
 
 
 				
@@ -194,7 +194,7 @@ public class AdminDaoImpl implements AdminDao {
 			try {
 				
 				con = DBUtils.getConnection();
-				String SELECT_QUERY = "SELECT product_id AS ID, product_name AS Name, price_per_piece AS 'Price Per Unit', seller_username AS 'Seller Username', seller_name AS 'Seller Name', quantity AS Quantity, description AS Description, category_id AS 'Category ID' FROM product WHERE category_id = (SELECT cat_id FROM category WHERE cat_name = ?) AND sold_status = 0";
+				String SELECT_QUERY = "SELECT product_id AS ID, product_name AS Name, price_per_piece AS 'Price Per Unit', seller_username AS 'Seller Username', seller_name AS 'Seller Name', quantity AS Quantity, description AS Description, category_id AS 'Category ID' FROM product WHERE category_id = (SELECT cat_id FROM category WHERE cat_name = ?) AND sold_status = 0 AND  is_hide = 0";
 
 				
 				PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
@@ -229,7 +229,7 @@ public class AdminDaoImpl implements AdminDao {
 			try {
 				
 				con = DBUtils.getConnection();
-				String SELECT_QUERY = "SELECT product_id AS ID, product_name AS Name, price_per_piece AS 'Price Per Unit', seller_username AS 'Seller Username', seller_name AS 'Seller Name', quantity AS Quantity, description AS Description, category_id AS 'Category ID' FROM product WHERE seller_username = ? AND sold_status = 0";
+				String SELECT_QUERY = "SELECT product_id AS ID, product_name AS Name, price_per_piece AS 'Price Per Unit', seller_username AS 'Seller Username', seller_name AS 'Seller Name', quantity AS Quantity, description AS Description, category_id AS 'Category ID' FROM product WHERE seller_username = ? AND sold_status = 0 AND is_hide = 0";
 
 				
 				PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
@@ -263,7 +263,7 @@ public class AdminDaoImpl implements AdminDao {
 			try {
 				
 				con = DBUtils.getConnection();
-				String SELECT_QUERY = "SELECT product_id AS ID, product_name AS Name, price_per_piece AS 'Price Per Unit', seller_username AS 'Seller Username', seller_name AS 'Seller Name', quantity AS Quantity, description AS Description, category_id AS 'Category ID' FROM product WHERE sold_status = 0 ORDER BY price_per_piece ";
+				String SELECT_QUERY = "SELECT product_id AS ID, product_name AS Name, price_per_piece AS 'Price Per Unit', seller_username AS 'Seller Username', seller_name AS 'Seller Name', quantity AS Quantity, description AS Description, category_id AS 'Category ID' FROM product WHERE sold_status = 0 AND is_hide = 0 ORDER BY price_per_piece ";
 
 				
 				PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
@@ -297,7 +297,7 @@ public class AdminDaoImpl implements AdminDao {
 			try {
 				
 				con = DBUtils.getConnection();
-				String SELECT_QUERY = "SELECT product_id AS ID, product_name AS Name, price_per_piece AS 'Price Per Unit', seller_username AS 'Seller Username', seller_name AS 'Seller Name', quantity AS Quantity, description AS Description, category_id AS 'Category ID' FROM product WHERE quantity BETWEEN ? AND ? ORDER BY quantity";
+				String SELECT_QUERY = "SELECT product_id AS ID, product_name AS Name, price_per_piece AS 'Price Per Unit', seller_username AS 'Seller Username', seller_name AS 'Seller Name', quantity AS Quantity, description AS Description, category_id AS 'Category ID' FROM product WHERE quantity BETWEEN ? AND ? AND is_hide = 0 ORDER BY quantity";
 
 				
 				PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
@@ -415,7 +415,7 @@ public class AdminDaoImpl implements AdminDao {
 			try {
 				
 				con = DBUtils.getConnection();
-				String SELECT_QUERY = "SELECT transaction_id AS `Transaction ID`, product_name AS `Product Name`, buyer_name AS `Buyer Name`, quantity Quantity, purchase_date AS `Purchase Date`, amount_per_piece AS `Amount Per Unit`, price 'Price Before Tax', gst_percentage AS `GST Percentage`, tax_amount AS `Tax Amount`, total_price AS `Total Price`, return_policy AS `Return Policy` FROM transactions WHERE transaction_id = ? AND is_hide = 0";
+				String SELECT_QUERY = "SELECT transaction_id AS `Transa/ction ID`, product_name AS `Product Name`, buyer_name AS `Buyer Name`, quantity Quantity, purchase_date AS `Purchase Date`, amount_per_piece AS `Amount Per Unit`, price 'Price Before Tax', gst_percentage AS `GST Percentage`, tax_amount AS `Tax Amount`, total_price AS `Total Price`, return_policy AS `Return Policy` FROM transactions WHERE transaction_id = ? AND is_hide = 0";
 				
 				
 				PreparedStatement statement = con.prepareStatement(SELECT_QUERY);

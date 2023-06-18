@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import com.masai.CSS.CSS;
 import com.masai.Dao.BuyerDao;
 import com.masai.Dao.BuyerDaoImpl;
 import com.masai.MainUi.MainPage;
@@ -124,6 +125,7 @@ public class RestoreBuyerAcount extends JFrame {
 		contentPane.add(textField_2);
 		
 		JButton btnNewButton = new JButton("Recover Acount");
+		CSS.setMouseCursorNormal2(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
@@ -167,6 +169,7 @@ public class RestoreBuyerAcount extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JButton btnBack = new JButton("Back");
+		CSS.setMouseCursorBack(btnBack);
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				

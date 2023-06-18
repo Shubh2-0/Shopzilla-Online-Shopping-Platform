@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import com.masai.CSS.CSS;
 import com.masai.MainUi.MainPage;
 
 import javax.swing.JLabel;
@@ -61,22 +62,10 @@ public class AdminMain extends JFrame {
 
 		JButton btnNewButton = new JButton("Back");
 		btnNewButton.setBorder(null);
-		btnNewButton.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				
-				btnNewButton.setBackground(Color.BLACK);
-				btnNewButton.setForeground(Color.white);
-				setCursor(Cursor.HAND_CURSOR); 
-			}
-			@Override
-			public void mouseExited(MouseEvent e) {
-				
-				btnNewButton.setBackground(Color.white);
-				btnNewButton.setForeground(Color.BLACK);
-				setCursor(Cursor.DEFAULT_CURSOR);
-			}
-		});
+		CSS.setMouseCursorNormal(btnNewButton);
+		
+		
+		
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -145,22 +134,10 @@ public class AdminMain extends JFrame {
 		lblNewLabel_1.setFont(new Font("Segoe UI Emoji", Font.BOLD, 30));
 
 		JButton btnNewButton_1 = new JButton("Login");
-		btnNewButton_1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				
-				btnNewButton_1.setBackground(Color.GREEN);
-				btnNewButton_1.setForeground(Color.white);
-				setCursor(Cursor.HAND_CURSOR); 
-			}
-			@Override
-			public void mouseExited(MouseEvent e) {
-				
-				btnNewButton_1.setBackground(Color.white);
-				btnNewButton_1.setForeground(Color.BLACK);
-				setCursor(Cursor.DEFAULT_CURSOR);
-			}
-		});
+	    CSS.setMouseCursorLogin(btnNewButton_1);
+		
+		
+		
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 

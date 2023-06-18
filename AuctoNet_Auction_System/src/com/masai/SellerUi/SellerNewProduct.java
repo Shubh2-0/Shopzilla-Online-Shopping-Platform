@@ -5,6 +5,13 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import com.masai.CSS.CSS;
+import com.masai.Dao.ProductDao;
+import com.masai.Dao.ProductDaoImpl;
+import com.masai.Dto.Product;
+import com.masai.Dto.ProductImpl;
+
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -25,7 +32,9 @@ public class SellerNewProduct extends JFrame {
 	private JTextField textField;
 	private JTextField textField_2;
 	private JTextField textField_1;
-
+	static Product product;
+	static ProductDao productDao = new ProductDaoImpl();
+    static SellerNewProduct frame;
 	/**
 	 * Launch the application.
 	 */
@@ -33,7 +42,7 @@ public class SellerNewProduct extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					SellerNewProduct frame = new SellerNewProduct();
+					frame = new SellerNewProduct();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -159,6 +168,7 @@ public class SellerNewProduct extends JFrame {
 		contentPane.add(comboBox);
 		
 		JButton btnNewButton = new JButton("Add Product");
+		CSS.setMouseCursorNormal2(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
@@ -235,6 +245,45 @@ public class SellerNewProduct extends JFrame {
 				
 				String category = (String)comboBox.getSelectedItem();
 				
+				int categoryId = productDao.getProductIdByCategoryName(category);
+				
+				
+				product = new ProductImpl();
+				
+				product.setProductName(name);
+				product.setProductPrice(price);
+				product.setSellerId(SellerOperations.seller.getSellerUserName());
+				product.setSellerName(SellerOperations.seller.getFirstName()+" "+SellerOperations.seller.getLastName());
+				product.setProductQuantity(quantity);
+				product.setProductDescription(description);
+				product.setProductCategoryId(categoryId);
+				product.setProductSoldStatus(0);
+				product.setReturnPolicy(returnPolicy);
+			   
+			   
+				if(productDao.addProductBySeller(product)) {
+					
+					JOptionPane.showMessageDialog(null, "Product is successfully added");
+					frame.setVisible(false);
+					SellerOperations.main(null);
+					
+					
+				}else {
+					
+					JOptionPane.showMessageDialog(null, "Something went wrong");
+					
+					
+				}
+				
+				
+			   	
+			   
+			   	
+			   
+			   	 
+			   	
+				
+				
 				
 				
 			
@@ -247,6 +296,7 @@ public class SellerNewProduct extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Back");
+		CSS.setMouseCursorBack(btnNewButton_1);
 		btnNewButton_1.setFont(new Font("Bahnschrift", Font.PLAIN, 23));
 		btnNewButton_1.setBounds(734, 502, 245, 45);
 		contentPane.add(btnNewButton_1);

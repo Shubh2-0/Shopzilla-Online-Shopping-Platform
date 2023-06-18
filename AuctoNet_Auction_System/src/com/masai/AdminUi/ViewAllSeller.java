@@ -69,6 +69,7 @@ public class ViewAllSeller extends JFrame {
 	
 		
 		JButton btnNewButton = new JButton("Back");
+		CSS.setMouseCursorBack(btnNewButton);
 		btnNewButton.setBounds(562, 331, 222, 56);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -78,7 +79,7 @@ public class ViewAllSeller extends JFrame {
 			}
 		});
 		contentPane.setLayout(null);
-		AdminOperations.chanageMouseColor(btnNewButton);
+		
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 35));
 		contentPane.add(btnNewButton);
 		ImageIcon icon = new ImageIcon(getClass().getResource("/Images/AdminPage/Blueback.png"));

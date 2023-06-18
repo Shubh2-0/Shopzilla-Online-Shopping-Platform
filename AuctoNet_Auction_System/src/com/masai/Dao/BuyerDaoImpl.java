@@ -121,7 +121,7 @@ public class BuyerDaoImpl implements BuyerDao {
 		
 		con = DBUtils.getConnection();
 		
-		String SELECT_QUERY = "SELECT * FROM BUYER WHERE USERNAME = ?";
+		String SELECT_QUERY = "SELECT * FROM BUYER WHERE USERNAME = ? AND is_deleted != 1";
 		
 		PreparedStatement statement = con.prepareStatement(SELECT_QUERY); 
 		
@@ -317,7 +317,7 @@ public class BuyerDaoImpl implements BuyerDao {
 		try {
 			
 			con = DBUtils.getConnection();
-			String SELCET_QUERY = "SELECT * FROM PRODUCT WHERE PRODUCT_ID = ? AND SOLD_STATUS = 0";
+			String SELCET_QUERY = "SELECT * FROM PRODUCT WHERE PRODUCT_ID = ? AND SOLD_STATUS = 0 AND is_hide = 0";
 			
 			PreparedStatement statement = con.prepareStatement(SELCET_QUERY);
 			statement.setInt(1, productId);

@@ -12,4 +12,8 @@ public interface ProductDao {
 
 	boolean updateProductBySeller(Product product, int id);
 
+	boolean addProductBySeller(Product product);
+
+	int getProductIdByCategoryName(String catgoryName);
+
 }

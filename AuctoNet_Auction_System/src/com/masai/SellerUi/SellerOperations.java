@@ -15,6 +15,7 @@ import javax.swing.border.EmptyBorder;
 
 import com.masai.BuyerUi.BuyerOperations;
 import com.masai.BuyerUi.BuyerUpdate;
+import com.masai.CSS.CSS;
 import com.masai.Dao.BuyerDao;
 import com.masai.Dao.BuyerDaoImpl;
 import com.masai.Dao.SellerDao;
@@ -73,6 +74,7 @@ public class SellerOperations extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JButton btnNewButton_1 = new JButton("Update Details");
+		CSS.setMouseCursorNormal2(btnNewButton_1);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
@@ -90,10 +92,11 @@ public class SellerOperations extends JFrame {
 		
 		btnNewButton_1.setFont(new Font("Bahnschrift", Font.BOLD, 25));
 		btnNewButton_1.setBackground(UIManager.getColor("Button.background"));
-		btnNewButton_1.setBounds(30, 207, 255, 59);
+		btnNewButton_1.setBounds(30, 201, 255, 59);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnViewProductsFor = new JButton("View Products");
+		CSS.setMouseCursorNormal2(btnViewProductsFor);
 		btnViewProductsFor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -108,6 +111,7 @@ public class SellerOperations extends JFrame {
 		contentPane.add(btnViewProductsFor);
 		
 		JButton btnAddBalance = new JButton("Withdraw Income");
+		CSS.setMouseCursorNormal2(btnAddBalance);
 		btnAddBalance.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
@@ -144,12 +148,14 @@ public class SellerOperations extends JFrame {
 		contentPane.add(lblNewLabel_3);
 		lblNewLabel_3.setText(seller.getIncome()+"");
 		
-		JButton btnNewButton_2 = new JButton("Logout\r\n");
+		JButton btnNewButton_2 = new JButton("Logout");
+		CSS.setMouseCursorLogout(btnNewButton_2);
 		btnNewButton_2.setFont(new Font("Bahnschrift", Font.BOLD, 25));
 		btnNewButton_2.setBounds(737, 560, 184, 42);
 		contentPane.add(btnNewButton_2);
 		
 		JButton btnNewButton_2_1 = new JButton("Temporary Seller Break");
+		CSS.setMouseCursorDelete(btnNewButton_2_1);
 		btnNewButton_2_1.addActionListener(new ActionListener() {
 			
 			
@@ -164,7 +170,7 @@ public class SellerOperations extends JFrame {
 			}
 		});
 		btnNewButton_2_1.setFont(new Font("Bahnschrift", Font.BOLD, 25));
-		btnNewButton_2_1.setBounds(605, 462, 317, 51);
+		btnNewButton_2_1.setBounds(541, 462, 381, 51);
 		contentPane.add(btnNewButton_2_1);
 		
 		JLabel lblNewLabel_4 = new JLabel("");
@@ -178,6 +184,7 @@ public class SellerOperations extends JFrame {
 		contentPane.add(lblNewLabel_4);
 		
 		JButton btnAddNewProduct = new JButton("Add New Product");
+		CSS.setMouseCursorNormal2(btnAddNewProduct);
 		btnAddNewProduct.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				

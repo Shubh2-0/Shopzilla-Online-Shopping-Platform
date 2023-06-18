@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import com.masai.CSS.CSS;
 import com.masai.Dao.BuyerDao;
 import com.masai.Dao.BuyerDaoImpl;
 import com.masai.Dto.BuyerImpl;
@@ -68,6 +69,7 @@ public class BuyerOperations extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("Update Details");
+		CSS.setMouseCursorNormal2(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -79,11 +81,12 @@ public class BuyerOperations extends JFrame {
 			}
 		});
 		btnNewButton.setFont(new Font("Bahnschrift", Font.BOLD, 25));
-		btnNewButton.setBackground(new Color(240, 240, 240));
+		btnNewButton.setBackground(Color.WHITE);
 		btnNewButton.setBounds(30, 150, 255, 59);
 		contentPane.add(btnNewButton);
 		
 		JButton btnViewProductsFor = new JButton("View Products");
+		CSS.setMouseCursorNormal2(btnViewProductsFor);
 		btnViewProductsFor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -94,11 +97,12 @@ public class BuyerOperations extends JFrame {
 			}
 		});
 		btnViewProductsFor.setFont(new Font("Bahnschrift", Font.BOLD, 25));
-		btnViewProductsFor.setBackground(SystemColor.menu);
+		btnViewProductsFor.setBackground(Color.WHITE);
 		btnViewProductsFor.setBounds(30, 348, 255, 51);
 		contentPane.add(btnViewProductsFor);
 		
 		JButton btnViewTransactions = new JButton("View Transactions");
+		CSS.setMouseCursorNormal2(btnViewTransactions);
 		btnViewTransactions.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
@@ -109,11 +113,13 @@ public class BuyerOperations extends JFrame {
 			}
 		});
 		btnViewTransactions.setFont(new Font("Bahnschrift", Font.BOLD, 25));
-		btnViewTransactions.setBackground(SystemColor.menu);
+		btnViewTransactions.setBackground(Color.WHITE);
 		btnViewTransactions.setBounds(30, 256, 255, 59);
 		contentPane.add(btnViewTransactions);
 		
 		JButton btnNewButton_1 = new JButton("Logout");
+		CSS.setMouseCursorLogout(btnNewButton_1);
+		btnNewButton_1.setBackground(Color.WHITE);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -147,6 +153,7 @@ public class BuyerOperations extends JFrame {
 		contentPane.add(lblNewLabel_3);
 		
 		JButton btnAddBalance = new JButton("Add Balance");
+		CSS.setMouseCursorNormal2(btnAddBalance);
 		btnAddBalance.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -161,11 +168,12 @@ public class BuyerOperations extends JFrame {
 			}
 		});
 		btnAddBalance.setFont(new Font("Bahnschrift", Font.BOLD, 25));
-		btnAddBalance.setBackground(SystemColor.menu);
+		btnAddBalance.setBackground(Color.WHITE);
 		btnAddBalance.setBounds(30, 430, 255, 51);
 		contentPane.add(btnAddBalance);
 		
 		JButton btnDeleteAcount = new JButton("Delete Acount");
+		CSS.setMouseCursorDelete(btnDeleteAcount);
 		btnDeleteAcount.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -177,7 +185,7 @@ public class BuyerOperations extends JFrame {
 			}
 		});
 		btnDeleteAcount.setFont(new Font("Bahnschrift", Font.BOLD, 25));
-		btnDeleteAcount.setBackground(SystemColor.menu);
+		btnDeleteAcount.setBackground(Color.WHITE);
 		btnDeleteAcount.setBounds(710, 368, 221, 51);
 		contentPane.add(btnDeleteAcount);
 		

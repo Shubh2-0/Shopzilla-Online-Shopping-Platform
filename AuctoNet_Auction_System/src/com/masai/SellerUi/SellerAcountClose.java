@@ -5,6 +5,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import com.masai.CSS.CSS;
+
 import javax.swing.JTextArea;
 import java.awt.Font;
 import javax.swing.JButton;
@@ -46,6 +49,7 @@ public class SellerAcountClose extends JFrame {
 		contentPane.setLayout(null);
 		
 		JButton btnNewButton = new JButton("Back");
+		CSS.setMouseCursorBack(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				

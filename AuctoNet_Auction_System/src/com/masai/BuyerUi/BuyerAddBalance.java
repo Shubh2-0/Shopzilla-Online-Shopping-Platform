@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import com.masai.CSS.CSS;
 import com.masai.Dao.BuyerDao;
 import com.masai.Dao.BuyerDaoImpl;
 
@@ -75,6 +76,7 @@ public class BuyerAddBalance extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("Add");
+		CSS.setMouseCursorNormal2(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -129,6 +131,7 @@ public class BuyerAddBalance extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JButton btnBack = new JButton("Back");
+		CSS.setMouseCursorBack(btnNewButton);
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
