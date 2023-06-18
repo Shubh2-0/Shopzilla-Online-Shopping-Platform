@@ -29,7 +29,7 @@ public class SellerDaoImpl implements SellerDao {
 		
 		con = DBUtils.getConnection();
 		
-		String SELECT_QUERY = "SELECT UserName, password, first_name, last_name, mobile_no, address, income FROM seller WHERE username = ? AND password = ? AND is_deleted = 0";
+		String SELECT_QUERY = "SELECT UserName, password, first_name, last_name, mobile_no, address, income, panding_amount FROM seller WHERE username = ? AND password = ? AND is_deleted = 0";
 		
 		PreparedStatement statement = con.prepareStatement(SELECT_QUERY); 
 		
@@ -48,6 +48,7 @@ public class SellerDaoImpl implements SellerDao {
 					set.getString(6),
 					set.getDouble(7)
 					);
+			seller.setPendingAmount(set.getDouble(8));
 		}
 	
 		
@@ -123,7 +124,7 @@ public class SellerDaoImpl implements SellerDao {
 			con = DBUtils.getConnection();
 			
 			String SELECT_QUERY = "SELECT UserName, password, first_name ,last_name, mobile_no, "
-					+ "address, income  FROM SELLER WHERE username = ? AND is_deleted != 1";
+					+ "address, income, panding_amount  FROM SELLER WHERE username = ? AND is_deleted != 1";
 			
 			PreparedStatement statement = con.prepareStatement(SELECT_QUERY); 
 			
@@ -142,6 +143,7 @@ public class SellerDaoImpl implements SellerDao {
 						set.getString(6),
 						set.getDouble(7)
 						);
+				seller2.setPendingAmount(set.getDouble(8));
 			}
 		
 			
@@ -557,6 +559,53 @@ public class SellerDaoImpl implements SellerDao {
 	}
 	
 	@Override
+	public double getSellerPendingAmount(String username) {
+		
+		double amount = 0;
+		
+		
+         try {
+			
+			con = DBUtils.getConnection();
+			String SELECT_QUERY = "SELECT panding_amount FROM seller WHERE UserName = ?";
+			
+			PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
+			
+			statement.setString(1, username);
+	
+			
+			ResultSet set = statement.executeQuery();
+			
+				
+			if(set.isAfterLast() && set.getRow()==0) return 0;
+				
+			while (set.next()) {
+				
+			  amount = set.getDouble(1);
+				
+			}	
+				
+				
+			
+			
+			
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			
+		}
+		
+		
+		
+		
+		
+		return amount;
+	}
+	
+	
+	
+	@Override
 	public List<Integer> getSellerProductsID(String username){
 		
 		List<Integer> list = new ArrayList<>();
@@ -645,6 +694,44 @@ public class SellerDaoImpl implements SellerDao {
 		
 	}
 	
+    
+	@Override
+	public boolean getSellerPaidPendingAmount(double pendingAamount, String username,  double income) {
+		
+
+		 
+		  
+		
+         try {
+			
+			con = DBUtils.getConnection();
+			
+			String UPDATE_QUERY = "UPDATE seller set  panding_amount = ? , income = ? FROM seller WHERE UserName = ?";
+			
+			PreparedStatement statement = con.prepareStatement(UPDATE_QUERY);
+			
+			statement.setDouble(1, pendingAamount);
+			statement.setDouble(2, income);
+			statement.setString(3, username);
+	
+			
+              
+			if(statement.executeUpdate() > 0) return true;
+			
+			
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			
+		}
+		
+		
+		
+		
+		
+		return false;
+	}
 	
 	
 

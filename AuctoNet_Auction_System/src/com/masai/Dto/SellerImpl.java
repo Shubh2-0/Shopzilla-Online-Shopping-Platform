@@ -10,6 +10,7 @@ public class SellerImpl implements Seller{
 	private String mobileNo = "";
 	private String address = "";
 	private double income = 0.0;
+	private double pendingAmount;
 	
 	public SellerImpl() {
 		super();
@@ -62,10 +63,18 @@ public class SellerImpl implements Seller{
 		
 	}
 
-	
-	
-	
+    @Override
+	public double getPendingAmount() {
+		return pendingAmount;
+	}
 
+    
+    @Override
+	public void setPendingAmount(double pendingAmount) {
+		this.pendingAmount = pendingAmount;
+	}
+
+    
 	@Override
 	public String getFirstName() {
 		return firstName;

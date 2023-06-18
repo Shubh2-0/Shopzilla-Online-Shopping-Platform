@@ -784,7 +784,7 @@ public class BuyerDaoImpl implements BuyerDao {
 			
 			con = DBUtils.getConnection();
 			
-			String SELECT_QUERY = "UPDATE buyer SET deleted_date = NOW() , is_deleted = 1 WHERE username = ? AND password = ?";
+			String SELECT_QUERY = "UPDATE buyer SET deleted_date = NOW() , is_deleted = 1, balance = 0.00 WHERE username = ? AND password = ?";
 			
 			PreparedStatement statement = con.prepareStatement(SELECT_QUERY); 
 			

@@ -9,6 +9,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
@@ -115,6 +116,16 @@ public class SellerOperations extends JFrame {
 		btnAddBalance.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
+				
+				if(seller.getPendingAmount() > 0) {
+					
+					JOptionPane.showMessageDialog(null, "\"Important Notice: Before withdrawing your income\n"
+							+ "please ensure that you have cleared the pending amount. Once the payment is settled\n"
+							+ "you can proceed with withdrawing your hard-earned money without any hindrances.\"");
+					
+					return;
+					
+				}
 			
 				
 				frame.setVisible(false);
@@ -138,7 +149,7 @@ public class SellerOperations extends JFrame {
 		
 		JLabel lblNewLabel_2 = new JLabel("Total Income :");
 		lblNewLabel_2.setFont(new Font("Bahnschrift", Font.BOLD, 25));
-		lblNewLabel_2.setBounds(30, 529, 172, 91);
+		lblNewLabel_2.setBounds(30, 545, 172, 44);
 		contentPane.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("");
@@ -151,7 +162,7 @@ public class SellerOperations extends JFrame {
 		JButton btnNewButton_2 = new JButton("Logout");
 		CSS.setMouseCursorLogout(btnNewButton_2);
 		btnNewButton_2.setFont(new Font("Bahnschrift", Font.BOLD, 25));
-		btnNewButton_2.setBounds(737, 560, 184, 42);
+		btnNewButton_2.setBounds(735, 595, 184, 42);
 		contentPane.add(btnNewButton_2);
 		
 		JButton btnNewButton_2_1 = new JButton("Temporary Seller Break");
@@ -162,6 +173,16 @@ public class SellerOperations extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				
+				if(seller.getPendingAmount() > 0) {
+					
+					JOptionPane.showMessageDialog(null, "ATTENTION: Please clear your pending amount before taking a break.\n"
+							+ "Once the payment is taken care of, you can fully enjoy your uninterrupted time off.\"");
+					
+					return;
+					
+				}
+				
+				
 				frame.setVisible(false);
 				sellerDao.deleteSeller(seller.getSellerUserName(), seller.getPassword());
 				SellerAcountClose.main(null);
@@ -170,7 +191,7 @@ public class SellerOperations extends JFrame {
 			}
 		});
 		btnNewButton_2_1.setFont(new Font("Bahnschrift", Font.BOLD, 25));
-		btnNewButton_2_1.setBounds(541, 462, 381, 51);
+		btnNewButton_2_1.setBounds(538, 402, 381, 59);
 		contentPane.add(btnNewButton_2_1);
 		
 		JLabel lblNewLabel_4 = new JLabel("");
@@ -195,6 +216,42 @@ public class SellerOperations extends JFrame {
 		btnAddNewProduct.setBounds(30, 462, 255, 51);
 		contentPane.add(btnAddNewProduct);
 		
+		JLabel lblNewLabel_3_1 = new JLabel("0.0");
+		lblNewLabel_3_1.setText(seller.getPendingAmount()+"");
+		lblNewLabel_3_1.setForeground(UIManager.getColor("Button.darkShadow"));
+		lblNewLabel_3_1.setFont(new Font("Bahnschrift", Font.PLAIN, 25));
+		lblNewLabel_3_1.setBounds(245, 608, 207, 29);
+		contentPane.add(lblNewLabel_3_1);
+		
+		JLabel lblNewLabel_2_1 = new JLabel("Pending Amount :");
+		lblNewLabel_2_1.setFont(new Font("Bahnschrift", Font.BOLD, 25));
+		lblNewLabel_2_1.setBounds(30, 600, 266, 44);
+		contentPane.add(lblNewLabel_2_1);
+		
+		JButton btnNewButton_2_1_1 = new JButton("Pay Pending Amount");
+		btnNewButton_2_1_1.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+			
+				if(seller.getPendingAmount() < 1) {
+					
+					JOptionPane.showMessageDialog(null, "No pending amount to pay");
+					return;
+					
+				}
+				
+				
+				frame.setVisible(false);
+				SellerPendingAmount.main(null);
+				
+				
+				
+			}
+		});
+		btnNewButton_2_1_1.setFont(new Font("Bahnschrift", Font.BOLD, 25));
+		btnNewButton_2_1_1.setBounds(538, 478, 381, 59);
+		contentPane.add(btnNewButton_2_1_1);
+		
 		JButton btnNewButton = new JButton("Update Details");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -211,5 +268,4 @@ public class SellerOperations extends JFrame {
 		
 		
 	}
-
 }

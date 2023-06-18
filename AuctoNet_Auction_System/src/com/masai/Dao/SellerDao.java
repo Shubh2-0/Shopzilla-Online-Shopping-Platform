@@ -54,5 +54,11 @@ public interface SellerDao {
 	ResultSet getAllSellerProductsOrderByQuantity(String username);
 
 	ResultSet getAllSellerProductsOrderByPrice(String username);
+
+	double getSellerPendingAmount(String username);
+
+
+
+	boolean getSellerPaidPendingAmount(double pendingAamount, String username, double income);
     
 }

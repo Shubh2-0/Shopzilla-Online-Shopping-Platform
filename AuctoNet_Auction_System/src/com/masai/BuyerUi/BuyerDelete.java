@@ -11,6 +11,7 @@ import javax.swing.border.EmptyBorder;
 import com.masai.CSS.CSS;
 import com.masai.Dao.BuyerDao;
 import com.masai.Dao.BuyerDaoImpl;
+import com.masai.SellerUi.SellerOperations;
 
 import java.awt.Color;
 import javax.swing.JLabel;
@@ -184,7 +185,8 @@ public class BuyerDelete extends JFrame {
  					
  					
  					JOptionPane.showMessageDialog(null, "Your account has been successfully deleted.\nThank you for being a part of our platform. We hope to see you again in the future"
- 							+ "\nYou can restore your acount till "+formattedDate);
+ 							+ "\nYou can restore your acount till "+formattedDate+"\n"
+ 									+ "+ \"\\nPlease note that your balance " + BuyerOperations.buyer.getBalance() + " has been transferred to your account.\"");
  					BuyerMain.buyer = null;
  					frame.setVisible(false);
  					BuyerMain.main(null);

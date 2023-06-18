@@ -21,7 +21,9 @@ public interface Seller {
 	String getSellerUserName();
 	void setSellerUserName(String sellerUserName);
 	
-
 	double getIncome();
 	void setIncome(double income);
+	
+	double getPendingAmount();
+	void setPendingAmount(double pendingAmount);
 }
