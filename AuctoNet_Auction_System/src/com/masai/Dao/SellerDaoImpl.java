@@ -108,22 +108,49 @@ public class SellerDaoImpl implements SellerDao {
 	
 	
 	
-	
+	@Override
 	public double refundToBuyer(int productId, int quantity) {
 		
 		double amount = 0;
+		
 		Product product = productDao.getProductById(productId);
         int GST = productDao.getGStPercentage(productId);
         
         
         amount = (product.getProductPrice()*quantity);
-        
         amount = (amount*GST/100) + amount;
 		
         
         
+	       try {
+			
+			con = DBUtils.getConnection();
+			
+			String UPDATE_QUERY = "UPDATE seller SET pending_amount = (SELECT pending_amount WHERE UserName = ?) + ? WHERE UserName = ?;";
+			
+			PreparedStatement statement = con.prepareStatement(UPDATE_QUERY); 
+			
+			statement.setString(1, product.getSellerId());
+			statement.setDouble(2, amount);
+			statement.setString(3, product.getSellerId());
+			
+			
+			if(statement.executeUpdate() > 0) return amount;
+			
+		
+			
+			
+		} catch (Exception e) {
+			
+			System.out.println(e);
+			
+		}
         
-		return amount;
+        
+		return 0;
+		
+		
+		
 		
 		
 		

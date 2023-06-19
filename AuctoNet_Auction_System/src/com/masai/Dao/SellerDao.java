@@ -57,5 +57,7 @@ public interface SellerDao {
 	boolean sellerPaidPendingAmount(double pendingAamount, String username, double income);
 
 	boolean addSellerPendingAmount(String username, double newPaidAmount);
+
+	double refundToBuyer(int productId, int quantity);
     
 }

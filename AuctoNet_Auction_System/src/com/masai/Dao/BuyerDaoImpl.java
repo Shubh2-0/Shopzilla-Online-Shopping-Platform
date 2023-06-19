@@ -113,6 +113,7 @@ public class BuyerDaoImpl implements BuyerDao {
 	
 	@Override
 	public Buyer getBuyerByUsername(String username) {
+		
 	username = username.trim();
 	Buyer buy = null;
 	
@@ -297,6 +298,9 @@ public class BuyerDaoImpl implements BuyerDao {
 		
 	}
 
+	
+	
+	
 	@Override
 	public boolean purchaseReturnItem(int productId, int quantity) {
 	

@@ -6,6 +6,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import com.masai.Dao.BuyerDao;
+import com.masai.Dao.SellerDao;
+import com.masai.Dao.SellerDaoImpl;
+import com.masai.Dao.TransactionDao;
+import com.masai.Dao.TransactionDaoImpl;
 import com.masai.Dto.ReturnProduct;
 
 import java.awt.Color;
@@ -35,6 +40,9 @@ public class BuyerReturnProduct extends JFrame {
 	static  ReturnProduct returnProduct;
 	private JTextField textField_5;
 	static int quantity;
+	static SellerDao sellerDao = new SellerDaoImpl();
+	static BuyerDao buyerDao = BuyerOperations.buyerDao;
+	static TransactionDao transactionDao = new TransactionDaoImpl();
 	/**
 	 * Launch the application.
 	 */
@@ -228,7 +236,7 @@ public class BuyerReturnProduct extends JFrame {
 				
 				if(enterQuantity > quantity) {
 					
-					JOptionPane.showMessageDialog(null, "Quantity more the amount that you purchased.");
+					JOptionPane.showMessageDialog(null, "The quantity you have entered exceeds the actual amount you intended to purchase.");
 					return;
 				}
 				
@@ -242,17 +250,44 @@ public class BuyerReturnProduct extends JFrame {
 				}else {
 					
 					
-					if(returnType.equals("REFUND")) {
-						
-						
-						
-						
-						
-						
-					}
+				
 					
 					returnProduct.setReasonForRefund(description);
 					returnProduct.setType(returnType);
+				    returnProduct.setQuantity(enterQuantity);
+					
+				    
+					if(returnType.equals("REFUND")) {
+						
+						
+						double refundAmount = sellerDao.refundToBuyer(returnProduct.getProdunctId(), enterQuantity);
+							
+						if(buyerDao.addAmountToBuyerBalance(refundAmount, returnProduct.getBuyerId()) && transactionDao.returnProductTransaction(returnProduct)) {
+							
+							JOptionPane.showInternalMessageDialog(null, "We apologize for any inconvenience caused."
+									+ "We have successfully refunded an amount of "+ refundAmount +" ₹, which has been added to your balance.");;
+							
+									return;
+						}
+							
+							
+						}else {
+							
+							
+							if(buyerDao.purchaseReturnItem(returnProduct.getProdunctId(), enterQuantity)) {
+								
+								JOptionPane.showInternalMessageDialog(null, "Thank you for your trust in our seller.\n"
+										+ "We are glad to inform you that we are working on sending you a new product in exchange for the one you purchased.");
+								
+										return;
+								
+							}
+							
+							
+						}
+				    
+				    
+					JOptionPane.showMessageDialog(null, "Something went wrong try again letter");
 					
 					
 					
