@@ -11,8 +11,7 @@ import com.masai.CommanCode.Common;
 import com.masai.Dao.BuyerDaoImpl;
 import com.masai.Dao.SellerDao;
 import com.masai.Dao.SellerDaoImpl;
-import com.masai.Dto.BuyerImpl;
-import com.masai.Dto.SellerImpl;
+import com.masai.Dto.*;
 
 import javax.swing.JButton;
 import javax.swing.JTextField;
@@ -31,7 +30,7 @@ public class SellerUpdate extends JFrame {
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
-	static SellerImpl seller;
+	static Seller seller;
 	static SellerUpdate frame;
     SellerDao sellerDao = new SellerDaoImpl();
 	/**

@@ -7,11 +7,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
-
 import com.masai.CSS.CSS;
 import com.masai.Dao.BuyerDao;
 import com.masai.Dao.BuyerDaoImpl;
-import com.masai.Dto.BuyerImpl;
+import com.masai.Dao.TransactionDao;
+import com.masai.Dao.TransactionDaoImpl;
+import com.masai.Dto.*;
 import com.masai.Exceptions.RecordNotFoundException;
 
 import net.proteanit.sql.DbUtils;
@@ -22,6 +23,7 @@ import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
+import java.util.List;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import javax.swing.JLabel;
@@ -44,8 +46,14 @@ public class BuyerTransactions extends JFrame {
 	private JLabel lblNewLabel_3;
 	private JTextField textField_1;
 	static BuyerDao buyerDao = new BuyerDaoImpl();
-	static BuyerImpl buyer = BuyerOperations.buyer;
+	static Buyer buyer = BuyerOperations.buyer;
 	private JButton btnReset;
+	private JPanel panel_1;
+	private JLabel lblNewLabel_5;
+	private JTextField textField_2;
+	private JLabel lblNewLabel_6;
+	private JButton btnNewButton_1;
+	static TransactionDao transactionDao = new TransactionDaoImpl();
 
 	/**
 	 * Launch the application.
@@ -297,6 +305,79 @@ public class BuyerTransactions extends JFrame {
 		btnReset.setFont(new Font("Bahnschrift", Font.BOLD, 20));
 		btnReset.setBounds(1354, 444, 151, 46);
 		contentPane.add(btnReset);
+		
+		panel_1 = new JPanel();
+		panel_1.setBackground(new Color(255, 127, 80));
+		panel_1.setBounds(973, 583, 331, 196);
+		contentPane.add(panel_1);
+		panel_1.setLayout(null);
+		
+		lblNewLabel_5 = new JLabel("Return Product ?");
+		lblNewLabel_5.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_5.setFont(new Font("Bahnschrift", Font.BOLD, 25));
+		lblNewLabel_5.setBounds(57, 10, 218, 35);
+		panel_1.add(lblNewLabel_5);
+		
+		textField_2 = new JTextField();
+		textField_2.setFont(new Font("Bahnschrift", Font.PLAIN, 25));
+		textField_2.setBounds(221, 80, 84, 35);
+		panel_1.add(textField_2);
+		textField_2.setColumns(10);
+		
+		lblNewLabel_6 = new JLabel("Enter Transaction ID :");
+		lblNewLabel_6.setFont(new Font("Bahnschrift", Font.PLAIN, 20));
+		lblNewLabel_6.setBounds(10, 90, 217, 25);
+		panel_1.add(lblNewLabel_6);
+		
+		btnNewButton_1 = new JButton("Go To Return Page");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				
+				int id = 0;
+				
+				try {
+					
+					id = Integer.parseInt(textField_2.getText()) ;
+					
+				} catch (Exception e2) {
+					
+					JOptionPane.showMessageDialog(null, "Transaction ID must be in number");
+					return;
+				}
+				
+				List<Integer> list = transactionDao.getAllTransactionIdByParticularBuyer(buyer.getBuyerUserName());
+				
+			   
+				if(  list.indexOf(id) < 0) {
+					
+					JOptionPane.showMessageDialog(null, "The transaction ID you provided does not belong to you");
+					return;
+					
+				}else {
+					
+					ReturnProduct returnProduct = new ReturnProduct();
+					
+					List<String> l = transactionDao.getProductNameAndProductIdAndQuantityById(id);
+					
+					BuyerReturnProduct.quantity = Integer.parseInt(l.get(2));
+					returnProduct.setBuyerId(buyer.getBuyerUserName());
+					returnProduct.setBuyerName(buyer.getFirstName()+" "+buyer.getLastName());
+					returnProduct.setProductName(l.get(0));
+					returnProduct.setProdunctId(Integer.parseInt(l.get(1)));
+					
+					BuyerReturnProduct.returnProduct = returnProduct;
+					
+					
+					
+				}
+				
+			
+			}
+		});
+		btnNewButton_1.setFont(new Font("Bahnschrift", Font.PLAIN, 20));
+		btnNewButton_1.setBounds(57, 144, 246, 42);
+		panel_1.add(btnNewButton_1);
 		
 	
 	}

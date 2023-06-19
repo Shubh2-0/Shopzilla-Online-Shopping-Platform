@@ -13,8 +13,7 @@ import com.masai.Dao.BuyerDaoImpl;
 import com.masai.Dao.SellerDao;
 import com.masai.Dao.SellerDaoImpl;
 import com.masai.Dto.Buyer;
-import com.masai.Dto.BuyerImpl;
-import com.masai.Dto.SellerImpl;
+import com.masai.Dto.*;
 import com.masai.MainUi.MainPage;
 
 import java.awt.SystemColor;
@@ -51,7 +50,7 @@ public class NewSeller extends JFrame {
 	private JLabel lblNewLabel_6;
 	private JButton btnNewButton;
 	private JLabel lblNewLabel_7;
-    static SellerImpl seller ;
+    static Seller seller ;
     static JFrame frame;
     static final SellerDao sDao = new SellerDaoImpl();
     private JButton btnNewButton_1;
@@ -230,7 +229,7 @@ public class NewSeller extends JFrame {
 							+ "Your password : "+ password +"\n"
 							+ "Please ensure to remember your username , password and keep it in a safe place\n"
 							+ "You will need it to log in to the application");
-					seller = new SellerImpl(username, password, firstName, lastName, mobileNo, address, 0.00);
+					seller = new Seller(username, password, firstName, lastName, mobileNo, address, 0.00);
 					sDao.registerNewSeller(seller);
 					frame.setVisible(false);
 					SellerMain.main(null);

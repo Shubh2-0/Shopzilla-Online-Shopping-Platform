@@ -1,6 +1,7 @@
 package com.masai.Dao;
 
 import com.masai.Dto.Product;
+import com.masai.Dto.ReturnProduct;
 
 public interface ProductDao {
 
@@ -15,5 +16,7 @@ public interface ProductDao {
 	boolean addProductBySeller(Product product);
 
 	int getProductIdByCategoryName(String catgoryName);
+
+	boolean returnProduct(ReturnProduct returnProduct);
 
 }

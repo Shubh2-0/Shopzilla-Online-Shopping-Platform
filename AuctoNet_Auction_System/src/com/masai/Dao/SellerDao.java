@@ -4,12 +4,7 @@ import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.masai.Dto.BuyerImpl;
-import com.masai.Dto.ProductImpl;
-import com.masai.Dto.RefundProductImpl;
-import com.masai.Dto.SellerImpl;
-import com.masai.Dto.TransactionImpl;
+import com.masai.Dto.*;
 
 
 public interface SellerDao {
@@ -26,15 +21,15 @@ public interface SellerDao {
 //    
 //    
 
-	SellerImpl getSellerByUsername(String username);
+	Seller getSellerByUsername(String username);
 
-	SellerImpl loginSeller(String username, String password);
+	Seller loginSeller(String username, String password);
 
-	String updateSellerDetails(SellerImpl u);
+	String updateSellerDetails(Seller u);
 
 	double getSellerIncome(String username);
 
-	String registerNewSeller(SellerImpl s);
+	String registerNewSeller(Seller s);
 
 
 	boolean unhideSellerProducts(String username);
@@ -59,6 +54,8 @@ public interface SellerDao {
 
 
 
-	boolean getSellerPaidPendingAmount(double pendingAamount, String username, double income);
+	boolean sellerPaidPendingAmount(double pendingAamount, String username, double income);
+
+	boolean addSellerPendingAmount(String username, double newPaidAmount);
     
 }

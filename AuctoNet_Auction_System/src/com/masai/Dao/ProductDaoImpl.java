@@ -1,11 +1,10 @@
 package com.masai.Dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
-import com.masai.Dto.Product;
-import com.masai.Dto.ProductImpl;
+import com.masai.Dto.*;
 
 public class ProductDaoImpl implements ProductDao {
 	
@@ -139,7 +138,7 @@ public class ProductDaoImpl implements ProductDao {
 		   
 		   while(set.next()) {
 			   
-			   product = new ProductImpl();
+			   product = new Product();
 			   
 			   product.setProductCategoryId(set.getInt("category_id"));
 			   product.setProductDescription(set.getString("description"));
@@ -228,6 +227,7 @@ public class ProductDaoImpl implements ProductDao {
 	
 	@Override
 	public boolean addProductBySeller(Product product) {
+		
 		Connection con = null;
 
 		
@@ -346,6 +346,66 @@ public class ProductDaoImpl implements ProductDao {
 	}
 	
 
+	@Override
+	public boolean returnProduct(ReturnProduct returnProduct) {
+		 
+		
+		Connection con = null;
+
+		
+		
+		try {
+			
+			con = DBUtils.getConnection();
+			
+			String INSERT_QUERY = "INSERT INTO returnproduct ("
+					+ "product_id, "
+					+ "product_name, "
+					+ "reason_for_return, "
+					+ "return_date, "
+					+ "buyer_id, "
+					+ "buyer_name, "
+					+ "return_type,"
+					+ "quantity) "
+					+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+			
+			
+			PreparedStatement statement = con.prepareStatement(INSERT_QUERY);
+			
+			Date d = Date.valueOf(returnProduct.getRefundDate());
+			
+			statement.setInt(1, returnProduct.getProdunctId());
+            statement.setString(2, returnProduct.getProductName());
+            statement.setString(3, returnProduct.getReasonForRefund());
+            statement.setDate(4, d);
+            statement.setString(5, returnProduct.getBuyerId());
+            statement.setString(6, returnProduct.getBuyerName());
+            statement.setString(7, returnProduct.getType());
+            statement.setInt(8, returnProduct.getQuantity());
+			
+		
+			
+		   if(statement.executeUpdate() > 0) return true;
+		   
+			
+			
+		} catch (Exception e) {
+			
+			System.out.println(e);
+			e.printStackTrace();
+			
+			
+		}finally {
+			
+			DBUtils.closeConnection(con);
+			
+		}
+		
+	
+		
+		
+		return false;
+	}
 	
 	
 }

@@ -2,7 +2,7 @@ package com.masai.Dto;
 
 import java.time.LocalDate;
 
-public class RefundProductImpl implements RefundProduct {
+public class ReturnProduct{
 	
 	private int refundId;
 	private int produnctId;
@@ -11,16 +11,18 @@ public class RefundProductImpl implements RefundProduct {
 	private LocalDate refundDate;
 	private String buyerId;
 	private String buyerName;
+	private String type;
+	private int quantity;
 	
 	
 	
-	public RefundProductImpl() {
+	public ReturnProduct() {
 	}
 
 
 
 
-	public RefundProductImpl(int refundId, int produnctId, String productName, String reasonForRefund,
+	public ReturnProduct(int refundId, int produnctId, String productName, String reasonForRefund,
 			LocalDate refundDate, String buyerId, String buyerName) {
 		super();
 		this.refundId = refundId;
@@ -34,105 +36,138 @@ public class RefundProductImpl implements RefundProduct {
 
 
 
+	
 
-
-
-
-	@Override
 	public int getRefundId() {
 		return refundId;
 	}
 
 
-	@Override
+
+
 	public void setRefundId(int refundId) {
 		this.refundId = refundId;
 	}
 
 
-	@Override
+
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+
+
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+
+
+
 	public int getProdunctId() {
 		return produnctId;
 	}
 
 
-	@Override
+
+
 	public void setProdunctId(int produnctId) {
 		this.produnctId = produnctId;
 	}
 
 
-	@Override
-	public String getReasonForRefund() {
-		return reasonForRefund;
-	}
 
 
-	@Override
-	public void setReasonForRefund(String reasonForRefund) {
-		this.reasonForRefund = reasonForRefund;
-	}
-
-
-	@Override
-	public LocalDate getRefundDate() {
-		return refundDate;
-	}
-
-
-	@Override
-	public void setRefundDate(LocalDate refundDate) {
-		this.refundDate = refundDate;
-	}
-
-
-	@Override
-	public String getBuyerId() {
-		return buyerId;
-	}
-
-
-	@Override
-	public void setBuyerId(String buyerId) {
-		this.buyerId = buyerId;
-	}
-
-
-	@Override
-	public String getBuyerName() {
-		return buyerName;
-	}
-
-
-	@Override
-	public void setBuyerName(String buyerName) {
-		this.buyerName = buyerName;
-	}
-
-
-
-	@Override
 	public String getProductName() {
 		return productName;
 	}
 
 
 
-	@Override
+
 	public void setProductName(String productName) {
 		this.productName = productName;
 	}
 
 
 
-	@Override
-	public String toString() {
-		return "RefundProductImpl [refundId=" + refundId + ", produnctId=" + produnctId + ", reasonForRefund="
-				+ reasonForRefund + ", refundDate=" + refundDate + ", buyerId=" + buyerId + ", buyerName=" + buyerName
-				+ ", productName=" + productName + "]";
+
+	public String getReasonForRefund() {
+		return reasonForRefund;
 	}
-	
-	
+
+
+
+
+	public void setReasonForRefund(String reasonForRefund) {
+		this.reasonForRefund = reasonForRefund;
+	}
+
+
+
+
+	public LocalDate getRefundDate() {
+		return refundDate;
+	}
+
+
+
+
+	public void setRefundDate(LocalDate refundDate) {
+		this.refundDate = refundDate;
+	}
+
+
+
+
+	public String getBuyerId() {
+		return buyerId;
+	}
+
+
+
+
+	public void setBuyerId(String buyerId) {
+		this.buyerId = buyerId;
+	}
+
+
+
+
+	public String getBuyerName() {
+		return buyerName;
+	}
+
+
+
+
+	public void setBuyerName(String buyerName) {
+		this.buyerName = buyerName;
+	}
+
+
+
+
+	public String getType() {
+		return type;
+	}
+
+
+
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+
+
+
+
+
+
+
 	
 	
 	

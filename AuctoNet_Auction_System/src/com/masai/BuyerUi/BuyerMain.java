@@ -9,8 +9,8 @@ import javax.swing.border.EmptyBorder;
 
 import com.masai.CSS.CSS;
 import com.masai.Dao.BuyerDaoImpl;
-import com.masai.Dto.BuyerImpl;
 import com.masai.MainUi.MainPage;
+import com.masai.Dto.*;
 
 import javax.swing.JSplitPane;
 import javax.swing.JInternalFrame;
@@ -37,7 +37,7 @@ public class BuyerMain extends JFrame {
 	private JTextField textField;
 	private JTextField textField_1;
 	private static BuyerMain frame;
-	public static BuyerImpl buyer;
+	public static Buyer buyer;
 	public static BuyerDaoImpl buyerDao = new BuyerDaoImpl();
 
 	/**

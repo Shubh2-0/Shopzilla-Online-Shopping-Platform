@@ -16,6 +16,7 @@ import com.masai.SellerUi.SellerOperations;
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import com.masai.Dto.*;
 
 import java.awt.Font;
 import javax.swing.JTextField;
@@ -26,6 +27,7 @@ import java.time.format.DateTimeFormatter;
 import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
 import java.awt.SystemColor;
+
 
 public class BuyerDelete extends JFrame {
 
@@ -39,6 +41,7 @@ public class BuyerDelete extends JFrame {
 	static BuyerDao buyerDao = new BuyerDaoImpl();
 	static BuyerDelete frame;
 	static String name;
+	static double balance = BuyerOperations.buyer.getBalance();
 
 	/**
 	 * Launch the application.
@@ -173,7 +176,7 @@ public class BuyerDelete extends JFrame {
  				}
  				
  				
- 				if(buyerDao.deleteBuyer(tempUsername, confirmPassword) && buyerDao.hideTransactions(username,name) ) {
+ 				if(buyerDao.deleteBuyer(tempUsername, confirmPassword) && buyerDao.hideTransactions(username) ) {
  					
  					 LocalDate currentDate = LocalDate.now();
  					 
@@ -186,7 +189,7 @@ public class BuyerDelete extends JFrame {
  					
  					JOptionPane.showMessageDialog(null, "Your account has been successfully deleted.\nThank you for being a part of our platform. We hope to see you again in the future"
  							+ "\nYou can restore your acount till "+formattedDate+"\n"
- 									+ "+ \"\\nPlease note that your balance " + BuyerOperations.buyer.getBalance() + " has been transferred to your account.\"");
+ 									+ "Please note that your balance " + balance + " has been transferred to your account.\"");
  					BuyerMain.buyer = null;
  					frame.setVisible(false);
  					BuyerMain.main(null);

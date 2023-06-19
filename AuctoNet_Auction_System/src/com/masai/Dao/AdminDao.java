@@ -4,9 +4,6 @@ package com.masai.Dao;
 import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import com.masai.Dto.ProductImpl;
-import com.masai.Dto.SellerImpl;
-import com.masai.Dto.TransactionImpl;
 import com.masai.Exceptions.InvalidCredentialsException;
 import com.masai.Exceptions.RecordNotFoundException;
 

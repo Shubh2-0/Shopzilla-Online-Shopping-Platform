@@ -1,21 +1,19 @@
 package com.masai.Dao;
+
+
 import java.sql.ResultSet;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import com.masai.Dto.BuyerImpl;
-import com.masai.Dto.ProductImpl;
-import com.masai.Dto.RefundProductImpl;
-import com.masai.Dto.TransactionImpl;
+import com.masai.Dto.*;
 import com.masai.Exceptions.InvalidCredentialsException;
 import com.masai.Exceptions.RecordNotFoundException;
 
 public interface BuyerDao {
 	
-	BuyerImpl loginBuyer(String username, String password)throws InvalidCredentialsException;
+	Buyer loginBuyer(String username, String password)throws InvalidCredentialsException;
 	
-	String registerNewBuyer(BuyerImpl buyer);
+	String registerNewBuyer(Buyer buyer);
 	
-	String updateBuyerDetails(BuyerImpl bueyr);
+	String updateBuyerDetails(Buyer bueyr);
 	
 	ResultSet getAllProductForSell() throws RecordNotFoundException;
 	
@@ -29,7 +27,7 @@ public interface BuyerDao {
 
 	ResultSet getProductsByProductId(int id);
 
-	BuyerImpl getBuyerByUsername(String username);
+	Buyer getBuyerByUsername(String username);
 
 	double getBalance(String username);
 
@@ -37,7 +35,7 @@ public interface BuyerDao {
 
 	boolean deleteBuyer(String username, String password);
 
-	boolean hideTransactions(String username, String name);
+	boolean hideTransactions(String username);
 
 	String recoverBuyerAcount(String username, String password, LocalDate date);
 
@@ -53,6 +51,8 @@ public interface BuyerDao {
 	ResultSet getBuyerAllTransactionByQuantity(String username) throws RecordNotFoundException;
 
 	ResultSet getBuyerAllTransactionByPurchaseDate(String username) throws RecordNotFoundException;
+
+	boolean purchaseReturnItem(int productId, int quantity);
 		
 //	ArrayList<RefundProductImpl> viewAllrefundProduct();
 

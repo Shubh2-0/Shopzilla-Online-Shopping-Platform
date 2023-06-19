@@ -21,8 +21,7 @@ import com.masai.Dao.BuyerDao;
 import com.masai.Dao.BuyerDaoImpl;
 import com.masai.Dao.SellerDao;
 import com.masai.Dao.SellerDaoImpl;
-import com.masai.Dto.BuyerImpl;
-import com.masai.Dto.SellerImpl;
+import com.masai.Dto.*;
 import com.masai.MainUi.MainPage;
 
 import javax.swing.UIManager;
@@ -32,7 +31,7 @@ import java.awt.Color;
 public class SellerOperations extends JFrame {
 
 	private JPanel contentPane;
-	static SellerImpl seller;
+	static Seller seller;
 	static SellerOperations frame;
 	static SellerDao sellerDao = new SellerDaoImpl();
 	
@@ -56,7 +55,7 @@ public class SellerOperations extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public SellerOperations(SellerImpl seller) {
+	public SellerOperations(Seller seller) {
 		this.seller = seller;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 958, 691);

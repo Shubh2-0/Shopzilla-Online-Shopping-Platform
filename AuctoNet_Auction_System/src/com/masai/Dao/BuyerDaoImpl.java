@@ -7,8 +7,7 @@ import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import javax.swing.JOptionPane;
-import com.masai.Dto.BuyerImpl;
-import com.masai.Dto.SellerImpl;
+import com.masai.Dto.*;
 import com.masai.Exceptions.RecordNotFoundException;
 
 
@@ -16,8 +15,8 @@ import com.masai.Exceptions.RecordNotFoundException;
 public class BuyerDaoImpl implements BuyerDao {
 
 	static Connection con = null;
-	static BuyerImpl buyer = null;
-	static SellerImpl seller = null;
+	static Buyer buyer = null;
+	static Seller seller = null;
 	static SellerDao sellerDao = new SellerDaoImpl();
 	static ProductDao productDao = new ProductDaoImpl();
 	
@@ -25,7 +24,7 @@ public class BuyerDaoImpl implements BuyerDao {
 	
 	
 	@Override
-	public BuyerImpl loginBuyer(String username, String password) {
+	public Buyer loginBuyer(String username, String password) {
 	
 		buyer = null;
 		
@@ -44,7 +43,7 @@ public class BuyerDaoImpl implements BuyerDao {
 		ResultSet set = statement.executeQuery();
 		
 		while(set.next()) {
-			buyer = new BuyerImpl(set.getString(1), 
+			buyer = new Buyer(set.getString(1), 
 					set.getString(2), 
 					set.getString(3), 
 					set.getString(4), 
@@ -113,9 +112,9 @@ public class BuyerDaoImpl implements BuyerDao {
 	
 	
 	@Override
-	public BuyerImpl getBuyerByUsername(String username) {
+	public Buyer getBuyerByUsername(String username) {
 	username = username.trim();
-	BuyerImpl buy = null;
+	Buyer buy = null;
 	
 	try {
 		
@@ -132,7 +131,7 @@ public class BuyerDaoImpl implements BuyerDao {
 		ResultSet set = statement.executeQuery();
 		
 		while(set.next()) {
-			buy = new BuyerImpl(set.getString(1), 
+			buy = new Buyer(set.getString(1), 
 					set.getString(2), 
 					set.getString(3), 
 					set.getString(4), 
@@ -160,7 +159,7 @@ public class BuyerDaoImpl implements BuyerDao {
 	
 	
 	@Override
-	public String registerNewBuyer(BuyerImpl u) {
+	public String registerNewBuyer(Buyer u) {
 		
 		buyer = u;
 		
@@ -202,7 +201,7 @@ public class BuyerDaoImpl implements BuyerDao {
 	
 	
 	@Override
-	public String updateBuyerDetails(BuyerImpl u) {
+	public String updateBuyerDetails(Buyer u) {
 		
 		if(!u.getFirstName().equals("")) {
 			buyer.setFirstName(u.getFirstName());
@@ -298,7 +297,104 @@ public class BuyerDaoImpl implements BuyerDao {
 		
 	}
 
+	@Override
+	public boolean purchaseReturnItem(int productId, int quantity) {
 	
+		
+		double perUnitPrice = 0.0;
+		int seller_Id  = 0;
+		String usernmae = buyer.getBuyerUserName();
+		String sellerusername = null;
+		int gst = productDao.getGStPercentage(productId);	
+		int returnPolicy = 0;
+		
+		
+		try {
+			
+			con = DBUtils.getConnection();
+			String SELCET_QUERY = "SELECT * FROM PRODUCT WHERE PRODUCT_ID = ? AND SOLD_STATUS = 0 AND is_hide = 0";
+			
+			PreparedStatement statement = con.prepareStatement(SELCET_QUERY);
+			statement.setInt(1, productId);
+			
+			ResultSet set = statement.executeQuery();
+		
+			while(set.next()) {
+			
+				perUnitPrice = set.getDouble("price_per_piece");
+				seller_Id = set.getInt("seller_unique_num");
+				sellerusername = set.getString("seller_username");
+				returnPolicy = set.getInt("return_policy");
+				
+				
+			}
+			
+			
+			
+			
+		
+			
+			
+			if(quantity != 0) {
+				
+			String INSERT_QUERY = "  INSERT INTO transactions ("
+					+ "      product_id,"
+					+ "      product_name,"
+					+ "      buyer_id,"
+					+ "      buyer_name,"
+					+ "      quantity,"
+					+ "      purchase_date,"
+					+ "      amount_per_piece,"
+					+ "      price, "
+					+ "      gst_percentage,"
+					+ "      tax_amount,"
+					+ "      total_price,"
+					+ "      return_policy) values("
+					+ "      ?,"
+					+ "       (SELECT product_name FROM product WHERE product_id=?),"
+					+ "      ?,"
+					+ "      (SELECT CONCAT(first_name, ' ', last_name) FROM buyer WHERE username=?),"
+					+ "      ?,"
+					+ "      ?,"
+					+ "      (SELECT price_per_piece FROM product WHERE product_id=?),"
+					+ "      amount_per_piece*?,"
+					+ "      (SELECT GST_PER FROM CATEGORY WHERE CAT_ID = (SELECT CATEGORY_ID FROM PRODUCT WHERE PRODUCT_ID = ?)),"
+					+ "      price*gst_percentage/100, "
+					+ "      0.00, "
+					+ "      ?)";	
+				 
+			PreparedStatement statement2 = con.prepareStatement(INSERT_QUERY);
+			
+			statement2.setInt(1, productId);
+			statement2.setInt(2, productId);
+			statement2.setString(3,buyer.getBuyerUserName());
+			statement2.setString(4,buyer.getBuyerUserName());
+			statement2.setInt(5, quantity);
+			statement2.setDate(6, Date.valueOf(LocalDate.now()));
+		    statement2.setInt(7, productId);
+		    statement2.setInt(8, quantity);
+		    statement2.setInt(9, productId);
+	        statement2.setInt(10, returnPolicy);
+	     
+				int ans = statement2.executeUpdate();
+				
+				if(ans > 0) return true;
+				
+				
+				
+			}
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			
+		}
+		
+		
+		
+		return false;
+		
+	}
 	
 	
 	@Override
@@ -508,7 +604,6 @@ public class BuyerDaoImpl implements BuyerDao {
 	
 	
 	
-	
 	@Override
 	public boolean unhideTransactions(String username) {
 		     
@@ -547,18 +642,18 @@ public class BuyerDaoImpl implements BuyerDao {
 	
 	
 	@Override
-	public boolean hideTransactions(String username,String name) {
+	public boolean hideTransactions(String username) {
 		     
           try {
 			
 			con = DBUtils.getConnection();
 			
-			String SELECT_QUERY = "UPDATE transactions SET is_hide = 1 WHERE buyer_id = ? AND buyer_name = ?";
+			String SELECT_QUERY = "UPDATE transactions SET is_hide = 1 WHERE buyer_id = ?";
 			
 			PreparedStatement statement = con.prepareStatement(SELECT_QUERY); 
 			
 			statement.setString(1, username);
-			statement.setString(2, name);
+
 			
 			
 			int ans = statement.executeUpdate();
@@ -1084,6 +1179,8 @@ public class BuyerDaoImpl implements BuyerDao {
 		
 		
 	}
+	
+	
 	
 	
 	

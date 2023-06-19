@@ -11,7 +11,7 @@ import com.masai.CommanCode.Common;
 import com.masai.Dao.BuyerDao;
 import com.masai.Dao.BuyerDaoImpl;
 import com.masai.Dto.Buyer;
-import com.masai.Dto.BuyerImpl;
+import com.masai.Dto.*;
 import com.masai.MainUi.MainPage;
 
 import java.awt.SystemColor;
@@ -48,7 +48,7 @@ public class NewBuyer extends JFrame {
 	private JLabel lblNewLabel_6;
 	private JButton btnNewButton;
 	private JLabel lblNewLabel_7;
-    static BuyerImpl buyer ;
+    static Buyer buyer ;
     static JFrame frame;
     static final BuyerDao bDao = new BuyerDaoImpl();
     private JTextField textField_2;
@@ -245,7 +245,7 @@ public class NewBuyer extends JFrame {
 							+ "Your password : "+ password +"\n"
 							+ "Please ensure to remember your username , password and keep it in a safe place\n"
 							+ "You will need it to log in to the application");
-					buyer = new BuyerImpl(username, password, firstName, lastName, mobileNo, address, b);
+					buyer = new Buyer(username, password, firstName, lastName, mobileNo, address, b);
 					bDao.registerNewBuyer(buyer);
 					frame.setVisible(false);
 					BuyerMain.main(null);

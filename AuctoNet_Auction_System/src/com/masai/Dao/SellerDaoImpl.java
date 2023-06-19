@@ -5,15 +5,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.masai.Dto.BuyerImpl;
-import com.masai.Dto.SellerImpl;
+import com.masai.Dto.*;
 
 public class SellerDaoImpl implements SellerDao {
  
 	static Connection con = null;
-	static BuyerImpl buyer = null;
-	static SellerImpl seller = null;
+	static Buyer buyer = null;
+	static Seller seller = null;
 	static BuyerDao buyerDao = new BuyerDaoImpl();
 	static ProductDao productDao = new ProductDaoImpl();
 	
@@ -21,7 +19,7 @@ public class SellerDaoImpl implements SellerDao {
 	
 	
 	@Override
-	public SellerImpl loginSeller(String username, String password) {
+	public Seller loginSeller(String username, String password) {
 	
 		seller = null;
 		
@@ -40,7 +38,7 @@ public class SellerDaoImpl implements SellerDao {
 		ResultSet set = statement.executeQuery();
 		
 		while(set.next()) {
-			seller = new SellerImpl(set.getString(1), 
+			seller = new Seller(set.getString(1), 
 					set.getString(2), 
 					set.getString(3), 
 					set.getString(4), 
@@ -111,13 +109,40 @@ public class SellerDaoImpl implements SellerDao {
 	
 	
 	
+	public double refundToBuyer(int productId, int quantity) {
+		
+		double amount = 0;
+		Product product = productDao.getProductById(productId);
+        int GST = productDao.getGStPercentage(productId);
+        
+        
+        amount = (product.getProductPrice()*quantity);
+        
+        amount = (amount*GST/100) + amount;
+		
+        
+        
+        
+		return amount;
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+	
+	
+	
 	@Override
-	public SellerImpl getSellerByUsername(String username) {
+	public Seller getSellerByUsername(String username) {
 		
 		
 		Connection con = null;
 		
-		SellerImpl seller2 = null;
+		Seller seller2 = null;
 		
 		try {
 			
@@ -135,7 +160,7 @@ public class SellerDaoImpl implements SellerDao {
 			ResultSet set = statement.executeQuery();
 			
 			while(set.next()) {
-				seller2 = new SellerImpl(set.getString(1), 
+				seller2 = new Seller(set.getString(1), 
 						set.getString(2), 
 						set.getString(3), 
 						set.getString(4), 
@@ -173,7 +198,7 @@ public class SellerDaoImpl implements SellerDao {
 	
 	
 	@Override
-	public String updateSellerDetails(SellerImpl u) {
+	public String updateSellerDetails(Seller u) {
 		
 		if(!u.getFirstName().equals("")) {
 			seller.setFirstName(u.getFirstName());
@@ -230,7 +255,7 @@ public class SellerDaoImpl implements SellerDao {
 	
 	
 	@Override
-	public String registerNewSeller(SellerImpl s) {
+	public String registerNewSeller(Seller s) {
 		
 		seller = s;
 		
@@ -558,6 +583,9 @@ public class SellerDaoImpl implements SellerDao {
 		
 	}
 	
+	
+	
+	
 	@Override
 	public double getSellerPendingAmount(String username) {
 		
@@ -602,6 +630,46 @@ public class SellerDaoImpl implements SellerDao {
 		
 		return amount;
 	}
+	
+	
+	@Override
+	public boolean addSellerPendingAmount(String username,double newPaidAmount) {
+		
+		double amount = this.getSellerPendingAmount(username);
+		
+		amount+=newPaidAmount;
+		
+		
+         try {
+			
+			con = DBUtils.getConnection();
+			String SELECT_QUERY = "UPDATE seller SET panding_amount = ? WHERE UserName = ?";
+			
+			PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
+			
+			statement.setDouble(1, amount);
+			statement.setString(2, username);
+	
+			
+			if(statement.executeUpdate() > 0 ) return true;
+				
+			
+			
+			
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			
+		}
+		
+		
+		
+		
+		
+		return false;
+	}
+	
 	
 	
 	
@@ -696,7 +764,7 @@ public class SellerDaoImpl implements SellerDao {
 	
     
 	@Override
-	public boolean getSellerPaidPendingAmount(double pendingAamount, String username,  double income) {
+	public boolean sellerPaidPendingAmount(double pendingAamount, String username,  double income) {
 		
 
 		 

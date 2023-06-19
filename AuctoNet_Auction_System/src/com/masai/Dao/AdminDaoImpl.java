@@ -7,13 +7,9 @@ import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
 import com.masai.Exceptions.InvalidCredentialsException;
 import com.masai.Exceptions.RecordNotFoundException;
-import com.masai.Dto.BuyerImpl;
-import com.masai.Dto.ProductImpl;
-import com.masai.Dto.SellerImpl;
-import com.masai.Dto.TransactionImpl;
+import com.masai.Dto.*;
 
 
 
@@ -87,7 +83,7 @@ public class AdminDaoImpl implements AdminDao {
 	@Override
 	public ResultSet getAllSeller(){
 		
-       ArrayList<SellerImpl>  list = new ArrayList<>();
+       ArrayList<Seller>  list = new ArrayList<>();
 		
 		try {
 			

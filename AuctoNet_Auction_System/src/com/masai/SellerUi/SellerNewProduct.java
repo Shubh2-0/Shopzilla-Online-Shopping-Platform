@@ -10,7 +10,8 @@ import com.masai.CSS.CSS;
 import com.masai.Dao.ProductDao;
 import com.masai.Dao.ProductDaoImpl;
 import com.masai.Dto.Product;
-import com.masai.Dto.ProductImpl;
+import com.masai.Dto.*;
+
 
 import java.awt.Color;
 import javax.swing.JLabel;
@@ -248,7 +249,7 @@ public class SellerNewProduct extends JFrame {
 				int categoryId = productDao.getProductIdByCategoryName(category);
 				
 				
-				product = new ProductImpl();
+				product = new Product();
 				
 				product.setProductName(name);
 				product.setProductPrice(price);

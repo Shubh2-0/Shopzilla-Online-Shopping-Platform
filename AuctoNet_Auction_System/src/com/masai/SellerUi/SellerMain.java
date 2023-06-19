@@ -13,8 +13,7 @@ import com.masai.BuyerUi.BuyerOperations;
 import com.masai.CSS.CSS;
 import com.masai.Dao.SellerDao;
 import com.masai.Dao.SellerDaoImpl;
-import com.masai.Dto.BuyerImpl;
-import com.masai.Dto.SellerImpl;
+import com.masai.Dto.*;
 import com.masai.MainUi.MainPage;
 
 import javax.swing.JLabel;
@@ -35,7 +34,7 @@ public class SellerMain extends JFrame {
 	private JTextField textField;
 	private JPasswordField passwordField;
 	private static SellerMain frame;
-	static SellerImpl seller;
+	static Seller seller;
 	static SellerDao sellerDao = new SellerDaoImpl();
 
 	/**

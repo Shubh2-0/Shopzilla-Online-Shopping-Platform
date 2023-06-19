@@ -9,7 +9,7 @@ import javax.swing.border.EmptyBorder;
 import com.masai.CSS.CSS;
 import com.masai.CommanCode.Common;
 import com.masai.Dao.BuyerDaoImpl;
-import com.masai.Dto.BuyerImpl;
+import com.masai.Dto.*;
 
 import javax.swing.JButton;
 import javax.swing.JTextField;
@@ -28,7 +28,7 @@ public class BuyerUpdate extends JFrame {
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
-	static BuyerImpl buyer;
+	static Buyer buyer;
 	static BuyerUpdate frame;
     BuyerDaoImpl buyerdao = new BuyerDaoImpl();
 	/**
@@ -50,7 +50,7 @@ public class BuyerUpdate extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public BuyerUpdate(BuyerImpl buyer2) {
+	public BuyerUpdate(Buyer buyer2) {
 		this.buyer = buyer2;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 756, 642);
