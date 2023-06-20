@@ -19,7 +19,7 @@ Welcome to Shopzilla, the cutting-edge automated application software for seamle
 ## ER Diagram
 Check out the visual representation of our system's entities and relationships:
 
-<img alt="Demo" src="ReadmeImages/Er_Diagram.png" />
+<img alt="Demo" src="ReadmeImages/ER Diagram.png" />
 
 :star: Don't forget to show your support by starring this project on GitHub!
 
