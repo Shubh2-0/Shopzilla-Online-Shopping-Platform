@@ -9,7 +9,7 @@
 
 <br>
 <br>
-Welcome to the AuctoNet Auction System! It is an automated application software designed for seamless buying and selling of products. This versatile software is ideal for auction companies that organize auctions, connecting a diverse range of registered buyers and sellers.
+Welcome to Shopzilla, an automated application software designed for seamless buying and selling of products. This versatile software is ideal for online shopping platforms, connecting a diverse range of registered buyers and sellers.
 
 
 Following are the lists of various users of the system and also the role of the users
