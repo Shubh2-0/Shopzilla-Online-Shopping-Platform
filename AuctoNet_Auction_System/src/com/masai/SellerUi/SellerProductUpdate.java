@@ -70,7 +70,7 @@ public class SellerProductUpdate extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 774, 779);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(244, 164, 96));
+		contentPane.setBackground(new Color(216, 191, 216));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		
 		setContentPane(contentPane);
@@ -92,7 +92,7 @@ public class SellerProductUpdate extends JFrame {
 		textField = new JTextField();
 		textField.setText(product.getProductName());
 		textField.setFont(new Font("Bahnschrift", Font.PLAIN, 25));
-		textField.setBackground(new Color(244, 164, 96));
+		textField.setBackground(new Color(216, 191, 216));
 		textField.setBounds(282, 96, 387, 53);
 		contentPane.add(textField);
 		textField.setColumns(10);
@@ -131,7 +131,7 @@ public class SellerProductUpdate extends JFrame {
 		textField_1 = new JTextField();
 		textField_1.setText(product.getProductPrice()+"");
 		textField_1.setFont(new Font("Bahnschrift", Font.PLAIN, 25));
-		textField_1.setBackground(new Color(244, 164, 96));
+		textField_1.setBackground(new Color(216, 191, 216));
 		textField_1.setColumns(10);
 		textField_1.setBounds(282, 195, 387, 53);
 		contentPane.add(textField_1);
@@ -139,7 +139,7 @@ public class SellerProductUpdate extends JFrame {
 		textField_2 = new JTextField();
 		textField_2.setText(product.getProductQuantity()+"");
 		textField_2.setFont(new Font("Bahnschrift", Font.PLAIN, 25));
-		textField_2.setBackground(new Color(244, 164, 96));
+		textField_2.setBackground(new Color(216, 191, 216));
 		textField_2.setColumns(10);
 		textField_2.setBounds(282, 294, 387, 53);
 		contentPane.add(textField_2);
@@ -160,7 +160,7 @@ public class SellerProductUpdate extends JFrame {
 		
 		
 		rdbtnNotApplicable.setFont(new Font("Bahnschrift", Font.PLAIN, 20));
-		rdbtnNotApplicable.setBackground(new Color(244, 164, 96));
+		rdbtnNotApplicable.setBackground(new Color(216, 191, 216));
 		rdbtnNotApplicable.setBounds(476, 380, 179, 53);
 		contentPane.add(rdbtnNotApplicable);
 
@@ -192,7 +192,7 @@ public class SellerProductUpdate extends JFrame {
 		
 		
 		
-		rdbtnNewRadioButton.setBackground(new Color(244, 164, 96));
+		rdbtnNewRadioButton.setBackground(new Color(216, 191, 216));
 		rdbtnNewRadioButton.setFont(new Font("Bahnschrift", Font.PLAIN, 20));
 		rdbtnNewRadioButton.setBounds(282, 380, 137, 53);
 		contentPane.add(rdbtnNewRadioButton);

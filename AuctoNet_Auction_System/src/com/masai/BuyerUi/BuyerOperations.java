@@ -55,7 +55,7 @@ public class BuyerOperations extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 980, 647);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(255, 218, 185));
+		contentPane.setBackground(new Color(255, 127, 80));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -82,7 +82,7 @@ public class BuyerOperations extends JFrame {
 		});
 		btnNewButton.setFont(new Font("Bahnschrift", Font.BOLD, 25));
 		btnNewButton.setBackground(Color.WHITE);
-		btnNewButton.setBounds(30, 150, 255, 59);
+		btnNewButton.setBounds(30, 109, 255, 51);
 		contentPane.add(btnNewButton);
 		
 		JButton btnViewProductsFor = new JButton("View Products");
@@ -98,7 +98,7 @@ public class BuyerOperations extends JFrame {
 		});
 		btnViewProductsFor.setFont(new Font("Bahnschrift", Font.BOLD, 25));
 		btnViewProductsFor.setBackground(Color.WHITE);
-		btnViewProductsFor.setBounds(30, 348, 255, 51);
+		btnViewProductsFor.setBounds(30, 294, 255, 51);
 		contentPane.add(btnViewProductsFor);
 		
 		JButton btnViewTransactions = new JButton("View Transactions");
@@ -114,7 +114,7 @@ public class BuyerOperations extends JFrame {
 		});
 		btnViewTransactions.setFont(new Font("Bahnschrift", Font.BOLD, 25));
 		btnViewTransactions.setBackground(Color.WHITE);
-		btnViewTransactions.setBounds(30, 256, 255, 59);
+		btnViewTransactions.setBounds(30, 195, 255, 59);
 		contentPane.add(btnViewTransactions);
 		
 		JButton btnNewButton_1 = new JButton("Logout");
@@ -128,16 +128,16 @@ public class BuyerOperations extends JFrame {
 				
 			}
 		});
-		btnNewButton_1.setFont(new Font("Bahnschrift", Font.PLAIN, 30));
-		btnNewButton_1.setBounds(773, 523, 158, 59);
+		btnNewButton_1.setFont(new Font("Bahnschrift", Font.BOLD, 25));
+		btnNewButton_1.setBounds(773, 528, 158, 54);
 		contentPane.add(btnNewButton_1);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setBounds(657, 9, 405, 306);
+		lblNewLabel_1.setBounds(295, 60, 672, 471);
 		contentPane.add(lblNewLabel_1);
 		
 		ImageIcon icon1 = new ImageIcon(getClass().getResource("/Images/BuyerMain/buyeroperations.png"));
-		Image iPage1 = icon1.getImage().getScaledInstance(300, 300, Image.SCALE_SMOOTH);
+		Image iPage1 = icon1.getImage().getScaledInstance(800, 500, Image.SCALE_SMOOTH);
 		icon1 = new ImageIcon(iPage1);
 		lblNewLabel_1.setIcon(icon1);
 		
@@ -148,7 +148,7 @@ public class BuyerOperations extends JFrame {
 		
 		JLabel lblNewLabel_3 = new JLabel();
 		lblNewLabel_3.setFont(new Font("Bahnschrift", Font.PLAIN, 25));
-		lblNewLabel_3.setText(buyerDao.getBalance(buyer.getBuyerUserName())+"");
+		lblNewLabel_3.setText(buyerDao.getBalance(buyer.getBuyerUserName())+" ₹");
 		lblNewLabel_3.setBounds(271, 552, 158, 37);
 		contentPane.add(lblNewLabel_3);
 		
@@ -169,7 +169,7 @@ public class BuyerOperations extends JFrame {
 		});
 		btnAddBalance.setFont(new Font("Bahnschrift", Font.BOLD, 25));
 		btnAddBalance.setBackground(Color.WHITE);
-		btnAddBalance.setBounds(30, 430, 255, 51);
+		btnAddBalance.setBounds(30, 468, 255, 51);
 		contentPane.add(btnAddBalance);
 		
 		JButton btnDeleteAcount = new JButton("Delete Acount");
@@ -186,8 +186,19 @@ public class BuyerOperations extends JFrame {
 		});
 		btnDeleteAcount.setFont(new Font("Bahnschrift", Font.BOLD, 25));
 		btnDeleteAcount.setBackground(Color.WHITE);
-		btnDeleteAcount.setBounds(710, 368, 221, 51);
+		btnDeleteAcount.setBounds(535, 528, 221, 51);
 		contentPane.add(btnDeleteAcount);
+		
+		JButton btnNewButton_2 = new JButton("View Returns");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		btnNewButton_2.setFont(new Font("Bahnschrift", Font.BOLD, 25));
+		btnNewButton_2.setBackground(Color.WHITE);
+		btnNewButton_2.setBounds(30, 383, 255, 51);
+		contentPane.add(btnNewButton_2);
 		
 		
 	}

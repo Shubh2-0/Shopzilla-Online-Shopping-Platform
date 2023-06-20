@@ -23,6 +23,7 @@ import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
@@ -30,6 +31,7 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
+import javax.swing.JTextArea;
 
 public class BuyerTransactions extends JFrame {
 
@@ -79,7 +81,7 @@ public class BuyerTransactions extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1554, 837);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(176, 196, 222));
+		contentPane.setBackground(new Color(255, 127, 80));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -132,7 +134,7 @@ public class BuyerTransactions extends JFrame {
 		panel = new JPanel();
 		panel.setLayout(null);
 		panel.setForeground(Color.RED);
-		panel.setBackground(new Color(70, 130, 180));
+		panel.setBackground(new Color(189, 183, 107));
 		panel.setBounds(37, 583, 898, 196);
 		contentPane.add(panel);
 		
@@ -240,12 +242,12 @@ public class BuyerTransactions extends JFrame {
 		
 		JLabel lblNewLabel_4 = new JLabel("Sort Transactions By :");
 		lblNewLabel_4.setFont(new Font("Bahnschrift", Font.BOLD, 20));
-		lblNewLabel_4.setBounds(45, 462, 249, 30);
+		lblNewLabel_4.setBounds(747, 461, 249, 30);
 		contentPane.add(lblNewLabel_4);
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setFont(new Font("Bahnschrift", Font.PLAIN, 18));
-		comboBox.setBounds(272, 459, 180, 36);
+		comboBox.setBounds(974, 458, 180, 36);
 		contentPane.add(comboBox);
 		comboBox.addItem("Total Price");
 		comboBox.addItem("Quantity");
@@ -288,7 +290,7 @@ public class BuyerTransactions extends JFrame {
 			}
 		});
 		btnNewButton_3.setFont(new Font("Bahnschrift", Font.BOLD, 19));
-		btnNewButton_3.setBounds(525, 459, 85, 33);
+		btnNewButton_3.setBounds(1164, 461, 85, 33);
 		contentPane.add(btnNewButton_3);
 		
 		btnReset = new JButton("Reset");
@@ -307,26 +309,26 @@ public class BuyerTransactions extends JFrame {
 		contentPane.add(btnReset);
 		
 		panel_1 = new JPanel();
-		panel_1.setBackground(new Color(255, 127, 80));
-		panel_1.setBounds(973, 583, 331, 196);
+		panel_1.setBackground(new Color(222, 184, 135));
+		panel_1.setBounds(930, 583, 365, 196);
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
 		
 		lblNewLabel_5 = new JLabel("Return Product ?");
 		lblNewLabel_5.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_5.setFont(new Font("Bahnschrift", Font.BOLD, 25));
-		lblNewLabel_5.setBounds(57, 10, 218, 35);
+		lblNewLabel_5.setBounds(69, 21, 218, 35);
 		panel_1.add(lblNewLabel_5);
 		
 		textField_2 = new JTextField();
 		textField_2.setFont(new Font("Bahnschrift", Font.PLAIN, 25));
-		textField_2.setBounds(221, 80, 84, 35);
+		textField_2.setBounds(246, 79, 84, 35);
 		panel_1.add(textField_2);
 		textField_2.setColumns(10);
 		
 		lblNewLabel_6 = new JLabel("Enter Transaction ID :");
 		lblNewLabel_6.setFont(new Font("Bahnschrift", Font.PLAIN, 20));
-		lblNewLabel_6.setBounds(10, 90, 217, 25);
+		lblNewLabel_6.setBounds(35, 89, 217, 25);
 		panel_1.add(lblNewLabel_6);
 		
 		btnNewButton_1 = new JButton("Go To Return Page");
@@ -358,15 +360,40 @@ public class BuyerTransactions extends JFrame {
 					
 					ReturnProduct returnProduct = new ReturnProduct();
 					
-					List<String> l = transactionDao.getProductNameAndProductIdAndQuantityById(id);
+					List<String> l = transactionDao.getProductNameAndProductIdAndQuantityAndDateByIdAndReturn(id);
+					
+					int returnPolicy = Integer.parseInt(l.get(4));
+					
+					if(returnPolicy == 0) {
+						
+						JOptionPane.showMessageDialog(null, "Product return policy not applicable for this item.");
+						return;
+						
+					}
+					
+					
+					LocalDate d = LocalDate.parse(l.get(3));
+					
+					
+					
+					if(ChronoUnit.DAYS.between(d, LocalDate.now()) > 30 ) {
+						
+						JOptionPane.showMessageDialog(null, "We regret to inform you that your product's purchasing date falls outside the 30-day return period.\n"
+								+ "As a result, we are unable to process a return and refund for your purchase at this time.");
+						
+						return;
+					}
+					
 					
 					BuyerReturnProduct.quantity = Integer.parseInt(l.get(2));
 					returnProduct.setBuyerId(buyer.getBuyerUserName());
 					returnProduct.setBuyerName(buyer.getFirstName()+" "+buyer.getLastName());
 					returnProduct.setProductName(l.get(0));
-					returnProduct.setProdunctId(Integer.parseInt(l.get(1)));
+					returnProduct.setProdunctId(Integer.parseInt(l.get(2)));
 					
 					BuyerReturnProduct.returnProduct = returnProduct;
+					frame.setVisible(false);
+					BuyerReturnProduct.main(null);
 					
 					
 					
@@ -376,8 +403,17 @@ public class BuyerTransactions extends JFrame {
 			}
 		});
 		btnNewButton_1.setFont(new Font("Bahnschrift", Font.PLAIN, 20));
-		btnNewButton_1.setBounds(57, 144, 246, 42);
+		btnNewButton_1.setBounds(67, 144, 246, 42);
 		panel_1.add(btnNewButton_1);
+		
+		JTextArea txtrPleaseNoteThat = new JTextArea();
+		txtrPleaseNoteThat.setBackground(new Color(255, 127, 80));
+		txtrPleaseNoteThat.setForeground(new Color(139, 0, 0));
+		txtrPleaseNoteThat.setFont(new Font("Bahnschrift", Font.PLAIN, 17));
+		txtrPleaseNoteThat.setText(" \r\n  Please note that you have the option to request a return and refund for your recently \r\n  purchased product if the purchase date is within 30 days. \r\n\r\n  Kindly ensure that you initiate the return process within this timeframe");
+		txtrPleaseNoteThat.setEditable(false);
+		txtrPleaseNoteThat.setBounds(45, 421, 692, 127);
+		contentPane.add(txtrPleaseNoteThat);
 		
 	
 	}

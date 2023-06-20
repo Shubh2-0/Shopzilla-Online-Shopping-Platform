@@ -680,27 +680,6 @@ public class BuyerDaoImpl implements BuyerDao {
 	}
 	
 	
-//	@Override
-//	public String returnGoods(LocalDate date, int productId,int transactionId) {
-//		
-//		
-//		try {
-//			
-//			con =  DBUtils.getConnection();
-//			String SELECT_QUERY = "SELECT * FROM TRANSACTIONS WHERE TRANSACTION_ID = ?";
-//		   	
-//			
-//			
-//			
-//			
-//		} catch (Exception e) {
-//			
-//			e.printStackTrace();
-//			
-//		}finally {
-//			DBUtils.closeConnection(con);
-//		}
-//	}
 
 	
 	
@@ -742,20 +721,6 @@ public class BuyerDaoImpl implements BuyerDao {
 	
 	
 
-//	@Override
-//	public ArrayList<RefundProductImpl> viewAllretuirnProduct() {
-//		try {
-//			
-//			DBUtils.getConnection();
-//			
-//		} catch (Exception e) {
-//			
-//			e.printStackTrace();
-//			
-//		}finally {
-//			DBUtils.closeConnection(con);
-//		}
-//	}
 
 	
 	
@@ -1184,6 +1149,76 @@ public class BuyerDaoImpl implements BuyerDao {
 		
 	}
 	
+	@Override
+	public ResultSet getAllReturnProduct(String username) {
+		
+		try {
+			
+			con = DBUtils.getConnection();
+			String SELECT_QUERY = "SELECT * FROM returnproduct WHERE buyer_id = ?";
+			
+			PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
+			
+	       
+			statement.setString(1, username);
+			
+			ResultSet set = statement.executeQuery();
+			
+				
+				
+				
+				return set;
+				
+			
+			
+			
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			
+		}
+		
+		
+		return null;	
+		
+	}
+	
+	@Override
+	public ResultSet getAllReturnProductOfBuyerByType(String username, String type) {
+		
+		try {
+			
+			con = DBUtils.getConnection();
+			String SELECT_QUERY = "SELECT * FROM returnproduct WHERE buyer_id = ? AND return_type = ?";
+			
+			PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
+			
+	       
+			statement.setString(1, username);
+			statement.setString(2, type);
+			
+			ResultSet set = statement.executeQuery();
+			
+				
+				
+				
+				return set;
+				
+			
+			
+			
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			
+		}
+		
+		
+		return null;	
+		
+	}
 	
 	
 	

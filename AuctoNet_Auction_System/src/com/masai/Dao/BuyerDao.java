@@ -53,6 +53,10 @@ public interface BuyerDao {
 	ResultSet getBuyerAllTransactionByPurchaseDate(String username) throws RecordNotFoundException;
 
 	boolean purchaseReturnItem(int productId, int quantity);
+
+	ResultSet getAllReturnProduct(String username);
+
+	ResultSet getAllReturnProductOfBuyerByType(String username, String type);
 		
 //	ArrayList<RefundProductImpl> viewAllrefundProduct();
 

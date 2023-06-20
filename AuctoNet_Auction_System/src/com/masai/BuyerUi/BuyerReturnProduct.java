@@ -43,6 +43,7 @@ public class BuyerReturnProduct extends JFrame {
 	static SellerDao sellerDao = new SellerDaoImpl();
 	static BuyerDao buyerDao = BuyerOperations.buyerDao;
 	static TransactionDao transactionDao = new TransactionDaoImpl();
+	static BuyerReturnProduct frame;
 	/**
 	 * Launch the application.
 	 */
@@ -50,7 +51,8 @@ public class BuyerReturnProduct extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					BuyerReturnProduct frame = new BuyerReturnProduct();
+					
+					frame = new BuyerReturnProduct();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -74,7 +76,7 @@ public class BuyerReturnProduct extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblReturnProduct = new JLabel("Return Product");
-		lblReturnProduct.setBounds(350, 10, 284, 62);
+		lblReturnProduct.setBounds(325, 10, 309, 88);
 		lblReturnProduct.setHorizontalAlignment(SwingConstants.CENTER);
 		lblReturnProduct.setFont(new Font("Bahnschrift", Font.BOLD, 35));
 		contentPane.add(lblReturnProduct);
@@ -86,7 +88,6 @@ public class BuyerReturnProduct extends JFrame {
 		
 		textField = new JTextField();
 		textField.setText(returnProduct.getProdunctId()+"");
-		textField.setEnabled(false);
 		textField.setEditable(false);
 		textField.setFont(new Font("Bahnschrift", Font.PLAIN, 23));
 		textField.setBounds(243, 108, 93, 37);
@@ -96,7 +97,6 @@ public class BuyerReturnProduct extends JFrame {
 		textField_1 = new JTextField();
 		textField_1.setText(returnProduct.getProductName());
 		textField_1.setFont(new Font("Bahnschrift", Font.PLAIN, 23));
-		textField_1.setEnabled(false);
 		textField_1.setEditable(false);
 		textField_1.setColumns(10);
 		textField_1.setBounds(583, 98, 301, 37);
@@ -110,7 +110,6 @@ public class BuyerReturnProduct extends JFrame {
 		textField_2 = new JTextField();
 		textField_2.setText(LocalDate.now()+"");
 		textField_2.setFont(new Font("Bahnschrift", Font.PLAIN, 23));
-		textField_2.setEnabled(false);
 		textField_2.setEditable(false);
 		textField_2.setColumns(10);
 		textField_2.setBounds(243, 186, 301, 37);
@@ -124,7 +123,6 @@ public class BuyerReturnProduct extends JFrame {
 		textField_3 = new JTextField();
 		textField_3.setText(returnProduct.getBuyerId());
 		textField_3.setFont(new Font("Bahnschrift", Font.PLAIN, 23));
-		textField_3.setEnabled(false);
 		textField_3.setEditable(false);
 		textField_3.setColumns(10);
 		textField_3.setBounds(243, 275, 207, 37);
@@ -138,7 +136,6 @@ public class BuyerReturnProduct extends JFrame {
 		textField_4 = new JTextField();
 		textField_4.setText(returnProduct.getBuyerName());
 		textField_4.setFont(new Font("Bahnschrift", Font.PLAIN, 23));
-		textField_4.setEnabled(false);
 		textField_4.setEditable(false);
 		textField_4.setColumns(10);
 		textField_4.setBounds(243, 356, 301, 37);
@@ -186,15 +183,21 @@ public class BuyerReturnProduct extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JButton btnCancel = new JButton("Cancel");
+		btnCancel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				frame.setVisible(false);
+				BuyerTransactions.main(null);
+				
+				
+			}
+		});
 		btnCancel.setFont(new Font("Bahnschrift", Font.BOLD, 25));
 		btnCancel.setBounds(693, 600, 208, 43);
 		contentPane.add(btnCancel);
 		
 		textField_5 = new JTextField();
-		textField_5.setText((String) null);
 		textField_5.setFont(new Font("Bahnschrift", Font.PLAIN, 23));
-		textField_5.setEnabled(false);
-		textField_5.setEditable(false);
 		textField_5.setColumns(10);
 		textField_5.setBounds(776, 225, 93, 37);
 		contentPane.add(textField_5);

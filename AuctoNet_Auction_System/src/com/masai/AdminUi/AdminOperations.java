@@ -156,10 +156,10 @@ public class AdminOperations extends JFrame {
 		
 		JLabel lblNewLabel_2 = new JLabel("");
 		ImageIcon icon2 = new ImageIcon(getClass().getResource("/Images/AdminPage/adminback.png"));
-		icon2 = MainPage.setImgeSize(600, 350, icon2);
+		icon2 = MainPage.setImgeSize(700, 450, icon2);
 		lblNewLabel_2.setIcon(icon2);
 		
-		lblNewLabel_2.setBounds(495, 183, 612, 454);
+		lblNewLabel_2.setBounds(372, 154, 687, 480);
 		contentPane.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_1 = new JLabel("");

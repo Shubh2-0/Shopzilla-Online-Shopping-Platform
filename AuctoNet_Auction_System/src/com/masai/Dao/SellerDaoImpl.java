@@ -27,7 +27,7 @@ public class SellerDaoImpl implements SellerDao {
 		
 		con = DBUtils.getConnection();
 		
-		String SELECT_QUERY = "SELECT UserName, password, first_name, last_name, mobile_no, address, income, panding_amount FROM seller WHERE username = ? AND password = ? AND is_deleted = 0";
+		String SELECT_QUERY = "SELECT UserName, password, first_name, last_name, mobile_no, address, income, pending_amount FROM seller WHERE username = ? AND password = ? AND is_deleted = 0";
 		
 		PreparedStatement statement = con.prepareStatement(SELECT_QUERY); 
 		
@@ -176,7 +176,7 @@ public class SellerDaoImpl implements SellerDao {
 			con = DBUtils.getConnection();
 			
 			String SELECT_QUERY = "SELECT UserName, password, first_name ,last_name, mobile_no, "
-					+ "address, income, panding_amount  FROM SELLER WHERE username = ? AND is_deleted != 1";
+					+ "address, income, pending_amount  FROM SELLER WHERE username = ? AND is_deleted != 1";
 			
 			PreparedStatement statement = con.prepareStatement(SELECT_QUERY); 
 			
@@ -427,7 +427,7 @@ public class SellerDaoImpl implements SellerDao {
 			
 			con = DBUtils.getConnection();
 			
-			String SELECT_QUERY = "UPDATE product SET is_hide = 0 WHERE seller_username = ?";
+			String SELECT_QUERY = "UPDATE product SET is_hide = 0, deleted_date = null WHERE seller_username = ?";
 			
 			PreparedStatement statement = con.prepareStatement(SELECT_QUERY); 
 			
@@ -581,7 +581,7 @@ public class SellerDaoImpl implements SellerDao {
 			
 			con = DBUtils.getConnection();
 			
-			String SELECT_QUERY = "UPDATE seller SET close_account_date = NOW() , is_deleted = 1 WHERE username = ? AND password = ?";
+			String SELECT_QUERY = "UPDATE seller SET deleted_date = NOW() , is_deleted = 1 WHERE username = ? AND password = ?";
 			
 			PreparedStatement statement = con.prepareStatement(SELECT_QUERY); 
 			
@@ -611,6 +611,41 @@ public class SellerDaoImpl implements SellerDao {
 	}
 	
 	
+	@Override
+	public boolean reopenSeller(String username,String password) {
+		
+		try {
+			
+			con = DBUtils.getConnection();
+			
+			String SELECT_QUERY = "UPDATE seller SET deleted_date = null , is_deleted = 0 WHERE username = ? AND password = ?";
+			
+			PreparedStatement statement = con.prepareStatement(SELECT_QUERY); 
+			
+			statement.setString(1, username);
+			statement.setString(2, password);
+			
+			
+			int ans = statement.executeUpdate();
+			
+			if(ans > 0 && this.hideSellerProducts(username)) return true;
+			
+			
+			
+			
+		} catch (Exception e) {
+			
+			System.out.println(e);
+			
+		}
+			
+			
+		return false;
+			
+		
+		
+		
+	}
 	
 	
 	@Override
@@ -622,7 +657,7 @@ public class SellerDaoImpl implements SellerDao {
          try {
 			
 			con = DBUtils.getConnection();
-			String SELECT_QUERY = "SELECT panding_amount FROM seller WHERE UserName = ?";
+			String SELECT_QUERY = "SELECT pending_amount FROM seller WHERE UserName = ?";
 			
 			PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
 			
@@ -670,7 +705,7 @@ public class SellerDaoImpl implements SellerDao {
          try {
 			
 			con = DBUtils.getConnection();
-			String SELECT_QUERY = "UPDATE seller SET panding_amount = ? WHERE UserName = ?";
+			String SELECT_QUERY = "UPDATE seller SET pending_amount = ? WHERE UserName = ?";
 			
 			PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
 			
@@ -801,7 +836,7 @@ public class SellerDaoImpl implements SellerDao {
 			
 			con = DBUtils.getConnection();
 			
-			String UPDATE_QUERY = "UPDATE seller set  panding_amount = ? , income = ? FROM seller WHERE UserName = ?";
+			String UPDATE_QUERY = "UPDATE seller set  pending_amount = ? , income = ? FROM seller WHERE UserName = ?";
 			
 			PreparedStatement statement = con.prepareStatement(UPDATE_QUERY);
 			
@@ -827,6 +862,8 @@ public class SellerDaoImpl implements SellerDao {
 		
 		return false;
 	}
+	
+
 	
 	
 

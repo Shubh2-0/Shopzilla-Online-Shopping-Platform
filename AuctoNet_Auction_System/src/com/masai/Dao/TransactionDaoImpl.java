@@ -58,14 +58,14 @@ public class TransactionDaoImpl implements TransactionDao{
 	}
 	
 	@Override
-	public List<String> getProductNameAndProductIdAndQuantityById(int id) {
+	public List<String> getProductNameAndProductIdAndQuantityAndDateByIdAndReturn(int id) {
 		
 		List<String> list = new ArrayList<>();
 		
 	   try {
 			
 			con = DBUtils.getConnection();
-			String SELECT_QUERY = "SELECT product_name, product_id, quantity FROM transactions WHERE transaction_id = ?";
+			String SELECT_QUERY = "SELECT product_name, product_id, quantity, purchase_date, return_policy FROM transactions WHERE transaction_id = ?";
 			
 			PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
 			
@@ -81,7 +81,8 @@ public class TransactionDaoImpl implements TransactionDao{
 				list.add(set.getString(1));
 				list.add(set.getInt(2)+"");
 				list.add(set.getInt(3)+"");
-				
+				list.add(set.getDate(4)+"");
+				list.add(set.getInt(5)+"");
 				
 			}
 						

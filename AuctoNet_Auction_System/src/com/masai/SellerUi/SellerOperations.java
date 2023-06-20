@@ -60,7 +60,7 @@ public class SellerOperations extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 958, 691);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(255, 218, 185));
+		contentPane.setBackground(new Color(216, 191, 216));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -139,11 +139,11 @@ public class SellerOperations extends JFrame {
 		contentPane.add(btnAddBalance);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setBounds(559, 10, 375, 400);
+		lblNewLabel_1.setBounds(361, 29, 583, 400);
 		contentPane.add(lblNewLabel_1);
 		
 		ImageIcon icon = new ImageIcon(getClass().getResource("/Images/SellerMain/sellerOperation.png"));
-		icon = MainPage.setImgeSize(400, 400, icon);
+		icon = MainPage.setImgeSize(600, 400, icon);
 		lblNewLabel_1.setIcon(icon);
 		
 		JLabel lblNewLabel_2 = new JLabel("Total Income :");
@@ -156,7 +156,7 @@ public class SellerOperations extends JFrame {
 		lblNewLabel_3.setFont(new Font("Bahnschrift", Font.PLAIN, 25));
 		lblNewLabel_3.setBounds(206, 560, 207, 29);
 		contentPane.add(lblNewLabel_3);
-		lblNewLabel_3.setText(seller.getIncome()+"");
+		lblNewLabel_3.setText(seller.getIncome()+"  ₹");
 		
 		JButton btnNewButton_2 = new JButton("Logout");
 		CSS.setMouseCursorLogout(btnNewButton_2);
@@ -216,7 +216,7 @@ public class SellerOperations extends JFrame {
 		contentPane.add(btnAddNewProduct);
 		
 		JLabel lblNewLabel_3_1 = new JLabel("0.0");
-		lblNewLabel_3_1.setText(seller.getPendingAmount()+"");
+		lblNewLabel_3_1.setText(seller.getPendingAmount()+" ₹");
 		lblNewLabel_3_1.setForeground(UIManager.getColor("Button.darkShadow"));
 		lblNewLabel_3_1.setFont(new Font("Bahnschrift", Font.PLAIN, 25));
 		lblNewLabel_3_1.setBounds(245, 608, 207, 29);

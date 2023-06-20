@@ -58,7 +58,7 @@ public class BuyerAddBalance extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 682, 366);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(255, 153, 153));
+		contentPane.setBackground(new Color(255, 127, 80));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -76,6 +76,7 @@ public class BuyerAddBalance extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("Add");
+		btnNewButton.setBackground(Color.WHITE);
 		CSS.setMouseCursorNormal2(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -131,6 +132,7 @@ public class BuyerAddBalance extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JButton btnBack = new JButton("Back");
+		btnBack.setBackground(Color.WHITE);
 		CSS.setMouseCursorBack(btnNewButton);
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -144,12 +146,17 @@ public class BuyerAddBalance extends JFrame {
 		contentPane.add(btnBack);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setBounds(100, 151, 269, 178);
+		lblNewLabel_1.setBounds(-32, 123, 347, 196);
 		contentPane.add(lblNewLabel_1);
 		ImageIcon icon1 = new ImageIcon(getClass().getResource("/Images/BuyerMain/buyeraddbalance.png"));
-		Image iPage1 = icon1.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH);
+		Image iPage1 = icon1.getImage().getScaledInstance(400, 230, Image.SCALE_SMOOTH);
 		icon1 = new ImageIcon(iPage1);
 		lblNewLabel_1.setIcon(icon1);
+		
+		JLabel lblNewLabel_2 = new JLabel("Balance Top-Up");
+		lblNewLabel_2.setFont(new Font("Bahnschrift", Font.BOLD, 30));
+		lblNewLabel_2.setBounds(217, 20, 347, 50);
+		contentPane.add(lblNewLabel_2);
 		
 	}
 }

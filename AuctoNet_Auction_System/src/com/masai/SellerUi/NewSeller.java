@@ -88,7 +88,7 @@ public class NewSeller extends JFrame {
 		
 		JPanel panel = new JPanel();
 		panel.setForeground(UIManager.getColor("Button.disabledShadow"));
-		panel.setBackground(new Color(0, 0, 128));
+		panel.setBackground(new Color(128, 0, 0));
 		panel.setBounds(0, 0, 1100, 857);
 		contentPane.add(panel);
 		panel.setLayout(null);

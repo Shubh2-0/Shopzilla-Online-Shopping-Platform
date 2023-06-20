@@ -58,7 +58,7 @@ public class RestoreBuyerAcount extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 798, 647);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(244, 164, 96));
+		contentPane.setBackground(new Color(255, 127, 80));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -81,11 +81,11 @@ public class RestoreBuyerAcount extends JFrame {
 		JLabel lblNewLabel_2 = new JLabel("New label");
 		lblNewLabel_2.setFont(new Font("Bahnschrift", Font.BOLD, 15));
 		lblNewLabel_2.setText("Note: You can recover your account if you request the recovery within");
-		lblNewLabel_2.setBounds(10, 141, 808, 38);
+		lblNewLabel_2.setBounds(10, 141, 497, 38);
 		contentPane.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("New label");
-		lblNewLabel_3.setForeground(Color.RED);
+		lblNewLabel_3.setForeground(new Color(255, 255, 0));
 		lblNewLabel_3.setFont(new Font("Bahnschrift", Font.BOLD, 17));
 		lblNewLabel_3.setText("30 days from the date of deletion");
 		lblNewLabel_3.setBounds(504, 144, 473, 30);
@@ -125,6 +125,7 @@ public class RestoreBuyerAcount extends JFrame {
 		contentPane.add(textField_2);
 		
 		JButton btnNewButton = new JButton("Recover Acount");
+		btnNewButton.setBackground(Color.WHITE);
 		CSS.setMouseCursorNormal2(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
 			
@@ -169,6 +170,7 @@ public class RestoreBuyerAcount extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JButton btnBack = new JButton("Back");
+		btnBack.setBackground(Color.WHITE);
 		CSS.setMouseCursorBack(btnBack);
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

@@ -184,9 +184,7 @@ public class SellerMain extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				frame.setVisible(false);
-				MainPage main = new MainPage();
-				main.main(null);
-				
+				SellerReopenAccount.main(null);
 				
 				
 			}

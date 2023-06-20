@@ -80,11 +80,11 @@ public class BuyerMain extends JFrame {
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel = new JLabel("Buyer Login");
-		lblNewLabel.setBounds(563, 42, 425, 78);
+		lblNewLabel.setBounds(541, 42, 425, 78);
 		contentPane.add(lblNewLabel);
 		lblNewLabel.setIcon(icon0);
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 40));
+		lblNewLabel.setFont(new Font("Bahnschrift", Font.BOLD, 40));
 		
 		textField = new JTextField();
 		textField.setFont(new Font("Bahnschrift", Font.BOLD, 25));
@@ -139,12 +139,12 @@ public class BuyerMain extends JFrame {
 		});
 		
 		
-		JLabel lblNewLabel_2 = new JLabel("Username : ");
+		JLabel lblNewLabel_2 = new JLabel("Username ");
 		lblNewLabel_2.setFont(new Font("Bahnschrift", Font.BOLD, 25));
 		lblNewLabel_2.setBounds(195, 231, 156, 61);
 		contentPane.add(lblNewLabel_2);
 		
-		JLabel lblNewLabel_3 = new JLabel("Password :");
+		JLabel lblNewLabel_3 = new JLabel("Password ");
 		lblNewLabel_3.setFont(new Font("Bahnschrift", Font.BOLD, 25));
 		lblNewLabel_3.setBounds(195, 302, 146, 51);
 		contentPane.add(lblNewLabel_3);

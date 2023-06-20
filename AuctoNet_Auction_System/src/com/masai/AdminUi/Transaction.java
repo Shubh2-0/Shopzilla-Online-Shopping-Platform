@@ -11,10 +11,12 @@ import javax.swing.table.DefaultTableModel;
 import com.masai.CSS.CSS;
 import com.masai.Dao.AdminDaoImpl;
 import com.masai.Exceptions.RecordNotFoundException;
+import com.masai.MainUi.MainPage;
 
 import net.proteanit.sql.DbUtils;
 
 import javax.swing.JScrollPane;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionListener;
@@ -62,16 +64,18 @@ public class Transaction extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1554, 844);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 160, 122));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(24, 39, 1516, 297);
+		scrollPane.setBounds(10, 36, 1520, 371);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
+		table.setFont(new Font("Bahnschrift", Font.PLAIN, 13));
 		table.setRowSelectionAllowed(false);
 		table.setEnabled(false);
 		scrollPane.setViewportView(table);
@@ -114,12 +118,12 @@ public class Transaction extends JFrame {
 			
 			JLabel lblNewLabel = new JLabel("View Transaction By id :");
 			lblNewLabel.setFont(new Font("Bahnschrift", Font.BOLD, 20));
-			lblNewLabel.setBounds(43, 388, 231, 36);
+			lblNewLabel.setBounds(24, 512, 231, 36);
 			contentPane.add(lblNewLabel);
 			
 			textField = new JTextField();
 			textField.setFont(new Font("Tahoma", Font.PLAIN, 20));
-			textField.setBounds(301, 383, 202, 40);
+			textField.setBounds(265, 507, 202, 40);
 			contentPane.add(textField);
 			textField.setColumns(10);
 			
@@ -174,7 +178,7 @@ public class Transaction extends JFrame {
 				}
 			});
 			btnNewButton_2.setFont(new Font("Bahnschrift", Font.BOLD, 20));
-			btnNewButton_2.setBounds(552, 388, 107, 36);
+			btnNewButton_2.setBounds(491, 512, 107, 36);
 			contentPane.add(btnNewButton_2);
 			
 			JButton btnNewButton_1 = new JButton("Reset");
@@ -194,7 +198,7 @@ public class Transaction extends JFrame {
 				}
 			});
 			btnNewButton_1.setFont(new Font("Bahnschrift", Font.BOLD, 20));
-			btnNewButton_1.setBounds(1367, 388, 144, 36);
+			btnNewButton_1.setBounds(1362, 431, 144, 46);
 			contentPane.add(btnNewButton_1);
 			
 			JPanel panel = new JPanel();
@@ -303,7 +307,7 @@ public class Transaction extends JFrame {
 			
 			JLabel lblNewLabel_4 = new JLabel("Sort Transactions By :");
 			lblNewLabel_4.setFont(new Font("Bahnschrift", Font.BOLD, 20));
-			lblNewLabel_4.setBounds(975, 504, 249, 30);
+			lblNewLabel_4.setBounds(36, 472, 249, 30);
 			contentPane.add(lblNewLabel_4);
 			
 			JComboBox comboBox = new JComboBox();
@@ -312,7 +316,7 @@ public class Transaction extends JFrame {
 			comboBox.addItem("Quantity");
 			comboBox.addItem("Purchase Date");
 			comboBox.addItem("GST Percentage");
-			comboBox.setBounds(1202, 501, 180, 36);
+			comboBox.setBounds(265, 460, 202, 36);
 			contentPane.add(comboBox);
 			
 			JButton btnNewButton_3 = new JButton("Sort");
@@ -349,8 +353,18 @@ public class Transaction extends JFrame {
 				}
 			});
 			btnNewButton_3.setFont(new Font("Bahnschrift", Font.BOLD, 19));
-			btnNewButton_3.setBounds(1424, 503, 85, 33);
+			btnNewButton_3.setBounds(491, 459, 107, 36);
 			contentPane.add(btnNewButton_3);
+			
+			JLabel lblNewLabel_5 = new JLabel("");
+			lblNewLabel_5.setBounds(868, 425, 519, 395);
+			
+			ImageIcon icon = new ImageIcon(getClass().getResource("/Images/AdminPage/admintransactions.png"));
+			icon = MainPage.setImgeSize(600, 400, icon);
+			
+			lblNewLabel_5.setIcon(icon);
+			
+			contentPane.add(lblNewLabel_5);
 		} catch (RecordNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

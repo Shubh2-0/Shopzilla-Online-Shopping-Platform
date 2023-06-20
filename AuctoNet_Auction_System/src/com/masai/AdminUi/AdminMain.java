@@ -53,33 +53,12 @@ public class AdminMain extends JFrame {
 	 */
 	public AdminMain() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 899, 689);
+		setBounds(100, 100, 899, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(0, 0, 0, 0));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-
-		JButton btnNewButton = new JButton("Back");
-		btnNewButton.setBorder(null);
-		CSS.setMouseCursorNormal(btnNewButton);
-		
-		
-		
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-				
-				
-				frame1.setVisible(false);
-				MainPage.main(null);
-
-			}
-		});
-		btnNewButton.setBackground(new Color(204, 204, 255));
-		btnNewButton.setFont(new Font("Segoe UI Emoji", Font.BOLD, 30));
-		btnNewButton.setBounds(726, 588, 149, 54);
-		contentPane.add(btnNewButton);
 
 		JPanel lblNewLabel_2 = new JPanel();
 		lblNewLabel_2.setBorder(null);
@@ -102,38 +81,39 @@ public class AdminMain extends JFrame {
 		lblNewLabel_3.setFont(new Font("Century Gothic", Font.BOLD, 40));
 
 		JPanel panel = new JPanel();
-		panel.setBounds(239, 142, 594, 380);
+		panel.setBounds(195, 137, 680, 390);
 		panel.setBackground(new Color(0, 0, 0, 80));
 		contentPane.add(panel);
 		panel.setLayout(null);
 
 		txtEnterAdminId = new JTextField();
 		txtEnterAdminId.setForeground(Color.BLACK);
-		txtEnterAdminId.setBounds(216, 39, 353, 61);
+		txtEnterAdminId.setBounds(216, 39, 445, 61);
 		panel.add(txtEnterAdminId);
 		txtEnterAdminId.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 27));
 		txtEnterAdminId.setColumns(10);
 
 		passwordField = new JPasswordField();
 		passwordField.setForeground(Color.BLACK);
-		passwordField.setBounds(216, 164, 353, 56);
+		passwordField.setBounds(216, 164, 445, 56);
 		panel.add(passwordField);
 		passwordField.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 27));
 
-		JLabel lblNewLabel = new JLabel("Username  : ");
+		JLabel lblNewLabel = new JLabel("Username ");
 		lblNewLabel.setBounds(40, 36, 178, 64);
 		panel.add(lblNewLabel);
 		lblNewLabel.setBackground(new Color(0, 0, 0));
 		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setFont(new Font("Segoe UI Emoji", Font.BOLD, 30));
 
-		JLabel lblNewLabel_1 = new JLabel("Password :");
+		JLabel lblNewLabel_1 = new JLabel("Password ");
 		lblNewLabel_1.setBounds(40, 164, 165, 54);
 		panel.add(lblNewLabel_1);
 		lblNewLabel_1.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1.setFont(new Font("Segoe UI Emoji", Font.BOLD, 30));
 
 		JButton btnNewButton_1 = new JButton("Login");
+		btnNewButton_1.setBackground(Color.WHITE);
 	    CSS.setMouseCursorLogin(btnNewButton_1);
 		
 		
@@ -163,6 +143,27 @@ public class AdminMain extends JFrame {
 		btnNewButton_1.setBounds(216, 295, 165, 56);
 		panel.add(btnNewButton_1);
 		btnNewButton_1.setFont(new Font("Segoe UI Emoji", Font.BOLD, 30));
+		
+				JButton btnNewButton = new JButton("Back");
+				btnNewButton.setBounds(510, 296, 149, 54);
+				panel.add(btnNewButton);
+				btnNewButton.setBorder(null);
+				CSS.setMouseCursorNormal(btnNewButton);
+				
+				
+				
+				btnNewButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+
+						
+						
+						frame1.setVisible(false);
+						MainPage.main(null);
+
+					}
+				});
+				btnNewButton.setBackground(Color.WHITE);
+				btnNewButton.setFont(new Font("Segoe UI Emoji", Font.BOLD, 30));
 		
 		JLabel lblNewLabel_4 = new JLabel("");
 		lblNewLabel_4.setBounds(0, 0, 885, 652);

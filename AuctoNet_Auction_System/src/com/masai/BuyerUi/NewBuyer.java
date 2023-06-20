@@ -75,6 +75,7 @@ public class NewBuyer extends JFrame {
 	 * Create the frame.
 	 */
 	public NewBuyer() {
+		setBackground(new Color(128, 0, 0));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1103, 777);
 		contentPane = new JPanel();
@@ -87,8 +88,8 @@ public class NewBuyer extends JFrame {
 		
 		JPanel panel = new JPanel();
 		panel.setForeground(UIManager.getColor("Button.disabledShadow"));
-		panel.setBackground(new Color(0, 0, 0, 80));
-		panel.setBounds(10, 0, 1090, 857);
+		panel.setBackground(new Color(128, 0, 0));
+		panel.setBounds(0, 0, 1100, 740);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -154,6 +155,7 @@ public class NewBuyer extends JFrame {
 		panel.add(lblNewLabel_6);
 		
 		btnNewButton = new JButton("Create Account");
+		btnNewButton.setBackground(Color.WHITE);
 		CSS.setMouseCursorLogin(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
 			
@@ -281,11 +283,12 @@ public class NewBuyer extends JFrame {
 		
 		panel_1 = new JPanel();
 		panel_1.setBackground(SystemColor.controlShadow);
-		panel_1.setBounds(865, 606, 202, 73);
+		panel_1.setBounds(928, 662, 149, 68);
 		panel.add(panel_1);
 		panel_1.setLayout(null);
 		
 		btnNewButton_2 = new JButton("Back");
+		btnNewButton_2.setBackground(Color.WHITE);
 		CSS.setMouseCursorBack(btnNewButton_2);
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -295,12 +298,13 @@ public class NewBuyer extends JFrame {
 			}
 		});
 		btnNewButton_2.setForeground(new Color(0, 0, 128));
-		btnNewButton_2.setFont(new Font("Bahnschrift", Font.PLAIN, 25));
-		btnNewButton_2.setBounds(31, 10, 161, 53);
+		btnNewButton_2.setFont(new Font("Bahnschrift", Font.BOLD, 23));
+		btnNewButton_2.setBounds(10, 10, 128, 53);
 		panel_1.add(btnNewButton_2);
 		
 		lblNewLabel = new JLabel("Welcome To  AuctoNet Auction System");
-		lblNewLabel.setForeground(new Color(255, 51, 51));
+		lblNewLabel.setBackground(new Color(128, 0, 0));
+		lblNewLabel.setForeground(new Color(128, 0, 0));
 		lblNewLabel.setFont(new Font("Monotype Corsiva", Font.BOLD, 40));
 		lblNewLabel.setBounds(0, 0, 1203, 845);
 		ImageIcon icon4 = new ImageIcon(getClass().getResource("/Images/BuyerMain/newbuyer.png"));

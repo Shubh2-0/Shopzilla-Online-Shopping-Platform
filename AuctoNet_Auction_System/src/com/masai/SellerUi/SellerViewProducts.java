@@ -72,6 +72,7 @@ public class SellerViewProducts extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1554, 767);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(216, 191, 216));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -82,6 +83,8 @@ public class SellerViewProducts extends JFrame {
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
+		table.setFont(new Font("Bahnschrift", Font.PLAIN, 16));
+		table.setEnabled(false);
 		scrollPane.setViewportView(table);
 		table.setModel(new DefaultTableModel(
 				new String[] {

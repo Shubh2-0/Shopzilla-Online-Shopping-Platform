@@ -65,13 +65,14 @@ public class ViewAllProduct extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1554, 800);
 		contentPane = new JPanel();
-		contentPane.setBackground(SystemColor.activeCaption);
+		contentPane.setBackground(new Color(255, 160, 122));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JButton btnNewButton = new JButton("Back");
+		btnNewButton.setBackground(Color.WHITE);
 		CSS.setMouseCursorBack(btnNewButton);
 		btnNewButton.setFont(new Font("Bahnschrift", Font.BOLD, 25));
 		btnNewButton.addActionListener(new ActionListener() {
@@ -89,6 +90,7 @@ public class ViewAllProduct extends JFrame {
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
+		table.setFont(new Font("Bahnschrift", Font.PLAIN, 12));
 		table.setRowSelectionAllowed(false);
 		table.setEnabled(false);
 		scrollPane.setViewportView(table);
@@ -103,6 +105,7 @@ public class ViewAllProduct extends JFrame {
 			CSS.setTable(table);
 			
 			JButton btnNewButton_2 = new JButton("View Sold Products Only");
+			btnNewButton_2.setBackground(Color.WHITE);
 			CSS.setMouseCursorNormal2(btnNewButton_2);
 			btnNewButton_2.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -153,6 +156,7 @@ public class ViewAllProduct extends JFrame {
 			comboBox.setFont(new Font("Arial Narrow", Font.BOLD, 17));
 			
 			JButton btnNewButton_1 = new JButton("View");
+			btnNewButton_1.setBackground(Color.WHITE);
 			CSS.setMouseCursorNormal2(btnNewButton_1);
 			btnNewButton_1.setBounds(193, 67, 96, 37);
 			panel.add(btnNewButton_1);
@@ -176,6 +180,7 @@ public class ViewAllProduct extends JFrame {
 			btnNewButton_1.setFont(new Font("Bahnschrift", Font.BOLD, 20));
 			
 			JButton btnNewButton_2_1 = new JButton("Sort The Products By Price ");
+			btnNewButton_2_1.setBackground(Color.WHITE);
 			CSS.setMouseCursorNormal2(btnNewButton_2_1);
 			btnNewButton_2_1.setFont(new Font("Bahnschrift", Font.BOLD, 22));
 			btnNewButton_2_1.setBounds(634, 559, 372, 51);
@@ -205,6 +210,7 @@ public class ViewAllProduct extends JFrame {
 			
 			
 			JButton btnNewButton_1_1_1 = new JButton("View");
+			btnNewButton_1_1_1.setBackground(Color.WHITE);
 			CSS.setMouseCursorNormal2(btnNewButton_1_1_1);
 			btnNewButton_1_1_1.setFont(new Font("Bahnschrift", Font.BOLD, 20));
 			btnNewButton_1_1_1.setBounds(139, 144, 87, 33);
@@ -291,6 +297,7 @@ public class ViewAllProduct extends JFrame {
 			panel_1.add(lblNewLabel_2);
 			
 			JButton btnNewButton_1_1 = new JButton("View");
+			btnNewButton_1_1.setBackground(Color.WHITE);
 			CSS.setMouseCursorNormal2(btnNewButton_1_1);
 			btnNewButton_1_1.setFont(new Font("Bahnschrift", Font.BOLD, 20));
 			btnNewButton_1_1.setBounds(430, 73, 102, 35);

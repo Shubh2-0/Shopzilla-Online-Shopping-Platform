@@ -35,7 +35,6 @@ public class ViewAllSeller extends JFrame {
 	private JPanel contentPane;
     static ViewAllSeller frame;
     private JTable table;
-    private JLabel lblNewLabel;
     private JScrollPane scrollPane;
 	/**
 	 * Launch the application.
@@ -60,7 +59,7 @@ public class ViewAllSeller extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1402, 484);
 		contentPane = new JPanel();
-		contentPane.setBackground(Color.WHITE);
+		contentPane.setBackground(new Color(255, 160, 122));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -70,7 +69,7 @@ public class ViewAllSeller extends JFrame {
 		
 		JButton btnNewButton = new JButton("Back");
 		CSS.setMouseCursorBack(btnNewButton);
-		btnNewButton.setBounds(562, 331, 222, 56);
+		btnNewButton.setBounds(684, 349, 114, 39);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -80,19 +79,18 @@ public class ViewAllSeller extends JFrame {
 		});
 		contentPane.setLayout(null);
 		
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 35));
+		btnNewButton.setFont(new Font("Bahnschrift", Font.BOLD, 25));
 		contentPane.add(btnNewButton);
-		ImageIcon icon = new ImageIcon(getClass().getResource("/Images/AdminPage/Blueback.png"));
-		icon = MainPage.setImgeSize(1400, 800, icon);
 		
 		scrollPane = new JScrollPane();
 		scrollPane.setViewportBorder(null);
-		scrollPane.setBounds(10, 52, 1378, 169);
+		scrollPane.setBounds(10, 52, 1378, 241);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
+		table.setEnabled(false);
 		table.setForeground(SystemColor.window);
-		table.setFont(new Font("Comic Sans MS", Font.PLAIN, 17));
+		table.setFont(new Font("Bahnschrift", Font.PLAIN, 17));
 		scrollPane.setViewportView(table);
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
@@ -101,14 +99,10 @@ public class ViewAllSeller extends JFrame {
 				"Address", "Mobile Number", "Last Name", "First Name", "Password", "Buyer Id"
 			}
 		));
-		table.setBackground(SystemColor.textHighlight);
+		table.setBackground(Color.GRAY);
 		table.setModel(DbUtils.resultSetToTableModel(new AdminDaoImpl().getAllSeller()));
 		table.setRowHeight(50);
 		CSS.setTable(table);
-		lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(icon);
-		lblNewLabel.setBounds(0, 0, 1388, 437);
-		contentPane.add(lblNewLabel);
 	}
 	
 	

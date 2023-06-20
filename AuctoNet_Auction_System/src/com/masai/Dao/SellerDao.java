@@ -9,18 +9,6 @@ import com.masai.Dto.*;
 
 public interface SellerDao {
 	
-//	String registerSeller(UserImpl u);
-//	String updateSellerDetails(UserImpl u);
-//	ArrayList<ProductImpl> getAllProductForSell();
-//	String purchaseItem(int productId);
-//	String returnGoods(LocalDate date,int productId);
-//	ArrayList<TransactionImpl> viewAllTransactions(String UuserName);
-//	ArrayList<RefundProductImpl> viewAllrefundProduct();
-//	String updateProductDetails(ProductImpl product);
-//    String deleteAcount(String username,String password);
-//    
-//    
-
 	Seller getSellerByUsername(String username);
 
 	Seller loginSeller(String username, String password);
@@ -59,5 +47,7 @@ public interface SellerDao {
 	boolean addSellerPendingAmount(String username, double newPaidAmount);
 
 	double refundToBuyer(int productId, int quantity);
+
+	boolean reopenSeller(String username, String password);
     
 }

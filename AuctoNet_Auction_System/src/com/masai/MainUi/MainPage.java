@@ -55,7 +55,7 @@ public class MainPage extends JFrame {
 	public MainPage() {
 		setAlwaysOnTop(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 910, 644);
+		setBounds(100, 100, 910, 605);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(null);
@@ -63,7 +63,7 @@ public class MainPage extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("AuctoNet Auction System");
+		JLabel lblNewLabel = new JLabel("SHOPZILLA");
 		lblNewLabel.setFont(new Font("Monotype Corsiva", Font.BOLD, 35));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		
@@ -89,9 +89,9 @@ public class MainPage extends JFrame {
 		JLabel lblNewLabel_3 = new JLabel("");
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
 		ImageIcon mainIcon = new ImageIcon(getClass().getResource("/Images/MainPage/Main.png"));
-		mainIcon = setImgeSize(400, 300, mainIcon);
+		mainIcon = setImgeSize(600, 350, mainIcon);
 		lblNewLabel_3.setIcon(mainIcon);
-		lblNewLabel_3.setBounds(334, 295, 552, 312);
+		lblNewLabel_3.setBounds(296, 232, 591, 336);
 		contentPane.add(lblNewLabel_3);
 		
 		JButton btnAdminLogin = new JButton("Admin Login");

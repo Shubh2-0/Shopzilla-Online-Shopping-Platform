@@ -52,7 +52,7 @@ public class SellerWithdrawIncome extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 769, 460);
 		contentPane = new JPanel();
-		contentPane.setForeground(new Color(255, 228, 181));
+		contentPane.setBackground(new Color(216, 191, 216));
 		contentPane.setBackground(new Color(250, 128, 114));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -91,7 +91,7 @@ public class SellerWithdrawIncome extends JFrame {
 		contentPane.add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("");
-		lblNewLabel_4.setText(income+"");
+		lblNewLabel_4.setText(income+" ₹");
 		lblNewLabel_4.setForeground(new Color(105, 105, 105));
 		lblNewLabel_4.setFont(new Font("Bahnschrift", Font.PLAIN, 23));
 		lblNewLabel_4.setBounds(193, 157, 153, 36);

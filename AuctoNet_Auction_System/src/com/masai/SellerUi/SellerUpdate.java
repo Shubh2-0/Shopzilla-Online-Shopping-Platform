@@ -57,7 +57,7 @@ public class SellerUpdate extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 756, 642);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(240, 128, 128));
+		contentPane.setBackground(new Color(216, 191, 216));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);

@@ -55,7 +55,7 @@ public class SellerPendingAmount extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 727, 591);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(255, 182, 193));
+		contentPane.setBackground(new Color(216, 191, 216));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -178,14 +178,14 @@ public class SellerPendingAmount extends JFrame {
 		contentPane.add(lblNewLabel_3_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("0.00");
-		lblNewLabel_2.setText(SellerOperations.seller.getPendingAmount()+"");
+		lblNewLabel_2.setText(SellerOperations.seller.getPendingAmount()+" ₹");
 		lblNewLabel_2.setForeground(Color.RED);
 		lblNewLabel_2.setFont(new Font("Bahnschrift", Font.PLAIN, 23));
 		lblNewLabel_2.setBounds(236, 160, 148, 33);
 		contentPane.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_2_1 = new JLabel("0.00");
-		lblNewLabel_2_1.setText(SellerOperations.seller.getIncome()+""); 
+		lblNewLabel_2_1.setText(SellerOperations.seller.getIncome()+" ₹"); 
 		lblNewLabel_2_1.setForeground(Color.BLUE);
 		lblNewLabel_2_1.setFont(new Font("Bahnschrift", Font.PLAIN, 23));
 		lblNewLabel_2_1.setBounds(139, 115, 154, 36);

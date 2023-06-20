@@ -32,6 +32,7 @@ import java.awt.Component;
 
 import javax.swing.UIManager;
 import javax.swing.ListSelectionModel;
+import javax.swing.border.TitledBorder;
 
 
 
@@ -43,8 +44,6 @@ public class ViewAllBuyer extends JFrame {
 	private JTable table;
 	private JScrollPane scrollPane;
     static ViewAllBuyer frame;
-    private JLabel lblNewLabel;
-    private JLabel lblNewLabel_1;
 	/**
 	 * Launch the application.
 	 */
@@ -68,24 +67,28 @@ public class ViewAllBuyer extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1276, 587);
 		contentPane = new JPanel();
-		contentPane.setBackground(Color.WHITE);
+		contentPane.setBackground(new Color(255, 160, 122));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(38, 51, 1214, 214);
+		scrollPane.setEnabled(false);
+		scrollPane.setBounds(23, 51, 1229, 296);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
+		table.setShowVerticalLines(false);
+		table.setShowHorizontalLines(false);
+		table.setShowGrid(false);
 		table.setRowSelectionAllowed(false);
 		table.setEnabled(false);
 		table.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 		table.setForeground(Color.WHITE);
-		table.setBackground(new Color(102, 153, 255));
-		table.setBorder(UIManager.getBorder("RadioButton.border"));
-		table.setFont(new Font("Comic Sans MS", Font.PLAIN, 16));
+		table.setBackground(Color.GRAY);
+		table.setBorder(null);
+		table.setFont(new Font("Bahnschrift", Font.PLAIN, 17));
 		scrollPane.setViewportView(table);
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
@@ -117,6 +120,7 @@ public class ViewAllBuyer extends JFrame {
 	
 		
 		JButton btnNewButton = new JButton("Back");
+		btnNewButton.setBackground(Color.WHITE);
 		CSS.setMouseCursorBack(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -126,20 +130,9 @@ public class ViewAllBuyer extends JFrame {
 			}
 		});
 		
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 35));
-		btnNewButton.setBounds(617, 373, 222, 56);
+		btnNewButton.setFont(new Font("Bahnschrift", Font.BOLD, 25));
+		btnNewButton.setBounds(635, 447, 115, 39);
 		contentPane.add(btnNewButton);
-		
-		lblNewLabel = new JLabel("");
-		ImageIcon icon = new ImageIcon(getClass().getResource("/Images/AdminPage/Blueback.png"));
-		icon = MainPage.setImgeSize(1400, 800, icon);
-		lblNewLabel.setIcon(icon);
-		lblNewLabel.setBounds(0, 0, 1262, 550);
-		contentPane.add(lblNewLabel);
-		
-		lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setBounds(10, 495, 345, 13);
-		contentPane.add(lblNewLabel_1);
 	}
 	
 	

@@ -9,7 +9,7 @@ public interface TransactionDao {
 	List<Integer> getAllTransactionIdByParticularBuyer(String buyerUsername);
 
 
-	List<String> getProductNameAndProductIdAndQuantityById(int id);
+	List<String> getProductNameAndProductIdAndQuantityAndDateByIdAndReturn(int id);
 
 
 	boolean returnProductTransaction(ReturnProduct returnProduct);

@@ -10,7 +10,9 @@ import com.masai.CSS.CSS;
 import com.masai.CommanCode.Common;
 import com.masai.Dao.BuyerDaoImpl;
 import com.masai.Dto.*;
+import com.masai.MainUi.MainPage;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import java.awt.Font;
@@ -55,7 +57,7 @@ public class BuyerUpdate extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 756, 642);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(240, 128, 128));
+		contentPane.setBackground(new Color(255, 127, 80));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -194,6 +196,17 @@ public class BuyerUpdate extends JFrame {
 		lblNewLabel_1.setFont(new Font("Bahnschrift", Font.BOLD, 35));
 		lblNewLabel_1.setBounds(234, 34, 340, 38);
 		contentPane.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("New label");
+		lblNewLabel_2.setBounds(335, 70, 407, 426);
+		contentPane.add(lblNewLabel_2);
+		
+		ImageIcon icon = new ImageIcon(getClass().getResource("/Images/BuyerMain/updatebuyer.png"));
+		icon = MainPage.setImgeSize(600, 400, icon);
+		lblNewLabel_2.setIcon(icon);
+		
+		
+		
 	}
 
 }
