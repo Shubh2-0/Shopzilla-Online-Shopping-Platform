@@ -1,4 +1,4 @@
- <h1 align="center">AuctoNet Auction System</h1> 
+ <h1 align="center">SHOPZILLA</h1> 
  
 
 <div align="center">
