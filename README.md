@@ -57,7 +57,7 @@ Explore the flow of operations within the system through our comprehensive flow 
 With these 🔒🔍 features, admins can effectively track transactions, analyze data, ensuring smooth operations and facilitating decision-making on the Shopzilla platform.
 
 
-## Buyer Features 📋
+# Buyer Role ⭐
 
 🔒 **Login and Logout**: Buyers can securely log in and log out of their accounts.
 
@@ -83,7 +83,7 @@ With these 🔒🔍 features, admins can effectively track transactions, analyze
 
 With these features, buyers can conveniently log in and log out, make purchases, initiate returns within the applicable timeframe, request refunds, update their details, delete their accounts if desired, restore deleted accounts within a specific period, view their transaction history, filter and sort transactions, and add funds to their wallet for easy and secure transactions on the platform.
 
-## Seller Features 🏬
+# Seller Role ⭐
 
 🔒 **Login and Logout**: Sellers can securely log in to their accounts using their credentials and log out when they are done.
 
