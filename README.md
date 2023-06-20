@@ -2,7 +2,7 @@
  
 
 <div align="center">
-  <img alt="Demo" src="ReadmeImages/Project%20Log.png" />
+  <img alt="Demo" src="ReadmeImages/Shopzilla.png" />
 </div>
 <h2 align="center">🌟 Embrace the Thrill of Auction Sales 🌟</h2>
 
