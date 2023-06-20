@@ -11,9 +11,6 @@
 <br>
 Welcome to Shopzilla, the cutting-edge automated application software for seamless buying and selling. Our platform connects registered buyers and sellers, revolutionizing the online shopping experience. Sellers can easily list their products, set prices, and manage inventory. Buyers enjoy a wide range of products and competitive prices. Our platform administrators ensure data integrity and maintain a secure environment. With Shopzilla, buyers and sellers can transact directly without the need for customer support. Join us today and discover the convenience of our streamlined online marketplace.
 
-
-Following are the lists of various users of the system and also the role of the users
-
 ## Users of the System
 1. Administrator
 2. Buyer
