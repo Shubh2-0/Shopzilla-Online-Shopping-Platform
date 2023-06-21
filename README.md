@@ -104,6 +104,12 @@ With these features, buyers can conveniently log in and log out, make purchases,
 These features empower sellers to effectively manage their accounts, update product details, add new products, pay pending amounts, and seamlessly participate in the selling process on the Shopzilla platform while ensuring a fair and transparent refund process.
 
 
+# JAVADOC
+To gain a deeper understanding of the project's implementation and explore the functionality of the classes, we highly recommend referring to the Javadoc documentation. The Javadoc provides detailed explanations and documentation for each method, offering insights into how the code works and how to utilize it effectively. By reviewing the Javadoc, you can familiarize yourself with the available methods, their parameters, return types, and any specific requirements or considerations. The Javadoc serves as an invaluable resource for developers and users alike, enabling you to leverage the full potential of the project's codebase. To access the Javadoc and delve into the implementation details, please visit the [Javadoc website](https://6492516be560b305d8cf7b43--aquamarine-speculoos-ff3421.netlify.app/com/masai/dao/package-summary).
+
+
+
+
 ## Main Gui 👨🏻‍💻
 <img alt="Demo" src="Pages/main.png" />
 
