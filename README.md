@@ -26,7 +26,7 @@ Check out the visual representation of our system's entities and relationships:
 ## Flow Chart
 
 Explore the flow of operations within the system through our comprehensive flow charts:
-<img alt="Demo" src="ReadmeImages/FlowChart.png" width="10%" height="10%">
+<img alt="Demo" src="ReadmeImages/FlowChart.png" width="30%" height="30%">
 
 
 
