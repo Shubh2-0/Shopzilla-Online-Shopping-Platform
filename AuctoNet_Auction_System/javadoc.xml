@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project default="javadoc">
-    <target name="javadoc">
-        <javadoc access="public" author="true" classpath="Library/rs2xml.jar;Library/mysql-connector-j-8.0.32/mysql-connector-j-8.0.32.jar" destdir="C:\Users\shubh\OneDrive\Desktop\JAVA DOCS" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" source="17" sourcefiles="src/com/masai/Dao/AdminDaoImpl.java" sourcepath="src" splitindex="true" stylesheetfile="C:\Users\shubh\Downloads\classic-stylesheet17.css" use="true" version="true">
-            <link href="https://docs.oracle.com/en/java/javase/17/docs/api/"/>
-            <link href="file:/C:/Users/shubh/OneDrive/Desktop/actinet/AuctoNet-Auction-System/AuctoNet_Auction_System/doc/"/>
-        </javadoc>
-    </target>
-</project>
