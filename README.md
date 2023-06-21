@@ -105,8 +105,7 @@ These features empower sellers to effectively manage their accounts, update prod
 
 
 # Javadoc
-To gain a deeper understanding of the project's implementation and explore the functionality of the classes, we highly recommend referring to the Javadoc documentation. The Javadoc provides detailed explanations and documentation for each method, offering insights into how the code works and how to utilize it effectively. By reviewing the Javadoc, you can familiarize yourself with the available methods, their parameters, return types, and any specific requirements or considerations. The Javadoc serves as an invaluable resource for developers and users alike, enabling you to leverage the full potential of the project's codebase. To access the Javadoc and delve into the implementation details, please visit the [Javadoc website](https://6492516be560b305d8cf7b43--aquamarine-speculoos-ff3421.netlify.app/com/masai/dao/package-summary).
-
+For a deeper understanding of the project's implementation and to explore the functionality of the classes, we recommend referring to the Javadoc documentation. The Javadoc provides detailed explanations and documentation for each method, offering insights into how the code works and how to effectively utilize it. By reviewing the Javadoc, you can familiarize yourself with the available methods, their parameters, return types, and any specific requirements or considerations. It serves as a valuable resource for developers and users, enabling you to leverage the full potential of the project's codebase. To access the Javadoc and delve into the implementation details, please visit the [Javadoc website](https://6492516be560b305d8cf7b43--aquamarine-speculoos-ff3421.netlify.app/com/masai/dao/package-summary).
 
 
 
