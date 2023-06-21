@@ -1,27 +1,25 @@
- <h1 align="center">AuctoNet Auction System</h1> 
+ <h1 align="center">SHOPZILLA</h1> 
  
 
 <div align="center">
-  <img alt="Demo" src="ReadmeImages/Project%20Log.png" />
+  <img alt="Demo" src="ReadmeImages/Shopzilla.png" />
 </div>
-<h2 align="center">🌟 Embrace the Thrill of Auction Sales 🌟</h2>
+<h2 align="center">🌟  Unlocking the Power of Seamless Shopping Delights 🌟</h2>
 
 
 <br>
 <br>
-Welcome to the AuctoNet Auction System! It is an automated application software designed for seamless buying and selling of products. This versatile software is ideal for auction companies that organize auctions, connecting a diverse range of registered buyers and sellers.
-
-
-Following are the lists of various users of the system and also the role of the users
+Welcome to Shopzilla, the cutting-edge automated application software for seamless buying and selling. Our platform connects registered buyers and sellers, revolutionizing the online shopping experience. Sellers can easily list their products, set prices, and manage inventory. Buyers enjoy a wide range of products and competitive prices. Our platform administrators ensure data integrity and maintain a secure environment. With Shopzilla, buyers and sellers can transact directly without the need for customer support. Join us today and discover the convenience of our streamlined online marketplace.
 
 ## Users of the System
 1. Administrator
-2. User (can buy and sell)
+2. Buyer
+3. Seller
 
 ## ER Diagram
 Check out the visual representation of our system's entities and relationships:
 
-<img alt="Demo" src="ReadmeImages/Er_Diagram.png" />
+<img alt="Demo" src="ReadmeImages/ER Diagram.png" />
 
 :star: Don't forget to show your support by starring this project on GitHub!
 
@@ -32,46 +30,85 @@ Explore the flow of operations within the system through our comprehensive flow 
 <img alt="Demo" src="ReadmeImages/sellerflow.png" />
 
 
-## Admin Features 📋
+# Admin Role ⭐
 
-✨ **Login & Logout:** Seamlessly access the system through a secure login process and log out when finished.
+🔒 **Login and Logout**: Admins securely log in to the system and log out when their session is complete.
 
-✨ **View All Users:** Get an overview of all registered users within the system, including their details.
+🔍 **Transaction Monitoring**: Admins have access to view all transactions occurring on the platform, allowing them to monitor the flow of buying and selling activities.
 
-✨ **View Items to be Sold:** Access a comprehensive list of items available for sale.
+🔎 **Transaction Filtering**: Admins can apply filters to view transactions based on transaction ID facilitating targeted monitoring of specific transaction types.
 
-✨ **View Items Already Sold:** Check the history of items that have been successfully sold.
+📅 **Transaction Search by Date Range**: Admins can search for transactions within a specific date range, helping them analyze and track transactions during specific time periods.
 
-✨ **View Items by Category:** Browse items categorized based on different categories such as Clothing, Electronics, Grocery, and Miscellaneous.
+🗂️ **Transaction Sorting**: Admins can sort transactions based on different parameters such as date, payment amount, GST percentage assisting in organizing and analyzing transaction data.
 
-✨ **View All Transactions:** Gain insights into all transactions that have taken place within the system.
+👥 **Active Sellers Overview**: Admins can monitor the list of active sellers, providing insights into the number and activity level of sellers on the platform.
 
-✨ **View Transactions for a Date Range:** Filter and view transactions that occurred within a specific date range.
+👥 **Active Buyers Overview**: Admins can monitor the list of active buyers, gaining insights into user engagement and participation on the platform.
 
-✨ **View Transaction by Transaction ID:** Retrieve transaction details using a unique transaction ID.
+💰 **Product Price Analysis**: Admins can monitor product prices and trends, helping them stay informed about pricing strategies and market competitiveness.
 
-✨ **View Refunded Products for a Date Range:** Get information about refunded products within a specific date range.
+📦 **Out-of-Stock Product Monitoring**: Admins can track products that are out of stock, enabling them to identify potential inventory issues and ensure timely restocking.
+
+📊 **Stock Range Analysis**: Admins can view products by quantity in stock range, allowing them to assess stock levels and make informed decisions related to inventory management.
+
+👥 View Products for a Seller: Admins can see the products listed by a particular seller, helping them monitor and manage seller-specific inventory and offerings.
+
+With these 🔒🔍 features, admins can effectively track transactions, analyze data, ensuring smooth operations and facilitating decision-making on the Shopzilla platform.
 
 
-## User Features 📋
+# Buyer Role ⭐
 
-✨ **Login with Account:** Conveniently access the system by entering your username and password.
+🔒 **Login and Logout**: Buyers can securely log in and log out of their accounts.
 
-✨ **User Registration:** New users can register by providing their username, first name, last name, address, mobile number, and password.
+🛒 **Purchase a Product**: Buyers can browse products and make purchases.
 
-✨ **Update Personal Details:** Users have the flexibility to update their personal information as needed.
+🔄 **Return a Purchase**: If the return policy is applicable, buyers can initiate a return within 30 days from the date of purchase.
 
-✨ **Change Password:** Easily modify the account password for enhanced security.
+💰 **Request a Refund**: Buyers can request a refund for the returned product.
 
-✨ **Add Item for Sale:** List items to be sold by providing essential details such as item ID, name, price, quantity, description, sold status (0 for unsold, 1 for sold), and category.
+🔄 **Restore Deleted Account**: Buyers can restore their deleted account within 30 days from the date of deletion.
 
-✨ **See All Items Available for Sale:** Browse through a comprehensive list of items currently available for purchase.
+🔄 **Update Account Details**: Buyers can update their personal information, such as contact details and shipping address.
 
-✨ **Purchase an Item:** Place bids and purchase desired items (excluding those listed by the user).
+❌ **Delete Account**: Buyers can choose to permanently delete their accounts.
 
-✨ **Return Purchased Goods:** Initiate return requests for purchased items within a 5-day window.
+💳 **Transaction History**: Buyers can view all their transactions.
 
-✨ **Transaction History:** Access detailed transaction history, including records of purchased, sold, and returned items.
+🔍 **Filter Transactions**: Buyers can filter their transactions by ID, helping them quickly find specific purchases.
+
+🗂️ **Sort Transactions**: Buyers can sort their transactions by GST percentage, date, final amount, or quantity.
+
+💼 **Add Amount to Wallet**: Buyers can add funds to their wallet for future purchases.
+
+With these features, buyers can conveniently log in and log out, make purchases, initiate returns within the applicable timeframe, request refunds, update their details, delete their accounts if desired, restore deleted accounts within a specific period, view their transaction history, filter and sort transactions, and add funds to their wallet for easy and secure transactions on the platform.
+
+# Seller Role ⭐
+
+🔒 **Login and Logout**: Sellers can securely log in to their accounts using their credentials and log out when they are done.
+
+🔄 **Update Account Details**: Sellers can update their account information, such as name, contact details, and shipping address. This ensures accurate and up-to-date information for seamless communication with buyers.
+
+❌ **Close Account**: Sellers have the option to close their accounts. However, as a part of our organization, before closing their account and withdrawing their income, sellers must first pay any pending amounts associated with refunds.
+
+💰 **Pay Pending Amount**: If a buyer requests a refund for a returned product, the seller is responsible for paying the pending amount associated with the refund. Sellers must settle any pending amounts before closing their account and withdrawing their income.
+
+🔄 **Reopen Account**: Sellers can request to reopen their closed accounts before the automatic reopening after 3 months. This allows them to continue selling on the platform without any interruption.
+
+🔄 **Update Existing Product Details**: Sellers can modify the details of their existing products, such as title, description, pricing, and stock quantity. This enables sellers to keep their product information up-to-date and accurate.
+
+➕ **Add Products**: Sellers can add new products to their inventory, including essential details like product name, description, pricing, stock quantity, and images. This expands their offerings and allows them to reach a wider customer base.
+
+💸 **Withdraw Income**: Sellers can withdraw their income earned from product sales. When a buyer purchases a product from a particular seller, the payment made by the buyer is added to the seller's income. However, sellers must first settle any pending amounts before closing their account and withdrawing their income.
+
+These features empower sellers to effectively manage their accounts, update product details, add new products, pay pending amounts, and seamlessly participate in the selling process on the Shopzilla platform while ensuring a fair and transparent refund process.
+
+
+# Javadoc
+For a deeper understanding of the project's implementation and to explore the functionality of the classes, we recommend referring to the Javadoc documentation. The Javadoc provides detailed explanations and documentation for each method, offering insights into how the code works and how to effectively utilize it. By reviewing the Javadoc, you can familiarize yourself with the available methods, their parameters, return types, and any specific requirements or considerations. It serves as a valuable resource for developers and users, enabling you to leverage the full potential of the project's codebase. 
+
+**To access the Javadoc and delve into the implementation details, please visit the [Javadoc website](https://6492516be560b305d8cf7b43--aquamarine-speculoos-ff3421.netlify.app/com/masai/dao/package-summary).**
+
 
 
 ## Main Gui 👨🏻‍💻
