@@ -70,7 +70,7 @@ public class BuyerMain extends JFrame {
 		contentPane.setLayout(null);
 		ImageIcon icon0 = new ImageIcon(getClass().getResource("/Images/BuyerMain/buyIcon.png"));
 		icon0 = MainPage.setImgeSize(40, 40, icon0);
-		
+
 		JLabel lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setForeground(new Color(255, 250, 240));
 		ImageIcon icon = new ImageIcon(getClass().getResource("/Images/BuyerMain/BuyerMain2.png"));
@@ -78,14 +78,14 @@ public class BuyerMain extends JFrame {
 		lblNewLabel_1.setIcon(icon);
 		lblNewLabel_1.setBounds(680, 199, 232, 216);
 		contentPane.add(lblNewLabel_1);
-		
+
 		JLabel lblNewLabel = new JLabel("Buyer Login");
 		lblNewLabel.setBounds(541, 42, 425, 78);
 		contentPane.add(lblNewLabel);
 		lblNewLabel.setIcon(icon0);
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Bahnschrift", Font.BOLD, 40));
-		
+
 		textField = new JTextField();
 		textField.setFont(new Font("Bahnschrift", Font.BOLD, 25));
 		textField.setBackground(new Color(255, 200, 205));
@@ -93,121 +93,112 @@ public class BuyerMain extends JFrame {
 		textField.setBounds(339, 231, 302, 51);
 		contentPane.add(textField);
 		textField.setColumns(10);
-		
+
 		textField_1 = new JPasswordField();
 		textField_1.setFont(new Font("Bahnschrift", Font.BOLD, 25));
 		textField_1.setBackground(new Color(255, 200, 205));
 		textField_1.setColumns(10);
 		textField_1.setBounds(339, 302, 302, 51);
 		contentPane.add(textField_1);
-		
+
 		JButton btnNewButton = new JButton("Back");
 		CSS.setMouseCursorBack(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				
+
 				frame.setVisible(false);
 				MainPage.main(null);
-				
-				
-				
+
 			}
 		});
 		btnNewButton.setFont(new Font("Bahnschrift", Font.BOLD, 30));
 		btnNewButton.setBounds(788, 581, 200, 61);
 		contentPane.add(btnNewButton);
-		
+
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				
+
 				btnNewButton.setBackground(Color.BLUE);
 				btnNewButton.setForeground(Color.WHITE);
-				setCursor(Cursor.HAND_CURSOR); 
-				
+				setCursor(Cursor.HAND_CURSOR);
+
 			}
+
 			@Override
 			public void mouseExited(MouseEvent e) {
-				
+
 				btnNewButton.setBackground(Color.WHITE);
 				btnNewButton.setForeground(Color.BLACK);
-				setCursor(Cursor.DEFAULT_CURSOR); 
-				
-				
+				setCursor(Cursor.DEFAULT_CURSOR);
+
 			}
 		});
-		
-		
+
 		JLabel lblNewLabel_2 = new JLabel("Username ");
 		lblNewLabel_2.setFont(new Font("Bahnschrift", Font.BOLD, 25));
 		lblNewLabel_2.setBounds(195, 231, 156, 61);
 		contentPane.add(lblNewLabel_2);
-		
+
 		JLabel lblNewLabel_3 = new JLabel("Password ");
 		lblNewLabel_3.setFont(new Font("Bahnschrift", Font.BOLD, 25));
 		lblNewLabel_3.setBounds(195, 302, 146, 51);
 		contentPane.add(lblNewLabel_3);
-		
+
 		JButton btnNewButton_1 = new JButton("Login");
 		CSS.setMouseCursorLogin(btnNewButton_1);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				String username = textField.getText();
 				String password = textField_1.getText();
-				
-				 buyer = null;
-				
-				if(username.equals("") || password.equals(""))
+
+				buyer = null;
+
+				if (username.equals("") || password.equals(""))
 					JOptionPane.showMessageDialog(null, "Empty field..");
-				
-				
-				
+
 				else {
-					
+
 					buyer = buyerDao.loginBuyer(username, password);
-	 
-					
-					if(buyer==null) {
-					
+
+					if (buyer == null) {
+
 						JOptionPane.showMessageDialog(null, "Invalid username or password");
 						textField.setText(null);
 						textField_1.setText(null);
-						
+
 					}
-					
+
 					else {
-						JOptionPane.showMessageDialog(null, "Welcome "+buyer.getFirstName()+"  😊");
-						
+						JOptionPane.showMessageDialog(null, "Welcome " + buyer.getFirstName() + "  😊");
+
 						frame.setVisible(false);
 						BuyerOperations b = new BuyerOperations(buyer);
 						b.main(null);
-						
+
 					}
 				}
-				
-				
-				
+
 			}
 		});
 		btnNewButton_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				
+
 				btnNewButton_1.setBackground(Color.PINK);
 				btnNewButton_1.setForeground(Color.WHITE);
-				setCursor(Cursor.HAND_CURSOR); 
-				
+				setCursor(Cursor.HAND_CURSOR);
+
 			}
+
 			@Override
 			public void mouseExited(MouseEvent e) {
-				
+
 				btnNewButton_1.setBackground(new Color(255, 204, 255));
 				btnNewButton_1.setForeground(Color.BLACK);
-				setCursor(Cursor.DEFAULT_CURSOR); 
-				
-				
+				setCursor(Cursor.DEFAULT_CURSOR);
+
 			}
 		});
 		btnNewButton_1.setBackground(Color.WHITE);
@@ -215,7 +206,7 @@ public class BuyerMain extends JFrame {
 		btnNewButton_1.setFont(new Font("Bahnschrift", Font.BOLD, 30));
 		btnNewButton_1.setBounds(446, 405, 134, 44);
 		contentPane.add(btnNewButton_1);
-		
+
 		JLabel lblNewLabel_2_1 = new JLabel("New label");
 		lblNewLabel_2_1.setVerticalAlignment(SwingConstants.TOP);
 		lblNewLabel_2_1.setBounds(0, 0, 998, 571);
@@ -223,30 +214,29 @@ public class BuyerMain extends JFrame {
 		ImageIcon icon4 = new ImageIcon(getClass().getResource("/Images/BuyerMain/buyerBack.png"));
 		icon = MainPage.setImgeSize(2000, 12000, icon4);
 		lblNewLabel_2_1.setIcon(icon4);
-		
+
 		JButton btnCreateNewAccount = new JButton("Create New Account");
 		CSS.setMouseCursorNormal2(btnCreateNewAccount);
 		btnCreateNewAccount.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				frame.setVisible(false);
 				NewBuyer.main(null);
-				
+
 			}
 		});
 		btnCreateNewAccount.setFont(new Font("Bahnschrift", Font.BOLD, 30));
 		btnCreateNewAccount.setBackground(Color.WHITE);
 		btnCreateNewAccount.setBounds(10, 581, 331, 61);
 		contentPane.add(btnCreateNewAccount);
-		
+
 		JButton btnRestoreAccount = new JButton("Restore Account");
 		CSS.setMouseCursorNormal2(btnRestoreAccount);
 		btnRestoreAccount.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
 				RestoreBuyerAcount.main(null);
-				
-				
+
 			}
 		});
 		btnRestoreAccount.setFont(new Font("Bahnschrift", Font.BOLD, 30));

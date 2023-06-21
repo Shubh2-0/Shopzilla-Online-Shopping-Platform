@@ -28,11 +28,10 @@ public class BuyerAddBalance extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
-	static double balance ;
+	static double balance;
 	static String username;
 	static JFrame frame;
 	static BuyerDao buyerDao = new BuyerDaoImpl();
-	
 
 	/**
 	 * Launch the application.
@@ -41,7 +40,7 @@ public class BuyerAddBalance extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					
+
 					frame = new BuyerAddBalance();
 					frame.setVisible(true);
 				} catch (Exception e) {
@@ -63,74 +62,71 @@ public class BuyerAddBalance extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		textField = new JTextField();
 		textField.setFont(new Font("Bahnschrift", Font.PLAIN, 25));
 		textField.setBounds(258, 80, 370, 54);
 		contentPane.add(textField);
 		textField.setColumns(10);
-		
+
 		JLabel lblNewLabel = new JLabel("Enter Amount");
 		lblNewLabel.setFont(new Font("Bahnschrift", Font.BOLD, 25));
 		lblNewLabel.setBounds(73, 103, 175, 31);
 		contentPane.add(lblNewLabel);
-		
+
 		JButton btnNewButton = new JButton("Add");
 		btnNewButton.setBackground(Color.WHITE);
 		CSS.setMouseCursorNormal2(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-			
-				
+
 				String b = textField.getText();
 				double amount = 0.0;
 				try {
-					
+
 					amount = Double.parseDouble(b);
-					
+
 				} catch (Exception e2) {
-					
+
 					JOptionPane.showMessageDialog(null, "Invalid amount entered");
 					textField.setText("");
 					return;
 				}
-				
-				if(amount < 5000) {
-					
-					JOptionPane.showMessageDialog(null, "Deposit a minimum amount of 5000 or more, taking into account the maximum balance limit of 1,000,000.");
+
+				if (amount < 5000) {
+
+					JOptionPane.showMessageDialog(null,
+							"Deposit a minimum amount of 5000 or more, taking into account the maximum balance limit of 1,000,000.");
 					return;
 				}
-				
-				if(amount+balance >= 1000000) {
+
+				if (amount + balance >= 1000000) {
 					double remaining = 1000000 - balance;
-					
+
 					remaining = Math.round(remaining * 100.0) / 100.0;
-					
-					JOptionPane.showMessageDialog(null, "The maximum account balance limit is 1,000,000. Please deposit an amount ranging from 5,000 to "+remaining);
-					
+
+					JOptionPane.showMessageDialog(null,
+							"The maximum account balance limit is 1,000,000. Please deposit an amount ranging from 5,000 to "
+									+ remaining);
+
 					return;
-					
+
 				}
-				
-				if(buyerDao.addAmountToBuyerBalance(amount+balance, username)) {
-					
+
+				if (buyerDao.addAmountToBuyerBalance(amount + balance, username)) {
+
 					JOptionPane.showMessageDialog(null, "Blaance added successfully");
 					frame.setVisible(false);
 					BuyerOperations.main(null);
-					
+
 				}
-				
-				
-				
-				
-				
+
 			}
 		});
 		btnNewButton.setFont(new Font("Bahnschrift", Font.PLAIN, 25));
 		btnNewButton.setBounds(367, 157, 127, 47);
 		contentPane.add(btnNewButton);
-		
+
 		JButton btnBack = new JButton("Back");
 		btnBack.setBackground(Color.WHITE);
 		CSS.setMouseCursorBack(btnNewButton);
@@ -138,13 +134,13 @@ public class BuyerAddBalance extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
 				BuyerOperations.main(null);
-				
+
 			}
 		});
 		btnBack.setFont(new Font("Bahnschrift", Font.PLAIN, 25));
 		btnBack.setBounds(560, 265, 98, 54);
 		contentPane.add(btnBack);
-		
+
 		JLabel lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setBounds(-32, 123, 347, 196);
 		contentPane.add(lblNewLabel_1);
@@ -152,11 +148,11 @@ public class BuyerAddBalance extends JFrame {
 		Image iPage1 = icon1.getImage().getScaledInstance(400, 230, Image.SCALE_SMOOTH);
 		icon1 = new ImageIcon(iPage1);
 		lblNewLabel_1.setIcon(icon1);
-		
+
 		JLabel lblNewLabel_2 = new JLabel("Balance Top-Up");
 		lblNewLabel_2.setFont(new Font("Bahnschrift", Font.BOLD, 30));
 		lblNewLabel_2.setBounds(217, 20, 347, 50);
 		contentPane.add(lblNewLabel_2);
-		
+
 	}
 }

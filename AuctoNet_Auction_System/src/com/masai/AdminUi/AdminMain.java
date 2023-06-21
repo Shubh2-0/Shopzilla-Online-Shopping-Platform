@@ -114,10 +114,8 @@ public class AdminMain extends JFrame {
 
 		JButton btnNewButton_1 = new JButton("Login");
 		btnNewButton_1.setBackground(Color.WHITE);
-	    CSS.setMouseCursorLogin(btnNewButton_1);
-		
-		
-		
+		CSS.setMouseCursorLogin(btnNewButton_1);
+
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -128,7 +126,7 @@ public class AdminMain extends JFrame {
 					JOptionPane.showMessageDialog(null, "Welcome Shubham 😊");
 					frame1.setVisible(false);
 					AdminOperations.main(null);
-					
+
 				} else {
 
 					JOptionPane.showMessageDialog(null, "Invalid Id or Password!");
@@ -143,36 +141,30 @@ public class AdminMain extends JFrame {
 		btnNewButton_1.setBounds(216, 295, 165, 56);
 		panel.add(btnNewButton_1);
 		btnNewButton_1.setFont(new Font("Segoe UI Emoji", Font.BOLD, 30));
-		
-				JButton btnNewButton = new JButton("Back");
-				btnNewButton.setBounds(510, 296, 149, 54);
-				panel.add(btnNewButton);
-				btnNewButton.setBorder(null);
-				CSS.setMouseCursorNormal(btnNewButton);
-				
-				
-				
-				btnNewButton.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
 
-						
-						
-						frame1.setVisible(false);
-						MainPage.main(null);
+		JButton btnNewButton = new JButton("Back");
+		btnNewButton.setBounds(510, 296, 149, 54);
+		panel.add(btnNewButton);
+		btnNewButton.setBorder(null);
+		CSS.setMouseCursorNormal(btnNewButton);
 
-					}
-				});
-				btnNewButton.setBackground(Color.WHITE);
-				btnNewButton.setFont(new Font("Segoe UI Emoji", Font.BOLD, 30));
-		
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				frame1.setVisible(false);
+				MainPage.main(null);
+
+			}
+		});
+		btnNewButton.setBackground(Color.WHITE);
+		btnNewButton.setFont(new Font("Segoe UI Emoji", Font.BOLD, 30));
+
 		JLabel lblNewLabel_4 = new JLabel("");
 		lblNewLabel_4.setBounds(0, 0, 885, 652);
 		contentPane.add(lblNewLabel_4);
 		ImageIcon icon = new ImageIcon(getClass().getResource("/Images/AdminPage/nnnn.png"));
 		icon = MainPage.setImgeSize(1000, 800, icon);
 		lblNewLabel_4.setIcon(icon);
-
-		
 
 	}
 }

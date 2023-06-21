@@ -1,7 +1,7 @@
 package com.masai.Dto;
 
-public class Buyer{
-	
+public class Buyer {
+
 	private String BuyerUserName = "";
 	private String password = "";
 	private String firstName = "";
@@ -9,12 +9,12 @@ public class Buyer{
 	private String mobileNo = "";
 	private String address = "";
 	private double balance = 0.0;
-	
+
 	public Buyer() {
 		super();
 	}
 
-	public Buyer(String BuyerUserName,String password) {
+	public Buyer(String BuyerUserName, String password) {
 		this.BuyerUserName = BuyerUserName;
 		this.firstName = "";
 		this.lastName = "";
@@ -22,43 +22,38 @@ public class Buyer{
 		this.password = password;
 		this.address = "";
 	}
-	
-	
-   
-	
+
 	public Buyer(String buyerUserName, String password, String firstName, String lastName, String mobileNo,
-			String address,double balance ) {
-		
+			String address, double balance) {
+
 		BuyerUserName = buyerUserName;
 		this.password = password;
-		
-		if(firstName==null)
-			this.firstName="";
+
+		if (firstName == null)
+			this.firstName = "";
 		else
-			this.firstName=firstName;
-		
-		if(lastName==null)
-			this.lastName="";
+			this.firstName = firstName;
+
+		if (lastName == null)
+			this.lastName = "";
 		else
-			this.lastName=lastName;
-		
-		if(mobileNo==null)
-			this.mobileNo="";
+			this.lastName = lastName;
+
+		if (mobileNo == null)
+			this.mobileNo = "";
 		else
-			this.mobileNo=mobileNo;
-		
-		if(address==null)
-			this.address="";
+			this.mobileNo = mobileNo;
+
+		if (address == null)
+			this.address = "";
 		else
-			this.address=address;
-		
-		if(balance<0.0)
-			this.balance=0.0;
+			this.address = address;
+
+		if (balance < 0.0)
+			this.balance = 0.0;
 		else
-			this.balance=balance;
-		
-		
-		
+			this.balance = balance;
+
 	}
 
 	public String getBuyerUserName() {
@@ -116,10 +111,5 @@ public class Buyer{
 	public void setBalance(double balance) {
 		this.balance = balance;
 	}
-
-	
-	
-	
-	
 
 }

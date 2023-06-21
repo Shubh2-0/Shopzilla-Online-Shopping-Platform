@@ -42,7 +42,7 @@ public class RestoreBuyerAcount extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					 frame = new RestoreBuyerAcount();
+					frame = new RestoreBuyerAcount();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -63,128 +63,121 @@ public class RestoreBuyerAcount extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JLabel lblNewLabel = new JLabel("Account Recovery");
 		lblNewLabel.setForeground(SystemColor.textHighlightText);
 		lblNewLabel.setFont(new Font("Bahnschrift", Font.BOLD, 39));
 		lblNewLabel.setBounds(261, 53, 481, 49);
 		contentPane.add(lblNewLabel);
-		
+
 		JLabel lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setBounds(147, 10, 151, 128);
 		contentPane.add(lblNewLabel_1);
-		
+
 		ImageIcon icon = new ImageIcon(getClass().getResource("/Images/BuyerMain/buyerrecover.png"));
 		icon = MainPage.setImgeSize(100, 100, icon);
 		lblNewLabel_1.setIcon(icon);
-		
+
 		JLabel lblNewLabel_2 = new JLabel("New label");
 		lblNewLabel_2.setFont(new Font("Bahnschrift", Font.BOLD, 15));
 		lblNewLabel_2.setText("Note: You can recover your account if you request the recovery within");
 		lblNewLabel_2.setBounds(10, 141, 497, 38);
 		contentPane.add(lblNewLabel_2);
-		
+
 		JLabel lblNewLabel_3 = new JLabel("New label");
 		lblNewLabel_3.setForeground(new Color(255, 255, 0));
 		lblNewLabel_3.setFont(new Font("Bahnschrift", Font.BOLD, 17));
 		lblNewLabel_3.setText("30 days from the date of deletion");
 		lblNewLabel_3.setBounds(504, 144, 473, 30);
 		contentPane.add(lblNewLabel_3);
-		
+
 		JLabel lblNewLabel_4 = new JLabel("Username");
 		lblNewLabel_4.setFont(new Font("Bahnschrift", Font.BOLD, 24));
 		lblNewLabel_4.setBounds(40, 230, 190, 30);
 		contentPane.add(lblNewLabel_4);
-		
+
 		JLabel lblNewLabel_4_1 = new JLabel("Password");
 		lblNewLabel_4_1.setFont(new Font("Bahnschrift", Font.BOLD, 24));
 		lblNewLabel_4_1.setBounds(40, 309, 176, 30);
 		contentPane.add(lblNewLabel_4_1);
-		
+
 		JLabel lblNewLabel_4_2 = new JLabel("Confirm Password");
 		lblNewLabel_4_2.setFont(new Font("Bahnschrift", Font.BOLD, 24));
 		lblNewLabel_4_2.setBounds(40, 398, 226, 30);
 		contentPane.add(lblNewLabel_4_2);
-		
+
 		textField = new JTextField();
 		textField.setFont(new Font("Bahnschrift", Font.PLAIN, 30));
 		textField.setBounds(299, 211, 396, 49);
 		contentPane.add(textField);
 		textField.setColumns(10);
-		
+
 		textField_1 = new JPasswordField();
 		textField_1.setFont(new Font("Bahnschrift", Font.PLAIN, 30));
 		textField_1.setColumns(10);
 		textField_1.setBounds(299, 290, 396, 49);
 		contentPane.add(textField_1);
-		
+
 		textField_2 = new JPasswordField();
 		textField_2.setFont(new Font("Bahnschrift", Font.PLAIN, 30));
 		textField_2.setColumns(10);
 		textField_2.setBounds(299, 379, 396, 49);
 		contentPane.add(textField_2);
-		
+
 		JButton btnNewButton = new JButton("Recover Acount");
 		btnNewButton.setBackground(Color.WHITE);
 		CSS.setMouseCursorNormal2(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
-			
+
 			public void actionPerformed(ActionEvent e) {
-			
+
 				String tempusername = textField.getText();
 				String temppassword = textField_1.getText();
 				String confirmPassword = textField_2.getText();
-				
-                
-				if(temppassword.equals("") || tempusername.equals("") | confirmPassword.equals("")) {
-					
-					JOptionPane.showMessageDialog(null, "Please ensure all required fields are filled before proceeding");
+
+				if (temppassword.equals("") || tempusername.equals("") | confirmPassword.equals("")) {
+
+					JOptionPane.showMessageDialog(null,
+							"Please ensure all required fields are filled before proceeding");
 					return;
-					
+
 				}
-				
-				if(!temppassword.equals(confirmPassword)) {
-				
+
+				if (!temppassword.equals(confirmPassword)) {
+
 					JOptionPane.showMessageDialog(null, "Password and confirm password is not matching");
 					return;
-					
+
 				}
-				
-				
+
 				String ans = buyerDao.recoverBuyerAcount(tempusername, confirmPassword, LocalDate.now());
-				
+
 				JOptionPane.showMessageDialog(null, ans);
-				
+
 				frame.setVisible(false);
 				BuyerMain.main(null);
-				
-				
-				
-				
-				
+
 			}
 		});
 		btnNewButton.setToolTipText("");
 		btnNewButton.setFont(new Font("Bahnschrift", Font.BOLD, 20));
 		btnNewButton.setBounds(263, 479, 190, 49);
 		contentPane.add(btnNewButton);
-		
+
 		JButton btnBack = new JButton("Back");
 		btnBack.setBackground(Color.WHITE);
 		CSS.setMouseCursorBack(btnBack);
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				frame.setVisible(false);
 				BuyerMain.main(null);
-				
+
 			}
 		});
 		btnBack.setFont(new Font("Bahnschrift", Font.BOLD, 20));
 		btnBack.setBounds(640, 551, 118, 49);
 		contentPane.add(btnBack);
-		
-		
-		
+
 	}
 }

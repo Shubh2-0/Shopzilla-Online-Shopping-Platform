@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"com.masai.Dao","l":"AdminDaoImpl"},{"l":"All Classes and Interfaces","u":"allclasses-index.html"}];updateSearchResults();

@@ -34,16 +34,13 @@ import javax.swing.UIManager;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.TitledBorder;
 
-
-
-
-
 public class ViewAllBuyer extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
 	private JScrollPane scrollPane;
-    static ViewAllBuyer frame;
+	static ViewAllBuyer frame;
+
 	/**
 	 * Launch the application.
 	 */
@@ -72,12 +69,12 @@ public class ViewAllBuyer extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		scrollPane = new JScrollPane();
 		scrollPane.setEnabled(false);
 		scrollPane.setBounds(23, 51, 1229, 296);
 		contentPane.add(scrollPane);
-		
+
 		table = new JTable();
 		table.setShowVerticalLines(false);
 		table.setShowHorizontalLines(false);
@@ -91,23 +88,17 @@ public class ViewAllBuyer extends JFrame {
 		table.setFont(new Font("Bahnschrift", Font.PLAIN, 17));
 		scrollPane.setViewportView(table);
 		table.setModel(new DefaultTableModel(
-			new Object[][] {
-				{"buyer1", "password1", "Amit", "Sharma", "9876543210", "123 Main St, Delhi"},
-				{"buyer2", "password2", "Neha", "Patel", "8765432109", "456 Oak St, Mumbai"},
-				{"buyer3", "password3", "Rahul", "Singh", "7654321098", "789 Maple St, Bangalore"},
-				{"buyer4", "password4", "Pooja", "Gupta", "6543210987", "456 Elm St, Chennai"},
-				{"buyer5", "password5", "Priya", "Verma", "+91-9876543211", "345 Park St, Kolkata"},
-				{"buyer6", "password6", "Raj", "Gandhi", "+91-8765432108", "567 Beach Rd, Goa"},
-				{"buyer7", "password7", "Sneha", "Kapoor", "+91-7654321097", "789 Hill St, Hyderabad"},
-				{"buyer8", "password8", "Vikram", "Mehra", "+91-6543210986", "234 Lake Ave, Chandigarh"},
-			},
-			new String[] {
-				"User  Name", "password", "first_name", "last_name", "mobile_no", "address"
-			}
-		));
+				new Object[][] { { "buyer1", "password1", "Amit", "Sharma", "9876543210", "123 Main St, Delhi" },
+						{ "buyer2", "password2", "Neha", "Patel", "8765432109", "456 Oak St, Mumbai" },
+						{ "buyer3", "password3", "Rahul", "Singh", "7654321098", "789 Maple St, Bangalore" },
+						{ "buyer4", "password4", "Pooja", "Gupta", "6543210987", "456 Elm St, Chennai" },
+						{ "buyer5", "password5", "Priya", "Verma", "+91-9876543211", "345 Park St, Kolkata" },
+						{ "buyer6", "password6", "Raj", "Gandhi", "+91-8765432108", "567 Beach Rd, Goa" },
+						{ "buyer7", "password7", "Sneha", "Kapoor", "+91-7654321097", "789 Hill St, Hyderabad" },
+						{ "buyer8", "password8", "Vikram", "Mehra", "+91-6543210986", "234 Lake Ave, Chandigarh" }, },
+				new String[] { "User  Name", "password", "first_name", "last_name", "mobile_no", "address" }));
 		table.getColumnModel().getColumn(5).setPreferredWidth(108);
-			
-		
+
 		try {
 			table.setModel(DbUtils.resultSetToTableModel(new AdminDaoImpl().getAllBuyer()));
 		} catch (RecordNotFoundException e) {
@@ -116,26 +107,20 @@ public class ViewAllBuyer extends JFrame {
 		}
 		CSS.setTable(table);
 
-		
-	
-		
 		JButton btnNewButton = new JButton("Back");
 		btnNewButton.setBackground(Color.WHITE);
 		CSS.setMouseCursorBack(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				frame.setVisible(false);
 				AdminOperations.main(null);
 			}
 		});
-		
+
 		btnNewButton.setFont(new Font("Bahnschrift", Font.BOLD, 25));
 		btnNewButton.setBounds(635, 447, 115, 39);
 		contentPane.add(btnNewButton);
 	}
-	
-	
 
-	
 }

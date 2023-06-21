@@ -1,7 +1,6 @@
 package com.masai.AdminUi;
 
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -10,11 +9,6 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableCellRenderer;
-import javax.swing.table.TableColumn;
-import javax.swing.table.TableColumnModel;
-
 import com.masai.CSS.CSS;
 import com.masai.Dao.AdminDaoImpl;
 import com.masai.Exceptions.RecordNotFoundException;

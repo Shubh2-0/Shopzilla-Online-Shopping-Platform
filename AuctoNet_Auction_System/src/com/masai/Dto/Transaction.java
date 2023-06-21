@@ -3,8 +3,8 @@ package com.masai.Dto;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public class Transaction{
-	
+public class Transaction {
+
 	private int tansactionId;
 	private int productId;
 	private String productName;
@@ -18,13 +18,11 @@ public class Transaction{
 	private BigDecimal taxAmount;
 	private BigDecimal totalPrice;
 	private int returnPolicy = 1;
-	
-	
-	
+
 	public Transaction() {
-		
+
 	}
-	
+
 	public Transaction(int tansactionId, int productId, String productName, String buyerId, String buyerName,
 			int quantity, LocalDate purchaseDate, BigDecimal amountPerPiece, BigDecimal price, int gstPercentage,
 			BigDecimal taxAmount, BigDecimal totalPrice, int returnPolicy) {
@@ -147,14 +145,5 @@ public class Transaction{
 	public void setReturnPolicy(int returnPolicy) {
 		this.returnPolicy = returnPolicy;
 	}
-
-
-	 
-	
-	
-	
-	
-	
-	
 
 }

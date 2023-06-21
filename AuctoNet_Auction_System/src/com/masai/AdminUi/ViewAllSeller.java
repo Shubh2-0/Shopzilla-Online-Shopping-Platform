@@ -33,9 +33,10 @@ import javax.swing.border.TitledBorder;
 public class ViewAllSeller extends JFrame {
 
 	private JPanel contentPane;
-    static ViewAllSeller frame;
-    private JTable table;
-    private JScrollPane scrollPane;
+	static ViewAllSeller frame;
+	private JTable table;
+	private JScrollPane scrollPane;
+
 	/**
 	 * Launch the application.
 	 */
@@ -64,47 +65,37 @@ public class ViewAllSeller extends JFrame {
 
 		setContentPane(contentPane);
 
-		
-	
-		
 		JButton btnNewButton = new JButton("Back");
 		CSS.setMouseCursorBack(btnNewButton);
 		btnNewButton.setBounds(684, 349, 114, 39);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				frame.setVisible(false);
 				AdminOperations.main(null);
 			}
 		});
 		contentPane.setLayout(null);
-		
+
 		btnNewButton.setFont(new Font("Bahnschrift", Font.BOLD, 25));
 		contentPane.add(btnNewButton);
-		
+
 		scrollPane = new JScrollPane();
 		scrollPane.setViewportBorder(null);
 		scrollPane.setBounds(10, 52, 1378, 241);
 		contentPane.add(scrollPane);
-		
+
 		table = new JTable();
 		table.setEnabled(false);
 		table.setForeground(SystemColor.window);
 		table.setFont(new Font("Bahnschrift", Font.PLAIN, 17));
 		scrollPane.setViewportView(table);
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-				"Address", "Mobile Number", "Last Name", "First Name", "Password", "Buyer Id"
-			}
-		));
+		table.setModel(new DefaultTableModel(new Object[][] {},
+				new String[] { "Address", "Mobile Number", "Last Name", "First Name", "Password", "Buyer Id" }));
 		table.setBackground(Color.GRAY);
 		table.setModel(DbUtils.resultSetToTableModel(new AdminDaoImpl().getAllSeller()));
 		table.setRowHeight(50);
 		CSS.setTable(table);
 	}
-	
-	
-	
+
 }
