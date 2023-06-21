@@ -23,11 +23,11 @@ Check out the visual representation of our system's entities and relationships:
 
 :star: Don't forget to show your support by starring this project on GitHub!
 
-## Flow Charts
+## Flow Chart
+
 Explore the flow of operations within the system through our comprehensive flow charts:
-<img alt="Demo" src="ReadmeImages/adminflow.png" />
-<img alt="Demo" src="ReadmeImages/mainflow.png" />
-<img alt="Demo" src="ReadmeImages/sellerflow.png" />
+<img alt="Demo" src="ReadmeImages/FlowChart.png" />
+
 
 
 # Admin Role ⭐
