@@ -156,12 +156,10 @@ For a deeper understanding of the project's implementation and to explore the fu
         <img src="Tools/swing.png" width="48" height="48" alt="Vuejs" />
       <br>Swing
     </td>    
-  </tr> 
 <td align="center" width="100">
         <img src="Tools/lambok.png" width="48" height="48" alt="Vuejs" />
       <br>Lombok
     </td>    
-  </tr>
 <td align="center" width="100">
         <img src="Tools/eclipse.png" width="48" height="48" alt="Java" />
       <br>Eclipse
