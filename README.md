@@ -161,13 +161,13 @@ For a deeper understanding of the project's implementation and to explore the fu
   </tr> 
   
 <td align="center" width="100">
-        <img src="Tools/lombok.png" width="48" height="48" alt="Vuejs" />
+        <img src="Tools/lambok.png" width="48" height="48" alt="Vuejs" />
       <br>Lombok
     </td>    
   </tr> 
  
 <td align="center" width="100">
-        <img src="Tools/eclipse" width="48" height="48" alt="Java" />
+        <img src="Tools/eclipse.png" width="48" height="48" alt="Java" />
       <br>Eclipse
     </td>
     
