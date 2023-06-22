@@ -120,12 +120,12 @@ The database schema for Shopzilla consists of the following tables:
 
 ## Useful SQL Queries
 
-The [shopzilla_queries.sql](./shopzilla_queries.sql) file in this repository contains several useful SQL queries that can be used with the Shopzilla database. These queries include:
+The [shopzilla_queries.sql](/queries) file in this repository contains several useful SQL queries that can be used with the Shopzilla database. These queries include:
 
 To use these queries, follow these steps:
 
 1. Clone the repository to your local machine.
-2. Locate the [shopzilla_queries.sql](./shopzilla_queries.sql) file.
+2. Locate the [shopzilla_queries.sql](/queries) file.
 3. Use your preferred database management tool or command line interface to execute the SQL queries from the file.
 
 Feel free to modify and use these queries based on your specific requirements.
