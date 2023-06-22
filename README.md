@@ -102,7 +102,7 @@ The Shopzilla project utilizes a relational database to manage and store its dat
 
 ### Database Backup
 
-A backup of the Shopzilla database is available in the [database_backup](./database_backup) directory of this repository. You can use this backup to restore the database to a specific point in time.
+A backup of the Shopzilla database is available in the [database_backup](/database_backup) directory of this repository. You can use this backup to restore the database to a specific point in time.
 
 To restore the database backup, follow these steps:
 
