@@ -129,8 +129,12 @@ public class ProductDaoImpl implements ProductDao {
 				product.setProductSoldStatus(set.getInt("sold_status"));
 				product.setProductQuantity(set.getInt("quantity"));
 				product.setReturnPolicy(set.getInt("return_policy"));
+				product.setSellerId(set.getString("seller_username"));
+				product.setSellerName("seller_name");
 
 			}
+
+			return product;
 
 		} catch (Exception e) {
 

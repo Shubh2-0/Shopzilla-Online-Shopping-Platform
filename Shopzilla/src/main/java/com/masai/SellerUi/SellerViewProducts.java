@@ -220,7 +220,7 @@ public class SellerViewProducts extends JFrame {
 		btnNewButton.setBounds(368, 72, 209, 39);
 		panel.add(btnNewButton);
 
-		JButton btnNewButton_4 = new JButton("Sort Producy By Quantity");
+		JButton btnNewButton_4 = new JButton("Sort Products By Quantity");
 		CSS.setMouseCursorNormal2(btnNewButton_4);
 		btnNewButton_4.setBackground(Color.WHITE);
 		btnNewButton_4.addActionListener(new ActionListener() {
@@ -244,7 +244,7 @@ public class SellerViewProducts extends JFrame {
 		btnNewButton_4.setBounds(847, 531, 373, 52);
 		contentPane.add(btnNewButton_4);
 
-		JButton btnNewButton_4_1 = new JButton("Sort Producy By Price");
+		JButton btnNewButton_4_1 = new JButton("Sort Products By Price");
 		CSS.setMouseCursorNormal2(btnNewButton_4_1);
 		btnNewButton_4_1.setBackground(Color.WHITE);
 		btnNewButton_4_1.addActionListener(new ActionListener() {

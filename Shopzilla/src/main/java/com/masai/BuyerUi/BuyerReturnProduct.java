@@ -237,6 +237,16 @@ public class BuyerReturnProduct extends JFrame {
 					JOptionPane.showMessageDialog(null, "Quantity must be in number");
 					return;
 				}
+				
+				if(enterQuantity < 0) {
+					
+
+					JOptionPane.showMessageDialog(null,
+							"Invalid quantity you have entered quantity must be more than 0");
+					return;
+
+					
+				}
 
 				if (enterQuantity > quantity) {
 
@@ -250,7 +260,7 @@ public class BuyerReturnProduct extends JFrame {
 					JOptionPane.showMessageDialog(null, "Please provide a reason for returning the product."
 							+ "\nReason should be between 30 and 4000 characters in length");
 					return;
-					
+
 				} else {
 
 					returnProduct.setReasonForRefund(description);
@@ -261,17 +271,18 @@ public class BuyerReturnProduct extends JFrame {
 
 						double refundAmount = sellerDao.refundToBuyer(returnProduct.getProdunctId(), enterQuantity);
 
-						
-					    refundAmount+=BuyerOperations.buyer.getBalance();
-						
+						double temp = refundAmount;
+
+						refundAmount += BuyerOperations.buyer.getBalance();
+
 						if (buyerDao.addAmountToBuyerBalance(refundAmount, returnProduct.getBuyerId())
 								&& transactionDao.returnProductTransaction(returnProduct)) {
 
-							refundAmount = Math.round(refundAmount*100.0) / 100.0;
-							
+							refundAmount = Math.round(refundAmount * 100.0) / 100.0;
+
 							JOptionPane.showInternalMessageDialog(null,
 									"We apologize for any inconvenience caused."
-											+ "We have successfully refunded an amount of " + refundAmount
+											+ "We have successfully refunded an amount of " + temp
 											+ " ₹, which has been added to your balance.");
 							BuyerOperations.buyer.setBalance(refundAmount);
 

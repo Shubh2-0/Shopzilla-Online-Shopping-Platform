@@ -117,7 +117,7 @@ public class BuyerAddBalance extends JFrame {
 				if (buyerDao.addAmountToBuyerBalance(amount + balance, username)) {
 
 					BuyerOperations.buyer.setBalance(amount + balance);
-					JOptionPane.showMessageDialog(null, "Blaance added successfully");
+					JOptionPane.showMessageDialog(null, "Balance added successfully");
 					frame.setVisible(false);
 					BuyerOperations.main(null);
 

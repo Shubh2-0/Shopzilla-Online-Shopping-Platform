@@ -126,8 +126,16 @@ public class TransactionDaoImpl implements TransactionDao {
 			statement.setInt(7, returnProduct.getQuantity());
 			statement.setString(8, returnProduct.getType());
 			statement.setInt(9, returnProduct.getTransactionId());
-
-			if (statement.executeUpdate() > 0)
+			
+			String UPDATE_QUERY  = "UPDATE transactions SET return_policy = 0 WHERE transaction_id = ?";
+			
+			PreparedStatement statement2 = con.prepareStatement(UPDATE_QUERY);
+			
+			statement2.setInt(1, returnProduct.getTransactionId());
+			
+			
+		
+			if (statement.executeUpdate() > 0 && statement2.executeUpdate() > 0)
 				return true;
 
 		} catch (Exception e) {
@@ -161,13 +169,17 @@ public class TransactionDaoImpl implements TransactionDao {
 
 			ResultSet set = statement.executeQuery();
 
+		
+			
 			if (set.isAfterLast() && set.getRow() == 0)
 				return "NO";
 
 			while (set.next()) {
 
-				ans = set.getString(1);
+				return set.getString(1);
 			}
+			
+			System.out.println(ans);
 
 		} catch (Exception e) {
 

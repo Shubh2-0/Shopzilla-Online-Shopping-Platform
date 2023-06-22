@@ -17,6 +17,7 @@ import javax.swing.border.EmptyBorder;
 import com.masai.BuyerUi.BuyerOperations;
 import com.masai.BuyerUi.BuyerUpdate;
 import com.masai.CSS.CSS;
+import com.masai.CommanCode.Common;
 import com.masai.Dao.BuyerDao;
 import com.masai.Dao.BuyerDaoImpl;
 import com.masai.Dao.SellerDao;
@@ -148,9 +149,17 @@ public class SellerOperations extends JFrame {
 		lblNewLabel_3.setFont(new Font("Bahnschrift", Font.PLAIN, 25));
 		lblNewLabel_3.setBounds(266, 553, 207, 29);
 		contentPane.add(lblNewLabel_3);
+		seller.setIncome(Common.getUptoTwoDecimal(seller.getIncome()));
 		lblNewLabel_3.setText(seller.getIncome() + "");
 
 		JButton btnNewButton_2 = new JButton("Logout");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				frame.setVisible(false);
+				SellerMain.main(null);
+			}
+		});
 		CSS.setMouseCursorLogout(btnNewButton_2);
 		btnNewButton_2.setFont(new Font("Bahnschrift", Font.BOLD, 25));
 		btnNewButton_2.setBounds(735, 595, 184, 42);
@@ -207,6 +216,7 @@ public class SellerOperations extends JFrame {
 		contentPane.add(btnAddNewProduct);
 
 		JLabel lblNewLabel_3_1 = new JLabel();
+		seller.setPendingAmount(Common.getUptoTwoDecimal(seller.getPendingAmount()));
 		lblNewLabel_3_1.setText(seller.getPendingAmount() + "");
 		lblNewLabel_3_1.setForeground(UIManager.getColor("Button.darkShadow"));
 		lblNewLabel_3_1.setFont(new Font("Bahnschrift", Font.PLAIN, 25));

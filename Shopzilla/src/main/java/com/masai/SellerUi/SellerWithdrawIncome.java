@@ -93,7 +93,7 @@ public class SellerWithdrawIncome extends JFrame {
 		contentPane.add(lblNewLabel_3);
 
 		JLabel lblNewLabel_4 = new JLabel("");
-		lblNewLabel_4.setText(income+"");
+		lblNewLabel_4.setText(income + "");
 		lblNewLabel_4.setForeground(new Color(105, 105, 105));
 		lblNewLabel_4.setFont(new Font("Bahnschrift", Font.PLAIN, 23));
 		lblNewLabel_4.setBounds(193, 157, 153, 36);
@@ -114,7 +114,6 @@ public class SellerWithdrawIncome extends JFrame {
 				try {
 
 					amount = Double.parseDouble(textField.getText());
-
 				} catch (Exception e2) {
 
 					JOptionPane.showMessageDialog(null, "Invalid Amount");
@@ -133,13 +132,13 @@ public class SellerWithdrawIncome extends JFrame {
 				} else {
 
 					amount = income - amount;
-					
-					 amount = Common.getUptoTwoDecimal(amount);
+
+					amount = Common.getUptoTwoDecimal(amount);
 
 					if (sellerDao.amountWithrowBySeller(amount, SellerOperations.seller.getSellerUserName())) {
 
 						JOptionPane.showMessageDialog(null,
-								"Withdrawal Successful! Enjoy your funds.\nYuor remaining balance is " + amount);
+								"Withdrawal Successful! Enjoy your funds.\nYour remaining balance is " + amount);
 						frame.setVisible(false);
 						SellerOperations.seller.setIncome(amount);
 						SellerOperations.main(null);

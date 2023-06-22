@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import com.masai.CSS.CSS;
+import com.masai.CommanCode.Common;
 import com.masai.Dao.BuyerDao;
 import com.masai.Dao.BuyerDaoImpl;
 import com.masai.Dto.*;
@@ -143,6 +144,7 @@ public class BuyerOperations extends JFrame {
 		contentPane.add(lblNewLabel_2);
 
 		JLabel lblNewLabel_3 = new JLabel();
+		buyer.setBalance(Common.getUptoTwoDecimal(buyer.getBalance()));
 		lblNewLabel_3.setText(buyer.getBalance() + "");
 		lblNewLabel_3.setFont(new Font("Bahnschrift", Font.PLAIN, 25));
 		lblNewLabel_3.setBounds(283, 552, 158, 37);

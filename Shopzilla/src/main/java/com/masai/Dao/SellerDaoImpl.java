@@ -108,6 +108,7 @@ public class SellerDaoImpl implements SellerDao {
 		double amount = 0;
 
 		Product product = productDao.getProductById(productId);
+
 		int GST = productDao.getGStPercentage(productId);
 
 		amount = (product.getProductPrice() * quantity);
@@ -125,10 +126,8 @@ public class SellerDaoImpl implements SellerDao {
 			statement.setDouble(2, amount);
 			statement.setString(3, product.getSellerId());
 
-			if (statement.executeUpdate() > 0) 
+			if (statement.executeUpdate() > 0)
 				return amount;
-			
-				
 
 		} catch (Exception e) {
 
@@ -136,7 +135,6 @@ public class SellerDaoImpl implements SellerDao {
 
 		}
 
-		
 		return amount;
 
 	}
@@ -175,7 +173,7 @@ public class SellerDaoImpl implements SellerDao {
 			}
 
 			return seller2;
-			
+
 		} catch (Exception e) {
 
 			System.out.println(e);
@@ -185,7 +183,6 @@ public class SellerDaoImpl implements SellerDao {
 
 			DBUtils.closeConnection(con);
 		}
-
 
 	}
 
@@ -452,7 +449,6 @@ public class SellerDaoImpl implements SellerDao {
 
 		}
 
-
 	}
 
 	/**
@@ -524,7 +520,7 @@ public class SellerDaoImpl implements SellerDao {
 
 		}
 
-	     return  this.hideSellerProducts(username);
+		return this.hideSellerProducts(username);
 
 	}
 
@@ -737,7 +733,7 @@ public class SellerDaoImpl implements SellerDao {
 
 			con = DBUtils.getConnection();
 
-			String UPDATE_QUERY = "UPDATE seller set  pending_amount = ? , income = ? FROM seller WHERE UserName = ?";
+			String UPDATE_QUERY = "UPDATE seller set  pending_amount = ? , income = ? WHERE UserName = ?";
 
 			PreparedStatement statement = con.prepareStatement(UPDATE_QUERY);
 

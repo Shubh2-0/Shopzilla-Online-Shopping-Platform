@@ -165,9 +165,9 @@ public class BuyerProducts extends JFrame {
 
 				if (id != 0) {
 
-					if (quantity > 10) {
+					if (quantity > 10 || quantity < 1) {
 
-						JOptionPane.showMessageDialog(null, "Quantity Not More Than 10");
+						JOptionPane.showMessageDialog(null, "Quantity range between 1 to 10");
 
 					} else {
 

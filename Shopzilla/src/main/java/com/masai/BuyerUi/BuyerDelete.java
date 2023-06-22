@@ -171,7 +171,7 @@ public class BuyerDelete extends JFrame {
 
 					LocalDate currentDate = LocalDate.now();
 
-					currentDate.plusDays(30);
+					currentDate = currentDate.plusDays(30);
 
 					DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM dd, yyyy");
 					String formattedDate = currentDate.format(formatter);

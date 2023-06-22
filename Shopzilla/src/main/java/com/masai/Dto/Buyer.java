@@ -1,5 +1,7 @@
 package com.masai.Dto;
 
+import com.masai.CommanCode.Common;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -52,8 +54,10 @@ public class Buyer {
 
 		if (balance < 0.0)
 			this.balance = 0.0;
-		else
-			this.balance = balance;
+		else {
+			this.balance = 	Common.getUptoTwoDecimal(balance);
+		}
+			
 
 	}
 

@@ -278,8 +278,7 @@ public class SellerProductUpdate extends JFrame {
 
 				else {
 
-					JOptionPane.showMessageDialog(null,
-							"Something went wrong try to uypdate product some times letter");
+					JOptionPane.showMessageDialog(null, "Something went wrong try to update product some times letter");
 					frame.setVisible(false);
 					SellerViewProducts.main(null);
 

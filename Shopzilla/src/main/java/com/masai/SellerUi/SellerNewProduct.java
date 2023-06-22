@@ -212,7 +212,7 @@ public class SellerNewProduct extends JFrame {
 
 				}
 
-				if (quantity < 10 || quantity > 100000) {
+				if (price < 10 || price > 100000) {
 
 					JOptionPane.showInternalMessageDialog(null, "Product Price must be between 10 and 100000");
 					return;
@@ -271,6 +271,12 @@ public class SellerNewProduct extends JFrame {
 		contentPane.add(btnNewButton);
 
 		JButton btnNewButton_1 = new JButton("Back");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.setVisible(false);
+				SellerOperations.main(null);
+			}
+		});
 		CSS.setMouseCursorBack(btnNewButton_1);
 		btnNewButton_1.setFont(new Font("Bahnschrift", Font.PLAIN, 23));
 		btnNewButton_1.setBounds(734, 502, 245, 45);
