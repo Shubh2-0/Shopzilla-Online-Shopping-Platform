@@ -16,22 +16,6 @@ Welcome to Shopzilla, the cutting-edge automated application software for seamle
 2. Buyer
 3. Seller
 
-## ER Diagram
-Check out the visual representation of our system's entities and relationships:
-
-<img alt="Demo" src="ReadmeImages/ER Diagram.png" />
-
-:star: Don't forget to show your support by starring this project on GitHub!
-
-## Flow Chart
-
-Explore the flow of operations within the system through our comprehensive flow charts:
-
-<img alt="Demo" src="ReadmeImages/FlowChart.png" width="40%">
-
-
-
-
 # Admin Role ⭐
 
 🔒 **Login and Logout**: Admins securely log in to the system and log out when their session is complete.
@@ -104,6 +88,51 @@ With these features, buyers can conveniently log in and log out, make purchases,
 💸 **Withdraw Income**: Sellers can withdraw their income earned from product sales. When a buyer purchases a product from a particular seller, the payment made by the buyer is added to the seller's income. However, sellers must first settle any pending amounts before closing their account and withdrawing their income.
 
 These features empower sellers to effectively manage their accounts, update product details, add new products, pay pending amounts, and seamlessly participate in the selling process on the Shopzilla platform while ensuring a fair and transparent refund process.
+
+## Flow Chart
+
+Explore the flow of operations within the system through our comprehensive flow charts:
+
+<img alt="Demo" src="ReadmeImages/FlowChart.png" width="40%">
+
+
+## Database
+
+The Shopzilla project utilizes a relational database to manage and store its data. The database schema is designed to handle various aspects of the e-commerce platform, including customer information, product details, orders, and more.
+
+### Database Backup
+
+A backup of the Shopzilla database is available in the [database_backup](./database_backup) directory of this repository. You can use this backup to restore the database to a specific point in time.
+
+To restore the database backup, follow these steps:
+
+1. Clone the repository to your local machine.
+2. Locate the `database_backup` directory.
+3. Use your preferred database management tool or command line interface to restore the backup file.
+
+Note: Please ensure that you have the necessary database management system set up and configured before attempting to restore the database backup.
+
+### Database Schema
+
+The database schema for Shopzilla consists of the following tables:
+
+<img alt="Demo" src="ReadmeImages/ER Diagram.png" />
+
+## Useful SQL Queries
+
+The [shopzilla_queries.sql](./shopzilla_queries.sql) file in this repository contains several useful SQL queries that can be used with the Shopzilla database. These queries include:
+
+To use these queries, follow these steps:
+
+1. Clone the repository to your local machine.
+2. Locate the [shopzilla_queries.sql](./shopzilla_queries.sql) file.
+3. Use your preferred database management tool or command line interface to execute the SQL queries from the file.
+
+Feel free to modify and use these queries based on your specific requirements.
+
+
+
+
 
 
 # Javadoc
