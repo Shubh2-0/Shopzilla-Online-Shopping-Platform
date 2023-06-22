@@ -132,37 +132,50 @@ For a deeper understanding of the project's implementation and to explore the fu
 
 ## Tools Used 🛠️
 <table align="center">
-  
+
+  <td align="center" width="100">
+        <img src="Tools/java.png" width="48" height="48" alt="javascript" />
+      <br>Java 
+    </td>
+    
   <tr>
       <td align="center" width="100">
         <img src="Tools/mysql.png" width="45" height="45" alt="HTML" />
       <br>My SQL
     </td>
+<td align="center" width="100">
+        <img src="Tools/maven.png" width="48" height="48" alt="Vuejs" />
+      <br>Maven
+    </td>    
+  </tr> 
     
  <td align="center" width="100">
         <img src="Tools/jdbc.png" width="48" height="48" alt="CSS" />
       <br>JDBC
-    </td> 
-    
-<td align="center" width="100">
-        <img src="Tools/springboot.png" width="48" height="48" alt="Java" />
-      <br>SpringBoot
     </td>
     
 <td align="center" width="100">
-        <img src="Tools/java.png" width="48" height="48" alt="javascript" />
-      <br>Java 
-    </td>
-    
-<td align="center" width="100">
-        <img src="Tools/github.png" width="48" height="48" alt="Vuejs" />
-      <br>GitHub
-    </td> 
- <td align="center" width="100">
         <img src="Tools/swing.png" width="48" height="48" alt="Vuejs" />
       <br>Swing
     </td>    
   </tr> 
+  
+<td align="center" width="100">
+        <img src="Tools/lombok.png" width="48" height="48" alt="Vuejs" />
+      <br>Lombok
+    </td>    
+  </tr> 
+ 
+<td align="center" width="100">
+        <img src="Tools/eclipse" width="48" height="48" alt="Java" />
+      <br>Eclipse
+    </td>
+    
+
+<td align="center" width="100">
+        <img src="Tools/github.png" width="48" height="48" alt="Vuejs" />
+      <br>GitHub
+    </td> 
   </table>
 
 
