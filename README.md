@@ -215,7 +215,7 @@ Thank you for considering contributing to the AuctoNet Auction System! We welcom
 1. **Clone the Repository**: Start by cloning this repository to your local machine using the following command:
 
    ```
-   git clone https://github.com/Shubh2-0/AuctoNet-Auction-System.git
+   git clone https://github.com/Shubh2-0/Shopzilla-Online-Shopping-Platform.git
    ```
 
 2. **Switch to the Desired Branch**: 📅🌱 The repository contains multiple branches representing different days of the week when development work was done previously. Choose the branch that corresponds to the day of the week. You can switch to a branch using the following command:
