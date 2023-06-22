@@ -262,6 +262,7 @@ public class BuyerReturnProduct extends JFrame {
 						double refundAmount = sellerDao.refundToBuyer(returnProduct.getProdunctId(), enterQuantity);
 
 						
+					    refundAmount+=BuyerOperations.buyer.getBalance();
 						
 						if (buyerDao.addAmountToBuyerBalance(refundAmount, returnProduct.getBuyerId())
 								&& transactionDao.returnProductTransaction(returnProduct)) {
@@ -272,7 +273,7 @@ public class BuyerReturnProduct extends JFrame {
 									"We apologize for any inconvenience caused."
 											+ "We have successfully refunded an amount of " + refundAmount
 											+ " ₹, which has been added to your balance.");
-							BuyerOperations.buyer.setBalance(BuyerOperations.buyer.getBalance()+refundAmount);
+							BuyerOperations.buyer.setBalance(refundAmount);
 
 							frame.setVisible(false);
 							BuyerOperations.main(null);

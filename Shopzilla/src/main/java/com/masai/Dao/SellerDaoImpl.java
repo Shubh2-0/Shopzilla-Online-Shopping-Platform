@@ -174,8 +174,11 @@ public class SellerDaoImpl implements SellerDao {
 				seller2.setPendingAmount(set.getDouble(8));
 			}
 
+			return seller2;
+			
 		} catch (Exception e) {
 
+			System.out.println(e);
 			return null;
 
 		} finally {
@@ -183,7 +186,6 @@ public class SellerDaoImpl implements SellerDao {
 			DBUtils.closeConnection(con);
 		}
 
-		return seller2;
 
 	}
 

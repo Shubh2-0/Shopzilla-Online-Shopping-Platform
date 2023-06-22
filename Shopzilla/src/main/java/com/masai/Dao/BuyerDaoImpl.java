@@ -37,7 +37,7 @@ public class BuyerDaoImpl implements BuyerDao {
 
 			con = DBUtils.getConnection();
 
-			String SELECT_QUERY = "SELECT * FROM BUYER WHERE username = ? AND password = ? AND is_deleted != 1";
+			String SELECT_QUERY = "SELECT * FROM BUYER WHERE username = ? AND password = ? AND is_deleted = 0";
 
 			PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
 

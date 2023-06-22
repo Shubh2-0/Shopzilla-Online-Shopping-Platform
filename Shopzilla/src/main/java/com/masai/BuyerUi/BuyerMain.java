@@ -155,8 +155,11 @@ public class BuyerMain extends JFrame {
 
 				buyer = null;
 
-				if (username.equals("") || password.equals(""))
+				if (username.equals("") || password.equals("")) {
 					JOptionPane.showMessageDialog(null, "Empty field..");
+					return;
+				}
+					
 
 				else {
 
