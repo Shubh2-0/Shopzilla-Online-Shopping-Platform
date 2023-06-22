@@ -133,12 +133,13 @@ For a deeper understanding of the project's implementation and to explore the fu
 ## Tools Used 🛠️
 <table align="center">
 
-  <td align="center" width="100">
+
+    
+  <tr>
+     <td align="center" width="100">
         <img src="Tools/java.png" width="48" height="48" alt="javascript" />
       <br>Java 
     </td>
-    
-  <tr>
       <td align="center" width="100">
         <img src="Tools/mysql.png" width="45" height="45" alt="HTML" />
       <br>My SQL
@@ -147,9 +148,7 @@ For a deeper understanding of the project's implementation and to explore the fu
         <img src="Tools/maven.png" width="48" height="48" alt="Vuejs" />
       <br>Maven
     </td>    
-  </tr> 
-    
- <td align="center" width="100">
+   <td align="center" width="100">
         <img src="Tools/jdbc.png" width="48" height="48" alt="CSS" />
       <br>JDBC
     </td>
@@ -170,12 +169,12 @@ For a deeper understanding of the project's implementation and to explore the fu
         <img src="Tools/eclipse.png" width="48" height="48" alt="Java" />
       <br>Eclipse
     </td>
-    
-
 <td align="center" width="100">
         <img src="Tools/github.png" width="48" height="48" alt="Vuejs" />
       <br>GitHub
     </td> 
+  </tr> 
+
   </table>
 
 
