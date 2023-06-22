@@ -109,7 +109,7 @@ These features empower sellers to effectively manage their accounts, update prod
 # Javadoc
 For a deeper understanding of the project's implementation and to explore the functionality of the classes, we recommend referring to the Javadoc documentation. The Javadoc provides detailed explanations and documentation for each method, offering insights into how the code works and how to effectively utilize it. By reviewing the Javadoc, you can familiarize yourself with the available methods, their parameters, return types, and any specific requirements or considerations. It serves as a valuable resource for developers and users, enabling you to leverage the full potential of the project's codebase. 
 
-**To access the Javadoc and delve into the implementation details, please visit the [Javadoc website](https://6492516be560b305d8cf7b43--aquamarine-speculoos-ff3421.netlify.app/com/masai/dao/package-summary).**
+**To access the Javadoc and delve into the implementation details, please visit the [Javadoc website](https://64939456a500070078df68b1--dulcet-torrone-dcf438.netlify.app/).**
 
 
 
@@ -132,37 +132,46 @@ For a deeper understanding of the project's implementation and to explore the fu
 
 ## Tools Used 🛠️
 <table align="center">
-  
+
+<br>
+    
   <tr>
+     <td align="center" width="100">
+        <img src="Tools/java.png" width="48" height="48" alt="javascript" />
+      <br>Java 
+    </td>
       <td align="center" width="100">
         <img src="Tools/mysql.png" width="45" height="45" alt="HTML" />
       <br>My SQL
     </td>
-    
- <td align="center" width="100">
+<td align="center" width="100">
+        <img src="Tools/maven.png" width="48" height="48" alt="Vuejs" />
+      <br>Maven
+    </td>    
+   <td align="center" width="100">
         <img src="Tools/jdbc.png" width="48" height="48" alt="CSS" />
       <br>JDBC
-    </td> 
-    
-<td align="center" width="100">
-        <img src="Tools/springboot.png" width="48" height="48" alt="Java" />
-      <br>SpringBoot
     </td>
-    
+   </tr>
+   <tr>
 <td align="center" width="100">
-        <img src="Tools/java.png" width="48" height="48" alt="javascript" />
-      <br>Java 
+        <img src="Tools/swing.png" width="48" height="48" alt="Vuejs" />
+      <br>Swing
+    </td>    
+<td align="center" width="100">
+        <img src="Tools/lambok.png" width="48" height="48" alt="Vuejs" />
+      <br>Lombok
+    </td>    
+<td align="center" width="100">
+        <img src="Tools/eclipse.png" width="48" height="48" alt="Java" />
+      <br>Eclipse
     </td>
-    
 <td align="center" width="100">
         <img src="Tools/github.png" width="48" height="48" alt="Vuejs" />
       <br>GitHub
     </td> 
- <td align="center" width="100">
-        <img src="Tools/swing.png" width="48" height="48" alt="Vuejs" />
-      <br>Swing
-    </td>    
   </tr> 
+
   </table>
 
 
