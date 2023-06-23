@@ -212,7 +212,7 @@ Certainly! If you are referring to yourself as the sole developer of the project
 
 To get a comprehensive overview of the Shopzilla Online Shopping Platform, I have prepared a detailed project presentation video. In this video, I walk you through the various features and functionalities of the platform, showcasing its seamless buying and selling experience.
 
-**Watch the Project Presentation Video: [Presentation Video](https://drive.google.com/file/d/1tqy_GtrtqsgwKkOZUHJw2idoBV6HBAnW/view?usp=sharing)**
+**Watch the Project Presentation Video: [Video Presentation](https://drive.google.com/file/d/1tqy_GtrtqsgwKkOZUHJw2idoBV6HBAnW/view?usp=sharing)**
 
 By watching the video, you'll gain insights into how Shopzilla connects registered buyers and sellers, simplifies product listing and inventory management, and ensures secure transactions. It's an excellent resource to understand the value and convenience the platform brings to online shopping.
 
