@@ -120,7 +120,7 @@ The database schema for Shopzilla consists of the following tables:
 
 ## Useful SQL Queries
 
-The [shopzilla_queries.sql](/queries) file in this repository contains several useful SQL queries that can be used with the Shopzilla database. These queries include:
+The [shopzilla_queries.sql](/queries) file in this repository contains several useful SQL queries that can be used with the Shopzilla database.
 
 To use these queries, follow these steps:
 
