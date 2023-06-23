@@ -95,9 +95,13 @@ Explore the flow of operations within the system through our comprehensive flow 
 
 <img alt="Demo" src="ReadmeImages/FlowChart.png" width="40%">
 
+# Javadoc
+For a deeper understanding of the project's implementation and to explore the functionality of the classes, we recommend referring to the Javadoc documentation. The Javadoc provides detailed explanations and documentation for each method, offering insights into how the code works and how to effectively utilize it. By reviewing the Javadoc, you can familiarize yourself with the available methods, their parameters, return types, and any specific requirements or considerations. It serves as a valuable resource for developers and users, enabling you to leverage the full potential of the project's codebase. 
+
+**To access the Javadoc and delve into the implementation details, please visit the [Javadoc website](https://64939456a500070078df68b1--dulcet-torrone-dcf438.netlify.app/).**
+
 
 ## Database
-
 The Shopzilla project utilizes a relational database to manage and store its data. The database schema is designed to handle various aspects of the e-commerce platform, including customer information, product details, orders, and more.
 
 ### Database Backup
@@ -131,33 +135,29 @@ To use these queries, follow these steps:
 Feel free to modify and use these queries based on your specific requirements.
 
 
+## Graphical User Interfaces (GUI)
 
+### Main GUI
+The main GUI provides a user-friendly interface for accessing different functionalities of the Shopzilla Online Shopping Platform. Here's a snapshot of the main GUI:
 
+![Main GUI](Pages/main.png)
 
+### Admin Login Page
+The admin login page allows administrators to securely log in to the system and access the admin functionalities. Here's a screenshot of the admin login page:
 
-# Javadoc
-For a deeper understanding of the project's implementation and to explore the functionality of the classes, we recommend referring to the Javadoc documentation. The Javadoc provides detailed explanations and documentation for each method, offering insights into how the code works and how to effectively utilize it. By reviewing the Javadoc, you can familiarize yourself with the available methods, their parameters, return types, and any specific requirements or considerations. It serves as a valuable resource for developers and users, enabling you to leverage the full potential of the project's codebase. 
+![Admin Login Page](Pages/admin.png)
 
-**To access the Javadoc and delve into the implementation details, please visit the [Javadoc website](https://64939456a500070078df68b1--dulcet-torrone-dcf438.netlify.app/).**
+### Seller Login Page
+The seller login page enables sellers to log in to their accounts and manage their inventory and products. Here's a screenshot of the seller login page:
 
+![Seller Login Page](Pages/seller.png)
 
+### Buyer Login Page
+The buyer login page allows buyers to log in to their accounts and browse products, make purchases, and track their transactions. Here's a screenshot of the buyer login page:
 
-## Main Gui 👨🏻‍💻
-<img alt="Demo" src="Pages/main.png" />
+![Buyer Login Page](Pages/buyer.png)
 
-
-## Admin Gui 🛠️
-<img alt="Demo" src="Pages/admin.png" />
-
-
-## Buyer Gui 💱📦
-<img alt="Demo" src="Pages/buyer.png" />
-
-
-## Seller Gui 💰
-<img alt="Demo" src="Pages/seller.png" />
-
-
+Feel free to adjust the text or formatting to align with your project's style and content.
 
 ## Tools Used 🛠️
 <table align="center">
