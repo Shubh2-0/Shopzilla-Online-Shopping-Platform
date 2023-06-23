@@ -203,10 +203,8 @@ Feel free to adjust the text or formatting to align with your project's style an
 
   </table>
 
-
 <br>
 
-Certainly! If you are referring to yourself as the sole developer of the project, you can modify the section as follows:
 
 ## Project Presentation Video 🎥
 
