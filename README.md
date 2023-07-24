@@ -2,7 +2,7 @@
  
 
 <div align="center">
-  <img alt="Demo" src="ReadmeImages/Shopzilla.png" />
+  <img alt="Demo" src="README_IMAGES/Workfolio.png" />
 </div>
 <h2 align="center">🌟  Unlocking the Power of Seamless Shopping Delights 🌟</h2>
 
