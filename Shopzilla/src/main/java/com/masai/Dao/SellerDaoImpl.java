@@ -460,7 +460,7 @@ public class SellerDaoImpl implements SellerDao {
 	 *         otherwise.
 	 */
 	@Override
-	public boolean amountWithrowBySeller(double amount, String unsername) {
+	public boolean amountWithdrawBySeller(double amount, String unsername) {
 
 		try {
 

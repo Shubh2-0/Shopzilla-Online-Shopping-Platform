@@ -289,9 +289,9 @@ public class BuyerDaoImpl implements BuyerDao {
 		try {
 
 			con = DBUtils.getConnection();
-			String SELCET_QUERY = "SELECT * FROM PRODUCT WHERE PRODUCT_ID = ? AND SOLD_STATUS = 0 AND is_hide = 0";
+			String SELECT_QUERY = "SELECT * FROM PRODUCT WHERE PRODUCT_ID = ? AND SOLD_STATUS = 0 AND is_hide = 0";
 
-			PreparedStatement statement = con.prepareStatement(SELCET_QUERY);
+			PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
 			statement.setInt(1, productId);
 
 			ResultSet set = statement.executeQuery();
@@ -370,9 +370,9 @@ public class BuyerDaoImpl implements BuyerDao {
 		try {
 
 			con = DBUtils.getConnection();
-			String SELCET_QUERY = "SELECT * FROM PRODUCT WHERE PRODUCT_ID = ? AND SOLD_STATUS = 0 AND is_hide = 0";
+			String SELECT_QUERY = "SELECT * FROM PRODUCT WHERE PRODUCT_ID = ? AND SOLD_STATUS = 0 AND is_hide = 0";
 
-			PreparedStatement statement = con.prepareStatement(SELCET_QUERY);
+			PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
 			statement.setInt(1, productId);
 
 			ResultSet set = statement.executeQuery();

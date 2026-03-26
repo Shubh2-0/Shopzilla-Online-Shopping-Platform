@@ -294,7 +294,7 @@ public class NewBuyer extends JFrame {
 		btnNewButton_2.setBounds(10, 10, 128, 53);
 		panel_1.add(btnNewButton_2);
 
-		lblNewLabel = new JLabel("Welcome To  AuctoNet Auction System");
+		lblNewLabel = new JLabel("Welcome To Shopzilla Online Shopping Platform");
 		lblNewLabel.setBackground(new Color(128, 0, 0));
 		lblNewLabel.setForeground(new Color(128, 0, 0));
 		lblNewLabel.setFont(new Font("Monotype Corsiva", Font.BOLD, 40));

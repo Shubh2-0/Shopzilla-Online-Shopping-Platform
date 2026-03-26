@@ -107,7 +107,7 @@ public interface SellerDao {
 	 * @return {@code true} if the withdrawal was successful, {@code false}
 	 *         otherwise.
 	 */
-	boolean amountWithrowBySeller(double amount, String unsername);
+	boolean amountWithdrawBySeller(double amount, String unsername);
 
 	/**
 	 * Deletes a seller based on their username and password.

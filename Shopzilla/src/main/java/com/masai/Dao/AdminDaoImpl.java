@@ -378,7 +378,7 @@ public class AdminDaoImpl implements AdminDao {
 		try {
 
 			con = DBUtils.getConnection();
-			String SELECT_QUERY = "SELECT transaction_id AS `Transa/ction ID`, product_name AS `Product Name`, buyer_name AS `Buyer Name`, quantity Quantity, purchase_date AS `Purchase Date`, amount_per_piece AS `Amount Per Unit`, price 'Price Before Tax', gst_percentage AS `GST Percentage`, tax_amount AS `Tax Amount`, total_price AS `Total Price`, return_policy AS `Return Policy` FROM transactions WHERE transaction_id = ? AND is_hide = 0";
+			String SELECT_QUERY = "SELECT transaction_id AS `Transaction ID`, product_name AS `Product Name`, buyer_name AS `Buyer Name`, quantity Quantity, purchase_date AS `Purchase Date`, amount_per_piece AS `Amount Per Unit`, price 'Price Before Tax', gst_percentage AS `GST Percentage`, tax_amount AS `Tax Amount`, total_price AS `Total Price`, return_policy AS `Return Policy` FROM transactions WHERE transaction_id = ? AND is_hide = 0";
 
 			PreparedStatement statement = con.prepareStatement(SELECT_QUERY);
 

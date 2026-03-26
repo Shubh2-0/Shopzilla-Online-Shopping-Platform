@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ReturnProduct {
 
-	private int retundId;
-	private int produnctId;
+	private int returnId;
+	private int productId;
 	private String productName;
 	private String reasonForRefund;
 	private LocalDate refundDate;
@@ -20,11 +20,11 @@ public class ReturnProduct {
 	private int quantity;
 	private int transactionId;
 	
-	public ReturnProduct(int retundId, int produnctId, String productName, String reasonForRefund, LocalDate refundDate,
+	public ReturnProduct(int returnId, int productId, String productName, String reasonForRefund, LocalDate refundDate,
 			String buyerId, String buyerName, String type, int quantity, int transactionId) {
 		super();
-		this.retundId = retundId;
-		this.produnctId = produnctId;
+		this.returnId = returnId;
+		this.productId = productId;
 		this.productName = productName;
 		this.reasonForRefund = reasonForRefund;
 		this.refundDate = refundDate;

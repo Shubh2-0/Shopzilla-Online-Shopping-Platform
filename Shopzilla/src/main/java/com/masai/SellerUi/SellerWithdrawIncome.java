@@ -135,7 +135,7 @@ public class SellerWithdrawIncome extends JFrame {
 
 					amount = Common.getUptoTwoDecimal(amount);
 
-					if (sellerDao.amountWithrowBySeller(amount, SellerOperations.seller.getSellerUserName())) {
+					if (sellerDao.amountWithdrawBySeller(amount, SellerOperations.seller.getSellerUserName())) {
 
 						JOptionPane.showMessageDialog(null,
 								"Withdrawal Successful! Enjoy your funds.\nYour remaining balance is " + amount);
